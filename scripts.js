@@ -169,6 +169,106 @@ const destinations = [
     }
 ];
 
+const mangaloreCategories = [
+    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519567281027-1c4960d70d74?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'churches', name: 'Main Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
+];
+
+const mangaloreCategoryData = {
+    'beaches': {
+        name: 'Mangalore Beaches',
+        places: [
+            { name: 'Panambur Beach', image: 'https://images.unsplash.com/photo-1589136140230-26f5999081e6?auto=format&fit=crop&q=100&w=3840', description: 'A clean and popular beach known for its golden sands and water sports.' },
+            { name: 'Tannirbhavi Beach', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
+            { name: 'Someshwara Beach', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=100&w=3840', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
+            { name: 'Surathkal Beach', image: 'https://images.unsplash.com/photo-1605336671040-272e27e85cda?auto=format&fit=crop&q=100&w=3840', description: 'A serene beach known for its lighthouse that offers a spectacular view.' }
+        ]
+    },
+    'temples': {
+        name: 'Mangalore Temples',
+        places: [
+            { name: 'Kadri Manjunath Temple', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
+            { name: 'Kudroli Gokarnath Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'A beautiful temple known for its magnificent Dasara celebrations.' },
+            { name: 'Mangaladevi Temple', image: 'https://images.unsplash.com/photo-1600085449557-010531bdc502?auto=format&fit=crop&q=100&w=3840', description: 'The ancient temple after which the city of Mangalore is named.' },
+            { name: 'Polali Rajarajeshwari Temple', image: 'https://images.unsplash.com/photo-1598424103126-e17f780072ab?auto=format&fit=crop&q=100&w=3840', description: 'Famous for its wooden idols and the historic Polali Chendu festival.' }
+        ]
+    },
+    'malls': {
+        name: 'Mangalore Malls',
+        places: [
+            { name: 'City Centre Mall', image: 'https://images.unsplash.com/photo-1519567281027-1c4960d70d74?auto=format&fit=crop&q=100&w=3840', description: 'One of the largest malls in Mangalore with great shopping, dining, and multiplex.' },
+            { name: 'Forum Fiza Mall', image: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&q=100&w=3840', description: 'A premium shopping destination offering global brands and entertainment options.' },
+            { name: 'Bharath Mall', image: 'https://images.unsplash.com/photo-1580828369019-2238ef814739?auto=format&fit=crop&q=100&w=3840', description: 'One of the first modern malls in the city, popular among locals.' },
+            { name: 'Lotus Mall (Upcoming)', image: 'https://images.unsplash.com/photo-1610408547466-281ce13d7022?auto=format&fit=crop&q=100&w=3840', description: 'An upcoming mega mall promising a world-class shopping experience.' }
+        ]
+    },
+    'trekking': {
+        name: 'Mangalore Trekking Places',
+        places: [
+            { name: 'Jamalabad Fort', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=100&w=3840', description: 'A challenging trek to a historic hilltop fort with stunning 360-degree views.' },
+            { name: 'Ermayi Falls Trek', image: 'https://images.unsplash.com/photo-1584516150909-c4330b60eb3e?auto=format&fit=crop&q=100&w=3840', description: 'A scenic trek through lush forests leading to a multi-tiered waterfall.' },
+            { name: 'Karinchieshwara Trek', image: 'https://images.unsplash.com/photo-1590480394626-821152686e18?auto=format&fit=crop&q=100&w=3840', description: 'A steep trek blending nature and spirituality, ending at an ancient cliffside temple.' },
+            { name: 'Gadaikallu', image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=100&w=3840', description: 'A prominent rock formation offering an adventurous climb and beautiful vistas.' }
+        ]
+    },
+    'churches': {
+        name: 'Main Famous Churches',
+        places: [
+            { name: 'St. Aloysius Chapel', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840', description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.' },
+            { name: 'Milagres Church', image: 'https://images.unsplash.com/photo-1601058269784-90409a632168?auto=format&fit=crop&q=100&w=3840', description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.' },
+            { name: 'Rosario Cathedral', image: 'https://images.unsplash.com/photo-1572010696983-057bfd2105ca?auto=format&fit=crop&q=100&w=3840', description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.' },
+            { name: 'Infant Jesus Shrine', image: 'https://images.unsplash.com/photo-1596700680678-771143826079?auto=format&fit=crop&q=100&w=3840', description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.' }
+        ]
+    }
+};
+
+function renderCategoryPage(categoryId) {
+    const category = mangaloreCategoryData[categoryId];
+    if (!category) return;
+
+    const destHTML = `
+        <div class="page-content">
+            <header class="dest-header">
+                <a href="#" class="back-btn" id="back-to-mangaluru">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Mangaluru
+                </a>
+                <h1>${category.name}</h1>
+                <p>Discover the best ${category.name.toLowerCase()} and plan your visit.</p>
+            </header>
+
+            <div class="places-grid">
+                ${category.places.map(place => `
+                    <div class="place-card">
+                        <div class="place-img">
+                            <img src="${place.image}" alt="${place.name}">
+                        </div>
+                        <div class="place-info">
+                            <h3>${place.name}</h3>
+                            <p>${place.description}</p>
+                            <a href="#" class="explore-link">Explore →</a>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    app.innerHTML = destHTML;
+
+    document.getElementById('back-to-mangaluru').addEventListener('click', (e) => {
+        e.preventDefault();
+        renderDestination('mangaluru');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
 console.log("Scripts initializing...");
 const app = document.getElementById('app');
 
@@ -223,10 +323,13 @@ function renderDestination(id) {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                     Back to Home
                 </a>
+                ${dest.id !== 'mangaluru' ? `
                 <h1>Famous Places in <span>${dest.name}</span></h1>
                 <p>Explore the natural beauty and serene landscapes of ${dest.name}.</p>
+                ` : ''}
             </header>
 
+            ${dest.id !== 'mangaluru' ? `
             <div class="places-grid">
                 ${dest.famousPlaces.map(place => `
                     <div class="place-card">
@@ -241,6 +344,26 @@ function renderDestination(id) {
                     </div>
                 `).join('')}
             </div>
+            ` : ''}
+
+            ${dest.id === 'mangaluru' ? `
+                <div class="categories-section">
+                    <h2 class="section-title">Mangalore Categories</h2>
+                    <div class="category-grid">
+                        ${mangaloreCategories.map(cat => `
+                            <div class="category-card ${cat.empty ? 'empty-card' : ''}" data-cat-id="${cat.id}">
+                                <div class="category-img">
+                                    <img src="${cat.image}" alt="${cat.name}">
+                                </div>
+                                <div class="category-overlay">
+                                    <h3>${cat.name}</h3>
+                                    ${cat.desc ? `<p>${cat.desc}</p>` : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
         </div>
     `;
 
@@ -251,6 +374,17 @@ function renderDestination(id) {
         e.preventDefault();
         renderHome();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Add category click listeners if any
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const catId = card.getAttribute('data-cat-id');
+            if (catId && !catId.startsWith('coming_soon')) {
+                renderCategoryPage(catId);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
     });
 }
 
