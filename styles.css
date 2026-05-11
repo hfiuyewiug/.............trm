@@ -495,11 +495,34 @@ main {
 @media (max-width: 768px) {
     .category-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     .category-card {
-        height: 200px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--radius-lg);
+    }
+    .category-overlay {
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(4px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: var(--radius-lg);
+        padding: 1rem;
+    }
+    .category-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    .category-card p {
+        display: none;
     }
     .section-title {
         font-size: 2rem;
+        text-align: center;
     }
 }
