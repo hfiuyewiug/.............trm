@@ -16,6 +16,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -348,15 +353,16 @@ main {
 }
 
 @media (max-width: 768px) {
-    @keyframes mobileEntrance {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    body {
+        background-attachment: scroll;
+    }
+    .main-header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.98);
+    }
+    .page-content {
+        animation: none !important;
     }
 
     .destinations-row {
@@ -365,15 +371,11 @@ main {
     .dest-card {
         height: auto;
         aspect-ratio: 1 / 1;
-        opacity: 0;
-        animation: mobileEntrance 0.6s ease-out forwards;
+        opacity: 1;
+        animation: none !important;
+        transform: translateZ(0);
+        will-change: transform;
     }
-    .dest-card:nth-child(1) { animation-delay: 0.1s; }
-    .dest-card:nth-child(2) { animation-delay: 0.2s; }
-    .dest-card:nth-child(3) { animation-delay: 0.3s; }
-    .dest-card:nth-child(4) { animation-delay: 0.4s; }
-    .dest-card:nth-child(5) { animation-delay: 0.5s; }
-    .dest-card:nth-child(6) { animation-delay: 0.6s; }
 
     .places-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -384,8 +386,7 @@ main {
     }
     .hero h1 {
         font-size: 2.25rem;
-        opacity: 0;
-        animation: mobileEntrance 0.8s ease-out forwards;
+        opacity: 1;
     }
     .dest-card h3 {
         font-size: 1rem;
@@ -398,6 +399,14 @@ main {
     }
     .navbar .nav-links {
         display: none;
+    }
+    
+    .dest-card:hover, .place-card:hover, .category-card:hover {
+        transform: translateZ(0) !important;
+        box-shadow: var(--shadow-soft) !important;
+    }
+    .dest-card:hover img, .category-card:hover .category-img img {
+        transform: none !important;
     }
 }
 
@@ -500,6 +509,8 @@ main {
         height: auto;
         aspect-ratio: 1 / 1;
         border-radius: var(--radius-lg);
+        transform: translateZ(0);
+        will-change: transform;
     }
     .category-overlay {
         height: 100%;
