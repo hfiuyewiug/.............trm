@@ -317,15 +317,42 @@ function renderDestination(id) {
     if (!dest) return;
 
     const destHTML = `
-        <div class="page-content">
-            <header class="dest-header">
-                <a href="#" class="back-btn" id="back-home">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Back to Home
-                </a>
+        <div class="page-content" style="position: relative;">
+            <header class="dest-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <a href="#" class="back-btn" id="back-home">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back to Home
+                    </a>
+                </div>
+                
+                ${dest.id === 'mangaluru' ? `
+                <div class="category-card" data-cat-id="food" style="width: 250px; height: auto; aspect-ratio: 1/1; z-index: 10; margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
+                        <div class="swiper-wrapper">
+                            ${[
+                                'https://images.unsplash.com/photo-1610192244261-3f33de7155e4?auto=format&fit=crop&q=80&w=1000',
+                                'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=1000',
+                                'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=1000',
+                                'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=1000'
+                            ].map(img => `
+                                <div class="swiper-slide">
+                                    <img src="${img}" alt="Famous Food">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="category-overlay">
+                        <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
+                        <p style="margin:0; font-size: 0.9rem;">Neer Dosa, Ghee Roast & Seafood</p>
+                    </div>
+                </div>
+                ` : ''}
                 ${dest.id !== 'mangaluru' ? `
-                <h1>Famous Places in <span>${dest.name}</span></h1>
-                <p>Explore the natural beauty and serene landscapes of ${dest.name}.</p>
+                <div style="width: 100%; text-align: center;">
+                    <h1>Famous Places in <span>${dest.name}</span></h1>
+                    <p>Explore the natural beauty and serene landscapes of ${dest.name}.</p>
+                </div>
                 ` : ''}
             </header>
 
@@ -375,6 +402,23 @@ function renderDestination(id) {
         renderHome();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Initialize Swiper for Famous Food if we are in Mangaluru page
+    if (dest.id === 'mangaluru' && typeof Swiper !== 'undefined') {
+        new Swiper('.food-swiper', {
+            loop: true,
+            speed: 1200, // smooth cinematic transition
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            effect: 'slide',
+            grabCursor: true,
+            touchRatio: 1.2, // easier swipe
+            resistanceRatio: 0.8,
+        });
+    }
 
     // Add category click listeners if any
     document.querySelectorAll('.category-card').forEach(card => {

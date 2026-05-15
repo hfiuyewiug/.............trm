@@ -433,7 +433,8 @@ main {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    height: 250px;
+    height: auto;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
     box-shadow: var(--shadow-soft);
     transition: var(--transition);
