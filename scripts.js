@@ -170,11 +170,11 @@ const destinations = [
 ];
 
 const mangaloreCategories = [
-    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519567281027-1c4960d70d74?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg' },
+    { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg' },
+    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416' },
+    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
     { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
