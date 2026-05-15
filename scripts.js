@@ -78,7 +78,7 @@ const destinations = [
             },
             {
                 name: 'St. Aloysius Chapel',
-                image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg',
                 description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.'
             }
         ]
@@ -174,7 +174,7 @@ const mangaloreCategories = [
     { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=1000' },
     { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519567281027-1c4960d70d74?auto=format&fit=crop&q=80&w=1000' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'churches', name: 'Main Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=80&w=1000' },
     { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
@@ -218,12 +218,12 @@ const mangaloreCategoryData = {
         ]
     },
     'churches': {
-        name: 'Main Famous Churches',
+        name: 'Famous Churches',
         places: [
-            { name: 'St. Aloysius Chapel', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840', description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.' },
-            { name: 'Milagres Church', image: 'https://images.unsplash.com/photo-1601058269784-90409a632168?auto=format&fit=crop&q=100&w=3840', description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.' },
-            { name: 'Rosario Cathedral', image: 'https://images.unsplash.com/photo-1572010696983-057bfd2105ca?auto=format&fit=crop&q=100&w=3840', description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.' },
-            { name: 'Infant Jesus Shrine', image: 'https://images.unsplash.com/photo-1596700680678-771143826079?auto=format&fit=crop&q=100&w=3840', description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.' }
+            { name: 'St. Aloysius Chapel', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg', description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.' },
+            { name: 'Milagres Church', image: 'https://www.shatravelsmts.com/uploads/image/tour-packages/11-best-places-to-visit-in-mangalore/milagres-church.jpg', description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.' },
+            { name: 'Rosario Cathedral', image: 'https://th-i.thgim.com/public/news/national/karnataka/p052cm/article25479880.ece/alternates/LANDSCAPE_1200/13BG-CATHEDRAL', description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.' },
+            { name: 'Infant Jesus Shrine', image: 'https://www.infantjesusmangalore.net/images/shrine1.jpg', description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.' }
         ]
     }
 };
