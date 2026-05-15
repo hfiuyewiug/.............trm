@@ -63,12 +63,12 @@ const destinations = [
         famousPlaces: [
             {
                 name: 'Panambur Beach',
-                image: 'https://images.unsplash.com/photo-1589136140230-26f5999081e6?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg',
                 description: 'A clean and popular beach known for its golden sands and water sports.'
             },
             {
                 name: 'Tannirbhavi Beach',
-                image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg',
                 description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.'
             },
             {
@@ -184,10 +184,10 @@ const mangaloreCategoryData = {
     'beaches': {
         name: 'Mangalore Beaches',
         places: [
-            { name: 'Panambur Beach', image: 'https://images.unsplash.com/photo-1589136140230-26f5999081e6?auto=format&fit=crop&q=100&w=3840', description: 'A clean and popular beach known for its golden sands and water sports.' },
-            { name: 'Tannirbhavi Beach', image: 'https://images.unsplash.com/photo-1548013146-72479768bbaa?auto=format&fit=crop&q=100&w=3840', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
-            { name: 'Someshwara Beach', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=100&w=3840', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
-            { name: 'Surathkal Beach', image: 'https://images.unsplash.com/photo-1605336671040-272e27e85cda?auto=format&fit=crop&q=100&w=3840', description: 'A serene beach known for its lighthouse that offers a spectacular view.' }
+            { name: 'Panambur Beach', image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg', description: 'A clean and popular beach known for its golden sands and water sports.' },
+            { name: 'Tannirbhavi Beach', image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
+            { name: 'Someshwara Beach', image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
+            { name: 'Surathkal Beach', image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', description: 'A serene beach known for its lighthouse that offers a spectacular view.' }
         ]
     },
     'temples': {
