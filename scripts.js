@@ -331,20 +331,23 @@ function renderDestination(id) {
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
                             ${[
-                                'https://images.unsplash.com/photo-1610192244261-3f33de7155e4?auto=format&fit=crop&q=80&w=1000',
-                                'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=1000',
-                                'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=1000',
-                                'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=1000'
-                            ].map(img => `
-                                <div class="swiper-slide">
-                                    <img src="${img}" alt="Famous Food">
+                                { img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', name: 'Chicken Kori Rotti' },
+                                { img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', name: 'Fish Fry' },
+                                { img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', name: 'Mangalore Bun' },
+                                { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
+                            ].map(item => `
+                                <div class="swiper-slide" style="position: relative;">
+                                    <img src="${item.img}" alt="${item.name}">
+                                    <div style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2);">
+                                        ${item.name}
+                                    </div>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
                     <div class="category-overlay">
                         <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
-                        <p style="margin:0; font-size: 0.9rem;">Neer Dosa, Ghee Roast & Seafood</p>
+                        <p style="margin:0; font-size: 0.9rem;">Chicken Kori Rotti, Fish Fry, Mangalore Bun & More</p>
                     </div>
                 </div>
                 ` : ''}
