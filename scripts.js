@@ -262,7 +262,7 @@ function renderCategoryPage(categoryId) {
                 ${category.places.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" ${place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                         </div>
                         <div class="place-info">
                             <h3>${place.name}</h3>
@@ -302,7 +302,7 @@ function renderHome() {
             <div class="destinations-row">
                 ${destinations.map(dest => `
                     <div class="dest-card" data-id="${dest.id}">
-                        <img src="${dest.image}" alt="${dest.name}">
+                        <img src="${dest.image}" alt="${dest.name}" loading="lazy" decoding="async">
                         <div class="dest-card-overlay">
                             <h3>${dest.name}</h3>
                         </div>
@@ -352,7 +352,7 @@ function renderDestination(id) {
                                 { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
                             ].map(item => `
                                 <div class="swiper-slide" style="position: relative;">
-                                    <img src="${item.img}" alt="${item.name}">
+                                    <img src="${item.img}" alt="${item.name}" loading="lazy" decoding="async">
                                     <div style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2);">
                                         ${item.name}
                                     </div>
@@ -379,7 +379,7 @@ function renderDestination(id) {
                 ${dest.famousPlaces.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}">
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
                         </div>
                         <div class="place-info">
                             <h3>${place.name}</h3>
@@ -398,7 +398,7 @@ function renderDestination(id) {
                         ${mangaloreCategories.map(cat => `
                             <div class="category-card ${cat.empty ? 'empty-card' : ''}" data-cat-id="${cat.id}">
                                 <div class="category-img">
-                                    <img src="${cat.image}" alt="${cat.name}">
+                                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async">
                                 </div>
                                 <div class="category-overlay">
                                     <h3>${cat.name}</h3>
