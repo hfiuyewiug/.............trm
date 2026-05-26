@@ -655,14 +655,6 @@ function openMangaluruMustWatchModal() {
 
     const top5Places = [
         {
-            name: 'Panambur Beach',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.9',
-            location: 'Coastal Hwy, Mangalore',
-            bestTime: '🌅 Evening View: 5:00 PM',
-            description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
-        },
-        {
             name: 'Kadri Manjunath Temple',
             image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.8',
@@ -671,12 +663,12 @@ function openMangaluruMustWatchModal() {
             description: 'An ancient Hindu temple dating back to the 10th century, famous for its bronze statue of Lokeshvara and natural spring ponds.'
         },
         {
-            name: 'Gokarnanatheshwara Temple',
-            image: 'https://images.unsplash.com/photo-1602631985686-2bb0686a6a5a?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.8',
-            location: 'Kudroli, Mangalore',
-            bestTime: '🛕 Evening Lights: 6:30 PM',
-            description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
+            name: 'Ocean Pearl Hotel / Ideal Café',
+            image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.7',
+            location: 'Kodialbail, Mangalore',
+            bestTime: '🍽️ Lunch Timings: 1:30 PM',
+            description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
         },
         {
             name: 'Sultan Battery',
@@ -687,12 +679,20 @@ function openMangaluruMustWatchModal() {
             description: 'A watchtower built by Tipu Sultan in 1784, constructed of black stone to prevent warship intrusions via the Gurupura River.'
         },
         {
-            name: 'Ocean Pearl Hotel / Ideal Café',
-            image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.7',
-            location: 'Kodialbail, Mangalore',
-            bestTime: '🍽️ Lunch Timings: 1:30 PM',
-            description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
+            name: 'Panambur Beach',
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.9',
+            location: 'Coastal Hwy, Mangalore',
+            bestTime: '🌅 Evening View: 5:00 PM',
+            description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
+        },
+        {
+            name: 'Gokarnanatheshwara Temple',
+            image: 'https://images.unsplash.com/photo-1602631985686-2bb0686a6a5a?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.8',
+            location: 'Kudroli, Mangalore',
+            bestTime: '🛕 Evening Lights: 6:30 PM',
+            description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
         }
     ];
 
@@ -756,51 +756,23 @@ function openMangaluruMustWatchModal() {
                             <div class="route-node active" data-index="0">
                                 <div class="node-dot">1</div>
                                 <div class="node-content">
-                                    <h4>Panambur Beach</h4>
-                                    <span class="node-best-time">🌅 Evening View: 5:00 PM</span>
-                                    <span class="route-detour-btn" id="sultan-detour-btn">⚡ Detour to Sultan Battery (10 KM)</span>
+                                    <h4>Kadri Manjunath Temple</h4>
+                                    <span class="node-best-time">🛕 Morning Darshan: 8:00 AM</span>
+                                    <span class="route-detour-btn" id="gokarna-detour-btn">⚡ Detour to Gokarnanatheshwara Temple (5 KM)</span>
                                 </div>
                             </div>
                             
                             <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 14 KM</span>
-                                <span class="time-pills">🚗 25m | 🏍️ 20m</span>
+                                <span class="dist-pill">🛣️ 3 KM</span>
+                                <span class="time-pills">🚗 8m | 🏍️ 6m</span>
                             </div>
                             
                             <!-- Node 2 -->
                             <div class="route-node" data-index="1">
                                 <div class="node-dot">2</div>
                                 <div class="node-content">
-                                    <h4>Kadri Manjunath Temple</h4>
-                                    <span class="node-best-time">🛕 Morning Darshan: 8:00 AM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 5 KM</span>
-                                <span class="time-pills">🚗 10m | 🏍️ 8m</span>
-                            </div>
-                            
-                            <!-- Node 3 -->
-                            <div class="route-node" data-index="2">
-                                <div class="node-dot">3</div>
-                                <div class="node-content">
-                                    <h4>Gokarnanatheshwara Temple</h4>
-                                    <span class="node-best-time">🛕 Evening Lights: 6:30 PM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 7 KM</span>
-                                <span class="time-pills">🚗 12m | 🏍️ 10m</span>
-                            </div>
-                            
-                            <!-- Node 4 -->
-                            <div class="route-node" data-index="3">
-                                <div class="node-dot">4</div>
-                                <div class="node-content">
-                                    <h4>Sultan Battery</h4>
-                                    <span class="node-best-time">🕒 Afternoon Breeze: 3:30 PM</span>
+                                    <h4>Ocean Pearl Hotel / Ideal Café</h4>
+                                    <span class="node-best-time">🍽️ Lunch Timings: 1:30 PM</span>
                                 </div>
                             </div>
                             
@@ -809,12 +781,40 @@ function openMangaluruMustWatchModal() {
                                 <span class="time-pills">🚗 10m | 🏍️ 9m</span>
                             </div>
                             
+                            <!-- Node 3 -->
+                            <div class="route-node" data-index="2">
+                                <div class="node-dot">3</div>
+                                <div class="node-content">
+                                    <h4>Sultan Battery</h4>
+                                    <span class="node-best-time">🕒 Afternoon Breeze: 3:30 PM</span>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 10 KM</span>
+                                <span class="time-pills">🚗 18m | 🏍️ 15m</span>
+                            </div>
+                            
+                            <!-- Node 4 -->
+                            <div class="route-node" data-index="3">
+                                <div class="node-dot">4</div>
+                                <div class="node-content">
+                                    <h4>Panambur Beach</h4>
+                                    <span class="node-best-time">🌅 Evening View: 5:00 PM</span>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 9 KM</span>
+                                <span class="time-pills">🚗 18m | 🏍️ 15m</span>
+                            </div>
+                            
                             <!-- Node 5 -->
                             <div class="route-node" data-index="4">
                                 <div class="node-dot">5</div>
                                 <div class="node-content">
-                                    <h4>Ocean Pearl Hotel / Ideal Café</h4>
-                                    <span class="node-best-time">🍽️ Lunch Timings: 1:30 PM</span>
+                                    <h4>Gokarnanatheshwara Temple</h4>
+                                    <span class="node-best-time">🛕 Evening Lights: 6:30 PM</span>
                                 </div>
                             </div>
                         </div>
@@ -886,12 +886,12 @@ function openMangaluruMustWatchModal() {
         });
 
         // Add detour link handler
-        const detourBtn = document.getElementById('sultan-detour-btn');
+        const detourBtn = document.getElementById('gokarna-detour-btn');
         if (detourBtn) {
             detourBtn.addEventListener('click', (e) => {
                 e.stopPropagation(); // Avoid triggering node click
                 if (swiperInstance) {
-                    swiperInstance.slideToLoop(3, 800); // 3 is Sultan Battery
+                    swiperInstance.slideToLoop(4, 800); // 4 is Gokarnanatheshwara Temple
                 }
             });
         }
