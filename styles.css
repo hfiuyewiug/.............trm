@@ -748,7 +748,10 @@ main {
 .must-watch-card-img img {
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    display: block;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1035,13 +1038,19 @@ main {
     }
 
     .must-watch-modal-overlay {
-        padding: 0.75rem; /* Allow modal to take up more screen width on mobile */
+        padding: 1.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .must-watch-modal {
         padding: 1.25rem; /* More space for content */
-        max-height: 92vh;
-        width: 98%;
+        max-height: 88vh;
+        width: 92%;
+        max-width: 480px; /* Floating, centered layout */
+        margin: 0 auto;
+        overscroll-behavior-y: contain;
     }
 
     .must-watch-modal-header {
@@ -1229,6 +1238,42 @@ main {
     .route-distance-label .time-pills {
         padding: 0.15rem 0.45rem;
         font-size: 0.7rem;
+    }
+
+    /* Floating card modal phone overrides */
+    .must-watch-modal {
+        width: 92%;
+        max-width: 400px; /* Perfectly compact centered card on phone screen */
+        padding: 1rem;
+        max-height: 86vh;
+    }
+
+    .must-watch-card-img {
+        height: 140px; /* Shorter image height for perfect phone layout ratio */
+    }
+
+    .must-watch-card-info {
+        padding: 1rem;
+    }
+
+    .must-watch-card-info h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .must-watch-card-info .location-row {
+        margin-bottom: 0.6rem;
+    }
+
+    .must-watch-card-info p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .must-watch-explore-btn {
+        padding: 0.6rem;
+        font-size: 0.85rem;
     }
 }
 
