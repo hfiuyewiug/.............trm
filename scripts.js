@@ -345,11 +345,17 @@ function renderDestination(id) {
     const destHTML = `
         <div class="page-content" style="position: relative;">
             <header class="dest-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                    <a href="#" class="back-btn" id="back-home">
+                <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#" class="back-btn" id="back-home" style="margin-bottom: 0;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back to Home
                     </a>
+                    ${dest.id === 'mangaluru' ? `
+                    <button class="must-watch-btn" id="mangaluru-must-watch-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Must Watching Places
+                    </button>
+                    ` : ''}
                 </div>
                 
                 ${dest.id === 'mangaluru' ? `
@@ -449,6 +455,15 @@ function renderDestination(id) {
         });
     }
 
+    // Add Mangaluru Must Watch button listener if present
+    const mustWatchBtn = document.getElementById('mangaluru-must-watch-btn');
+    if (mustWatchBtn) {
+        mustWatchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openMangaluruMustWatchModal();
+        });
+    }
+
     // Add category click listeners if any
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -468,6 +483,24 @@ function openMustWatchModal(category) {
     // Remove existing modal if any
     const existing = document.getElementById('must-watch-modal-overlay');
     if (existing) existing.remove();
+
+    // 1. Add and Activate dynamic premium loader overlay
+    let loader = document.getElementById('must-watch-loader-overlay');
+    if (!loader) {
+        const loaderHTML = `
+            <div class="must-watch-loader-overlay" id="must-watch-loader-overlay">
+                <div class="must-watch-loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', loaderHTML);
+        loader = document.getElementById('must-watch-loader-overlay');
+    }
+
+    loader.classList.add('active');
 
     // Select top 3 places as the "Must Watching Places"
     const topPlaces = category.places.slice(0, 3);
@@ -494,64 +527,386 @@ function openMustWatchModal(category) {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
                 </header>
-                <div class="must-watch-modal-body">
-                    ${topPlaces.map((place, idx) => `
-                        <div class="must-watch-card">
-                            <div class="must-watch-card-img">
-                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
-                                <div class="must-watch-badges">
-                                    <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
-                                    <span class="must-watch-badge">Must Visit</span>
+                
+                <div class="swiper must-watch-swiper">
+                    <div class="swiper-wrapper">
+                        ${topPlaces.map((place, idx) => `
+                            <div class="swiper-slide">
+                                <div class="must-watch-card">
+                                    <div class="must-watch-card-img">
+                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                        <div class="must-watch-badges">
+                                            <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
+                                            <span class="must-watch-badge">Must Visit</span>
+                                        </div>
+                                    </div>
+                                    <div class="must-watch-card-info">
+                                        <h3>${place.name}</h3>
+                                        <div class="location-row">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                            <span>${getLocation(place.name)}</span>
+                                        </div>
+                                        <p>${place.description}</p>
+                                        <button class="must-watch-explore-btn">
+                                            Explore More
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="must-watch-card-info">
-                                <h3>${place.name}</h3>
-                                <div class="location-row">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="12" r="3"/></svg>
-                                    <span>${getLocation(place.name)}</span>
-                                </div>
-                                <p>${place.description}</p>
-                                <button class="must-watch-explore-btn">
-                                    Explore More
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                    `).join('')}
+                        `).join('')}
+                    </div>
+                    <!-- Add Pagination & Nav arrows -->
+                    <div class="swiper-pagination must-watch-pagination"></div>
+                    <div class="swiper-button-next must-watch-next"></div>
+                    <div class="swiper-button-prev must-watch-prev"></div>
                 </div>
             </div>
         </div>
     `;
 
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    const overlay = document.getElementById('must-watch-modal-overlay');
-    const closeBtn = document.getElementById('must-watch-close-btn');
-
-    // Smooth entry
+    // 2. Simulate dynamique loading before showing modal
     setTimeout(() => {
-        overlay.classList.add('active');
-    }, 10);
+        loader.classList.remove('active');
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    const closeModal = () => {
-        overlay.classList.remove('active');
-        // Wait for transition to complete before removing from DOM
+        const overlay = document.getElementById('must-watch-modal-overlay');
+        const closeBtn = document.getElementById('must-watch-close-btn');
+
+        // Smooth entry with elastic cubic-bezier overshoot
         setTimeout(() => {
-            overlay.remove();
-        }, 400);
-    };
+            overlay.classList.add('active');
+        }, 30);
 
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeModal();
-    });
-
-    // Close on ESC keypress
-    const escHandler = (e) => {
-        if (e.key === 'Escape') {
-            closeModal();
-            document.removeEventListener('keydown', escHandler);
+        // Initialize swiper inside the modal
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.must-watch-swiper', {
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                effect: 'slide',
+                grabCursor: true,
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.must-watch-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.must-watch-next',
+                    prevEl: '.must-watch-prev',
+                },
+            });
         }
-    };
-    document.addEventListener('keydown', escHandler);
+
+        const closeModal = () => {
+            overlay.classList.remove('active');
+            // Wait for transition to complete before removing from DOM
+            setTimeout(() => {
+                overlay.remove();
+            }, 600);
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+
+        // Close on ESC keypress
+        const escHandler = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', escHandler);
+            }
+        };
+        document.addEventListener('keydown', escHandler);
+
+    }, 600); // 600ms loading effect
+}
+
+function openMangaluruMustWatchModal() {
+    // Remove existing modal if any
+    const existing = document.getElementById('mangaluru-must-watch-modal-overlay');
+    if (existing) existing.remove();
+
+    // 1. Add and Activate dynamic premium loader overlay
+    let loader = document.getElementById('must-watch-loader-overlay');
+    if (!loader) {
+        const loaderHTML = `
+            <div class="must-watch-loader-overlay" id="must-watch-loader-overlay">
+                <div class="must-watch-loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', loaderHTML);
+        loader = document.getElementById('must-watch-loader-overlay');
+    }
+
+    loader.classList.add('active');
+
+    const top5Places = [
+        {
+            name: 'Panambur Beach',
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.9',
+            location: 'Coastal Hwy, Mangalore',
+            description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
+        },
+        {
+            name: 'Kadri Manjunath Temple',
+            image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.8',
+            location: 'Kadri Temple Road, Mangalore',
+            description: 'An ancient Hindu temple dating back to the 10th century, famous for its bronze statue of Lokeshvara and natural spring ponds.'
+        },
+        {
+            name: 'Gokarnanatheshwara Temple',
+            image: 'https://images.unsplash.com/photo-1602631985686-2bb0686a6a5a?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.8',
+            location: 'Kudroli, Mangalore',
+            description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
+        },
+        {
+            name: 'Sultan Battery',
+            image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.6',
+            location: 'Boloor, Mangalore',
+            description: 'A watchtower built by Tipu Sultan in 1784, constructed of black stone to prevent warship intrusions via the Gurupura River.'
+        },
+        {
+            name: 'Ocean Pearl Hotel / Ideal Café',
+            image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
+            rating: '4.7',
+            location: 'Kodialbail, Mangalore',
+            description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
+        }
+    ];
+
+    const modalHTML = `
+        <div class="must-watch-modal-overlay" id="mangaluru-must-watch-modal-overlay">
+            <div class="must-watch-modal" style="max-width: 1100px;">
+                <header class="must-watch-modal-header">
+                    <h2>🌍 Mangalore Must Watching Places</h2>
+                    <button class="must-watch-close-btn" id="mangaluru-must-watch-close-btn" aria-label="Close modal">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                </header>
+                
+                <div class="mangaluru-modal-grid">
+                    <!-- Left Pane: Swiper Slider -->
+                    <div class="mangaluru-carousel-pane">
+                        <div class="swiper mangaluru-must-watch-swiper">
+                            <div class="swiper-wrapper">
+                                ${top5Places.map((place, idx) => `
+                                    <div class="swiper-slide">
+                                        <div class="must-watch-card" style="max-width: 100%;">
+                                            <div class="must-watch-card-img">
+                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                                <div class="must-watch-badges">
+                                                    <span class="must-watch-badge rating">★ ${place.rating}</span>
+                                                    <span class="must-watch-badge">Top Sight</span>
+                                                </div>
+                                            </div>
+                                            <div class="must-watch-card-info">
+                                                <h3>${place.name}</h3>
+                                                <div class="location-row">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                                    <span>${place.location}</span>
+                                                </div>
+                                                <p>${place.description}</p>
+                                                <button class="must-watch-explore-btn">
+                                                    Explore More
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <!-- Swiper navigation & bullets -->
+                            <div class="swiper-pagination must-watch-pagination"></div>
+                            <div class="swiper-button-next must-watch-next"></div>
+                            <div class="swiper-button-prev must-watch-prev"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Pane: Interactive Route Planner -->
+                    <div class="mangaluru-route-pane">
+                        <h3>📍 Interactive Route Planner</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">Click nodes or detours to dynamically control the view map.</p>
+                        
+                        <div class="mangaluru-route-map">
+                            <div class="route-line-animated"></div>
+                            
+                            <!-- Node 1 -->
+                            <div class="route-node active" data-index="0">
+                                <div class="node-dot">1</div>
+                                <div class="node-content">
+                                    <h4>Panambur Beach</h4>
+                                    <span class="route-detour-btn" id="sultan-detour-btn">⚡ Detour to Sultan Battery (10 KM)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 14 KM</span>
+                                <span class="time-pills">🚗 25m | 🏍️ 20m</span>
+                            </div>
+                            
+                            <!-- Node 2 -->
+                            <div class="route-node" data-index="1">
+                                <div class="node-dot">2</div>
+                                <div class="node-content">
+                                    <h4>Kadri Manjunath Temple</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 5 KM</span>
+                                <span class="time-pills">🚗 10m | 🏍️ 8m</span>
+                            </div>
+                            
+                            <!-- Node 3 -->
+                            <div class="route-node" data-index="2">
+                                <div class="node-dot">3</div>
+                                <div class="node-content">
+                                    <h4>Gokarnanatheshwara Temple</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 7 KM</span>
+                                <span class="time-pills">🚗 12m | 🏍️ 10m</span>
+                            </div>
+                            
+                            <!-- Node 4 -->
+                            <div class="route-node" data-index="3">
+                                <div class="node-dot">4</div>
+                                <div class="node-content">
+                                    <h4>Sultan Battery</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 6 KM</span>
+                                <span class="time-pills">🚗 10m | 🏍️ 9m</span>
+                            </div>
+                            
+                            <!-- Node 5 -->
+                            <div class="route-node" data-index="4">
+                                <div class="node-dot">5</div>
+                                <div class="node-content">
+                                    <h4>Ocean Pearl Hotel / Ideal Café</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // 2. Simulate loading animation before displaying
+    setTimeout(() => {
+        loader.classList.remove('active');
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        const overlay = document.getElementById('mangaluru-must-watch-modal-overlay');
+        const closeBtn = document.getElementById('mangaluru-must-watch-close-btn');
+
+        // Smooth scale entrance
+        setTimeout(() => {
+            overlay.classList.add('active');
+        }, 30);
+
+        // Initialize swiper inside the modal
+        let swiperInstance = null;
+        if (typeof Swiper !== 'undefined') {
+            swiperInstance = new Swiper('.mangaluru-must-watch-swiper', {
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                effect: 'slide',
+                grabCursor: true,
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.must-watch-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.must-watch-next',
+                    prevEl: '.must-watch-prev',
+                },
+            });
+            
+            // Connect Swiper active slide change with route node highlighting
+            swiperInstance.on('slideChange', () => {
+                const activeIdx = swiperInstance.realIndex;
+                document.querySelectorAll('#mangaluru-must-watch-modal-overlay .route-node').forEach(node => {
+                    node.classList.remove('active');
+                });
+                const activeNode = document.querySelector(`#mangaluru-must-watch-modal-overlay .route-node[data-index="${activeIdx}"]`);
+                if (activeNode) activeNode.classList.add('active');
+            });
+        }
+
+        // Add interactive controls to route map nodes
+        document.querySelectorAll('#mangaluru-must-watch-modal-overlay .route-node').forEach(node => {
+            node.addEventListener('click', () => {
+                const index = parseInt(node.getAttribute('data-index'));
+                if (swiperInstance) {
+                    swiperInstance.slideToLoop(index, 800);
+                }
+            });
+        });
+
+        // Add detour link handler
+        const detourBtn = document.getElementById('sultan-detour-btn');
+        if (detourBtn) {
+            detourBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Avoid triggering node click
+                if (swiperInstance) {
+                    swiperInstance.slideToLoop(3, 800); // 3 is Sultan Battery
+                }
+            });
+        }
+
+        const closeModal = () => {
+            overlay.classList.remove('active');
+            // Wait for transition to complete before removing from DOM
+            setTimeout(() => {
+                overlay.remove();
+            }, 600);
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+
+        // Close on ESC keypress
+        const escHandler = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', escHandler);
+            }
+        };
+        document.addEventListener('keydown', escHandler);
+
+    }, 600);
 }
