@@ -250,7 +250,7 @@ function renderCategoryPage(categoryId) {
     const destHTML = `
         <div class="page-content">
             <header class="dest-header">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                <div class="dest-header-row" style="margin-bottom: 2rem;">
                     <a href="#" class="back-btn" id="back-to-mangaluru" style="margin-bottom: 0;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back to Mangaluru
@@ -344,8 +344,8 @@ function renderDestination(id) {
 
     const destHTML = `
         <div class="page-content" style="position: relative;">
-            <header class="dest-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <header class="dest-header dest-header-flex">
+                <div class="dest-header-row">
                     <a href="#" class="back-btn" id="back-home" style="margin-bottom: 0;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back to Home
@@ -359,7 +359,7 @@ function renderDestination(id) {
                 </div>
                 
                 ${dest.id === 'mangaluru' ? `
-                <div class="category-card" data-cat-id="food" style="width: 250px; height: auto; aspect-ratio: 1/1; z-index: 10; margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                <div class="category-card famous-food-header-card" data-cat-id="food">
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
                             ${[
