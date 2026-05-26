@@ -1100,6 +1100,14 @@ main {
     font-weight: 700;
 }
 
+.node-best-time {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
 .route-detour-btn {
     display: inline-block;
     font-size: 0.75rem;

@@ -659,6 +659,7 @@ function openMangaluruMustWatchModal() {
             image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.9',
             location: 'Coastal Hwy, Mangalore',
+            bestTime: '🌅 Evening View: 5:00 PM',
             description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
         },
         {
@@ -666,6 +667,7 @@ function openMangaluruMustWatchModal() {
             image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.8',
             location: 'Kadri Temple Road, Mangalore',
+            bestTime: '🛕 Morning Darshan: 8:00 AM',
             description: 'An ancient Hindu temple dating back to the 10th century, famous for its bronze statue of Lokeshvara and natural spring ponds.'
         },
         {
@@ -673,6 +675,7 @@ function openMangaluruMustWatchModal() {
             image: 'https://images.unsplash.com/photo-1602631985686-2bb0686a6a5a?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.8',
             location: 'Kudroli, Mangalore',
+            bestTime: '🛕 Evening Lights: 6:30 PM',
             description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
         },
         {
@@ -680,6 +683,7 @@ function openMangaluruMustWatchModal() {
             image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.6',
             location: 'Boloor, Mangalore',
+            bestTime: '🕒 Afternoon Breeze: 3:30 PM',
             description: 'A watchtower built by Tipu Sultan in 1784, constructed of black stone to prevent warship intrusions via the Gurupura River.'
         },
         {
@@ -687,6 +691,7 @@ function openMangaluruMustWatchModal() {
             image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
             rating: '4.7',
             location: 'Kodialbail, Mangalore',
+            bestTime: '🍽️ Lunch Timings: 1:30 PM',
             description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
         }
     ];
@@ -713,7 +718,7 @@ function openMangaluruMustWatchModal() {
                                                 <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
-                                                    <span class="must-watch-badge">Top Sight</span>
+                                                    <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>
                                                 </div>
                                             </div>
                                             <div class="must-watch-card-info">
@@ -752,6 +757,7 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-dot">1</div>
                                 <div class="node-content">
                                     <h4>Panambur Beach</h4>
+                                    <span class="node-best-time">🌅 Evening View: 5:00 PM</span>
                                     <span class="route-detour-btn" id="sultan-detour-btn">⚡ Detour to Sultan Battery (10 KM)</span>
                                 </div>
                             </div>
@@ -766,6 +772,7 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-dot">2</div>
                                 <div class="node-content">
                                     <h4>Kadri Manjunath Temple</h4>
+                                    <span class="node-best-time">🛕 Morning Darshan: 8:00 AM</span>
                                 </div>
                             </div>
                             
@@ -779,6 +786,7 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-dot">3</div>
                                 <div class="node-content">
                                     <h4>Gokarnanatheshwara Temple</h4>
+                                    <span class="node-best-time">🛕 Evening Lights: 6:30 PM</span>
                                 </div>
                             </div>
                             
@@ -792,6 +800,7 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-dot">4</div>
                                 <div class="node-content">
                                     <h4>Sultan Battery</h4>
+                                    <span class="node-best-time">🕒 Afternoon Breeze: 3:30 PM</span>
                                 </div>
                             </div>
                             
@@ -805,6 +814,7 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-dot">5</div>
                                 <div class="node-content">
                                     <h4>Ocean Pearl Hotel / Ideal Café</h4>
+                                    <span class="node-best-time">🍽️ Lunch Timings: 1:30 PM</span>
                                 </div>
                             </div>
                         </div>
