@@ -548,3 +548,274 @@ main {
         text-align: center;
     }
 }
+
+/* Must Watching Places Button & Modal Styles */
+.must-watch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.6rem;
+    border-radius: 30px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(131, 56, 236, 0.2);
+}
+
+.must-watch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(131, 56, 236, 0.4);
+}
+
+.must-watch-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+    padding: 1.5rem;
+}
+
+.must-watch-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.must-watch-modal {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 1100px;
+    max-height: 85vh;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    padding: 2.5rem;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(131, 56, 236, 0.3) transparent;
+}
+
+.must-watch-modal::-webkit-scrollbar {
+    width: 6px;
+}
+.must-watch-modal::-webkit-scrollbar-thumb {
+    background-color: rgba(131, 56, 236, 0.3);
+    border-radius: 10px;
+}
+
+.must-watch-modal-overlay.active .must-watch-modal {
+    transform: translateY(0) scale(1);
+}
+
+.must-watch-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1rem;
+}
+
+.must-watch-modal-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.must-watch-close-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.must-watch-close-btn:hover {
+    background: rgba(131, 56, 236, 0.1);
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.must-watch-modal-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.must-watch-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.must-watch-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(131, 56, 236, 0.2);
+}
+
+.must-watch-card-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: #e2e8f0;
+}
+
+.must-watch-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.must-watch-card:hover .must-watch-card-img img {
+    transform: scale(1.1);
+}
+
+.must-watch-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.must-watch-badge {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.must-watch-badge.rating {
+    background: rgba(255, 217, 61, 0.9);
+    color: var(--text-dark);
+    border: none;
+}
+
+.must-watch-card-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.must-watch-card-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.must-watch-card-info .location-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.must-watch-card-info .location-row svg {
+    color: var(--primary-color);
+}
+
+.must-watch-card-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.must-watch-explore-btn {
+    width: 100%;
+    background: rgba(131, 56, 236, 0.05);
+    color: var(--primary-color);
+    border: 1px solid rgba(131, 56, 236, 0.15);
+    padding: 0.7rem;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.must-watch-explore-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(131, 56, 236, 0.25);
+}
+
+@media (max-width: 1024px) {
+    .must-watch-modal-body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .must-watch-modal {
+        padding: 1.5rem;
+        max-height: 90vh;
+    }
+    .must-watch-modal-header h2 {
+        font-size: 1.6rem;
+    }
+    .must-watch-modal-body {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}

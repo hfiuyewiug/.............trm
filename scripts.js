@@ -250,10 +250,16 @@ function renderCategoryPage(categoryId) {
     const destHTML = `
         <div class="page-content">
             <header class="dest-header">
-                <a href="#" class="back-btn" id="back-to-mangaluru">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Back to Mangaluru
-                </a>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                    <a href="#" class="back-btn" id="back-to-mangaluru" style="margin-bottom: 0;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back to Mangaluru
+                    </a>
+                    <button class="must-watch-btn" id="must-watch-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Must Watching Places
+                    </button>
+                </div>
                 <h1>${category.name}</h1>
                 <p>Discover the best ${category.name.toLowerCase()} and plan your visit.</p>
             </header>
@@ -281,6 +287,11 @@ function renderCategoryPage(categoryId) {
         e.preventDefault();
         renderDestination('mangaluru');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('must-watch-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        openMustWatchModal(category);
     });
 }
 
@@ -452,3 +463,95 @@ function renderDestination(id) {
 
 // Initial render
 renderHome();
+
+function openMustWatchModal(category) {
+    // Remove existing modal if any
+    const existing = document.getElementById('must-watch-modal-overlay');
+    if (existing) existing.remove();
+
+    // Select top 3 places as the "Must Watching Places"
+    const topPlaces = category.places.slice(0, 3);
+    
+    // Helper to get static location and rating
+    const getLocation = (placeName) => {
+        if (category.name.includes("Beaches")) return "Coastal Hwy, Mangalore";
+        if (category.name.includes("Temples")) return "Temple Square, Mangalore";
+        if (category.name.includes("Malls")) return "City Centre, Mangalore";
+        if (category.name.includes("Trekking")) return "Ghats Region, Mangalore";
+        return "Heritage Block, Mangalore";
+    };
+
+    const getRating = (index) => {
+        return (4.9 - (index * 0.1)).toFixed(1);
+    };
+
+    const modalHTML = `
+        <div class="must-watch-modal-overlay" id="must-watch-modal-overlay">
+            <div class="must-watch-modal">
+                <header class="must-watch-modal-header">
+                    <h2>⭐ Top Must Watching ${category.name}</h2>
+                    <button class="must-watch-close-btn" id="must-watch-close-btn" aria-label="Close modal">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                </header>
+                <div class="must-watch-modal-body">
+                    ${topPlaces.map((place, idx) => `
+                        <div class="must-watch-card">
+                            <div class="must-watch-card-img">
+                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                <div class="must-watch-badges">
+                                    <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
+                                    <span class="must-watch-badge">Must Visit</span>
+                                </div>
+                            </div>
+                            <div class="must-watch-card-info">
+                                <h3>${place.name}</h3>
+                                <div class="location-row">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <span>${getLocation(place.name)}</span>
+                                </div>
+                                <p>${place.description}</p>
+                                <button class="must-watch-explore-btn">
+                                    Explore More
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const overlay = document.getElementById('must-watch-modal-overlay');
+    const closeBtn = document.getElementById('must-watch-close-btn');
+
+    // Smooth entry
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 10);
+
+    const closeModal = () => {
+        overlay.classList.remove('active');
+        // Wait for transition to complete before removing from DOM
+        setTimeout(() => {
+            overlay.remove();
+        }, 400);
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    // Close on ESC keypress
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
+}
