@@ -639,6 +639,7 @@ main {
     position: relative;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
     scrollbar-width: thin;
     scrollbar-color: rgba(131, 56, 236, 0.3) transparent;
 }
@@ -1241,6 +1242,8 @@ main {
 
 .mangaluru-carousel-pane {
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .mangaluru-route-pane {

@@ -709,13 +709,13 @@ function openMangaluruMustWatchModal() {
                 <div class="mangaluru-modal-grid">
                     <!-- Left Pane: Swiper Slider -->
                     <div class="mangaluru-carousel-pane">
-                        <div class="swiper mangaluru-must-watch-swiper">
+                        <div class="swiper must-watch-swiper mangaluru-must-watch-swiper">
                             <div class="swiper-wrapper">
                                 ${top5Places.map((place, idx) => `
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
-                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                                <img src="${place.image}" alt="${place.name}" decoding="async">
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
                                                     <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>
