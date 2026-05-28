@@ -220,8 +220,8 @@ const mangaloreCategoryData = {
         places: [
             { name: 'City Centre Mall', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg', description: 'One of the largest malls in Mangalore with great shopping, dining, and multiplex.' },
             { name: 'Forum Fiza Mall', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/0b/50/07/central-atrium-of-the.jpg', description: 'A premium shopping destination offering global brands and entertainment options.' },
-            { name: 'Bharath Mall', image: 'https://content.jdmagicbox.com/comp/mangalore/54/0824p824std2004954/catalogue/bharath-mall-bejai-mangalore-malls-z1qvkl4h1d.jpg', description: 'One of the first modern malls in the city, popular among locals.' },
-            { name: 'Lotus Mall (Upcoming)', image: 'https://1.bp.blogspot.com/-ukW_y6j0NO4/UAj7Xco44hI/AAAAAAAALMw/dFO_pcSzgjU/s1600/2s8obah.jpg', description: 'An upcoming mega mall promising a world-class shopping experience.' }
+            { name: 'Lotus Mall (Upcoming)', image: 'https://1.bp.blogspot.com/-ukW_y6j0NO4/UAj7Xco44hI/AAAAAAAALMw/dFO_pcSzgjU/s1600/2s8obah.jpg', description: 'An upcoming mega mall promising a world-class shopping experience.' },
+            { name: 'Bharath Mall', image: 'https://content.jdmagicbox.com/comp/mangalore/54/0824p824std2004954/catalogue/bharath-mall-bejai-mangalore-malls-z1qvkl4h1d.jpg', description: 'One of the first modern malls in the city, popular among locals.' }
         ]
     },
     'trekking': {
