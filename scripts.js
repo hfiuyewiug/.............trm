@@ -211,7 +211,7 @@ const mangaloreCategoryData = {
             { name: 'Kateel Temple', image: 'https://temple.yatradham.org/public/Product/temple/temple_qID0YQIM_202505071643410.webp', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
             { name: 'Someshwara Temple', image: 'https://i.ytimg.com/vi/onFyh3-6LOs/maxresdefault.jpg', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
             { name: 'Urwa Marigudi Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.' },
-            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'https://praveenmusafir.com/wp-content/uploads/2024/01/Bappanadu-Durga-Parameshwari-Temple-2048x1536.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
+            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Bappanadu_temple_drum.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
             { name: 'Karinjeshwara Hill Temple', image: 'https://i.ytimg.com/vi/FQ494-dBaWk/maxresdefault.jpg', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
         ]
     },
