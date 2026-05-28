@@ -535,7 +535,7 @@ function openMustWatchModal(category) {
                             <div class="swiper-slide">
                                 <div class="must-watch-card">
                                     <div class="must-watch-card-img">
-                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                                         <div class="must-watch-badges">
                                             <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
                                             <span class="must-watch-badge">Must Visit</span>
