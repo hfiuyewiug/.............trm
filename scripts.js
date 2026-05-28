@@ -63,7 +63,7 @@ const destinations = [
         famousPlaces: [
             {
                 name: 'Panambur Beach',
-                image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg',
+                image: 'assets/places/panambur_beach.jpg',
                 description: 'A clean and popular beach known for its golden sands and water sports.'
             },
             {
@@ -73,7 +73,7 @@ const destinations = [
             },
             {
                 name: 'Kadri Temple',
-                image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg',
+                image: 'assets/places/kadri_temple.jpg',
                 description: 'An ancient Hindu temple with unique architecture and historical significance.'
             },
             {
@@ -170,8 +170,8 @@ const destinations = [
 ];
 
 const mangaloreCategories = [
-    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg' },
-    { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg' },
+    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'assets/places/panambur_beach.jpg' },
+    { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'assets/places/kadri_temple.jpg' },
     { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416' },
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
@@ -184,7 +184,7 @@ const mangaloreCategoryData = {
     'beaches': {
         name: 'Mangalore Beaches',
         places: [
-            { name: 'Panambur Beach', image: 'https://image3.mouthshut.com/images/imagesp/925753479s.jpg', description: 'A clean and popular beach known for its golden sands and water sports.' },
+            { name: 'Panambur Beach', image: 'assets/places/panambur_beach.jpg', description: 'A clean and popular beach known for its golden sands and water sports.' },
             { name: 'Tannirbhavi Beach', image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
             { name: 'Someshwara Beach', image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
             { name: 'Surathkal Beach', image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', description: 'A serene beach known for its lighthouse that offers a spectacular view.' },
@@ -204,7 +204,7 @@ const mangaloreCategoryData = {
         name: 'Mangalore Temples',
         places: [
             { name: 'Swami Koragajja Temple', image: 'assets/places/swami_koragajja_temple.jpg', description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.' },
-            { name: 'Kadri Manjunath Temple', image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
+            { name: 'Kadri Manjunath Temple', image: 'assets/places/kadri_temple.jpg', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
             { name: 'Kudroli Gokarnath Temple', image: 'https://imvoyager.com/wp-content/uploads/2021/04/Kudroli-Temple-Mangalore-Kudroli-Gokarnanatha-Temple-Gokarnanatheshwara-Temple--640x437.png', description: 'A beautiful temple known for its magnificent Dasara celebrations.' },
             { name: 'Mangaladevi Temple', image: 'https://www.thetravelmagazine.net/wp-content/uploads/Mangaladevi-Temple-Sunset.jpg', description: 'The ancient temple after which the city of Mangalore is named.' },
             { name: 'Polali Rajarajeshwari Temple', image: 'https://tempotravellermangalore.in/uploads/image/tour-packages/pilgrimage-places-in-mangalore/polali-rajarajeshwari-temple.jpg', description: 'Famous for its wooden idols and the historic Polali Chendu festival.' },
@@ -657,7 +657,7 @@ function openMangaluruMustWatchModal() {
     const top6Places = [
         {
             name: 'Kadri Manjunath Temple',
-            image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800&fm=webp',
+            image: 'assets/places/kadri_temple.jpg',
             rating: '4.8',
             location: 'Kadri Temple Road, Mangalore',
             bestTime: '🛕 Morning Darshan: 8:00 AM',
@@ -681,7 +681,7 @@ function openMangaluruMustWatchModal() {
         },
         {
             name: 'Panambur Beach',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800&fm=webp',
+            image: 'assets/places/panambur_beach.jpg',
             rating: '4.9',
             location: 'Coastal Hwy, Mangalore',
             bestTime: '🌅 Evening View: 5:00 PM',
