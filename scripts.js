@@ -196,8 +196,8 @@ const mangaloreCategoryData = {
             { name: 'Mukka Beach', image: 'https://www.mangaloretoday.com/contentfiles/2019/mukka%20beach15nov19.jpg', description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.' },
             { name: 'Kodical Beach', image: 'https://static.toiimg.com/thumb/msid-84760716,width-748,height-499,resizemode=4,imgsize-726688/Kodical-Beach.jpg', description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.' },
             { name: 'Chitrapura Beach', image: 'https://www.mangalurutaxis.com/uploads/image/tour-packages-places/beaches-in-mangalore/chitrapura-beach.jpg', description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.' },
-            { name: 'Mulki Beach', image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=100&w=3840', description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.' },
-            { name: 'Hosabettu Beach', image: 'https://images.unsplash.com/photo-1495954222046-2c427ecb546d?auto=format&fit=crop&q=100&w=3840', description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.' }
+            { name: 'Mulki Beach', image: 'https://voices.shortpedia.com/wp-content/uploads/2022/02/mulki-beaches@99games.jpg', description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.' },
+            { name: 'Hosabettu Beach', image: 'https://hotels.eglobe-solutions.com/eglobeimages/hotels/India/India_Mangalore_Hotels_29781_52.gif', description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.' }
         ]
     },
     'temples': {
