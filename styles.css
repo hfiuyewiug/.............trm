@@ -526,18 +526,19 @@ main {
         will-change: transform;
     }
     .category-overlay {
-        height: 100%;
-        background: rgba(0, 0, 0, 0.35);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: var(--radius-lg);
-        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+        display: block;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     }
     .category-card h3 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         margin-bottom: 0;
     }
     .category-card p {
