@@ -257,7 +257,7 @@ function renderCategoryPage(categoryId) {
                     </a>
                     <button class="must-watch-btn" id="must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Must Watching Places
+                        Must Watching <span class="hide-mobile">Places</span>
                     </button>
                 </div>
                 <h1>${category.name}</h1>
@@ -353,7 +353,7 @@ function renderDestination(id) {
                     ${dest.id === 'mangaluru' ? `
                     <button class="must-watch-btn" id="mangaluru-must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Must Watching Places
+                        Must Watching <span class="hide-mobile">Places</span>
                     </button>
                     ` : ''}
                 </div>

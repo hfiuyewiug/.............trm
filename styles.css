@@ -1036,6 +1036,9 @@ main {
         padding: 0.4rem 1rem !important;
         font-size: 0.8rem !important;
     }
+    .hide-mobile {
+        display: none !important;
+    }
     .famous-food-header-card {
         position: absolute;
         top: 1.5rem;
