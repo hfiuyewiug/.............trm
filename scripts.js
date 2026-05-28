@@ -203,15 +203,16 @@ const mangaloreCategoryData = {
     'temples': {
         name: 'Mangalore Temples',
         places: [
+            { name: 'Swami Koragajja Temple', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/53/e7/55/adhisthala-swami-koragajja.jpg?w=1200&h=-1&s=1', description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.' },
             { name: 'Kadri Manjunath Temple', image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
             { name: 'Kudroli Gokarnath Temple', image: 'https://imvoyager.com/wp-content/uploads/2021/04/Kudroli-Temple-Mangalore-Kudroli-Gokarnanatha-Temple-Gokarnanatheshwara-Temple--640x437.png', description: 'A beautiful temple known for its magnificent Dasara celebrations.' },
             { name: 'Mangaladevi Temple', image: 'https://www.thetravelmagazine.net/wp-content/uploads/Mangaladevi-Temple-Sunset.jpg', description: 'The ancient temple after which the city of Mangalore is named.' },
             { name: 'Polali Rajarajeshwari Temple', image: 'https://tempotravellermangalore.in/uploads/image/tour-packages/pilgrimage-places-in-mangalore/polali-rajarajeshwari-temple.jpg', description: 'Famous for its wooden idols and the historic Polali Chendu festival.' },
-            { name: 'Kateel Temple', image: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=100&w=3840', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
-            { name: 'Someshwara Temple', image: 'https://images.unsplash.com/photo-1545648714-08eb4fc108d4?auto=format&fit=crop&q=100&w=3840', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
+            { name: 'Kateel Temple', image: 'https://temple.yatradham.org/public/Product/temple/temple_qID0YQIM_202505071643410.webp', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
+            { name: 'Someshwara Temple', image: 'https://i.ytimg.com/vi/onFyh3-6LOs/maxresdefault.jpg', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
             { name: 'Urwa Marigudi Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.' },
-            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'https://images.unsplash.com/photo-1604085572504-a392ddf0d86a?auto=format&fit=crop&q=100&w=3840', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
-            { name: 'Karinjeshwara Hill Temple', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
+            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'https://praveenmusafir.com/wp-content/uploads/2024/01/Bappanadu-Durga-Parameshwari-Temple-2048x1536.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
+            { name: 'Karinjeshwara Hill Temple', image: 'https://i.ytimg.com/vi/FQ494-dBaWk/maxresdefault.jpg', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
         ]
     },
     'malls': {
@@ -653,7 +654,7 @@ function openMangaluruMustWatchModal() {
 
     loader.classList.add('active');
 
-    const top5Places = [
+    const top6Places = [
         {
             name: 'Kadri Manjunath Temple',
             image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800&fm=webp',
@@ -693,6 +694,14 @@ function openMangaluruMustWatchModal() {
             location: 'Kudroli, Mangalore',
             bestTime: '🛕 Evening Lights: 6:30 PM',
             description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
+        },
+        {
+            name: 'Swami Koragajja Temple',
+            image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/53/e7/55/adhisthala-swami-koragajja.jpg?w=1200&h=-1&s=1',
+            rating: '4.9',
+            location: 'Kuthar, Mangalore',
+            bestTime: '🛕 Holy Darshan: 7:00 PM',
+            description: 'A highly revered and powerful sacred shrine dedicated to Swami Koragajja, drawing massive crowds of faithful devotees seeking direct blessings.'
         }
     ];
 
@@ -711,7 +720,7 @@ function openMangaluruMustWatchModal() {
                     <div class="mangaluru-carousel-pane">
                         <div class="swiper must-watch-swiper mangaluru-must-watch-swiper">
                             <div class="swiper-wrapper">
-                                ${top5Places.map((place, idx) => `
+                                ${top6Places.map((place, idx) => `
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
@@ -815,6 +824,20 @@ function openMangaluruMustWatchModal() {
                                 <div class="node-content">
                                     <h4>Gokarnanatheshwara Temple</h4>
                                     <span class="node-best-time">🛕 Evening Lights: 6:30 PM</span>
+                                </div>
+                            </div>
+                            
+                            <div class="route-distance-label">
+                                <span class="dist-pill">🛣️ 8 KM</span>
+                                <span class="time-pills">🚗 15m | 🏍️ 12m</span>
+                            </div>
+                            
+                            <!-- Node 6 -->
+                            <div class="route-node" data-index="5">
+                                <div class="node-dot">6</div>
+                                <div class="node-content">
+                                    <h4>Swami Koragajja Temple</h4>
+                                    <span class="node-best-time">🛕 Holy Darshan: 7:00 PM</span>
                                 </div>
                             </div>
                         </div>
