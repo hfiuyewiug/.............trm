@@ -188,31 +188,31 @@ const mangaloreCategoryData = {
             { name: 'Tannirbhavi Beach', image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
             { name: 'Someshwara Beach', image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
             { name: 'Surathkal Beach', image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', description: 'A serene beach known for its lighthouse that offers a spectacular view.' },
-            { name: 'Sasihithlu Beach', image: 'https://im.whatshot.in/img/2021/Sep/sasihitlu-beach-is-1-analava-majumdar-fb-cropped1-1632472656.jpg', description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.' },
-            { name: 'Ullal Beach', image: 'https://www.mangaloretaxi.com/wp-content/uploads/Ullal-Beach6.jpg', description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.' },
-            { name: 'Bengre Beach', image: 'https://dhanrajpoojari.com/wp-content/uploads/2023/09/Bengre-Beach.png', description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.' },
-            { name: 'Talapady Beach', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/02/a1/34/big-rock-at-sea-shore.jpg?w=900&h=700&s=1', description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.' },
-            { name: 'Batapady Beach', image: 'https://i.ytimg.com/vi/ko7uaTGjvx8/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGGUgWihMMA8=&rs=AOn4CLA_vd4N-EEaA9PjracUu7uMtJ1XWQ', description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.' },
-            { name: 'Mukka Beach', image: 'https://www.mangaloretoday.com/contentfiles/2019/mukka%20beach15nov19.jpg', description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.' },
-            { name: 'Kodical Beach', image: 'https://static.toiimg.com/thumb/msid-84760716,width-748,height-499,resizemode=4,imgsize-726688/Kodical-Beach.jpg', description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.' },
-            { name: 'Chitrapura Beach', image: 'https://www.mangalurutaxis.com/uploads/image/tour-packages-places/beaches-in-mangalore/chitrapura-beach.jpg', description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.' },
-            { name: 'Mulki Beach', image: 'https://voices.shortpedia.com/wp-content/uploads/2022/02/mulki-beaches@99games.jpg', description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.' },
-            { name: 'Hosabettu Beach', image: 'https://hotels.eglobe-solutions.com/eglobeimages/hotels/India/India_Mangalore_Hotels_29781_52.gif', description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.' }
+            { name: 'Sasihithlu Beach', image: 'assets/places/sasihithlu_beach.jpg', description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.' },
+            { name: 'Ullal Beach', image: 'assets/places/ullal_beach.jpg', description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.' },
+            { name: 'Bengre Beach', image: 'assets/places/bengre_beach.png', description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.' },
+            { name: 'Talapady Beach', image: 'assets/places/talapady_beach.jpg', description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.' },
+            { name: 'Batapady Beach', image: 'assets/places/batapady_beach.jpg', description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.' },
+            { name: 'Mukka Beach', image: 'assets/places/mukka_beach.jpg', description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.' },
+            { name: 'Kodical Beach', image: 'assets/places/kodical_beach.jpg', description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.' },
+            { name: 'Chitrapura Beach', image: 'assets/places/chitrapura_beach.jpg', description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.' },
+            { name: 'Mulki Beach', image: 'assets/places/mulki_beach.jpg', description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.' },
+            { name: 'Hosabettu Beach', image: 'assets/places/hosabettu_beach.gif', description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.' }
         ]
     },
     'temples': {
         name: 'Mangalore Temples',
         places: [
-            { name: 'Swami Koragajja Temple', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/53/e7/55/adhisthala-swami-koragajja.jpg?w=1200&h=-1&s=1', description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.' },
+            { name: 'Swami Koragajja Temple', image: 'assets/places/swami_koragajja_temple.jpg', description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.' },
             { name: 'Kadri Manjunath Temple', image: 'https://mangaloretourism.in/images/v2/places-to-visit/kadri-manjunath-temple-mangalore-tourism-header.jpg', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
             { name: 'Kudroli Gokarnath Temple', image: 'https://imvoyager.com/wp-content/uploads/2021/04/Kudroli-Temple-Mangalore-Kudroli-Gokarnanatha-Temple-Gokarnanatheshwara-Temple--640x437.png', description: 'A beautiful temple known for its magnificent Dasara celebrations.' },
             { name: 'Mangaladevi Temple', image: 'https://www.thetravelmagazine.net/wp-content/uploads/Mangaladevi-Temple-Sunset.jpg', description: 'The ancient temple after which the city of Mangalore is named.' },
             { name: 'Polali Rajarajeshwari Temple', image: 'https://tempotravellermangalore.in/uploads/image/tour-packages/pilgrimage-places-in-mangalore/polali-rajarajeshwari-temple.jpg', description: 'Famous for its wooden idols and the historic Polali Chendu festival.' },
-            { name: 'Kateel Temple', image: 'https://temple.yatradham.org/public/Product/temple/temple_qID0YQIM_202505071643410.webp', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
-            { name: 'Someshwara Temple', image: 'https://i.ytimg.com/vi/onFyh3-6LOs/maxresdefault.jpg', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
+            { name: 'Kateel Temple', image: 'assets/places/kateel_temple.webp', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
+            { name: 'Someshwara Temple', image: 'assets/places/someshwara_temple.jpg', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
             { name: 'Urwa Marigudi Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.' },
-            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Bappanadu_temple_drum.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
-            { name: 'Karinjeshwara Hill Temple', image: 'https://i.ytimg.com/vi/FQ494-dBaWk/maxresdefault.jpg', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
+            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'assets/places/bappanadu_temple.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
+            { name: 'Karinjeshwara Hill Temple', image: 'assets/places/karinjeshwara_temple.jpg', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
         ]
     },
     'malls': {
@@ -697,7 +697,7 @@ function openMangaluruMustWatchModal() {
         },
         {
             name: 'Swami Koragajja Temple',
-            image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/53/e7/55/adhisthala-swami-koragajja.jpg?w=1200&h=-1&s=1',
+            image: 'assets/places/swami_koragajja_temple.jpg',
             rating: '4.9',
             location: 'Kuthar, Mangalore',
             bestTime: '🛕 Holy Darshan: 7:00 PM',
