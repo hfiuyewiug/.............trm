@@ -1012,13 +1012,46 @@ main {
         text-align: center;
         width: 100%;
         gap: 1.5rem;
+        position: relative;
+    }
+    .dest-header {
+        position: relative;
+        padding: 5rem 1rem 1.5rem;
+    }
+    .back-btn {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        margin: 0 !important;
+        z-index: 100;
     }
     .dest-header-row {
         justify-content: center;
         width: 100%;
     }
     .famous-food-header-card {
-        margin: 1rem auto 0;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 130px;
+        height: 130px;
+        margin: 0 !important;
+        z-index: 100;
+        border-radius: var(--radius-md) !important;
+    }
+    .famous-food-header-card .category-overlay {
+        padding: 0.5rem;
+        border-radius: var(--radius-md) !important;
+    }
+    .famous-food-header-card h3 {
+        font-size: 0.95rem !important;
+    }
+    .famous-food-header-card .swiper-slide div[style*="position: absolute"] {
+        top: 6px !important;
+        right: 6px !important;
+        padding: 2px 6px !important;
+        font-size: 0.6rem !important;
+        border-radius: 8px !important;
     }
     
     .dest-header h1 {
@@ -1151,7 +1184,7 @@ main {
     }
 
     .dest-header {
-        padding: 2.5rem 1rem 1.5rem;
+        padding: 5rem 1rem 1.5rem;
     }
 
     .dest-header h1 {
