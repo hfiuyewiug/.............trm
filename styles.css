@@ -1017,7 +1017,7 @@ main {
     .dest-header {
         position: relative;
         padding: 1.5rem 1rem 1.5rem;
-        min-height: 180px;
+        min-height: 200px;
     }
     .back-btn {
         margin: 0 !important;
@@ -1043,8 +1043,8 @@ main {
         position: absolute;
         top: 1.5rem;
         right: 1rem;
-        width: 130px;
-        height: 130px;
+        width: 155px;
+        height: 155px;
         margin: 0 !important;
         z-index: 100;
         border-radius: var(--radius-md) !important;
@@ -1195,7 +1195,7 @@ main {
 
     .dest-header {
         padding: 1.5rem 1rem 1.5rem;
-        min-height: 180px;
+        min-height: 200px;
     }
 
     .dest-header h1 {
