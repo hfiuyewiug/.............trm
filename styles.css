@@ -1032,6 +1032,10 @@ main {
         align-self: flex-start;
         text-align: left;
     }
+    .must-watch-btn {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
     .famous-food-header-card {
         position: absolute;
         top: 1.5rem;
