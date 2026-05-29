@@ -244,17 +244,161 @@ const mangaloreCategoryData = {
     }
 };
 
-function renderCategoryPage(categoryId) {
-    const category = mangaloreCategoryData[categoryId];
+const bangaloreCategories = [
+    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
+];
+
+const bangaloreCategoryData = {
+    'parks': {
+        name: 'Bangalore Parks & Gardens',
+        places: [
+            { name: 'Cubbon Park', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840', description: 'The lungs of the city, a sprawling green space with historic buildings and walking trails.' },
+            { name: 'Lalbagh Botanical Garden', image: 'https://images.unsplash.com/photo-1624385150247-4952093510f8?auto=format&fit=crop&q=100&w=3840', description: 'A historic botanical garden featuring a majestic 19th-century glass house inspired by London.' },
+            { name: 'Bannerghatta National Park', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840', description: 'A bio-reserve featuring an exciting tiger and lion safari, zoo, and butterfly park.' }
+        ]
+    },
+    'heritage': {
+        name: 'Bangalore Palaces & Heritage',
+        places: [
+            { name: 'Bangalore Palace', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840', description: 'A grand royal residence built in Tudor style, modeled after Windsor Castle.' },
+            { name: 'Tipu Sultan Palace', image: 'https://images.unsplash.com/photo-1622325324523-86815302772a?auto=format&fit=crop&q=100&w=3840', description: 'An ornate double-storied wooden palace featuring elegant arches, columns, and history.' },
+            { name: 'Devanahalli Fort', image: 'https://images.unsplash.com/photo-1580191947416-62d35a55e71d?auto=format&fit=crop&q=100&w=3840', description: 'A massive historic stone fort originating from 1501, famous as the birthplace of Tipu Sultan.' }
+        ]
+    },
+    'temples': {
+        name: 'Bangalore Temples',
+        places: [
+            { name: 'ISKCON Temple', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840', description: 'A massive neo-classical style cultural complex and temple dedicated to Krishna.' },
+            { name: 'Bull Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'Historic temple in Basavanagudi containing a monolithic statue of Nandi the bull.' },
+            { name: 'Shivoham Shiva Temple', image: 'https://images.unsplash.com/photo-1590480394626-821152686e18?auto=format&fit=crop&q=100&w=3840', description: 'Features a spectacular 65-foot statue of Lord Shiva seated amidst artificial mountains.' }
+        ]
+    },
+    'shopping': {
+        name: 'Bangalore Malls & Shopping',
+        places: [
+            { name: 'UB City', image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=100&w=3840', description: 'India\'s first luxury commercial mall featuring ultra-premium global brands and dining.' },
+            { name: 'Phoenix Marketcity', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=100&w=3840', description: 'One of the largest lifestyle malls in the city, popular for international fashion.' },
+            { name: 'Commercial Street', image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=100&w=3840', description: 'A highly bustling open-street market known for trendy wear, jewelry, and street shopping.' }
+        ]
+    },
+    'breweries': {
+        name: 'Bangalore Breweries & Pubs',
+        places: [
+            { name: 'Toit', image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=100&w=3840', description: 'A legendary and widely popular English-pub styled microbrewery situated in Indiranagar.' },
+            { name: 'Windmills Craftworks', image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=100&w=3840', description: 'A sophisticated craft brewery offering premier jazz performances and an integrated library.' },
+            { name: 'Arbor Brewing Company', image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=100&w=3840', description: 'A lively and rustic brewery serving excellent craft IPAs, stouts, and global food.' }
+        ]
+    }
+};
+
+const mysuruCategories = [
+    { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
+];
+
+const mysuruCategoryData = {
+    'palaces': {
+        name: 'Mysore Palaces',
+        places: [
+            { name: 'Mysore Palace', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840', description: 'One of the most grand palaces in India, outstandingly illuminated with 97,000 bulbs.' },
+            { name: 'Jaganmohan Palace', image: 'https://images.unsplash.com/photo-1588665805566-22442468305c?auto=format&fit=crop&q=100&w=3840', description: 'A beautiful historic palace featuring a premier art gallery displaying royal portraits and artifacts.' },
+            { name: 'Lalitha Mahal Palace', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840', description: 'A stunning white palace set against Chamundi Hills, built in classical Italian style.' }
+        ]
+    },
+    'hills_lakes': {
+        name: 'Mysore Hills & Lakes',
+        places: [
+            { name: 'Chamundi Hills', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840', description: 'A scenic hill overlooking Mysore, featuring a historic monolithic bull statue.' },
+            { name: 'Karanji Lake', image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840', description: 'A picturesque lake that hosts India\'s largest walk-through aviary and butterfly park.' },
+            { name: 'Kukkarahalli Lake', description: 'A peaceful, serene lake popular for quiet morning walks and bird watching.', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840' }
+        ]
+    },
+    'gardens': {
+        name: 'Mysore Gardens & Fountains',
+        places: [
+            { name: 'Brindavan Gardens', image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840', description: 'Beautifully manicured terraced gardens famed for their synchronized musical fountain shows.' },
+            { name: 'Bonsai Garden', image: 'https://images.unsplash.com/photo-1624385150247-4952093510f8?auto=format&fit=crop&q=100&w=3840', description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.' }
+        ]
+    },
+    'wildlife': {
+        name: 'Mysore Wildlife & Nature',
+        places: [
+            { name: 'Mysore Zoo', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840', description: 'One of India\'s oldest and most renowned zoos, home to a wide range of exotic animals.' },
+            { name: 'Ranganathittu Bird Sanctuary', image: 'https://images.unsplash.com/photo-1581791534721-e599df4408bc?auto=format&fit=crop&q=100&w=3840', description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.' }
+        ]
+    },
+    'heritage': {
+        name: 'Mysore Temples & Heritage',
+        places: [
+            { name: 'Chamundeshwari Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&80&w=1000', description: 'An ancient temple atop Chamundi Hills dedicated to the patron deity of Mysuru.' },
+            { name: 'St. Philomena\'s Cathedral', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840', description: 'A towering neo-gothic cathedral designed with majestic twin spires.' }
+        ]
+    }
+};
+
+const cityFoods = {
+    'mangaluru': [
+        { img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', name: 'Chicken Kori Rotti' },
+        { img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', name: 'Fish Fry' },
+        { img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', name: 'Mangalore Bun' },
+        { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
+    ],
+    'bangalore': [
+        { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Masala Dosa' },
+        { img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', name: 'Filter Coffee' },
+        { img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', name: 'Idli Vada' },
+        { img: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Ragi_mudde_and_sops.JPG', name: 'Ragi Mudde' }
+    ],
+    'mysuru': [
+        { img: 'https://images.unsplash.com/photo-1627916607244-72162a737452?auto=format&fit=crop&q=80&w=800', name: 'Mysore Pak' },
+        { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Mysore Masala Dosa' },
+        { img: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Mysore_bonda.JPG', name: 'Mysore Bonda' },
+        { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', name: 'Hanumanthu Biryani' }
+    ]
+};
+
+const cityCategories = {
+    'mangaluru': mangaloreCategories,
+    'bangalore': bangaloreCategories,
+    'mysuru': mysuruCategories
+};
+
+const cityCategoryData = {
+    'mangaluru': mangaloreCategoryData,
+    'bangalore': bangaloreCategoryData,
+    'mysuru': mysuruCategoryData
+};
+
+let currentCityId = 'mangaluru';
+
+function renderCategoryPage(categoryId, cityId = currentCityId) {
+    const cityData = cityCategoryData[cityId];
+    if (!cityData) return;
+    const category = cityData[categoryId];
     if (!category) return;
+
+    const cityName = cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
 
     const destHTML = `
         <div class="page-content">
             <header class="dest-header">
                 <div class="dest-header-row" style="margin-bottom: 2rem;">
-                    <a href="#" class="back-btn" id="back-to-mangaluru" style="margin-bottom: 0;">
+                    <a href="#" class="back-btn" id="back-to-city" style="margin-bottom: 0;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                        Back to Mangaluru
+                        Back to ${cityName}
                     </a>
                     <button class="must-watch-btn" id="must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -284,9 +428,9 @@ function renderCategoryPage(categoryId) {
 
     app.innerHTML = destHTML;
 
-    document.getElementById('back-to-mangaluru').addEventListener('click', (e) => {
+    document.getElementById('back-to-city').addEventListener('click', (e) => {
         e.preventDefault();
-        renderDestination('mangaluru');
+        renderDestination(cityId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
@@ -343,6 +487,10 @@ function renderDestination(id) {
     const dest = destinations.find(d => d.id === id);
     if (!dest) return;
 
+    currentCityId = id;
+
+    const isPremiumCity = ['mangaluru', 'bangalore', 'mysuru'].includes(dest.id);
+
     const destHTML = `
         <div class="page-content" style="position: relative;">
             <header class="dest-header dest-header-flex">
@@ -351,24 +499,19 @@ function renderDestination(id) {
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back to Home
                     </a>
-                    ${dest.id === 'mangaluru' ? `
-                    <button class="must-watch-btn" id="mangaluru-must-watch-btn">
+                    ${isPremiumCity ? `
+                    <button class="must-watch-btn" id="city-must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                         Must Watching <span class="hide-mobile">Places</span>
                     </button>
                     ` : ''}
                 </div>
                 
-                ${dest.id === 'mangaluru' ? `
+                ${isPremiumCity ? `
                 <div class="category-card famous-food-header-card" data-cat-id="food">
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
-                            ${[
-                                { img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', name: 'Chicken Kori Rotti' },
-                                { img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', name: 'Fish Fry' },
-                                { img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', name: 'Mangalore Bun' },
-                                { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
-                            ].map(item => `
+                            ${cityFoods[dest.id].map(item => `
                                 <div class="swiper-slide" style="position: relative;">
                                     <img src="${item.img}" alt="${item.name}" loading="lazy" decoding="async">
                                     <div style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2);">
@@ -380,11 +523,13 @@ function renderDestination(id) {
                     </div>
                     <div class="category-overlay">
                         <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
-                        <p style="margin:0; font-size: 0.9rem;">Chicken Kori Rotti, Fish Fry, Mangalore Bun & More</p>
+                        <p style="margin:0; font-size: 0.9rem;">
+                            ${dest.id === 'mangaluru' ? 'Chicken Kori Rotti, Fish Fry, Mangalore Bun & More' : dest.id === 'bangalore' ? 'Masala Dosa, Filter Coffee, Idli Vada & More' : 'Mysore Pak, Mysore Masala Dosa, Mylari & More'}
+                        </p>
                     </div>
                 </div>
                 ` : ''}
-                ${dest.id !== 'mangaluru' ? `
+                ${!isPremiumCity ? `
                 <div style="width: 100%; text-align: center;">
                     <h1>Famous Places in <span>${dest.name}</span></h1>
                     <p>Explore the natural beauty and serene landscapes of ${dest.name}.</p>
@@ -392,7 +537,7 @@ function renderDestination(id) {
                 ` : ''}
             </header>
 
-            ${dest.id !== 'mangaluru' ? `
+            ${!isPremiumCity ? `
             <div class="places-grid">
                 ${dest.famousPlaces.map(place => `
                     <div class="place-card">
@@ -409,11 +554,11 @@ function renderDestination(id) {
             </div>
             ` : ''}
 
-            ${dest.id === 'mangaluru' ? `
+            ${isPremiumCity ? `
                 <div class="categories-section">
-                    <h2 class="section-title">Mangalore Categories</h2>
+                    <h2 class="section-title">${dest.name} Categories</h2>
                     <div class="category-grid">
-                        ${mangaloreCategories.map(cat => `
+                        ${cityCategories[dest.id].map(cat => `
                             <div class="category-card ${cat.empty ? 'empty-card' : ''}" data-cat-id="${cat.id}">
                                 <div class="category-img">
                                     <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async">
@@ -439,11 +584,11 @@ function renderDestination(id) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Initialize Swiper for Famous Food if we are in Mangaluru page
-    if (dest.id === 'mangaluru' && typeof Swiper !== 'undefined') {
+    // Initialize Swiper for Famous Food if we are in a premium city page
+    if (isPremiumCity && typeof Swiper !== 'undefined') {
         new Swiper('.food-swiper', {
             loop: true,
-            speed: 1200, // smooth cinematic transition
+            speed: 1200,
             autoplay: {
                 delay: 2000,
                 disableOnInteraction: false,
@@ -451,17 +596,17 @@ function renderDestination(id) {
             },
             effect: 'slide',
             grabCursor: true,
-            touchRatio: 1.2, // easier swipe
+            touchRatio: 1.2,
             resistanceRatio: 0.8,
         });
     }
 
-    // Add Mangaluru Must Watch button listener if present
-    const mustWatchBtn = document.getElementById('mangaluru-must-watch-btn');
+    // Add Must Watch button listener if present
+    const mustWatchBtn = document.getElementById('city-must-watch-btn');
     if (mustWatchBtn) {
         mustWatchBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            openMangaluruMustWatchModal();
+            openCityMustWatchModal(dest.id);
         });
     }
 
@@ -470,7 +615,7 @@ function renderDestination(id) {
         card.addEventListener('click', () => {
             const catId = card.getAttribute('data-cat-id');
             if (catId && !catId.startsWith('coming_soon')) {
-                renderCategoryPage(catId);
+                renderCategoryPage(catId, dest.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
@@ -628,10 +773,262 @@ function openMustWatchModal(category) {
         };
         document.addEventListener('keydown', escHandler);
 
-    }, 600); // 600ms loading effect
+    }, 600);
 }
 
-function openMangaluruMustWatchModal() {
+const cityMustWatchData = {
+    'mangaluru': {
+        title: '🌍 Mangalore Must Watching Places',
+        places: [
+            {
+                name: 'Kadri Manjunath Temple',
+                image: 'assets/places/kadri_temple.jpg',
+                rating: '4.8',
+                location: 'Kadri Temple Road, Mangalore',
+                bestTime: '🛕 Morning Darshan: 8:00 AM',
+                description: 'An ancient Hindu temple dating back to the 10th century, famous for its bronze statue of Lokeshvara and natural spring ponds.'
+            },
+            {
+                name: 'Ocean Pearl Hotel / Ideal Café',
+                image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
+                rating: '4.7',
+                location: 'Kodialbail, Mangalore',
+                bestTime: '🍽️ Lunch Timings: 1:30 PM',
+                description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
+            },
+            {
+                name: 'Sultan Battery',
+                image: 'https://mangaloreblogs.com/wp-content/uploads/2025/03/Sultan-Battery.png',
+                rating: '4.6',
+                location: 'Boloor, Mangalore',
+                bestTime: '🕒 Afternoon Breeze: 3:30 PM',
+                description: 'A watchtower built by Tipu Sultan in 1784, constructed of black stone to prevent warship intrusions via the Gurupura River.'
+            },
+            {
+                name: 'Panambur Beach',
+                image: 'assets/places/panambur_beach.jpg',
+                rating: '4.9',
+                location: 'Coastal Hwy, Mangalore',
+                bestTime: '🌅 Evening View: 5:00 PM',
+                description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
+            },
+            {
+                name: 'Swami Koragajja Temple',
+                image: 'assets/places/swami_koragajja_temple.jpg',
+                rating: '4.9',
+                location: 'Kuthar, Mangalore',
+                bestTime: '🛕 Holy Darshan: 7:00 PM',
+                description: 'A highly revered and powerful sacred shrine dedicated to Swami Koragajja, drawing massive crowds of faithful devotees seeking direct blessings.'
+            }
+        ],
+        nodes: [
+            {
+                dot: 1,
+                name: 'Kadri Manjunath Temple',
+                time: '🛕 Morning Darshan: 8:00 AM',
+                detour: { id: 'mangaladevi', text: '⚡ Detour to Mangaladevi Temple (5 KM)', category: 'temples' }
+            },
+            {
+                dot: 2,
+                name: 'Ocean Pearl Hotel / Ideal Café',
+                time: '🍽️ Lunch Timings: 1:30 PM',
+                detour: { id: 'aloysius', text: '⚡ Detour to St. Aloysius Chapel (1 KM)', category: 'churches' }
+            },
+            {
+                dot: 3,
+                name: 'Sultan Battery',
+                time: '🕒 Afternoon Breeze: 3:30 PM',
+                detour: { id: 'tannirbhavi', text: '⚡ Detour to Tannirbhavi Beach (2 KM)', category: 'beaches' }
+            },
+            {
+                dot: 4,
+                name: 'Panambur Beach',
+                time: '🌅 Evening View: 5:00 PM',
+                detour: { id: 'koragajja', text: '⚡ Detour to Swami Koragajja Temple (17 KM)', slideIndex: 4 }
+            },
+            {
+                dot: 5,
+                name: 'Swami Koragajja Temple',
+                time: '🛕 Holy Darshan: 7:00 PM'
+            }
+        ],
+        distances: [
+            { dist: '3 KM', time: '🚗 8m | 🏍️ 6m' },
+            { dist: '6 KM', time: '🚗 10m | 🏍️ 9m' },
+            { dist: '10 KM', time: '🚗 18m | 🏍️ 15m' },
+            { dist: '17 KM', time: '🚗 30m | 🏍️ 25m' }
+        ]
+    },
+    'bangalore': {
+        title: '🌍 Bangalore Must Watching Places',
+        places: [
+            {
+                name: 'Cubbon Park',
+                image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.8',
+                location: 'Kasturba Road, Bangalore',
+                bestTime: '🌳 Morning Stroll: 8:00 AM',
+                description: 'The green heart of Bangalore, a sprawling park perfect for morning walks, jogging, and exploring public libraries.'
+            },
+            {
+                name: 'Vidyarthi Bhavan',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                rating: '4.7',
+                location: 'Gandhi Bazaar, Bangalore',
+                bestTime: '🍽️ Breakfast Timings: 9:30 AM',
+                description: 'A historic vegetarian restaurant in Gandhi Bazaar legendary for its thick, crispy, and butter-dripping Masala Dosas.'
+            },
+            {
+                name: 'Bangalore Palace',
+                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.6',
+                location: 'Vasanth Nagar, Bangalore',
+                bestTime: '🏰 Tudor Palace Tour: 11:30 AM',
+                description: 'A majestic palace featuring Tudor style architecture, fortified towers, elegant wooden carvings, and royal memorabilia.'
+            },
+            {
+                name: 'ISKCON Temple',
+                image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.8',
+                location: 'Rajajinagar, Bangalore',
+                bestTime: '🛕 Evening Darshan: 4:30 PM',
+                description: 'A spectacular neo-classical temple featuring grand shrines, a gold-plated flag post, and vibrant spiritual atmosphere.'
+            },
+            {
+                name: 'UB City',
+                image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.9',
+                location: 'Vittal Mallya Road, Bangalore',
+                bestTime: '🍷 Premium Dining: 7:30 PM',
+                description: 'India\'s first luxury commercial complex, hosting ultra-premium shopping boutiques, art galleries, and dynamic rooftop restaurants.'
+            }
+        ],
+        nodes: [
+            {
+                dot: 1,
+                name: 'Cubbon Park',
+                time: '🌳 Morning Stroll: 8:00 AM',
+                detour: { id: 'lalbagh', text: '⚡ Detour to Lalbagh Garden (4 KM)', category: 'parks' }
+            },
+            {
+                dot: 2,
+                name: 'Vidyarthi Bhavan',
+                time: '🍽️ Breakfast Timings: 9:30 AM',
+                detour: { id: 'commercial', text: '⚡ Detour to Commercial Street (5 KM)', category: 'shopping' }
+            },
+            {
+                dot: 3,
+                name: 'Bangalore Palace',
+                time: '🏰 Tudor Palace Tour: 11:30 AM',
+                detour: { id: 'tipu', text: '⚡ Detour to Tipu Sultan Palace (5 KM)', category: 'heritage' }
+            },
+            {
+                dot: 4,
+                name: 'ISKCON Temple',
+                time: '🛕 Evening Darshan: 4:30 PM',
+                detour: { id: 'ubcity', text: '⚡ Detour to UB City (7 KM)', slideIndex: 4 }
+            },
+            {
+                dot: 5,
+                name: 'UB City',
+                time: '🍷 Premium Dining: 7:30 PM'
+            }
+        ],
+        distances: [
+            { dist: '4 KM', time: '🚗 12m | 🏍️ 10m' },
+            { dist: '5 KM', time: '🚗 15m | 🏍️ 12m' },
+            { dist: '8 KM', time: '🚗 20m | 🏍️ 18m' },
+            { dist: '7 KM', time: '🚗 18m | 🏍️ 15m' }
+        ]
+    },
+    'mysuru': {
+        title: '🌍 Mysore Must Watching Places',
+        places: [
+            {
+                name: 'Chamundi Hills',
+                image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.8',
+                location: 'Chamundi Hill Road, Mysore',
+                bestTime: '🛕 Morning Darshan: 7:30 AM',
+                description: 'A holy hill dedicated to Goddess Chamundeshwari, offering sweeping bird\'s eye views of the heritage city of Mysore.'
+            },
+            {
+                name: 'Mylari Hotel',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                rating: '4.7',
+                location: 'Nazarbad, Mysore',
+                bestTime: '🍽️ Breakfast Timings: 9:30 AM',
+                description: 'Legendary restaurant renowned for serving the softest Mylari butter masala dosas accompanied by unique coconut chutney.'
+            },
+            {
+                name: 'Mysore Palace',
+                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.9',
+                location: 'Sayyaji Rao Road, Mysore',
+                bestTime: '👑 Royal Palace Tour: 11:00 AM',
+                description: 'One of the most magnificent palaces in India, a true architectural masterpiece combining Indo-Saracenic styles.'
+            },
+            {
+                name: 'Mysore Zoo',
+                image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.8',
+                location: 'Indiranagar, Mysore',
+                bestTime: '🐅 Wildlife Walk: 2:30 PM',
+                description: 'Sri Chamarajendra Zoological Gardens, housing diverse global animal species in a beautifully forested urban sanctuary.'
+            },
+            {
+                name: 'Brindavan Gardens',
+                image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840',
+                rating: '4.7',
+                location: 'KRS Dam, Mandya (Mysore)',
+                bestTime: '⛲ Musical Fountain: 6:00 PM',
+                description: 'Stunningly landscaped terraced gardens famed for their vibrant, colorful synchronized musical fountain and laser show.'
+            }
+        ],
+        nodes: [
+            {
+                dot: 1,
+                name: 'Chamundi Hills',
+                time: '🛕 Morning Darshan: 7:30 AM',
+                detour: { id: 'karanji', text: '⚡ Detour to Karanji Lake (5 KM)', category: 'hills_lakes' }
+            },
+            {
+                dot: 2,
+                name: 'Mylari Hotel',
+                time: '🍽️ Breakfast Timings: 9:30 AM',
+                detour: { id: 'gurupak', text: '⚡ Detour to Guru Sweet Mart (3 KM)', category: 'palaces' }
+            },
+            {
+                dot: 3,
+                name: 'Mysore Palace',
+                time: '👑 Royal Palace Tour: 11:00 AM',
+                detour: { id: 'philomena', text: '⚡ Detour to St. Philomena\'s (2 KM)', category: 'heritage' }
+            },
+            {
+                dot: 4,
+                name: 'Mysore Zoo',
+                time: '🐅 Wildlife Walk: 2:30 PM',
+                detour: { id: 'brindavan', text: '⚡ Detour to Brindavan Gardens (19 KM)', slideIndex: 4 }
+            },
+            {
+                dot: 5,
+                name: 'Brindavan Gardens',
+                time: '⛲ Musical Fountain: 6:00 PM'
+            }
+        ],
+        distances: [
+            { dist: '5 KM', time: '🚗 12m | 🏍️ 10m' },
+            { dist: '2 KM', time: '🚗 6m | 🏍️ 5m' },
+            { dist: '3 KM', time: '🚗 8m | 🏍️ 6m' },
+            { dist: '19 KM', time: '🚗 35m | 🏍️ 30m' }
+        ]
+    }
+};
+
+function openCityMustWatchModal(cityId) {
+    const cityData = cityMustWatchData[cityId];
+    if (!cityData) return;
+
     // Remove existing modal if any
     const existing = document.getElementById('mangaluru-must-watch-modal-overlay');
     if (existing) existing.remove();
@@ -654,62 +1051,11 @@ function openMangaluruMustWatchModal() {
 
     loader.classList.add('active');
 
-    const top6Places = [
-        {
-            name: 'Kadri Manjunath Temple',
-            image: 'assets/places/kadri_temple.jpg',
-            rating: '4.8',
-            location: 'Kadri Temple Road, Mangalore',
-            bestTime: '🛕 Morning Darshan: 8:00 AM',
-            description: 'An ancient Hindu temple dating back to the 10th century, famous for its bronze statue of Lokeshvara and natural spring ponds.'
-        },
-        {
-            name: 'Ocean Pearl Hotel / Ideal Café',
-            image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.7',
-            location: 'Kodialbail, Mangalore',
-            bestTime: '🍽️ Lunch Timings: 1:30 PM',
-            description: 'Famous for modern luxury stay and mouthwatering Mangalorean street food, particularly the iconic Ideal ice creams.'
-        },
-        {
-            name: 'Sultan Battery',
-            image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.6',
-            location: 'Boloor, Mangalore',
-            bestTime: '🕒 Afternoon Breeze: 3:30 PM',
-            description: 'A watchtower built by Tipu Sultan in 1784, constructed of black stone to prevent warship intrusions via the Gurupura River.'
-        },
-        {
-            name: 'Panambur Beach',
-            image: 'assets/places/panambur_beach.jpg',
-            rating: '4.9',
-            location: 'Coastal Hwy, Mangalore',
-            bestTime: '🌅 Evening View: 5:00 PM',
-            description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
-        },
-        {
-            name: 'Gokarnanatheshwara Temple',
-            image: 'https://images.unsplash.com/photo-1602631985686-2bb0686a6a5a?auto=format&fit=crop&q=80&w=800&fm=webp',
-            rating: '4.8',
-            location: 'Kudroli, Mangalore',
-            bestTime: '🛕 Evening Lights: 6:30 PM',
-            description: 'Also known as Kudroli Temple, this magnificent structure is dedicated to Lord Gokarnanatha and features a stunning golden Gopuram.'
-        },
-        {
-            name: 'Swami Koragajja Temple',
-            image: 'assets/places/swami_koragajja_temple.jpg',
-            rating: '4.9',
-            location: 'Kuthar, Mangalore',
-            bestTime: '🛕 Holy Darshan: 7:00 PM',
-            description: 'A highly revered and powerful sacred shrine dedicated to Swami Koragajja, drawing massive crowds of faithful devotees seeking direct blessings.'
-        }
-    ];
-
     const modalHTML = `
         <div class="must-watch-modal-overlay" id="mangaluru-must-watch-modal-overlay">
             <div class="must-watch-modal" style="max-width: 1100px;">
                 <header class="must-watch-modal-header">
-                    <h2>🌍 Mangalore Must Watching Places</h2>
+                    <h2>${cityData.title}</h2>
                     <button class="must-watch-close-btn" id="mangaluru-must-watch-close-btn" aria-label="Close modal">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
@@ -720,7 +1066,7 @@ function openMangaluruMustWatchModal() {
                     <div class="mangaluru-carousel-pane">
                         <div class="swiper must-watch-swiper mangaluru-must-watch-swiper">
                             <div class="swiper-wrapper">
-                                ${top6Places.map((place, idx) => `
+                                ${cityData.places.map((place, idx) => `
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
@@ -761,85 +1107,31 @@ function openMangaluruMustWatchModal() {
                         <div class="mangaluru-route-map">
                             <div class="route-line-animated"></div>
                             
-                            <!-- Node 1 -->
-                            <div class="route-node active" data-index="0">
-                                <div class="node-dot">1</div>
-                                <div class="node-content">
-                                    <h4>Kadri Manjunath Temple</h4>
-                                    <span class="node-best-time">🛕 Morning Darshan: 8:00 AM</span>
-                                    <span class="route-detour-btn" id="gokarna-detour-btn">⚡ Detour to Gokarnanatheshwara Temple (5 KM)</span>
+                            ${cityData.nodes.map((node, idx) => `
+                                <!-- Node ${idx + 1} -->
+                                <div class="route-node ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+                                    <div class="node-dot">${node.dot}</div>
+                                    <div class="node-content">
+                                        <h4>${node.name}</h4>
+                                        <span class="node-best-time">${node.time}</span>
+                                        ${node.detour ? `
+                                            <span class="route-detour-btn" 
+                                                  id="${cityId}-detour-${idx}" 
+                                                  data-type="${node.detour.category ? 'cat' : 'slide'}" 
+                                                  data-target="${node.detour.category || node.detour.slideIndex}">
+                                                ${node.detour.text}
+                                            </span>
+                                        ` : ''}
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 3 KM</span>
-                                <span class="time-pills">🚗 8m | 🏍️ 6m</span>
-                            </div>
-                            
-                            <!-- Node 2 -->
-                            <div class="route-node" data-index="1">
-                                <div class="node-dot">2</div>
-                                <div class="node-content">
-                                    <h4>Ocean Pearl Hotel / Ideal Café</h4>
-                                    <span class="node-best-time">🍽️ Lunch Timings: 1:30 PM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 6 KM</span>
-                                <span class="time-pills">🚗 10m | 🏍️ 9m</span>
-                            </div>
-                            
-                            <!-- Node 3 -->
-                            <div class="route-node" data-index="2">
-                                <div class="node-dot">3</div>
-                                <div class="node-content">
-                                    <h4>Sultan Battery</h4>
-                                    <span class="node-best-time">🕒 Afternoon Breeze: 3:30 PM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 10 KM</span>
-                                <span class="time-pills">🚗 18m | 🏍️ 15m</span>
-                            </div>
-                            
-                            <!-- Node 4 -->
-                            <div class="route-node" data-index="3">
-                                <div class="node-dot">4</div>
-                                <div class="node-content">
-                                    <h4>Panambur Beach</h4>
-                                    <span class="node-best-time">🌅 Evening View: 5:00 PM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 9 KM</span>
-                                <span class="time-pills">🚗 18m | 🏍️ 15m</span>
-                            </div>
-                            
-                            <!-- Node 5 -->
-                            <div class="route-node" data-index="4">
-                                <div class="node-dot">5</div>
-                                <div class="node-content">
-                                    <h4>Gokarnanatheshwara Temple</h4>
-                                    <span class="node-best-time">🛕 Evening Lights: 6:30 PM</span>
-                                </div>
-                            </div>
-                            
-                            <div class="route-distance-label">
-                                <span class="dist-pill">🛣️ 8 KM</span>
-                                <span class="time-pills">🚗 15m | 🏍️ 12m</span>
-                            </div>
-                            
-                            <!-- Node 6 -->
-                            <div class="route-node" data-index="5">
-                                <div class="node-dot">6</div>
-                                <div class="node-content">
-                                    <h4>Swami Koragajja Temple</h4>
-                                    <span class="node-best-time">🛕 Holy Darshan: 7:00 PM</span>
-                                </div>
-                            </div>
+                                
+                                ${idx < cityData.nodes.length - 1 ? `
+                                    <div class="route-distance-label">
+                                        <span class="dist-pill">🛣️ ${cityData.distances[idx].dist}</span>
+                                        <span class="time-pills">${cityData.distances[idx].time}</span>
+                                    </div>
+                                ` : ''}
+                            `).join('')}
                         </div>
                     </div>
                 </div>
@@ -855,6 +1147,14 @@ function openMangaluruMustWatchModal() {
 
         const overlay = document.getElementById('mangaluru-must-watch-modal-overlay');
         const closeBtn = document.getElementById('mangaluru-must-watch-close-btn');
+
+        const closeModal = () => {
+            overlay.classList.remove('active');
+            // Wait for transition to complete before removing from DOM
+            setTimeout(() => {
+                overlay.remove();
+            }, 600);
+        };
 
         // Smooth scale entrance
         setTimeout(() => {
@@ -908,24 +1208,29 @@ function openMangaluruMustWatchModal() {
             });
         });
 
-        // Add detour link handler
-        const detourBtn = document.getElementById('gokarna-detour-btn');
-        if (detourBtn) {
-            detourBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Avoid triggering node click
-                if (swiperInstance) {
-                    swiperInstance.slideToLoop(4, 800); // 4 is Gokarnanatheshwara Temple
+        // Add detour link handlers dynamically
+        cityData.nodes.forEach((node, idx) => {
+            if (node.detour) {
+                const detourBtn = document.getElementById(`${cityId}-detour-${idx}`);
+                if (detourBtn) {
+                    detourBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const type = detourBtn.getAttribute('data-type');
+                        const target = detourBtn.getAttribute('data-target');
+                        
+                        if (type === 'cat') {
+                            closeModal();
+                            renderCategoryPage(target, cityId);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else if (type === 'slide') {
+                            if (swiperInstance) {
+                                swiperInstance.slideToLoop(parseInt(target), 800);
+                            }
+                        }
+                    });
                 }
-            });
-        }
-
-        const closeModal = () => {
-            overlay.classList.remove('active');
-            // Wait for transition to complete before removing from DOM
-            setTimeout(() => {
-                overlay.remove();
-            }, 600);
-        };
+            }
+        });
 
         closeBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', (e) => {
