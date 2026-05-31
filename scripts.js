@@ -304,7 +304,7 @@ const mysuruCategories = [
     { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://i.pinimg.com/736x/9e/69/4c/9e694c072f6c1a9be2a9ae4b2c0b170c.jpg' },
     { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg' },
     { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://southindiatravels.in/images/resource/SouthIndia-Travels-Regional-Museum-of-Natural-History-Mysore.jpg' },
+    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg' },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
 ];
@@ -354,7 +354,7 @@ const mysuruCategoryData = {
     'museums': {
         name: 'Mysore Museums',
         places: [
-            { name: 'Regional Museum of Natural History', image: 'https://southindiatravels.in/images/resource/SouthIndia-Travels-Regional-Museum-of-Natural-History-Mysore.jpg', description: 'A fascinating museum showcasing the biological diversity, ecology, and geology of southern India through engaging exhibits and galleries.' },
+            { name: 'Mysore Sand Sculpture Museum', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg', description: 'A unique museum exhibiting spectacular creative sand sculptures crafted by professional artists, showcasing intricate depictions of heritage, wildlife, and mythological themes.' },
             { name: 'Mysore Rail Museum', image: 'https://images.unsplash.com/photo-1532103054090-334e6e60ab29?auto=format&fit=crop&q=80&w=800', description: 'An outdoor museum displaying vintage locomotives, royal carriages, and historical railway memorabilia, perfect for history enthusiasts.' }
         ]
     }
