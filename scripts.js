@@ -101,7 +101,7 @@ const destinations = [
             },
             {
                 name: 'Brindavan Gardens',
-                image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg',
                 description: 'Beautifully landscaped gardens famous for their musical fountain shows.'
             },
             {
@@ -329,8 +329,8 @@ const mysuruCategoryData = {
     'gardens': {
         name: 'Mysore Gardens & Fountains',
         places: [
-            { name: 'Brindavan Gardens', image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840', description: 'Beautifully manicured terraced gardens famed for their synchronized musical fountain shows.' },
-            { name: 'Bonsai Garden', image: 'https://images.unsplash.com/photo-1624385150247-4952093510f8?auto=format&fit=crop&q=100&w=3840', description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.' }
+            { name: 'Brindavan Gardens', image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg', description: 'Beautifully manicured terraced gardens famed for their synchronized musical fountain shows.' },
+            { name: 'Bonsai Garden', image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-bonsai-garden-1.jpg', description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.' }
         ]
     },
     'wildlife': {
@@ -978,7 +978,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'Brindavan Gardens',
-                image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg',
                 rating: '4.7',
                 location: 'KRS Dam, Mandya (Mysore)',
                 bestTime: '⛲ Musical Fountain: 6:00 PM',
