@@ -356,7 +356,8 @@ const mysuruCategoryData = {
         places: [
             { name: 'Gowri Sand Sculpture Museum', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg', description: 'A unique museum exhibiting spectacular creative sand sculptures crafted by professional artists, showcasing intricate depictions of heritage, wildlife, and mythological themes.' },
             { name: 'Mysore Rail Museum', image: 'https://www.shutterstock.com/shutterstock/photos/2291081411/display_1500/stock-photo-mysore-railway-museum-karnataka-india-september-tourists-visiting-the-mysore-railway-museum-2291081411.jpg', description: 'An outdoor museum displaying vintage locomotives, royal carriages, and historical railway memorabilia, perfect for history enthusiasts.' },
-            { name: 'Payana Vintage Car Museum', image: 'https://mysoremedia.com/wp-content/uploads/2024/09/payana-vintage-car-musuem-entrance-scaled.jpg', description: 'A spectacular new museum on the Mysore-Bangalore highway exhibiting a grand collection of classic and vintage cars, beautifully curated to celebrate automotive history.' }
+            { name: 'Payana Vintage Car Museum', image: 'https://mysoremedia.com/wp-content/uploads/2024/09/payana-vintage-car-musuem-entrance-scaled.jpg', description: 'A spectacular new museum on the Mysore-Bangalore highway exhibiting a grand collection of classic and vintage cars, beautifully curated to celebrate automotive history.' },
+            { name: 'Jaganmohana Palace Art Gallery', image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg', description: 'A historic palace museum housing a magnificent collection of paintings, musical instruments, and rare royal artifacts from the Wodeyar dynasty.' }
         ]
     }
 };
