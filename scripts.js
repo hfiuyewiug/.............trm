@@ -314,8 +314,8 @@ const mysuruCategoryData = {
         name: 'Mysore Palaces',
         places: [
             { name: 'Mysore Palace', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840', description: 'One of the most grand palaces in India, outstandingly illuminated with 97,000 bulbs.' },
-            { name: 'Jaganmohan Palace', image: 'https://images.unsplash.com/photo-1588665805566-22442468305c?auto=format&fit=crop&q=100&w=3840', description: 'A beautiful historic palace featuring a premier art gallery displaying royal portraits and artifacts.' },
-            { name: 'Lalitha Mahal Palace', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840', description: 'A stunning white palace set against Chamundi Hills, built in classical Italian style.' }
+            { name: 'Jaganmohan Palace', image: 'https://imgcld.yatra.com/ytimages/image/upload/v1434118406/Mysore_bbu.jpg', description: 'A beautiful historic palace featuring a premier art gallery displaying royal portraits and artifacts.' },
+            { name: 'Lalitha Mahal Palace', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/26/1e/39/lalitha-mahal-palace.jpg?w=700&h=-1&s=1', description: 'A stunning white palace set against Chamundi Hills, built in classical Italian style.' }
         ]
     },
     'hills_lakes': {
