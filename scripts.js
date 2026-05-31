@@ -414,7 +414,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                 ${category.places.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === "St. Philomena's Cathedral" ? 'style="object-fit: contain; background: #000;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                         </div>
                         <div class="place-info">
                             <h3>${place.name}</h3>
