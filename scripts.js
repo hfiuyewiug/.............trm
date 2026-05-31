@@ -345,7 +345,8 @@ const mysuruCategoryData = {
         places: [
             { name: 'Chamundeshwari Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&80&w=1000', description: 'An ancient temple atop Chamundi Hills dedicated to the patron deity of Mysuru.' },
             { name: 'St. Philomena\'s Cathedral', image: 'https://i.pinimg.com/originals/67/7d/f9/677df9fc5e071c32c23b53c5bc59a466.jpg', description: 'A towering neo-gothic cathedral designed with majestic twin spires.' },
-            { name: 'Venugopala Swamy Temple | Submerged Temple', image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg', description: 'A magnificent historic temple located near KRS Dam that was once submerged under water and later relocated and restored to its full glory.' }
+            { name: 'Venugopala Swamy Temple | Submerged Temple', image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg', description: 'A magnificent historic temple located near KRS Dam that was once submerged under water and later relocated and restored to its full glory.' },
+            { name: 'ISKCON Temple', image: 'https://www.iskconmysore.org/wp-content/uploads/2022/11/008.jpg', description: 'A beautiful spiritual center dedicated to Sri Sri Krishna Balarama, featuring a peaceful atmosphere, wonderful architecture, and soul-stirring bhajans.' }
         ]
     }
 };
@@ -414,7 +415,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                 ${category.places.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === "St. Philomena's Cathedral" ? 'style="object-fit: contain; background: #000;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                         </div>
                         <div class="place-info">
                             <h3>${place.name}</h3>
