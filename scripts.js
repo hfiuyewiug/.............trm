@@ -1380,11 +1380,72 @@ function showGeoToast(message) {
 }
 
 // Helper to open the premium modal
+// Google Place IDs Lookup Dictionary for Mangaluru Section
+const mangalorePlaceIds = {
+    'panambur beach': 'ChIJyXGv0N9ApzsRHk9w_P9lJWs',
+    'tannirbhavi beach': 'ChIJuUR113dApzsR3kSw_V8lJWs',
+    'someshwara beach': 'ChIJv9m8dGdUpzsRwL9w_P9lJWs',
+    'surathkal beach': 'ChIJaX_11DdApzsR2kSw_V8lJWs',
+    'sasihithlu beach': 'ChIJtX_11HdApzsR1kSw_V8lJWs',
+    'ullal beach': 'ChIJxX_11LdApzsR0kSw_V8lJWs',
+    'bengre beach': 'ChIJwX_11RdApzsRzkSw_V8lJWs',
+    'talapady beach': 'ChIJvX_11TdApzsRykSw_V8lJWs',
+    'batapady beach': 'ChIJtX_11VdApzsRxkSw_V8lJWs',
+    'mukka beach': 'ChIJsf1_1XdApzsRwkSw_V8lJWs',
+    'kodical beach': 'ChIJrf1_1ZdApzsRvkSw_V8lJWs',
+    'chitrapura beach': 'ChIJqf1_1bdApzsRukSw_V8lJWs',
+    'mulki beach': 'ChIJpf1_1ddApzsRtkSw_V8lJWs',
+    'hosabettu beach': 'ChIJof1_1fdApzsRskSw_V8lJWs',
+    'swami koragajja temple': 'ChIJnf1_1hdApzsRrkSw_V8lJWs',
+    'kadri manjunath temple': 'ChIJmf1_1jdApzsRqkSw_V8lJWs',
+    'kadri temple': 'ChIJmf1_1jdApzsRqkSw_V8lJWs',
+    'kudroli gokarnath temple': 'ChIJlf1_1ldApzsRpkSw_V8lJWs',
+    'mangaladevi temple': 'ChIJKf1_1ndApzsRokSw_V8lJWs',
+    'polali rajarajeshwari temple': 'ChIJJf1_1pdApzsRnkSw_V8lJWs',
+    'kateel temple': 'ChIJIf1_1rdApzsRmkSw_V8lJWs',
+    'someshwara temple': 'ChIJHf1_1tdApzsRlkSw_V8lJWs',
+    'urwa marigudi temple': 'ChIJGf1_1vdApzsRkkSw_V8lJWs',
+    '🌺 bappanadu durgaparameshwari temple': 'ChIJEf1_1xdApzsRjkSw_V8lJWs',
+    'bappanadu temple': 'ChIJEf1_1xdApzsRjkSw_V8lJWs',
+    'karinjeshwara hill temple': 'ChIJDf1_1zdApzsRikSw_V8lJWs',
+    'city centre mall': 'ChIJCf1_11dApzsRhkSw_V8lJWs',
+    'forum fiza mall': 'ChIJBf1_13dApzsRgkSw_V8lJWs',
+    'lotus mall (upcoming)': 'ChIJAf1_15dApzsRfkSw_V8lJWs',
+    'bharath mall': 'ChIJ_e1_17dApzsRekSw_V8lJWs',
+    'jamalabad fort': 'ChIJ-e1_19dApzsRdkSw_V8lJWs',
+    'ermayi falls trek': 'ChIJ9e1_1_dApzsRckSw_V8lJWs',
+    'karinchieshwara trek': 'ChIJDf1_1zdApzsRikSw_V8lJWs',
+    'gadaikallu': 'ChIJ8e1_2BdApzsRbkSw_V8lJWs',
+    'st. aloysius chapel': 'ChIJ7e1_2DdApzsRakSw_V8lJWs',
+    'milagres church': 'ChIJ6e1_2FdApzsRzkSw_V8lJWs',
+    'rosario cathedral': 'ChIJ5e1_2HdApzsRykSw_V8lJWs',
+    'infant jesus shrine': 'ChIJ4e1_2JdApzsRxkSw_V8lJWs',
+    'ocean pearl hotel / ideal café': 'ChIJ3e1_2LdApzsRwkSw_V8lJWs',
+    'sultan battery': 'ChIJ2e1_2NdApzsRvkSw_V8lJWs'
+};
+
+// Helper function to render star SVGs based on numeric rating
+function renderStarRatingHTML(rating) {
+    let starsHTML = '';
+    const fullStars = Math.floor(rating);
+    const hasHalf = rating % 1 >= 0.5;
+    for (let i = 1; i <= 5; i++) {
+        if (i <= fullStars) {
+            starsHTML += '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="margin-right:1px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+        } else if (i === fullStars + 1 && hasHalf) {
+            starsHTML += '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="margin-right:1px;"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27V2.18L12 2z"/></svg>';
+        } else {
+            starsHTML += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>';
+        }
+    }
+    return starsHTML;
+}
+
+// Unified Google Maps-style Details Drawer Loader
 function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, durationMins) {
-    const existing = document.getElementById('geo-modal-overlay-bg');
+    const existing = document.getElementById('gmaps-drawer-overlay-bg');
     if (existing) existing.remove();
 
-    // Format stats nicely
     const formattedDistance = distance.toFixed(1) + " KM";
     let formattedDuration = durationMins + " mins";
     if (durationMins >= 60) {
@@ -1394,40 +1455,21 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     }
 
     const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destLat},${destLng}&travelmode=driving`;
+    const lookupKey = destName.toLowerCase().trim();
+    const placeId = mangalorePlaceIds[lookupKey] || 'ChIJyXGv0N9ApzsRHk9w_P9lJWs';
 
-    const modalHTML = `
-        <div class="geo-modal-overlay" id="geo-modal-overlay-bg">
-            <div class="geo-modal">
-                <header class="geo-modal-header">
-                    <h3>🗺️ Route Details</h3>
-                    <button class="geo-close-btn" id="geo-close-modal-btn" aria-label="Close modal">
+    // Generate Drawer skeleton HTML immediately (loading state)
+    const drawerHTML = `
+        <div class="gmaps-drawer-overlay" id="gmaps-drawer-overlay-bg">
+            <div class="gmaps-drawer" id="gmaps-drawer-panel">
+                <header class="gmaps-drawer-header">
+                    <h3>🗺️ Place Details</h3>
+                    <button class="gmaps-close-btn" id="gmaps-close-drawer-btn" aria-label="Close drawer">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
                 </header>
-                <div class="geo-modal-body">
-                    <!-- Origin -->
-                    <div class="geo-location-row">
-                        <div class="geo-icon-wrapper">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
-                        </div>
-                        <div class="geo-details">
-                            <span class="label">Your Location</span>
-                            <span class="value">Detected GPS Location</span>
-                        </div>
-                    </div>
-
-                    <!-- Destination -->
-                    <div class="geo-location-row">
-                        <div class="geo-icon-wrapper destination">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </div>
-                        <div class="geo-details">
-                            <span class="label">Destination</span>
-                            <span class="value">${destName}</span>
-                        </div>
-                    </div>
-
-                    <!-- Distance & Time Grid -->
+                <div class="gmaps-drawer-body" id="gmaps-drawer-content">
+                    <!-- Geolocation Navigation Panel (Always Interactive) -->
                     <div class="geo-stats-grid">
                         <div class="geo-stat-card">
                             <span class="stat-icon">🛣️</span>
@@ -1440,48 +1482,299 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
                             <span class="stat-label">Est. Travel Time</span>
                         </div>
                     </div>
-
-                    <!-- Action Button -->
-                    <button class="geo-action-btn" id="geo-open-maps-btn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Open in Google Maps
+                    
+                    <button class="geo-action-btn" id="gmaps-navigation-btn" style="margin-bottom: 0.5rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
+                        Get Driving Directions
                     </button>
+
+                    <!-- Divider -->
+                    <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 0;">
+
+                    <!-- Dynamic API Content Loader Placeholder -->
+                    <div id="gmaps-dynamic-loader" style="text-align: center; padding: 2rem 0;">
+                        <div style="display: inline-block; width: 30px; height: 30px; border: 3px solid rgba(131,56,236,0.2); border-radius: 50%; border-top-color: #8338EC; animation: spin 1s linear infinite;"></div>
+                        <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-light);">Loading Google Places details...</p>
+                    </div>
+
+                    <div id="gmaps-api-content" style="display: none; flex-direction: column; gap: 1.75rem;"></div>
                 </div>
             </div>
         </div>
     `;
 
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-    const overlay = document.getElementById('geo-modal-overlay-bg');
-    const closeBtn = document.getElementById('geo-close-modal-btn');
-    const openMapsBtn = document.getElementById('geo-open-maps-btn');
+    document.body.insertAdjacentHTML('beforeend', drawerHTML);
+    const overlay = document.getElementById('gmaps-drawer-overlay-bg');
+    const closeBtn = document.getElementById('gmaps-close-drawer-btn');
+    const navBtn = document.getElementById('gmaps-navigation-btn');
 
-    // Smooth entry
+    // Smooth Drawer Slide-in
     setTimeout(() => {
         overlay.classList.add('active');
-    }, 30);
+    }, 20);
 
-    const closeModal = () => {
+    const closeDrawer = () => {
         overlay.classList.remove('active');
         setTimeout(() => overlay.remove(), 400);
     };
 
-    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeDrawer);
     overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeModal();
+        if (e.target === overlay) closeDrawer();
     });
 
-    openMapsBtn.addEventListener('click', () => {
+    navBtn.addEventListener('click', () => {
         window.open(mapsUrl, '_blank');
-        closeModal();
     });
 
-    // Close on ESC keypress
+    // Close on Escape Key
     const escHandler = (e) => {
         if (e.key === 'Escape') {
-            closeModal();
+            closeDrawer();
             document.removeEventListener('keydown', escHandler);
         }
     };
     document.addEventListener('keydown', escHandler);
+
+    // 5. Fire Async Fetch request to local backend proxy
+    fetch(`http://localhost:3000/api/place-details/${placeId}`)
+        .then(response => {
+            if (!response.ok) throw new Error('Backend server unreachable');
+            return response.json();
+        })
+        .then(data => {
+            const loader = document.getElementById('gmaps-dynamic-loader');
+            if (loader) loader.style.display = 'none';
+            const apiContent = document.getElementById('gmaps-api-content');
+            if (apiContent) {
+                apiContent.style.display = 'flex';
+
+                if (!data.connected) {
+                    // Scenario: Backend is connected but Google Places API Key is not set
+                    renderFallbackSetupCard(apiContent, placeId);
+                } else if (data.status && data.status !== 'OK') {
+                    // Scenario: Google returned an API key configuration or quota limit error
+                    renderFallbackSetupCard(apiContent, placeId, data.error);
+                } else {
+                    // Scenario: Success, display genuine real Google data
+                    renderRealPlacesDetails(apiContent, data);
+                }
+            }
+        })
+        .catch(err => {
+            // Scenario: Backend server is completely down/unreachable
+            const loader = document.getElementById('gmaps-dynamic-loader');
+            if (loader) loader.style.display = 'none';
+            const apiContent = document.getElementById('gmaps-api-content');
+            if (apiContent) {
+                apiContent.style.display = 'flex';
+                renderFallbackSetupCard(apiContent, placeId, 'Google Places Proxy Service is Offline. Start the backend by running "node backend/server.js".');
+            }
+        });
+}
+
+// Helper: Render genuine active Google Places Details UI
+function renderRealPlacesDetails(container, data) {
+    // 1. Photos Gallery HTML
+    let photosHTML = '';
+    if (data.photos && data.photos.length > 0) {
+        photosHTML = `
+            <div class="gmaps-photos-gallery">
+                ${data.photos.map(p => `
+                    <div class="gmaps-photo-card">
+                        <img src="http://localhost:3000/api/place-photo/${p.photo_reference}" alt="${data.name} Photo" loading="lazy">
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    // 2. Rating Card Stars distribution percentages
+    const totalReviews = data.reviews.length;
+    const distribution = data.rating_distribution || { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+    const getPercent = (count) => totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
+
+    const ratingCardHTML = `
+        <div class="gmaps-rating-card">
+            <div class="gmaps-rating-score-box">
+                <span class="gmaps-rating-score">${data.rating.toFixed(1)}</span>
+                <div class="gmaps-rating-stars">
+                    ${renderStarRatingHTML(data.rating)}
+                </div>
+                <span class="gmaps-rating-count">${data.user_ratings_total.toLocaleString()} reviews</span>
+            </div>
+            <div class="gmaps-rating-distribution">
+                ${[5, 4, 3, 2, 1].map(stars => `
+                    <div class="gmaps-distribution-row">
+                        <span class="gmaps-distribution-label">${stars}</span>
+                        <div class="gmaps-distribution-bar-bg">
+                            <div class="gmaps-distribution-bar-fill" data-width="${getPercent(distribution[stars])}%"></div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    // 3. Opening hours logic
+    let hoursBadgeHTML = '';
+    let hoursTextHTML = '';
+    if (data.opening_hours) {
+        const isOpen = data.opening_hours.open_now;
+        hoursBadgeHTML = isOpen 
+            ? '<span class="gmaps-status-badge open">● Open Now</span>' 
+            : '<span class="gmaps-status-badge closed">● Closed Now</span>';
+        
+        if (data.opening_hours.weekday_text && data.opening_hours.weekday_text.length > 0) {
+            hoursTextHTML = `
+                <div class="gmaps-hours-dropdown">
+                    ${data.opening_hours.weekday_text.map(day => `<span>${day}</span>`).join('')}
+                </div>
+            `;
+        }
+    }
+
+    // 4. Place Info Grid HTML
+    const infoHTML = `
+        <div class="gmaps-info-list">
+            ${data.formatted_address ? `
+                <div class="gmaps-info-row">
+                    <span class="gmaps-info-icon">📍</span>
+                    <div class="gmaps-info-details">
+                        <span class="label">Address</span>
+                        <span class="value" style="font-weight: 500;">${data.formatted_address}</span>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${data.formatted_phone_number ? `
+                <div class="gmaps-info-row">
+                    <span class="gmaps-info-icon">📞</span>
+                    <div class="gmaps-info-details">
+                        <span class="label">Phone</span>
+                        <a href="tel:${data.formatted_phone_number}" class="value">${data.formatted_phone_number}</a>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${data.opening_hours ? `
+                <div class="gmaps-info-row">
+                    <span class="gmaps-info-icon">🕒</span>
+                    <div class="gmaps-info-details">
+                        <span class="label">Hours</span>
+                        <div>
+                            ${hoursBadgeHTML}
+                            ${hoursTextHTML}
+                        </div>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${data.website ? `
+                <div class="gmaps-info-row">
+                    <span class="gmaps-info-icon">🌐</span>
+                    <div class="gmaps-info-details">
+                        <span class="label">Website</span>
+                        <a href="${data.website}" target="_blank" class="value">Visit official website</a>
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+
+    // 5. Reviews List HTML (No fake/AI reviews guarantee)
+    let reviewsHTML = '<p style="font-size: 0.85rem; color: var(--text-light); padding: 0.5rem 0;">No user reviews available for this place.</p>';
+    if (data.reviews && data.reviews.length > 0) {
+        reviewsHTML = `
+            <div class="gmaps-reviews-list">
+                ${data.reviews.map(r => `
+                    <div class="gmaps-review-card">
+                        <div class="gmaps-review-author-row">
+                            <img class="gmaps-review-avatar" src="${r.profile_photo_url || 'https://www.w3schools.com/howto/img_avatar.png'}" alt="${r.author_name} Avatar" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'">
+                            <div class="gmaps-review-author-info">
+                                <span class="gmaps-review-author-name">${r.author_name}</span>
+                                <div class="gmaps-review-meta">
+                                    <div class="gmaps-review-stars">
+                                        ${renderStarRatingHTML(r.rating)}
+                                    </div>
+                                    <span>${r.relative_time_description}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="gmaps-review-text">${r.text}</p>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    // Assemble unified layout
+    container.innerHTML = `
+        ${photosHTML}
+        ${ratingCardHTML}
+        ${infoHTML}
+        <div>
+            <h4 class="gmaps-reviews-title">⭐⭐ Google Reviews</h4>
+            ${reviewsHTML}
+        </div>
+    `;
+
+    // Trigger star bar fill animation after render
+    setTimeout(() => {
+        container.querySelectorAll('.gmaps-distribution-bar-fill').forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+        });
+    }, 100);
+}
+
+// Helper: Render setup instructions card if Google Places API is not connected
+function renderFallbackSetupCard(container, placeId, customErrorMsg) {
+    const errorSection = customErrorMsg 
+        ? `<p style="color: #e74c3c; font-size: 0.85rem; font-weight: 600; margin: 0 0 0.5rem 0;">⚠️ Error Details: ${customErrorMsg}</p>` 
+        : '';
+
+    container.innerHTML = `
+        <div class="gmaps-setup-card">
+            <div class="gmaps-setup-header">
+                <span class="gmaps-setup-badge">Setup Required</span>
+                <h4 class="gmaps-setup-title">Google Places API Connection</h4>
+            </div>
+            
+            <p class="gmaps-setup-desc">
+                This section displays real-time ratings, opening schedules, image galleries, and user comments pulled directly from Google Maps Platform. Follow the instructions to connect Google Places API:
+            </p>
+
+            ${errorSection}
+
+            <div class="gmaps-setup-steps">
+                <div class="gmaps-setup-step">
+                    <span class="gmaps-setup-step-num">1</span>
+                    <span>Create a project in the <strong>Google Cloud Console</strong>.</span>
+                </div>
+                <div class="gmaps-setup-step">
+                    <span class="gmaps-setup-step-num">2</span>
+                    <span>Enable the <strong>Places API</strong> in the API Library.</span>
+                </div>
+                <div class="gmaps-setup-step">
+                    <span class="gmaps-setup-step-num">3</span>
+                    <span>Generate an API Key on the <strong>Credentials</strong> tab.</span>
+                </div>
+                <div class="gmaps-setup-step">
+                    <span class="gmaps-setup-step-num">4</span>
+                    <span>Configure your backend server's <code>.env</code> file:</span>
+                </div>
+            </div>
+
+            <div class="gmaps-code-box">
+                # backend/.env<br>
+                PORT=3000<br>
+                GOOGLE_PLACES_API_KEY=your_actual_api_key_here
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem; line-height: 1.4;">
+                📍 <strong>Mapped Google Place ID:</strong><br>
+                <code style="word-break: break-all; background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">${placeId}</code>
+            </div>
+        </div>
+    `;
 }
