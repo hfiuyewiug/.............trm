@@ -300,9 +300,9 @@ const bangaloreCategoryData = {
 
 const mysuruCategories = [
     { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://www.itslife.in/wp-content/gallery/travel/travel-karanji-lake5.jpg' },
     { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://i.pinimg.com/736x/9e/69/4c/9e694c072f6c1a9be2a9ae4b2c0b170c.jpg' },
-    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg' },
     { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
     { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
