@@ -344,7 +344,8 @@ const mysuruCategoryData = {
         name: 'Mysore Temples & Heritage',
         places: [
             { name: 'Chamundeshwari Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&80&w=1000', description: 'An ancient temple atop Chamundi Hills dedicated to the patron deity of Mysuru.' },
-            { name: 'St. Philomena\'s Cathedral', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840', description: 'A towering neo-gothic cathedral designed with majestic twin spires.' }
+            { name: 'St. Philomena\'s Cathedral', image: 'https://i.pinimg.com/originals/67/7d/f9/677df9fc5e071c32c23b53c5bc59a466.jpg', description: 'A towering neo-gothic cathedral designed with majestic twin spires.' },
+            { name: 'Venugopala Swamy Temple | Submerged Temple', image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg', description: 'A magnificent historic temple located near KRS Dam that was once submerged under water and later relocated and restored to its full glory.' }
         ]
     }
 };
