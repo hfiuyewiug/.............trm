@@ -106,7 +106,7 @@ const destinations = [
             },
             {
                 name: 'Zoo',
-                image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg',
                 description: 'Sri Chamarajendra Zoological Gardens, one of the oldest and best in India.'
             }
         ]
@@ -336,8 +336,8 @@ const mysuruCategoryData = {
     'wildlife': {
         name: 'Mysore Wildlife & Nature',
         places: [
-            { name: 'Mysore Zoo', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840', description: 'One of India\'s oldest and most renowned zoos, home to a wide range of exotic animals.' },
-            { name: 'Ranganathittu Bird Sanctuary', image: 'https://images.unsplash.com/photo-1581791534721-e599df4408bc?auto=format&fit=crop&q=100&w=3840', description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.' }
+            { name: 'Mysore Zoo', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg', description: 'One of India\'s oldest and most renowned zoos, home to a wide range of exotic animals.' },
+            { name: 'Ranganathittu Bird Sanctuary', image: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560', description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.' }
         ]
     },
     'heritage': {
@@ -970,7 +970,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'Mysore Zoo',
-                image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg',
                 rating: '4.8',
                 location: 'Indiranagar, Mysore',
                 bestTime: '🐅 Wildlife Walk: 2:30 PM',
