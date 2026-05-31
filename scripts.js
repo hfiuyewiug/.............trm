@@ -363,9 +363,9 @@ const cityFoods = {
         { img: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Ragi_mudde_and_sops.JPG', name: 'Ragi Mudde' }
     ],
     'mysuru': [
-        { img: 'https://images.unsplash.com/photo-1627916607244-72162a737452?auto=format&fit=crop&q=80&w=800', name: 'Mysore Pak' },
+        { img: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75', name: 'Mysore Pak' },
         { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Mysore Masala Dosa' },
-        { img: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Mysore_bonda.JPG', name: 'Mysore Bonda' },
+        { img: 'https://figarooliveoil.com/wp-content/uploads/2022/02/mysore-bonda.png', name: 'Mysore Bonda' },
         { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', name: 'Hanumanthu Biryani' }
     ]
 };
