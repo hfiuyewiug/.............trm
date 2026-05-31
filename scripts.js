@@ -96,7 +96,7 @@ const destinations = [
             },
             {
                 name: 'Chamundi Hills',
-                image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://photos.wikimapia.org/p/00/04/45/95/57_full.jpg',
                 description: 'Home to the Chamundeshwari Temple with panoramic views of the city.'
             },
             {
@@ -321,9 +321,9 @@ const mysuruCategoryData = {
     'hills_lakes': {
         name: 'Mysore Hills & Lakes',
         places: [
-            { name: 'Chamundi Hills', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840', description: 'A scenic hill overlooking Mysore, featuring a historic monolithic bull statue.' },
-            { name: 'Karanji Lake', image: 'https://images.unsplash.com/photo-1621535497241-11883a9d949d?auto=format&fit=crop&q=100&w=3840', description: 'A picturesque lake that hosts India\'s largest walk-through aviary and butterfly park.' },
-            { name: 'Kukkarahalli Lake', description: 'A peaceful, serene lake popular for quiet morning walks and bird watching.', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840' }
+            { name: 'Chamundi Hills', image: 'https://photos.wikimapia.org/p/00/04/45/95/57_full.jpg', description: 'A scenic hill overlooking Mysore, featuring a historic monolithic bull statue.' },
+            { name: 'Karanji Lake', image: 'https://cdn1.tripoto.com/media/filter/nl/img/2380291/Image/1707395561_karanji_lake.png', description: 'A picturesque lake that hosts India\'s largest walk-through aviary and butterfly park.' },
+            { name: 'Kukkarahalli Lake', description: 'A peaceful, serene lake popular for quiet morning walks and bird watching.', image: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg' }
         ]
     },
     'gardens': {
@@ -946,7 +946,7 @@ const cityMustWatchData = {
         places: [
             {
                 name: 'Chamundi Hills',
-                image: 'https://images.unsplash.com/photo-1590050752117-23a9d7f66d41?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://photos.wikimapia.org/p/00/04/45/95/57_full.jpg',
                 rating: '4.8',
                 location: 'Chamundi Hill Road, Mysore',
                 bestTime: '🛕 Morning Darshan: 7:30 AM',
