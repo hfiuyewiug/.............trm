@@ -431,7 +431,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                         <div class="place-info">
                             <h3>${place.name}</h3>
                             <p>${place.description}</p>
-                            <a href="#" class="explore-link">Explore →</a>
+                            <a href="#" class="explore-link" data-name="${place.name}" ${cityId === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>Explore →</a>
                         </div>
                     </div>
                 `).join('')}
@@ -560,7 +560,7 @@ function renderDestination(id) {
                         <div class="place-info">
                             <h3>${place.name}</h3>
                             <p>${place.description}</p>
-                            <a href="#" class="explore-link">Explore →</a>
+                            <a href="#" class="explore-link" data-name="${place.name}" ${id === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>Explore →</a>
                         </div>
                     </div>
                 `).join('')}
@@ -1096,7 +1096,7 @@ function openCityMustWatchModal(cityId) {
                                                     <span>${place.location}</span>
                                                 </div>
                                                 <p>${place.description}</p>
-                                                <button class="must-watch-explore-btn">
+                                                <button class="must-watch-explore-btn" data-name="${place.name}" ${cityId === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>
                                                     Explore More
                                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                                 </button>
@@ -1250,14 +1250,238 @@ function openCityMustWatchModal(cityId) {
             if (e.target === overlay) closeModal();
         });
 
-        // Close on ESC keypress
-        const escHandler = (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-                document.removeEventListener('keydown', escHandler);
-            }
-        };
         document.addEventListener('keydown', escHandler);
 
     }, 600);
+}
+
+// Geolocation Database for Mangalore places
+const mangaloreCoordinates = {
+    'panambur beach': { lat: 12.9611, lng: 74.7958 },
+    'tannirbhavi beach': { lat: 12.8942, lng: 74.8142 },
+    'someshwara beach': { lat: 12.7936, lng: 74.8519 },
+    'surathkal beach': { lat: 13.0084, lng: 74.7867 },
+    'sasihithlu beach': { lat: 13.0722, lng: 74.7797 },
+    'ullal beach': { lat: 12.8028, lng: 74.8464 },
+    'bengre beach': { lat: 12.8720, lng: 74.8210 },
+    'talapady beach': { lat: 12.7533, lng: 74.8722 },
+    'batapady beach': { lat: 12.7483, lng: 74.8767 },
+    'mukka beach': { lat: 13.0233, lng: 74.7817 },
+    'kodical beach': { lat: 12.9230, lng: 74.8080 },
+    'chitrapura beach': { lat: 12.9917, lng: 74.7903 },
+    'mulki beach': { lat: 13.0900, lng: 74.7750 },
+    'hosabettu beach': { lat: 12.9990, lng: 74.7870 },
+    'swami koragajja temple': { lat: 12.8062, lng: 74.8692 },
+    'kadri manjunath temple': { lat: 12.8797, lng: 74.8569 },
+    'kadri temple': { lat: 12.8797, lng: 74.8569 },
+    'kudroli gokarnath temple': { lat: 12.8744, lng: 74.8322 },
+    'mangaladevi temple': { lat: 12.8469, lng: 74.8486 },
+    'polali rajarajeshwari temple': { lat: 12.9360, lng: 74.9390 },
+    'kateel temple': { lat: 13.0139, lng: 74.8489 },
+    'someshwara temple': { lat: 12.7950, lng: 74.8522 },
+    'urwa marigudi temple': { lat: 12.8885, lng: 74.8306 },
+    '🌺 bappanadu durgaparameshwari temple': { lat: 13.0990, lng: 74.7880 },
+    'karinjeshwara hill temple': { lat: 12.9800, lng: 75.1200 },
+    'city centre mall': { lat: 12.8711, lng: 74.8436 },
+    'forum fiza mall': { lat: 12.8622, lng: 74.8369 },
+    'lotus mall (upcoming)': { lat: 12.8800, lng: 74.8600 },
+    'bharath mall': { lat: 12.8814, lng: 74.8433 },
+    'jamalabad fort': { lat: 13.0270, lng: 75.3180 },
+    'ermayi falls trek': { lat: 13.0800, lng: 75.3500 },
+    'karinchieshwara trek': { lat: 12.9800, lng: 75.1200 },
+    'gadaikallu': { lat: 13.0270, lng: 75.3180 },
+    'st. aloysius chapel': { lat: 12.8731, lng: 74.8453 },
+    'milagres church': { lat: 12.8697, lng: 74.8439 },
+    'rosario cathedral': { lat: 12.8561, lng: 74.8344 },
+    'infant jesus shrine': { lat: 12.8683, lng: 74.8647 },
+    'ocean pearl hotel / ideal café': { lat: 12.8730, lng: 74.8420 },
+    'sultan battery': { lat: 12.8900, lng: 74.8250 }
+};
+
+// Global function to trigger geolocation flow for Mangalore places
+window.handleMangaloreExplore = function(event, placeName) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    // 1. Check if browser geolocation is supported
+    if (!navigator.geolocation) {
+        showGeoToast("Geolocation is not supported by your browser.");
+        return;
+    }
+
+    showGeoToast("📡 Requesting location permission...");
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
+
+            // 2. Fetch destination coordinates (case-insensitive lookup)
+            const lookupKey = placeName.toLowerCase().trim();
+            const destCoords = mangaloreCoordinates[lookupKey] || { lat: 12.8700, lng: 74.8800 };
+
+            // 3. Calculate Haversine straight line distance
+            const R = 6371; // Earth radius in KM
+            const dLat = (destCoords.lat - userLat) * Math.PI / 180;
+            const dLng = (destCoords.lng - userLng) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(userLat * Math.PI / 180) * Math.cos(destCoords.lat * Math.PI / 180) *
+                      Math.sin(dLng/2) * Math.sin(dLng/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            const straightDistance = R * c;
+
+            // Estimate driving distance (normally ~1.25x straight-line distance in cities)
+            const drivingDistance = straightDistance * 1.25;
+
+            // Estimate driving duration: average urban/semi-urban speed of 40 KM/h
+            const durationHrs = drivingDistance / 40;
+            const durationMins = Math.round(durationHrs * 60);
+
+            // 4. Create and trigger premium glassmorphic modal
+            openGeoModal(userLat, userLng, destCoords.lat, destCoords.lng, placeName, drivingDistance, durationMins);
+        },
+        function(error) {
+            // Permission denied or retrieval failed
+            showGeoToast("Unable to access your location. Please enable location services.");
+        },
+        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
+    );
+};
+
+// Helper to show modern non-intrusive Toast notifications
+function showGeoToast(message) {
+    // Remove existing if any
+    const existing = document.querySelector('.geo-toast');
+    if (existing) existing.remove();
+
+    const toastHTML = `
+        <div class="geo-toast" id="geo-toast-alert">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span>${message}</span>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', toastHTML);
+    const toast = document.getElementById('geo-toast-alert');
+    
+    // Smooth entrance
+    setTimeout(() => {
+        toast.classList.add('active');
+    }, 50);
+
+    // Auto dismiss
+    setTimeout(() => {
+        if (toast) {
+            toast.classList.remove('active');
+            setTimeout(() => toast.remove(), 500);
+        }
+    }, 4500);
+}
+
+// Helper to open the premium modal
+function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, durationMins) {
+    const existing = document.getElementById('geo-modal-overlay-bg');
+    if (existing) existing.remove();
+
+    // Format stats nicely
+    const formattedDistance = distance.toFixed(1) + " KM";
+    let formattedDuration = durationMins + " mins";
+    if (durationMins >= 60) {
+        const hrs = Math.floor(durationMins / 60);
+        const mins = durationMins % 60;
+        formattedDuration = hrs + " hr " + mins + " mins";
+    }
+
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destLat},${destLng}&travelmode=driving`;
+
+    const modalHTML = `
+        <div class="geo-modal-overlay" id="geo-modal-overlay-bg">
+            <div class="geo-modal">
+                <header class="geo-modal-header">
+                    <h3>🗺️ Route Details</h3>
+                    <button class="geo-close-btn" id="geo-close-modal-btn" aria-label="Close modal">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    </button>
+                </header>
+                <div class="geo-modal-body">
+                    <!-- Origin -->
+                    <div class="geo-location-row">
+                        <div class="geo-icon-wrapper">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
+                        </div>
+                        <div class="geo-details">
+                            <span class="label">Your Location</span>
+                            <span class="value">Detected GPS Location</span>
+                        </div>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="geo-location-row">
+                        <div class="geo-icon-wrapper destination">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="geo-details">
+                            <span class="label">Destination</span>
+                            <span class="value">${destName}</span>
+                        </div>
+                    </div>
+
+                    <!-- Distance & Time Grid -->
+                    <div class="geo-stats-grid">
+                        <div class="geo-stat-card">
+                            <span class="stat-icon">🛣️</span>
+                            <span class="stat-value">${formattedDistance}</span>
+                            <span class="stat-label">Driving Distance</span>
+                        </div>
+                        <div class="geo-stat-card">
+                            <span class="stat-icon">🕒</span>
+                            <span class="stat-value">${formattedDuration}</span>
+                            <span class="stat-label">Est. Travel Time</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button class="geo-action-btn" id="geo-open-maps-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Open in Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    const overlay = document.getElementById('geo-modal-overlay-bg');
+    const closeBtn = document.getElementById('geo-close-modal-btn');
+    const openMapsBtn = document.getElementById('geo-open-maps-btn');
+
+    // Smooth entry
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 30);
+
+    const closeModal = () => {
+        overlay.classList.remove('active');
+        setTimeout(() => overlay.remove(), 400);
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    openMapsBtn.addEventListener('click', () => {
+        window.open(mapsUrl, '_blank');
+        closeModal();
+    });
+
+    // Close on ESC keypress
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
 }
