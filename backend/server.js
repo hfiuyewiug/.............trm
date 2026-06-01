@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the parent directory (workspace root)
+app.use(express.static(path.join(__dirname, '..')));
+
 // API Key Validation Helper
 function isApiKeyConfigured() {
     const key = process.env.GOOGLE_PLACES_API_KEY;

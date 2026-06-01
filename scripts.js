@@ -305,7 +305,7 @@ const mysuruCategories = [
     { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg' },
     { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
     { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg' },
-    { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png' },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
 ];
 
@@ -337,7 +337,9 @@ const mysuruCategoryData = {
         name: 'Mysore Wildlife & Nature',
         places: [
             { name: 'Mysore Zoo', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg', description: 'One of India\'s oldest and most renowned zoos, home to a wide range of exotic animals.' },
-            { name: 'Ranganathittu Bird Sanctuary', image: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560', description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.' }
+            { name: 'Ranganathittu Bird Sanctuary', image: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560', description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.' },
+            { name: 'Shuka Vana', image: 'https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2021/02/Shuka-Vana-Mysore-Karnataka.jpeg?w=1152&ssl=1', description: 'A unique aviary and rehabilitation center housing over 2,000 birds across 450+ species, famous for its record-breaking collection of parrots.' },
+            { name: 'Lokaranjan Aqua World Underwater Zoo', image: 'https://i.ytimg.com/vi/BbqVi8rH4NM/maxresdefault.jpg', description: 'An exceptional underwater aquarium zoo in Mysuru, offering an immersive walkthrough experience to observe spectacular marine life up close.' }
         ]
     },
     'heritage': {
@@ -358,6 +360,16 @@ const mysuruCategoryData = {
             { name: 'Mysore Rail Museum', image: 'https://www.shutterstock.com/shutterstock/photos/2291081411/display_1500/stock-photo-mysore-railway-museum-karnataka-india-september-tourists-visiting-the-mysore-railway-museum-2291081411.jpg', description: 'An outdoor museum displaying vintage locomotives, royal carriages, and historical railway memorabilia, perfect for history enthusiasts.' },
             { name: 'Payana Vintage Car Museum', image: 'https://mysoremedia.com/wp-content/uploads/2024/09/payana-vintage-car-musuem-entrance-scaled.jpg', description: 'A spectacular new museum on the Mysore-Bangalore highway exhibiting a grand collection of classic and vintage cars, beautifully curated to celebrate automotive history.' },
             { name: 'Jaganmohana Palace Art Gallery', image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg', description: 'A historic palace museum housing a magnificent collection of paintings, musical instruments, and rare royal artifacts from the Wodeyar dynasty.' }
+        ]
+    },
+    'malls': {
+        name: 'Mysore Malls',
+        places: [
+            { name: 'Nexus Centre City Mall', image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png', description: 'The largest and most vibrant mall in Mysuru, featuring premium international brands, a massive food court, and a 6-screen PVR multiplex.' },
+            { name: 'Mall of Mysore', image: 'https://masthmysore.com/wp-content/uploads/2024/08/mall-of-Mysore.jpg', description: 'One of Mysuru\'s first premium malls, beautifully located near the Chamundi Hills and Mysore Palace, offering a great mix of retail outlets, dining, and INOX multiplex.' },
+            { name: 'Garuda Mall', image: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg', description: 'A popular and highly accessible shopping center located near the city bus stand, known for its lively ambiance, retail shopping, and entertainment options.' },
+            { name: 'BM Habitat Mall', image: 'https://travelghat.com/wp-content/uploads/2023/08/BM-habitat-mall-mysore-image-edited.jpg', description: 'A modern and popular lifestyle mall in Jayalakshmipuram, offering fantastic fashion stores, tech outlets, and a relaxed dining experience.' },
+            { name: 'Central Mall Mysore', image: 'https://masthmysore.com/wp-content/uploads/2024/08/Centro-Mall-Mysore-e1723194744647.jpg', description: 'A premium fashion-forward shopping mall offering a rich selection of apparel, footwear, cosmetics, and accessories from leading national and international brands.' }
         ]
     }
 };
@@ -1443,6 +1455,7 @@ function renderStarRatingHTML(rating) {
 
 // Unified Google Maps-style Details Drawer Loader
 function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, durationMins) {
+    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
     const existing = document.getElementById('gmaps-drawer-overlay-bg');
     if (existing) existing.remove();
 
@@ -1537,7 +1550,7 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     document.addEventListener('keydown', escHandler);
 
     // 5. Fire Async Fetch request to local backend proxy
-    fetch(`http://localhost:3000/api/place-details/${placeId}`)
+    fetch(`${API_BASE}/api/place-details/${placeId}`)
         .then(response => {
             if (!response.ok) throw new Error('Backend server unreachable');
             return response.json();
@@ -1582,7 +1595,7 @@ function renderRealPlacesDetails(container, data) {
             <div class="gmaps-photos-gallery">
                 ${data.photos.map(p => `
                     <div class="gmaps-photo-card">
-                        <img src="http://localhost:3000/api/place-photo/${p.photo_reference}" alt="${data.name} Photo" loading="lazy">
+                        <img src="${API_BASE}/api/place-photo/${p.photo_reference}" alt="${data.name} Photo" loading="lazy">
                     </div>
                 `).join('')}
             </div>
