@@ -330,7 +330,8 @@ const mysuruCategoryData = {
         name: 'Mysore Gardens & Fountains',
         places: [
             { name: 'Brindavan Gardens', image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg', description: 'Beautifully manicured terraced gardens famed for their synchronized musical fountain shows.' },
-            { name: 'Bonsai Garden', image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-bonsai-garden-1.jpg', description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.' }
+            { name: 'Bonsai Garden', image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-bonsai-garden-1.jpg', description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.' },
+            { name: 'Balmuri Falls', image: 'https://mysoremedia.com/wp-content/uploads/2019/08/Balmuri-Falls-Mysore-Water-falling-from-height-picture-by-Arun-Kumar-1024x767.jpg', description: 'A beautiful and highly popular picnic spot featuring a scenic step-barrier waterfall on the Kaveri River, perfect for a relaxed day out.' }
         ]
     },
     'wildlife': {
@@ -350,7 +351,8 @@ const mysuruCategoryData = {
             { name: 'Venugopala Swamy Temple | Submerged Temple', image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg', description: 'A magnificent historic temple located near KRS Dam that was once submerged under water and later relocated and restored to its full glory.' },
             { name: 'ISKCON Temple', image: 'https://www.iskconmysore.org/wp-content/uploads/2022/11/008.jpg', description: 'A beautiful spiritual center dedicated to Sri Sri Krishna Balarama, featuring a peaceful atmosphere, wonderful architecture, and soul-stirring bhajans.' },
             { name: 'Kote Sri Anjaneya Temple', image: 'https://i.ytimg.com/vi/E7fsyPWnQj8/maxresdefault.jpg', description: 'A historic temple dedicated to Lord Hanuman, located near the palace grounds, famous for its magnificent Hanuman statue and spiritual energy.' },
-            { name: 'Srikanteshwara Temple', image: 'https://www.omastrology.com/indian-temples/images/srikanteshwara-temple-nanjanguda.jpg', description: 'An ancient temple dedicated to Lord Shiva situated in Nanjangud, highly renowned for its majestic Dravidian gopuram and spiritual significance.' }
+            { name: 'Srikanteshwara Temple', image: 'https://www.omastrology.com/indian-temples/images/srikanteshwara-temple-nanjanguda.jpg', description: 'An ancient temple dedicated to Lord Shiva situated in Nanjangud, highly renowned for its majestic Dravidian gopuram and spiritual significance.' },
+            { name: 'Gommatagiri', image: 'https://i2.wp.com/stepstogether.in/wp-content/uploads/2021/04/IMG_20210423_200436-scaled.jpg?fit=2560%2C1503&ssl=1', description: 'An important Jain pilgrimage center featuring an ancient 700-year-old monolithic statue of Lord Bahubali standing atop a scenic hillock.' }
         ]
     },
     'museums': {
