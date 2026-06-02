@@ -142,12 +142,12 @@ const destinations = [
     {
         id: 'bangalore',
         name: 'Bangalore',
-        image: 'https://plus.unsplash.com/premium_photo-1697729606469-027395aadb6f?auto=format&fit=crop&q=100&w=3840',
+        image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg',
         color: '#8338EC',
         famousPlaces: [
             {
                 name: 'Lalbagh Botanical Garden',
-                image: 'https://images.unsplash.com/photo-1624385150247-4952093510f8?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://www.nobroker.in/blog/wp-content/uploads/2024/03/lalbagh-botanical-garden-1.jpg',
                 description: 'A historic garden with a massive glass house and diverse flora.'
             },
             {
@@ -245,11 +245,11 @@ const mangaloreCategoryData = {
 };
 
 const bangaloreCategories = [
-    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1000' },
+    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.nobroker.in/blog/wp-content/uploads/2024/03/lalbagh-botanical-garden-1.jpg' },
+    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg' },
+    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://www.explorebees.com/uploads/blogs/A-Road-Trip-from-Bangalore-to-Adiyogi-Shiva-Statue-Chikkaballapur.jpg' },
+    { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://lh3.googleusercontent.com/i8Vrd_X2CJmyIanO7jBQ48hppHl1BT3LEQJFlZAOhWZ3Ux05oSvq2nAcuHA_-s05AS4OF-yDT6DOlhE0_A5ioAJtCYVbbkc21_8Q5fxW=w1024-rw' },
+    { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://www.treebo.com/blog/wp-content/uploads/2016/02/Prost-Brew-Pub-Koramangala-1.jpg' },
     { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
@@ -260,14 +260,14 @@ const bangaloreCategoryData = {
         name: 'Bangalore Parks & Gardens',
         places: [
             { name: 'Cubbon Park', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840', description: 'The lungs of the city, a sprawling green space with historic buildings and walking trails.' },
-            { name: 'Lalbagh Botanical Garden', image: 'https://images.unsplash.com/photo-1624385150247-4952093510f8?auto=format&fit=crop&q=100&w=3840', description: 'A historic botanical garden featuring a majestic 19th-century glass house inspired by London.' },
+            { name: 'Lalbagh Botanical Garden', image: 'https://www.nobroker.in/blog/wp-content/uploads/2024/03/lalbagh-botanical-garden-1.jpg', description: 'A historic botanical garden featuring a majestic 19th-century glass house inspired by London.' },
             { name: 'Bannerghatta National Park', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840', description: 'A bio-reserve featuring an exciting tiger and lion safari, zoo, and butterfly park.' }
         ]
     },
     'heritage': {
         name: 'Bangalore Palaces & Heritage',
         places: [
-            { name: 'Bangalore Palace', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840', description: 'A grand royal residence built in Tudor style, modeled after Windsor Castle.' },
+            { name: 'Bangalore Palace', image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg', description: 'A grand royal residence built in Tudor style, modeled after Windsor Castle.' },
             { name: 'Tipu Sultan Palace', image: 'https://images.unsplash.com/photo-1622325324523-86815302772a?auto=format&fit=crop&q=100&w=3840', description: 'An ornate double-storied wooden palace featuring elegant arches, columns, and history.' },
             { name: 'Devanahalli Fort', image: 'https://images.unsplash.com/photo-1580191947416-62d35a55e71d?auto=format&fit=crop&q=100&w=3840', description: 'A massive historic stone fort originating from 1501, famous as the birthplace of Tipu Sultan.' }
         ]
@@ -275,17 +275,30 @@ const bangaloreCategoryData = {
     'temples': {
         name: 'Bangalore Temples',
         places: [
-            { name: 'ISKCON Temple', image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840', description: 'A massive neo-classical style cultural complex and temple dedicated to Krishna.' },
-            { name: 'Bull Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'Historic temple in Basavanagudi containing a monolithic statue of Nandi the bull.' },
-            { name: 'Shivoham Shiva Temple', image: 'https://images.unsplash.com/photo-1590480394626-821152686e18?auto=format&fit=crop&q=100&w=3840', description: 'Features a spectacular 65-foot statue of Lord Shiva seated amidst artificial mountains.' }
+            { name: 'ISKCON Temple', image: 'https://travellerscribe.com/wp-content/uploads/2024/05/iskcon-temple-bangalore-Aarti-timings.webp', description: 'A massive neo-classical style cultural complex and temple dedicated to Krishna.' },
+            { name: 'Bull Temple', image: 'https://wallpapers.com/images/hd/bangalore-bull-temple-edstxqi99f1y2ufd.jpg', description: 'Historic temple in Basavanagudi containing a monolithic statue of Nandi the bull.' },
+            { name: 'Shivoham Shiva Temple', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/79/28/ac/shiv-mandir-temple.jpg?w=1200&h=1200&s=1', description: 'Features a spectacular 65-foot statue of Lord Shiva seated amidst artificial mountains.' },
+            { name: 'Ragigudda Sri Prasanna Anjaneya Swamy Temple', image: 'https://masalachaimedia.com/wp-content/uploads/2022/12/Ragigudda-Sri-Prasanna-Anjaneyaswamy-Temple-2048x1220.jpeg', description: 'A beautiful hilltop temple dedicated to Lord Hanuman, offering panoramic views and a serene spiritual atmosphere.' },
+            { name: 'Shree Banashankari Devi Temple', image: 'https://thetempleguru.com/wp-content/uploads/2024/08/Sri-Banashankari-Temple-Bangalore-3.jpg', description: 'A historic and prominent temple dedicated to Goddess Banashankari, known for its unique worship during Rahukala.' },
+            { name: 'Sri Shirdi Sai Baba Temple', image: 'https://blessingsonthenet.com/img/slideshow/aim_bn_1388726826.jpg', description: 'A serene and sacred spiritual sanctuary dedicated to Sri Shirdi Sai Baba, fostering peace and devotion among visitors.' },
+            { name: 'Adiyogi Shiva Statue', image: 'https://www.explorebees.com/uploads/blogs/A-Road-Trip-from-Bangalore-to-Adiyogi-Shiva-Statue-Chikkaballapur.jpg', description: 'A magnificent 112-foot tall statue of Adiyogi Shiva, representing the first yogi, located in Chikkaballapur near Bangalore.' }
         ]
     },
     'shopping': {
         name: 'Bangalore Malls & Shopping',
         places: [
-            { name: 'UB City', image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=100&w=3840', description: 'India\'s first luxury commercial mall featuring ultra-premium global brands and dining.' },
-            { name: 'Phoenix Marketcity', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=100&w=3840', description: 'One of the largest lifestyle malls in the city, popular for international fashion.' },
-            { name: 'Commercial Street', image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=100&w=3840', description: 'A highly bustling open-street market known for trendy wear, jewelry, and street shopping.' }
+            { name: '🥇 UB City (1st Best)', image: 'https://ubcitybangalore.in/wp-content/uploads/2021/09/Slide378.jpg', description: 'Ranked 1st Best: India\'s premier ultra-luxury commercial mall offering high-end global fashion houses and fine dining.' },
+            { name: '🥈 Phoenix Mall of Asia (2nd Best)', image: 'https://im.whatshot.in/img/2020/Apr/phoenix-market-city-mall-whitefield-2-1586505964.jpg', description: 'Ranked 2nd Best: One of the largest and most premium shopping hubs in North Bangalore, redefining luxury retail.' },
+            { name: '🥉 Phoenix Marketcity Mall (3rd Best)', image: 'https://www.worthview.com/wp-content/uploads/2018/09/Phoenix-Mall.jpg', description: 'Ranked 3rd Best: Sprawling lifestyle mall in East Bangalore featuring international brands, massive dining options, and live events.' },
+            { name: '🛍️ Lulu Mall (4th Best)', image: 'https://www.bengaluru.lulumall.in/wp-content/uploads/2023/07/image.jpg', description: 'Ranked 4th Best: Huge shopping destination featuring a colossal Lulu Hypermarket, massive food court, and family entertainment centers.' },
+            { name: '🌊 Orion Mall (5th Best)', image: 'https://lh3.googleusercontent.com/i8Vrd_X2CJmyIanO7jBQ48hppHl1BT3LEQJFlZAOhWZ3Ux05oSvq2nAcuHA_-s05AS4OF-yDT6DOlhE0_A5ioAJtCYVbbkc21_8Q5fxW=w1024-rw', description: 'Ranked 5th Best: Exceptionally designed lakeside shopping mall situated next to World Trade Center in Rajajinagar.' },
+            { name: '🏬 Nexus Mall Koramangala (6th Best)', image: 'https://www.nexusselecttrust.com/resources/assets/images/nexus-koramangala/banner2.jpg', description: 'Ranked 6th Best: Highly popular, iconic shopping destination in Koramangala offering excellent retail, food, and movie experiences.' },
+            { name: '✨ VR Bengaluru Mall (7th Best)', image: 'https://bangalore247.in/wp-content/uploads/2021/02/VR-Bengaluru.jpg', description: 'Ranked 7th Best: Premium boutique style shopping center, beautifully designed next to Phoenix Marketcity in Whitefield.' },
+            { name: '🏢 Garuda Mall (8th Best)', image: 'https://img.staticmb.com/mbcontent/images/crop/uploads/2024/10/garuda-mall-bangalore-magrath-road_0_1200.jpg.webp', description: 'Ranked 8th Best: Iconic multi-level shopping destination situated in the heart of the city near Brigade Road.' },
+            { name: '⭐ Forum Mall Koramangala (9th Best)', image: 'https://www.urtrips.net/wp-content/uploads/2022/04/Forum-Koramangala-Mall-Bengaluru-1.jpg', description: 'Ranked 9th Best: One of the oldest modern shopping hubs in South Bangalore, highly popular among students and families.' },
+            { name: '🏰 Royal Meenakshi Mall (10th Best)', image: 'https://files.lbb.in/media/2020/01/5e131edc4687a955b19f04f7_1578311388524.jpg', description: 'Ranked 10th Best: Premier family entertainment mall in South Bangalore on Bannerghatta Road, featuring a massive multiplex.' },
+            { name: '🌟 Bangalore Central Mall (11th Best)', image: 'https://media-cdn.tripadvisor.com/media/photo-s/1a/00/0c/bc/bangalore-central-mall.jpg', description: 'Ranked 11th Best: Highly popular department store styled fashion mall offering a massive array of clothing and footwear brands.' },
+            { name: '🌐 GT World Mall (12th Best)', image: 'https://yometro.com/images/places/gt-world-mall.jpg', description: 'Ranked 12th Best: Popular family-oriented neighborhood mall offering pocket-friendly shopping, dining, and multiplex cinema.' }
         ]
     },
     'breweries': {
@@ -384,10 +397,11 @@ const cityFoods = {
         { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
     ],
     'bangalore': [
+        { img: 'https://img.magnific.com/premium-photo/exotic-saffron-rasgulla-indian-traditional-sweet-dessert-rasgulla-image-photography_1020697-145225.jpg', name: 'Rasgulla' },
         { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Masala Dosa' },
         { img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', name: 'Filter Coffee' },
         { img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', name: 'Idli Vada' },
-        { img: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Ragi_mudde_and_sops.JPG', name: 'Ragi Mudde' }
+        { img: 'https://blog.swiggy.com/wp-content/uploads/2024/02/Ragi-Mudde.jpg', name: 'Ragi Mudde' }
     ],
     'mysuru': [
         { img: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75', name: 'Mysore Pak' },
@@ -551,7 +565,7 @@ function renderDestination(id) {
                     <div class="category-overlay">
                         <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
                         <p style="margin:0; font-size: 0.9rem;">
-                            ${dest.id === 'mangaluru' ? 'Chicken Kori Rotti, Fish Fry, Mangalore Bun & More' : dest.id === 'bangalore' ? 'Masala Dosa, Filter Coffee, Idli Vada & More' : 'Mysore Pak, Mysore Masala Dosa, Mylari & More'}
+                            ${dest.id === 'mangaluru' ? 'Chicken Kori Rotti, Fish Fry, Mangalore Bun & More' : dest.id === 'bangalore' ? 'Rasgulla, Masala Dosa, Filter Coffee & More' : 'Mysore Pak, Mysore Masala Dosa, Mylari & More'}
                         </p>
                     </div>
                 </div>
