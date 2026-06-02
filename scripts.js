@@ -250,7 +250,7 @@ const bangaloreCategories = [
     { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://www.explorebees.com/uploads/blogs/A-Road-Trip-from-Bangalore-to-Adiyogi-Shiva-Statue-Chikkaballapur.jpg' },
     { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://lh3.googleusercontent.com/i8Vrd_X2CJmyIanO7jBQ48hppHl1BT3LEQJFlZAOhWZ3Ux05oSvq2nAcuHA_-s05AS4OF-yDT6DOlhE0_A5ioAJtCYVbbkc21_8Q5fxW=w1024-rw' },
     { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://www.treebo.com/blog/wp-content/uploads/2016/02/Prost-Brew-Pub-Koramangala-1.jpg' },
-    { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg' },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
 ];
@@ -312,9 +312,18 @@ const bangaloreCategoryData = {
     'breweries': {
         name: 'Bangalore Breweries & Pubs',
         places: [
-            { name: 'Toit', image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=100&w=3840', description: 'A legendary and widely popular English-pub styled microbrewery situated in Indiranagar.' },
+            { name: 'Toit', image: 'https://tariqsp.com/wp-content/uploads/2025/08/beer-at-toit-indiranagar-bangalore-696x461.png', description: 'A legendary and widely popular English-pub styled microbrewery situated in Indiranagar.' },
             { name: 'Windmills Craftworks', image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=100&w=3840', description: 'A sophisticated craft brewery offering premier jazz performances and an integrated library.' },
             { name: 'Arbor Brewing Company', image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=100&w=3840', description: 'A lively and rustic brewery serving excellent craft IPAs, stouts, and global food.' }
+        ]
+    },
+    'trekking': {
+        name: 'Bangalore Trekking Places',
+        places: [
+            { name: 'TK Falls (Thottikallu Falls)', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg', description: 'A beautiful waterfall near Bangalore, ideal for trekking, hiking, and enjoying scenic natural views.' },
+            { name: 'Muthyala Maduvu (Pearl Valley)', image: 'https://www.shoutlo.com/uploads/articles/item-header-img-muthyala-maduvu-the-pearl-valley.jpg', description: 'A peaceful valley featuring a gorgeous waterfall falling like pearls, set amidst deep green hills.' },
+            { name: 'Guhantara Underground Cave Resort', image: 'https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/11/covr-kidn-of.jpg', description: 'An underground cave-themed resort offering unique adventure activities, trekking routes, and relaxation.' },
+            { name: 'Manchinbele Dam', image: 'https://i.ytimg.com/vi/ARII9OPlN1g/maxresdefault.jpg', description: 'A popular reservoir and adventure spot near Bangalore, surrounded by deciduous forests and rocky hills, ideal for trekking and water sports.' }
         ]
     }
 };
