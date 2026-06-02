@@ -271,8 +271,13 @@ const bangaloreCategoryData = {
         name: 'Bangalore Palaces & Heritage',
         places: [
             { name: 'Bangalore Palace', image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg', description: 'A grand royal residence built in Tudor style, modeled after Windsor Castle.' },
-            { name: 'Tipu Sultan Palace', image: 'https://images.unsplash.com/photo-1622325324523-86815302772a?auto=format&fit=crop&q=100&w=3840', description: 'An ornate double-storied wooden palace featuring elegant arches, columns, and history.' },
-            { name: 'Devanahalli Fort', image: 'https://images.unsplash.com/photo-1580191947416-62d35a55e71d?auto=format&fit=crop&q=100&w=3840', description: 'A massive historic stone fort originating from 1501, famous as the birthplace of Tipu Sultan.' }
+            { name: 'Tipu Sultan Palace', image: 'https://www.revv.co.in/blogs/wp-content/uploads/2020/10/Tipu-Sultan-Palace.jpg', description: 'An ornate double-storied wooden palace featuring elegant arches, columns, and history.' },
+            { name: 'Devanahalli Fort', image: 'https://www.oyorooms.com/travel-guide/wp-content/uploads/2020/01/Devanahalli-Fort-1.jpg', description: 'A massive historic stone fort originating from 1501, famous as the birthplace of Tipu Sultan.' },
+            { name: 'Mayo Hall', image: 'https://bangalore247.in/wp-content/uploads/2021/03/Mayo-Hall-Bangalore.jpg', description: 'An iconic, towering building of architectural prominence featuring beautiful Neo-Classical style elements.' },
+            { name: 'Kempegowda Museum', image: 'https://im.whatshot.in/img/2021/Sep/1-0-cropped-1633005698.jpg', description: 'A fascinating government museum dedicated to Yelahanka chieftain Kempegowda, located inside Mayo Hall.' },
+            { name: 'Venkatappa Art Gallery', image: 'https://indiator.com/tourist-places/wp-content/uploads/2016/11/Venkatappa-Art-Gallery.jpeg', description: 'A prestigious government art gallery showcasing the brilliant works of K. Venkatappa and other prominent artists.' },
+            { name: 'Government Museum', image: 'https://indianexpress.com/wp-content/uploads/2023/02/Museum_bengaluru-1.jpeg', description: 'One of the oldest museums in India, featuring an exceptional collection of archaeological and historical artifacts.' },
+            { name: 'Attara Kacheri', image: 'https://www.molon.de/galleries/India/Karnataka/Bangalore/VidhanaSoudha/images01/15%20Attara%20Kacheri%20Karnataka%20High%20Court.jpg', description: 'The magnificent, red-painted stone building built in neoclassical style, housing the High Court of Karnataka.' }
         ]
     },
     'temples': {
