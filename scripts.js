@@ -162,7 +162,7 @@ const destinations = [
             },
             {
                 name: 'Cubbon Park',
-                image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://bangaloretourism.in/images/v2/places-to-visit/cubbon-park-bangalore/cubbon-park-bangalore-bangalore-entry-ticket-price-bangalore-tourism-cr-pmekara.jpg',
                 description: 'The lungs of the city, a sprawling green space with many historic buildings.'
             }
         ]
@@ -259,9 +259,12 @@ const bangaloreCategoryData = {
     'parks': {
         name: 'Bangalore Parks & Gardens',
         places: [
-            { name: 'Cubbon Park', image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840', description: 'The lungs of the city, a sprawling green space with historic buildings and walking trails.' },
+            { name: 'Cubbon Park', image: 'https://bangaloretourism.in/images/v2/places-to-visit/cubbon-park-bangalore/cubbon-park-bangalore-bangalore-entry-ticket-price-bangalore-tourism-cr-pmekara.jpg', description: 'The lungs of the city, a sprawling green space with historic buildings and walking trails.' },
             { name: 'Lalbagh Botanical Garden', image: 'https://www.nobroker.in/blog/wp-content/uploads/2024/03/lalbagh-botanical-garden-1.jpg', description: 'A historic botanical garden featuring a majestic 19th-century glass house inspired by London.' },
-            { name: 'Bannerghatta National Park', image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&q=100&w=3840', description: 'A bio-reserve featuring an exciting tiger and lion safari, zoo, and butterfly park.' }
+            { name: 'Bannerghatta National Park', image: 'https://im.whatshot.in/img/2019/Nov/bp-1-cropped-1-1573218361.jpg', description: 'A bio-reserve featuring an exciting tiger and lion safari, zoo, and butterfly park.' },
+            { name: 'Bugle Rock Park', image: 'https://bangalore247.in/wp-content/uploads/2021/02/Bugle-Rock-Park.jpg', description: 'A massive rock formation of geological importance, featuring a beautiful landscaped park and watchtower.' },
+            { name: 'JP Park', image: 'https://www.holidify.com/images/cmsuploads/compressed/JPPark_20200602150442_20200602150525.jpg', description: 'Jayaprakash Narayan Biodiversity Park, featuring lush lawns, visual musical fountains, and a diverse collection of trees.' },
+            { name: 'Freedom Park', image: 'https://ideadesign.org/wpla/wp-content/uploads/2012/09/FPB_005.jpg', description: 'A unique historical public park built on the grounds of the former Central Jail, showcasing rich heritage and lush green areas.' }
         ]
     },
     'heritage': {
