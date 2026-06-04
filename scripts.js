@@ -320,16 +320,20 @@ const bangaloreCategoryData = {
     'trekking': {
         name: 'Bangalore Trekking Places',
         places: [
-            { name: 'TK Falls (Thottikallu Falls)', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg', description: 'A beautiful waterfall near Bangalore, ideal for trekking, hiking, and enjoying scenic natural views.' },
-            { name: 'Muthyala Maduvu (Pearl Valley)', image: 'https://www.shoutlo.com/uploads/articles/item-header-img-muthyala-maduvu-the-pearl-valley.jpg', description: 'A peaceful valley featuring a gorgeous waterfall falling like pearls, set amidst deep green hills.' },
-            { name: 'Guhantara Underground Cave Resort', image: 'https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/11/covr-kidn-of.jpg', description: 'An underground cave-themed resort offering unique adventure activities, trekking routes, and relaxation.' },
-            { name: 'Manchinbele Dam', image: 'https://i.ytimg.com/vi/ARII9OPlN1g/maxresdefault.jpg', description: 'A popular reservoir and adventure spot near Bangalore, surrounded by deciduous forests and rocky hills, ideal for trekking and water sports.' },
-            { name: 'Nandi Hills', image: 'https://i.ytimg.com/vi/K256dg0x0hQ/maxresdefault.jpg', description: 'A famous ancient hill fortress in southern India, renowned for its spectacular sunrise views, misty mornings, and historic temples.' },
-            { name: 'Savandurga', image: 'https://www.trawell.in/admin/images/upload/116649355Bangalore_Savandurga_Main.jpg', description: 'One of the largest monolith hills in Asia, offering a challenging yet highly rewarding trekking experience with stunning panoramic views.' },
-            { name: 'Shivagange Hills', image: 'https://4.bp.blogspot.com/-lYvY_Kw60Lg/VaXxgbzK9vI/AAAAAAAAAS0/yUbWDjZvc5Q/s0/shivagange_cliff.jpg', description: 'A historic peak resembling a Shiva Linga, known for its rocky trekking trails, spring waters, and ancient cave temples.' },
-            { name: 'Skandagiri Hills', image: 'https://snaptoro.com/wp-content/uploads/2023/03/Beautiful-Sunrise-View-From-Skandagiri-Hills-1024x618.jpg', description: 'An outstanding night trekking destination, famous for the breathtaking view of a sea of clouds at sunrise from the hilltop ruins.' },
-            { name: 'Devarayanadurga Hills', image: 'https://traveltwosome.com/wp-content/uploads/2015/05/Deva.jpg', description: 'A tranquil hill station surrounded by lush forests, hosting historic temples perched atop the rocky cliffs.' },
-            { name: 'Anthargange', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/5b/59/0f/thrillophilia-anthargange.jpg?w=700&h=500&s=1', description: 'Famous for its unique volcanic rock formations, natural cave networks, and exciting night navigation treks.' }
+            { name: 'TK Falls (Thottikallu Falls)', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg', description: 'A beautiful waterfall near Bangalore, ideal for trekking, hiking, and enjoying scenic natural views.', bestSeason: 'August to December (Monsoon/Post-monsoon)', bestTime: '8:00 AM – 5:00 PM' },
+            { name: 'Muthyala Maduvu (Pearl Valley)', image: 'https://im.whatshot.in/img/2022/Apr/5-muthyala-1650360066.jpg', description: 'A peaceful valley featuring a gorgeous waterfall falling like pearls, set amidst deep green hills.', bestSeason: 'August to November (Monsoon/Post-monsoon)', bestTime: '9:00 AM – 5:00 PM' },
+            { name: 'Guhantara Underground Cave Resort', image: 'https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/11/covr-kidn-of.jpg', description: 'An underground cave-themed resort offering unique adventure activities, trekking routes, and relaxation.', bestSeason: 'Year-round', bestTime: '9:00 AM – 5:30 PM (Day outings)' },
+            { name: 'Manchinbele Dam', image: 'https://i.ytimg.com/vi/ARII9OPlN1g/maxresdefault.jpg', description: 'A popular reservoir and adventure spot near Bangalore, surrounded by deciduous forests and rocky hills, ideal for trekking and water sports.', bestSeason: 'September to February', bestTime: '9:00 AM – 6:00 PM' },
+            { name: 'Nandi Hills', image: 'https://i.ytimg.com/vi/K256dg0x0hQ/maxresdefault.jpg', description: 'A famous ancient hill fortress in southern India, renowned for its spectacular sunrise views, misty mornings, and historic temples.', bestSeason: 'September to February', bestTime: '5:30 AM – 9:00 AM' },
+            { name: 'Savandurga', image: 'https://www.trawell.in/admin/images/upload/116649355Bangalore_Savandurga_Main.jpg', description: 'One of the largest monolith hills in Asia, offering a challenging yet highly rewarding trekking experience with stunning panoramic views.', bestSeason: 'October to February', bestTime: '6:00 AM – 10:00 AM' },
+            { name: 'Shivagange Hills', image: 'https://4.bp.blogspot.com/-lYvY_Kw60Lg/VaXxgbzK9vI/AAAAAAAAAS0/yUbWDjZvc5Q/s0/shivagange_cliff.jpg', description: 'A historic peak resembling a Shiva Linga, known for its rocky trekking trails, spring waters, and ancient cave temples.', bestSeason: 'October to March', bestTime: '6:00 AM – 12:00 PM' },
+            { name: 'Skandagiri Hills', image: 'https://snaptoro.com/wp-content/uploads/2023/03/Beautiful-Sunrise-View-From-Skandagiri-Hills-1024x618.jpg', description: 'An outstanding night trekking destination, famous for the breathtaking view of a sea of clouds at sunrise from the hilltop ruins.', bestSeason: 'November to February', bestTime: '12:00 AM – 7:00 AM (Night trek)' },
+            { name: 'Devarayanadurga Hills', image: 'https://traveltwosome.com/wp-content/uploads/2015/05/Deva.jpg', description: 'A tranquil hill station surrounded by lush forests, hosting historic temples perched atop the rocky cliffs.', bestSeason: 'September to February', bestTime: '6:00 AM – 10:00 AM or 4:00 PM – 7:00 PM' },
+            { name: 'Anthargange', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/5b/59/0f/thrillophilia-anthargange.jpg?w=700&h=500&s=1', description: 'Famous for its unique volcanic rock formations, natural cave networks, and exciting night navigation treks.', bestSeason: 'October to March', bestTime: '10:00 PM – 6:00 AM (Night cave exploration)' },
+            { name: 'Thippagondanahalli Reservoir', image: 'https://im.whatshot.in/img/2020/Dec/file6xnkslxn19215clfh3lx-1547474026-cropped-1609227059.jpg', description: 'A scenic reservoir situated at the confluence of the Arkavathy and Kumudavathi rivers, offering tranquil views.', bestSeason: 'September to February (Post-monsoon)', bestTime: '6:00 AM – 10:00 AM or 4:00 PM – 6:00 PM' },
+            { name: 'Chunchi Falls', image: 'https://www.qexperiences.in/blog/wp-content/uploads/2021/06/banner_Chunchi-Falls_989.jpg', description: 'A gorgeous 50-feet high waterfall on the Arkavati River, surrounded by rocky terrain and deciduous forests.', bestSeason: 'August to November (Monsoon/Post-monsoon)', bestTime: '8:00 AM – 4:00 PM' },
+            { name: 'Hesaraghatta Lake', image: 'https://static.toiimg.com/thumb/msid-95056250,width-1070,height-580,imgsize-1110523,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg', description: 'A fresh water lake and a popular bird-watching spot surrounded by grasslands, perfect for peaceful mornings.', bestSeason: 'October to March (Winter)', bestTime: '6:00 AM – 9:00 AM' },
+            { name: 'Ramanagara', image: 'https://dmgupcwbwy0wl.cloudfront.net/system/images/000/183/876/be2f7982cdc9b11cc4b12eaac949bd7d/x1000gt/axeadventure_srshills__2_.jpg?1561540288', description: 'Famed as the "Sholay" hills, this rocky landscape offers adventure trekking, rock climbing, and beautiful views of Sri Revanna Siddeshwara Betta.', bestSeason: 'October to March', bestTime: '6:00 AM – 11:00 AM' }
         ]
     }
 };
@@ -482,6 +486,22 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                         <div class="place-info">
                             <h3>${place.name}</h3>
                             <p>${place.description}</p>
+                            ${place.bestSeason || place.bestTime ? `
+                            <div class="place-meta">
+                                ${place.bestSeason ? `
+                                <div class="meta-item season">
+                                    <span class="meta-icon">🗓️</span>
+                                    <span><strong>Best Season:</strong> ${place.bestSeason}</span>
+                                </div>
+                                ` : ''}
+                                ${place.bestTime ? `
+                                <div class="meta-item time">
+                                    <span class="meta-icon">⏰</span>
+                                    <span><strong>Best Time:</strong> ${place.bestTime}</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                            ` : ''}
                             <a href="#" class="explore-link" data-name="${place.name}" ${cityId === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>Explore →</a>
                         </div>
                     </div>
@@ -757,6 +777,22 @@ function openMustWatchModal(category) {
                                             <span>${getLocation(place.name)}</span>
                                         </div>
                                         <p>${place.description}</p>
+                                        ${place.bestSeason || place.bestTime ? `
+                                        <div class="place-meta">
+                                            ${place.bestSeason ? `
+                                            <div class="meta-item season">
+                                                <span class="meta-icon">🗓️</span>
+                                                <span><strong>Best Season:</strong> ${place.bestSeason}</span>
+                                            </div>
+                                            ` : ''}
+                                            ${place.bestTime ? `
+                                            <div class="meta-item time">
+                                                <span class="meta-icon">⏰</span>
+                                                <span><strong>Best Time:</strong> ${place.bestTime}</span>
+                                            </div>
+                                            ` : ''}
+                                        </div>
+                                        ` : ''}
                                         <button class="must-watch-explore-btn">
                                             Explore More
                                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

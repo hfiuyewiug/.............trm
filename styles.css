@@ -341,6 +341,39 @@ main {
     overflow: hidden;
 }
 
+.place-meta {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.meta-item.season {
+    color: #2D9596;
+}
+
+.meta-item.time {
+    color: var(--primary-color);
+}
+
+.meta-icon {
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .explore-link {
     color: var(--primary-color);
     text-decoration: none;
