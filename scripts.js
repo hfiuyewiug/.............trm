@@ -1989,15 +1989,6 @@ function renderFallbackSetupCard(container, placeId, customErrorMsg) {
     `;
 }
 
-window.updatePopupContent = function(newName, newImg, newPrice) {
-    const imgNode = document.querySelector('.food-popup-img img');
-    const titleNode = document.querySelector('.food-popup-info h3');
-    const priceNode = document.querySelector('.food-popup-price-tag');
-    if (imgNode) imgNode.src = newImg;
-    if (titleNode) titleNode.textContent = newName;
-    if (priceNode) priceNode.textContent = newPrice;
-};
-
 window.showFoodPopup = function(name, img, price) {
     const existing = document.getElementById('food-popup-overlay');
     if (existing) existing.remove();
@@ -2012,19 +2003,25 @@ window.showFoodPopup = function(name, img, price) {
         }
     }
 
+    let currentIndex = allFoods.findIndex(f => f.name === name);
+    if (currentIndex === -1) currentIndex = 0;
+
     let scrollerHTML = '';
     if (allFoods.length > 0) {
         scrollerHTML = `
             <div class="popup-scroller-wrapper" style="margin-top: 1rem; border-top: 1px dashed rgba(0,0,0,0.12); padding-top: 0.75rem;">
-                <div style="font-size: 0.7rem; color: #E53E3E; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; text-align: center;">Other Specialties</div>
+                <div style="font-size: 0.7rem; color: #E53E3E; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; text-align: center;">Other Specialties (Slideshow running)</div>
                 <div class="popup-scroller" style="overflow: hidden; white-space: nowrap; width: 100%; background: #FFF8F8; border-radius: 8px; padding: 0.25rem 0;">
                     <div class="popup-scroller-inner" style="display: inline-flex; gap: 0.75rem; animation: marquee 12s linear infinite;">
-                        ${[...allFoods, ...allFoods].map(food => `
-                            <div class="popup-food-card" onclick="updatePopupContent('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,107,107,0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
+                        ${[...allFoods, ...allFoods].map((food, idx) => {
+                            const actualIdx = idx % allFoods.length;
+                            return `
+                            <div class="popup-food-card popup-card-${actualIdx}" onclick="selectPopupFood(${actualIdx})" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,107,107,0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
                                 <img src="${food.img}" alt="${food.name}" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px;">
                                 <span style="font-size: 0.7rem; font-weight: 600; color: #2D3748;">${food.name}</span>
                             </div>
-                        `).join('')}
+                            `;
+                        }).join('')}
                     </div>
                 </div>
             </div>
@@ -2034,12 +2031,12 @@ window.showFoodPopup = function(name, img, price) {
     const popupHTML = `
         <div class="food-popup-overlay" id="food-popup-overlay">
             <div class="food-popup-card">
-                <button class="food-popup-close" id="food-popup-close">&times;</button>
+                <button class="food-popup-close" id="food-popup-close" aria-label="Close popup">&times;</button>
                 <div class="food-popup-img">
                     <img src="${img}" alt="${name}">
                 </div>
                 <div class="food-popup-info">
-                    <h3>${name}</h3>
+                    <h3 class="food-popup-title">${name}</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">Approximate Price</p>
                     <div class="food-popup-price-tag">${price}</div>
                     ${scrollerHTML}
@@ -2057,7 +2054,61 @@ window.showFoodPopup = function(name, img, price) {
         overlay.classList.add('active');
     }, 20);
 
+    let popupAutoPlayInterval;
+
+    // Helper function to update active popup content
+    window.selectPopupFood = function(index) {
+        currentIndex = index;
+        const food = allFoods[currentIndex];
+        if (!food) return;
+
+        const imgNode = document.querySelector('.food-popup-img img');
+        const titleNode = document.querySelector('.food-popup-title');
+        const priceNode = document.querySelector('.food-popup-price-tag');
+        if (imgNode) imgNode.src = food.img;
+        if (titleNode) titleNode.textContent = food.name;
+        if (priceNode) priceNode.textContent = food.price;
+
+        // Highlight active card
+        document.querySelectorAll('.popup-food-card').forEach(card => {
+            card.style.borderColor = 'rgba(255,107,107,0.15)';
+            card.style.background = 'white';
+        });
+        const activeCards = document.querySelectorAll(`.popup-card-${currentIndex}`);
+        activeCards.forEach(card => {
+            card.style.borderColor = '#E53E3E';
+            card.style.background = '#FFF5F5';
+        });
+
+        // Reset autoplay interval on user manual selection
+        resetAutoplay();
+    };
+
+    function startAutoplay() {
+        popupAutoPlayInterval = setInterval(() => {
+            if (allFoods.length <= 1) return;
+            currentIndex = (currentIndex + 1) % allFoods.length;
+            selectPopupFood(currentIndex);
+        }, 3000); // Every 3 seconds!
+    }
+
+    function resetAutoplay() {
+        clearInterval(popupAutoPlayInterval);
+        startAutoplay();
+    }
+
+    // Initialize highlighting and autoplay
+    if (allFoods.length > 0) {
+        const activeCards = document.querySelectorAll(`.popup-card-${currentIndex}`);
+        activeCards.forEach(card => {
+            card.style.borderColor = '#E53E3E';
+            card.style.background = '#FFF5F5';
+        });
+        startAutoplay();
+    }
+
     const closePopup = () => {
+        clearInterval(popupAutoPlayInterval);
         overlay.classList.remove('active');
         setTimeout(() => {
             overlay.remove();
