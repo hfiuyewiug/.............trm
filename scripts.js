@@ -3295,15 +3295,15 @@ window.showFoodPopup = function(name, img, price) {
     if (allFoods.length > 0) {
         scrollerHTML = `
             <div class="popup-scroller-wrapper" style="margin-top: 1rem; border-top: 1px dashed rgba(0,0,0,0.12); padding-top: 0.75rem;">
-                <div style="font-size: 0.7rem; color: #E53E3E; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; text-align: center;">Other Specialties (Slideshow running)</div>
+                <div style="font-size: 0.7rem; color: #16A34A; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; text-align: center;">Other Specialties (Slideshow running)</div>
                 <div style="display: flex; align-items: center; gap: 0.4rem; position: relative;">
                     ${hasMultipleFoods ? `<button class="scroller-nav-btn prev" id="scroller-prev-btn" aria-label="Previous specialty">&lsaquo;</button>` : ''}
-                    <div class="popup-scroller" style="overflow: hidden; white-space: nowrap; flex-grow: 1; background: #FFF8F8; border-radius: 8px; padding: 0.25rem 0;">
+                    <div class="popup-scroller" style="overflow: hidden; white-space: nowrap; flex-grow: 1; background: #F0FDF4; border-radius: 8px; padding: 0.25rem 0;">
                         <div class="popup-scroller-inner" style="display: inline-flex; gap: 0.75rem; animation: marquee 12s linear infinite;">
                             ${[...allFoods, ...allFoods].map((food, idx) => {
                                 const actualIdx = idx % allFoods.length;
                                 return `
-                                <div class="popup-food-card popup-card-${actualIdx}" onclick="selectPopupFood(${actualIdx})" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,107,107,0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
+                                <div class="popup-food-card popup-card-${actualIdx}" onclick="selectPopupFood(${actualIdx})" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(22, 163, 74, 0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
                                     <img src="${food.img}" alt="${food.name}" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px;">
                                     <span style="font-size: 0.7rem; font-weight: 600; color: #2D3748;">${food.name}</span>
                                 </div>
@@ -3364,13 +3364,13 @@ window.showFoodPopup = function(name, img, price) {
 
         // Highlight active card
         document.querySelectorAll('.popup-food-card').forEach(card => {
-            card.style.borderColor = 'rgba(255,107,107,0.15)';
+            card.style.borderColor = 'rgba(22, 163, 74, 0.15)';
             card.style.background = 'white';
         });
         const activeCards = document.querySelectorAll(`.popup-card-${currentIndex}`);
         activeCards.forEach(card => {
-            card.style.borderColor = '#E53E3E';
-            card.style.background = '#FFF5F5';
+            card.style.borderColor = '#16A34A';
+            card.style.background = '#F0FDF4';
         });
 
         // Reset autoplay interval on user manual selection
@@ -3410,8 +3410,8 @@ window.showFoodPopup = function(name, img, price) {
     if (allFoods.length > 0) {
         const activeCards = document.querySelectorAll(`.popup-card-${currentIndex}`);
         activeCards.forEach(card => {
-            card.style.borderColor = '#E53E3E';
-            card.style.background = '#FFF5F5';
+            card.style.borderColor = '#16A34A';
+            card.style.background = '#F0FDF4';
         });
         startAutoplay();
     }

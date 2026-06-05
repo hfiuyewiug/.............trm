@@ -378,8 +378,8 @@ main {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background: #FFF5F5;
-    border: 1px solid #FFD8D8;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
     border-radius: 12px;
     padding: 0.5rem;
     margin-top: 0.75rem;
@@ -396,7 +396,7 @@ main {
 
 .best-food-title {
     font-size: 0.72rem;
-    color: #E53E3E;
+    color: #16A34A; /* Green accent */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -420,8 +420,8 @@ main {
 .best-food-slider-card {
     display: flex;
     align-items: center;
-    background: #FFF5F5;
-    border: 1px solid #FFD8D8;
+    background: #F0FDF4; /* Light green background */
+    border: 1px solid #BBF7D0; /* Light green border */
     border-radius: 16px;
     padding: 0.6rem 1rem;
     cursor: pointer;
@@ -433,8 +433,8 @@ main {
 
 .best-food-slider-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.15);
-    border-color: rgba(255, 107, 107, 0.4);
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.15); /* Green shadow */
+    border-color: rgba(22, 163, 74, 0.4); /* Green border hover */
 }
 
 .food-slider-content {
@@ -484,8 +484,8 @@ main {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 107, 107, 0.2);
-    color: #FF6B6B;
+    border: 1px solid rgba(22, 163, 74, 0.2); /* Green border */
+    color: #16A34A; /* Green text */
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -502,10 +502,10 @@ main {
 }
 
 .slider-nav-btn:hover {
-    background: #FF6B6B;
+    background: #16A34A; /* Green background hover */
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 4px 8px rgba(22, 163, 74, 0.2); /* Green shadow hover */
 }
 
 .slider-nav-btn.prev {
@@ -534,13 +534,13 @@ main {
 .food-slider-name {
     font-size: 0.88rem;
     font-weight: 600;
-    color: #2D3748;
+    color: #15803D; /* Dark green */
     margin-bottom: 0.1rem;
 }
 
 .food-slider-price {
     font-size: 0.8rem;
-    color: #E53E3E;
+    color: #16A34A; /* Medium green */
     font-weight: 700;
 }
 
@@ -608,7 +608,7 @@ main {
 }
 
 .food-popup-close:hover {
-    background: #FF6B6B;
+    background: #16A34A;
     transform: rotate(90deg);
 }
 
@@ -644,7 +644,7 @@ main {
 }
 
 .popup-nav-btn:hover {
-    background: #FF6B6B;
+    background: #16A34A;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -675,20 +675,20 @@ main {
 
 .food-popup-price-tag {
     display: inline-block;
-    background: #FFF5F5;
-    color: #E53E3E;
+    background: #F0FDF4;
+    color: #16A34A;
     font-weight: 700;
     font-size: 1.1rem;
     padding: 0.4rem 1.4rem;
     border-radius: 50px;
-    border: 1px solid #FFD8D8;
+    border: 1px solid #BBF7D0;
     margin-top: 0.5rem;
 }
 
 .popup-food-card:hover {
     transform: translateY(-1px) scale(1.02);
-    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.15);
-    border-color: rgba(255, 107, 107, 0.4) !important;
+    box-shadow: 0 4px 8px rgba(22, 163, 74, 0.15);
+    border-color: rgba(22, 163, 74, 0.4) !important;
 }
 
 /* Marquee Slideshow Keyframes & Interactions */
@@ -713,9 +713,9 @@ main {
 }
 
 .scroller-nav-btn {
-    background: rgba(229, 62, 62, 0.08);
+    background: rgba(22, 163, 74, 0.08);
     border: none;
-    color: #E53E3E;
+    color: #16A34A;
     font-size: 1.1rem;
     cursor: pointer;
     border-radius: 50%;
@@ -731,7 +731,7 @@ main {
 }
 
 .scroller-nav-btn:hover {
-    background: #E53E3E;
+    background: #16A34A;
     color: white;
 }
 
