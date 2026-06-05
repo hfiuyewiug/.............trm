@@ -1106,10 +1106,10 @@ const bangaloreCategoryData = {
                 description: 'Renowned for its spicy and authentic Andhra-style meals, biryanis, and signature chili chicken, serving food lovers since 1984.',
                 openHours: '12:00 PM – 3:45 PM, 7:00 PM – 10:45 PM',
                 bestFoods: [
-                    { name: 'Andhra Chicken Biryani', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', price: '₹320 (Approx)' },
-                    { name: 'Nagarjuna Special Meals', img: 'https://3.bp.blogspot.com/-Wf_U-L7BwzE/WfC0QvMlhII/AAAAAAAAsbQ/w9E-XNqG07w0xT5a3N15W-G0Y2Bv-N0BACLcBGAs/s1600/Andhra%2BMeals%2Bat%2BNagarjuna%2B-%2BIndiranagar.jpg', price: '₹220 (Approx)' },
-                    { name: 'Chilli Chicken', img: 'https://www.yummyoyummy.com/wp-content/uploads/2019/12/Andhra-chilli-chicken.jpg', price: '₹310 (Approx)' },
-                    { name: 'Chicken Nagarjuna Dry', img: 'https://i.ytimg.com/vi/S7PvxE4y_Q0/maxresdefault.jpg', price: '₹310 (Approx)' }
+                    { name: 'Andhra Chicken Biryani', img: 'https://tastespread.com/wp-content/uploads/2025/01/Andhra-Pradesh-Chicken-Biryani.jpg', price: '₹320 (Approx)' },
+                    { name: 'Nagarjuna Special Meals', img: 'https://www.nagarjunarestaurants.com/images/menu/meals_n_biryani.jpg', price: '₹220 (Approx)' },
+                    { name: 'Chilli Chicken', img: 'https://theyummydelights.com/wp-content/uploads/2022/07/chilli-chicken-dry.jpg', price: '₹310 (Approx)' },
+                    { name: 'Chicken Nagarjuna Dry', img: 'https://www.spiceindiaonline.com/wp-content/uploads/2018/06/Chilli-Chicken-Dry-2.jpg', price: '₹310 (Approx)' }
                 ]
             },
             {
