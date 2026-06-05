@@ -1470,9 +1470,9 @@ const mysuruCategoryData = {
                 openHours: '9:00 AM – 10:00 PM',
                 bestFoods: [
                     { name: 'Special Mysore Pak', img: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75', price: '₹80 for 250g' },
-                    { name: 'Kaju Katli', img: 'https://img.magnific.com/premium-photo/exotic-saffron-rasgulla-indian-traditional-sweet-dessert-rasgulla-image-photography_1020697-145225.jpg', price: '₹250 for 250g' },
-                    { name: 'Motichoor Ladoo', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹90 for 250g' },
-                    { name: 'Dry Fruit Burfi', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹300 for 250g' }
+                    { name: 'Kaju Katli', img: 'https://indiasweethouse.in/cdn/shop/files/KajuKatli.jpg?v=1685445876&width=1946', price: '₹250 for 250g' },
+                    { name: 'Motichoor Ladoo', img: 'https://img-global.cpcdn.com/recipes/6a044188ce8e0432/1502x1064cq70/motichoor-ladoo-recipe-main-photo.jpg', price: '₹90 for 250g' },
+                    { name: 'Dry Fruit Burfi', img: 'https://as1.ftcdn.net/jpg/09/01/82/74/1000_F_901827443_LVpgDcwKZhARdTFzOaQoBRUqAYSdtESt.jpg', price: '₹300 for 250g' }
                 ]
             },
             {
