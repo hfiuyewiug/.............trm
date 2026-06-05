@@ -1090,7 +1090,7 @@ const bangaloreCategoryData = {
             },
             {
                 name: 'Vidyarthi Bhavan',
-                image: 'https://im.whatshot.in/img/2022/Apr/pjimage-2-1650271466-1650353780.jpg?wm=1&w=1200&h=630&cc=1',
+                image: 'https://b.zmtcdn.com/data/pictures/1/21359471/6e69ffecc003160a88dc29a4612b0c2a.jpg',
                 description: 'A historic vegetarian restaurant in Gandhi Bazaar, iconic for its thick, crispy, ghee-roasted Masala Dosas served with mint chutney.',
                 openHours: '6:30 AM – 11:30 AM, 2:00 PM – 8:00 PM (Closed Fridays)',
                 bestFoods: [
