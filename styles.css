@@ -691,6 +691,51 @@ main {
     border-color: rgba(255, 107, 107, 0.4) !important;
 }
 
+/* Marquee Slideshow Keyframes & Interactions */
+.popup-scroller {
+    position: relative;
+    overflow: hidden;
+}
+
+.popup-scroller-inner {
+    display: inline-flex;
+    gap: 0.75rem;
+    animation: marquee 12s linear infinite;
+}
+
+.popup-scroller:hover .popup-scroller-inner {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.scroller-nav-btn {
+    background: rgba(229, 62, 62, 0.08);
+    border: none;
+    color: #E53E3E;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    outline: none;
+}
+
+.scroller-nav-btn:hover {
+    background: #E53E3E;
+    color: white;
+}
+
+
 .explore-link {
     color: var(--primary-color);
     text-decoration: none;
@@ -1520,8 +1565,8 @@ main {
     }
 
     .destinations-row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
         padding: 0 0.75rem;
     }
 
@@ -1579,8 +1624,8 @@ main {
     }
 
     .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
         padding: 0 0.75rem;
     }
     
