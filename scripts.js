@@ -287,8 +287,8 @@ const mangaloreCategoryData = {
                 description: 'A charming theme-style garden restaurant offering a rustic coastal village ambiance and a delectable range of Mangalorean delicacies.',
                 openHours: '12:00 PM – 3:30 PM, 7:00 PM – 11:00 PM',
                 bestFoods: [
-                    { name: 'Fish Curry & Neer Dosa', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹200 (Approx)' },
-                    { name: 'Pomfret Masala Fry', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', price: '₹450 (Approx)' },
+                    { name: 'Fish Curry & Neer Dosa', img: 'https://traveltillyoudrop.com/wp-content/uploads/2024/11/Neer-Dosa-with-Fish-Curry_11zon.webp', price: '₹200 (Approx)' },
+                    { name: 'Pomfret Masala Fry', img: 'https://lh3.googleusercontent.com/-4qEWHrdDEf8/YAAmed_qpRI/AAAAAAAAMHs/X28AQROcmQ8Uwt04RJRcryM4dB06-EG_ACLcBGAsYHQ/w1200-h630-p-k-no-nu/1610622580540332-0.png', price: '₹450 (Approx)' },
                     { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
                     { name: 'Mangalore Buns', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹60 (Approx)' }
                 ]
