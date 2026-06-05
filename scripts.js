@@ -504,6 +504,7 @@ const cityCategoryData = {
 };
 
 let currentCityId = 'mangaluru';
+let bestFoodSliderIntervals = [];
 
 function renderCategoryPage(categoryId, cityId = currentCityId) {
     const cityData = cityCategoryData[cityId];
@@ -562,23 +563,19 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                             </div>
                             ` : ''}
                             ${place.bestFoods ? `
-                            <div class="food-scroller-wrapper">
+                            <div class="best-food-slider-wrapper">
                                 <div class="best-food-title">Best Food Choices (Click to view price)</div>
-                                <div class="food-scroller">
-                                    <div class="food-scroller-inner">
-                                        ${[...place.bestFoods, ...place.bestFoods].map(food => `
-                                            <div class="food-item-card" onclick="showFoodPopup('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')">
-                                                <img src="${food.img}" alt="${food.name}" loading="lazy" decoding="async">
-                                                <div class="food-item-info">
-                                                    <span class="food-item-name">${food.name}</span>
-                                                    <span class="food-item-price">${food.price}</span>
-                                                </div>
-                                            </div>
-                                        `).join('')}
+                                <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" onclick="showFoodPopup('${place.bestFoods[0].name.replace(/'/g, "\\'")}', '${place.bestFoods[0].img}', '${place.bestFoods[0].price}')">
+                                    <div class="food-slider-content">
+                                        <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
+                                        <div class="food-slider-info">
+                                            <span class="food-slider-name">${place.bestFoods[0].name}</span>
+                                            <span class="food-slider-price">${place.bestFoods[0].price}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            ` : place.bestFood ? `
+` : place.bestFood ? `
                             <div class="best-food-box">
                                 ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
                                 <div>
@@ -596,6 +593,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
     `;
 
     app.innerHTML = destHTML;
+    initBestFoodSliders();
 
     document.getElementById('back-to-city').addEventListener('click', (e) => {
         e.preventDefault();
@@ -613,6 +611,8 @@ console.log("Scripts initializing...");
 const app = document.getElementById('app');
 
 function renderHome() {
+    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
+    bestFoodSliderIntervals = [];
     const homeHTML = `
         <div class="page-content">
             <section class="hero">
@@ -745,6 +745,7 @@ function renderDestination(id) {
     `;
 
     app.innerHTML = destHTML;
+    initBestFoodSliders();
 
     // Add back button listener
     document.getElementById('back-home').addEventListener('click', (e) => {
@@ -886,23 +887,19 @@ function openMustWatchModal(category) {
                                         </div>
                                         ` : ''}
                                         ${place.bestFoods ? `
-                                        <div class="food-scroller-wrapper" style="margin-bottom: 1.5rem;">
+                                        <div class="best-food-slider-wrapper" style="margin-bottom: 1.5rem;">
                                             <div class="best-food-title">Best Food Choices (Click to view price)</div>
-                                            <div class="food-scroller">
-                                                <div class="food-scroller-inner">
-                                                    ${[...place.bestFoods, ...place.bestFoods].map(food => `
-                                                        <div class="food-item-card" onclick="showFoodPopup('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')">
-                                                            <img src="${food.img}" alt="${food.name}" loading="lazy" decoding="async">
-                                                            <div class="food-item-info">
-                                                                <span class="food-item-name">${food.name}</span>
-                                                                <span class="food-item-price">${food.price}</span>
-                                                            </div>
-                                                        </div>
-                                                    `).join('')}
+                                            <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" onclick="showFoodPopup('${place.bestFoods[0].name.replace(/'/g, "\\'")}', '${place.bestFoods[0].img}', '${place.bestFoods[0].price}')">
+                                                <div class="food-slider-content">
+                                                    <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
+                                                    <div class="food-slider-info">
+                                                        <span class="food-slider-name">${place.bestFoods[0].name}</span>
+                                                        <span class="food-slider-price">${place.bestFoods[0].price}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        ` : place.bestFood ? `
+` : place.bestFood ? `
                                         <div class="best-food-box" style="margin-bottom: 1.5rem;">
                                             ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
                                             <div>
@@ -2116,4 +2113,71 @@ window.showFoodPopup = function(name, img, price) {
         if (e.target === overlay) closePopup();
     });
 };
+
+function initBestFoodSliders() {
+    // Clear any previous intervals to avoid duplicate loops
+    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
+    bestFoodSliderIntervals = [];
+
+    const sliderCards = document.querySelectorAll('.best-food-slider-card');
+    sliderCards.forEach(card => {
+        const placeName = card.getAttribute('data-place-name');
+        
+        // Find place in category data
+        let placeData = null;
+        for (const cityId of Object.keys(cityCategoryData)) {
+            const cityData = cityCategoryData[cityId];
+            for (const catId of Object.keys(cityData)) {
+                const category = cityData[catId];
+                if (category.places) {
+                    const found = category.places.find(p => p.name === placeName);
+                    if (found) {
+                        placeData = found;
+                        break;
+                    }
+                }
+            }
+            if (placeData) break;
+        }
+
+        if (!placeData || !placeData.bestFoods || placeData.bestFoods.length <= 1) return;
+
+        let currentIndex = 0;
+        const intervalId = setInterval(() => {
+            const content = card.querySelector('.food-slider-content');
+            if (!content) return;
+
+            // Slide out left (fade out / move left)
+            content.classList.add('sliding-out');
+
+            setTimeout(() => {
+                // Update to next index
+                currentIndex = (currentIndex + 1) % placeData.bestFoods.length;
+                const nextFood = placeData.bestFoods[currentIndex];
+
+                const img = content.querySelector('.food-slider-img');
+                const name = content.querySelector('.food-slider-name');
+                const price = content.querySelector('.food-slider-price');
+
+                if (img) img.src = nextFood.img;
+                if (name) name.textContent = nextFood.name;
+                if (price) price.textContent = nextFood.price;
+
+                // Update card click handler to show popup for the current food item
+                card.setAttribute('onclick', `showFoodPopup('${nextFood.name.replace(/'/g, "\\'")}', '${nextFood.img}', '${nextFood.price}')`);
+
+                // Slide in right
+                content.classList.remove('sliding-out');
+                content.classList.add('sliding-in');
+
+                setTimeout(() => {
+                    content.classList.remove('sliding-in');
+                }, 350);
+            }, 350);
+        }, 3000); // Change every 3 seconds
+
+        bestFoodSliderIntervals.push(intervalId);
+    });
+}
+
 
