@@ -1445,9 +1445,9 @@ const mysuruCategoryData = {
                 description: 'A tiny, legendary eatery in Nazarbad, famous for its incredibly soft, melt-in-the-mouth Mylari Dosas topped with fresh butter.',
                 openHours: '6:30 AM – 1:30 PM, 3:30 PM – 8:30 PM (Closed Wednesdays)',
                 bestFoods: [
-                    { name: 'Butter Mylari Dosa', img: 'https://vanitascorner.com/wp-content/uploads/2018/01/Neer-Dosa-1024x768.jpg', price: '₹60 (Approx)' },
-                    { name: 'Sagu Dosa', img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', price: '₹60 (Approx)' },
-                    { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹35 (Approx)' },
+                    { name: 'Butter Mylari Dosa', img: 'https://product-assets.faasos.io/production/product/image_1663431189904_Butter_Masala_Dosa.jpg', price: '₹60 (Approx)' },
+                    { name: 'Sagu Dosa', img: 'https://chillybite.com/wp-content/uploads/2025/11/Mysore-Masala-Dosa.jpg', price: '₹60 (Approx)' },
+                    { name: 'Filter Coffee', img: 'https://img-global.cpcdn.com/recipes/678be4e38ad148c7/680x482cq70/mysore-filter-coffee-recipe-main-photo.jpg', price: '₹35 (Approx)' },
                     { name: 'Idli', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', price: '₹40 (Approx)' }
                 ]
             },
