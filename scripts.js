@@ -1095,9 +1095,9 @@ const bangaloreCategoryData = {
                 openHours: '6:30 AM – 11:30 AM, 2:00 PM – 8:00 PM (Closed Fridays)',
                 bestFoods: [
                     { name: 'VB Special Masala Dosa', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', price: '₹90 (Approx)' },
-                    { name: 'Rava Vada', img: 'https://dineshgiri.com/wp-content/uploads/2020/06/rava-vada-recipe.jpg', price: '₹50 (Approx)' },
+                    { name: 'Rava Vada', img: 'https://izekesillatok.hu/uploads/2025/04/Rava-Vada.webp', price: '₹50 (Approx)' },
                     { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹45 (Approx)' },
-                    { name: 'Kesari Bath', img: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/kesari-bath-recipe-1.jpg', price: '₹60 (Approx)' }
+                    { name: 'Kesari Bath', img: 'https://organicmandya.com/cdn/shop/articles/unnamed_a8077191-3135-4cd6-a7ef-78d1747762b9.jpg?v=1761819015&width=1600', price: '₹60 (Approx)' }
                 ]
             },
             {
