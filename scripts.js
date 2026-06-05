@@ -1082,10 +1082,10 @@ const bangaloreCategoryData = {
                 description: 'A legendary heritage restaurant in Bangalore, celebrated for inventing the Rava Idli and serving outstanding Brahmin-style South Indian food.',
                 openHours: '6:30 AM – 11:00 AM, 12:30 PM – 9:00 PM',
                 bestFoods: [
-                    { name: 'Rava Idli', img: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/07/rava-idli-recipe-2.jpg', price: '₹110 (Approx)' },
+                    { name: 'Rava Idli', img: 'https://www.funfoodfrolic.com/wp-content/uploads/2020/07/Rava-Idli-Thumbnail.jpg', price: '₹110 (Approx)' },
                     { name: 'Masala Dosa', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', price: '₹120 (Approx)' },
-                    { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹60 (Approx)' },
-                    { name: 'Chandrahara', img: 'https://i.ytimg.com/vi/aL3N1XbT8Sg/maxresdefault.jpg', price: '₹100 (Approx)' }
+                    { name: 'Filter Coffee', img: 'https://img.magnific.com/premium-photo/traditional-indian-madras-filter-coffee-steel-cup-also-known-as-tumbler-dabarah-south-indian-style-selective-focus_726363-136.jpg?w=900', price: '₹60 (Approx)' },
+                    { name: 'Chandrahara', img: 'https://priyakitchenette.com/wp-content/uploads/2021/10/chandrahara-recipe-500x500.jpg', price: '₹100 (Approx)' }
                 ]
             },
             {
