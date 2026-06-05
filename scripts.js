@@ -276,9 +276,9 @@ const mangaloreCategoryData = {
                 openHours: '11:30 AM – 3:30 PM, 7:00 PM – 11:00 PM',
                 bestFoods: [
                     { name: 'Chicken Kori Rotti', img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', price: '₹260 (Approx)' },
-                    { name: 'Crab Ghee Roast', img: 'https://aroundmangalore.com/wp-content/uploads/2016/06/Pallkhi-Restaurant-Balmatta-Road-Mangalore-P1.jpg', price: '₹380 (Approx)' },
-                    { name: 'Mutton Curry', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹320 (Approx)' },
-                    { name: 'Neer Dosa', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹80 (Approx)' }
+                    { name: 'Crab Ghee Roast', img: 'https://i.ytimg.com/vi/gxik1GMXxE0/maxresdefault.jpg', price: '₹380 (Approx)' },
+                    { name: 'Mutton Curry', img: 'https://cookwithfaiza.net/wp-content/uploads/2024/03/312836521_Classic_Mutton_Curry_By_Cook_With_Faiza.jpeg', price: '₹320 (Approx)' },
+                    { name: 'Neer Dosa', img: 'https://vanitascorner.com/wp-content/uploads/2018/01/Neer-Dosa-1024x768.jpg', price: '₹80 (Approx)' }
                 ]
             },
             {
