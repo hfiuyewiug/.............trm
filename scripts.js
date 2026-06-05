@@ -250,32 +250,48 @@ const mangaloreCategoryData = {
                 image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png',
                 description: 'A legendary home-style seafood restaurant in Mangaluru, celebrated for its fresh fish, traditional local masalas, and quick service.',
                 openHours: '11:30 AM – 3:30 PM, 7:00 PM – 10:00 PM',
-                bestFood: 'Anjal Fish Fry & Fish Thali',
-                bestFoodImg: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg'
+                bestFoods: [
+                    { name: 'Anjal Fish Fry', img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', price: '₹290 (Approx)' },
+                    { name: 'Fish Thali', img: 'https://aroundmangalore.com/wp-content/uploads/2020/02/Shetty-Lunch-Home-Seafood-and-Mangalore-Cuisine-Restaurant-Adyar-Mangalore-P1.jpg', price: '₹190 (Approx)' },
+                    { name: 'Prawns Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹280 (Approx)' },
+                    { name: 'Crab Masala Fry', img: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', price: '₹350 (Approx)' }
+                ]
             },
             {
                 name: 'Shetty Lunch Home',
                 image: 'https://aroundmangalore.com/wp-content/uploads/2020/02/Shetty-Lunch-Home-Seafood-and-Mangalore-Cuisine-Restaurant-Adyar-Mangalore-P1.jpg',
                 description: 'The iconic restaurant credited with the invention of the world-famous Chicken Ghee Roast, serving outstanding traditional recipes.',
                 openHours: '11:30 AM – 3:30 PM, 6:30 PM – 10:30 PM',
-                bestFood: 'Chicken Ghee Roast',
-                bestFoodImg: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png'
+                bestFoods: [
+                    { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
+                    { name: 'Kane (Lady Fish) Fry', img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', price: '₹280 (Approx)' },
+                    { name: 'Neer Dosa with Curry', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹120 (Approx)' },
+                    { name: 'Silver Fish Rava Fry', img: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2Fgadey_kalu_ed7e47ceb6.jpg&w=1920&q=75', price: '₹220 (Approx)' }
+                ]
             },
             {
                 name: 'Pallkhi Restaurant',
                 image: 'https://aroundmangalore.com/wp-content/uploads/2016/06/Pallkhi-Restaurant-Balmatta-Road-Mangalore-P1.jpg',
                 description: 'One of Mangaluru\'s premier dining landmarks, renowned for its heritage-style fine dining, authentic local curries, and warm hospitality.',
                 openHours: '11:30 AM – 3:30 PM, 7:00 PM – 11:00 PM',
-                bestFood: 'Chicken Kori Rotti & Seafood Platter',
-                bestFoodImg: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg'
+                bestFoods: [
+                    { name: 'Chicken Kori Rotti', img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', price: '₹260 (Approx)' },
+                    { name: 'Crab Ghee Roast', img: 'https://aroundmangalore.com/wp-content/uploads/2016/06/Pallkhi-Restaurant-Balmatta-Road-Mangalore-P1.jpg', price: '₹380 (Approx)' },
+                    { name: 'Mutton Curry', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹320 (Approx)' },
+                    { name: 'Neer Dosa', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹80 (Approx)' }
+                ]
             },
             {
                 name: 'Village Restaurant',
                 image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/village5.png',
                 description: 'A charming theme-style garden restaurant offering a rustic coastal village ambiance and a delectable range of Mangalorean delicacies.',
                 openHours: '12:00 PM – 3:30 PM, 7:00 PM – 11:00 PM',
-                bestFood: 'Mangalorean Fish Curry & Neer Dosa',
-                bestFoodImg: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg'
+                bestFoods: [
+                    { name: 'Fish Curry & Neer Dosa', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹200 (Approx)' },
+                    { name: 'Pomfret Masala Fry', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', price: '₹450 (Approx)' },
+                    { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
+                    { name: 'Mangalore Buns', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹60 (Approx)' }
+                ]
             }
         ]
     }
@@ -545,7 +561,24 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 ` : ''}
                             </div>
                             ` : ''}
-                            ${place.bestFood ? `
+                            ${place.bestFoods ? `
+                            <div class="food-scroller-wrapper">
+                                <div class="best-food-title">Best Food Choices (Click to view price)</div>
+                                <div class="food-scroller">
+                                    <div class="food-scroller-inner">
+                                        ${[...place.bestFoods, ...place.bestFoods].map(food => `
+                                            <div class="food-item-card" onclick="showFoodPopup('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')">
+                                                <img src="${food.img}" alt="${food.name}" loading="lazy" decoding="async">
+                                                <div class="food-item-info">
+                                                    <span class="food-item-name">${food.name}</span>
+                                                    <span class="food-item-price">${food.price}</span>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                            ` : place.bestFood ? `
                             <div class="best-food-box">
                                 ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
                                 <div>
@@ -852,7 +885,24 @@ function openMustWatchModal(category) {
                                             ` : ''}
                                         </div>
                                         ` : ''}
-                                        ${place.bestFood ? `
+                                        ${place.bestFoods ? `
+                                        <div class="food-scroller-wrapper" style="margin-bottom: 1.5rem;">
+                                            <div class="best-food-title">Best Food Choices (Click to view price)</div>
+                                            <div class="food-scroller">
+                                                <div class="food-scroller-inner">
+                                                    ${[...place.bestFoods, ...place.bestFoods].map(food => `
+                                                        <div class="food-item-card" onclick="showFoodPopup('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')">
+                                                            <img src="${food.img}" alt="${food.name}" loading="lazy" decoding="async">
+                                                            <div class="food-item-info">
+                                                                <span class="food-item-name">${food.name}</span>
+                                                                <span class="food-item-price">${food.price}</span>
+                                                            </div>
+                                                        </div>
+                                                    `).join('')}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ` : place.bestFood ? `
                                         <div class="best-food-box" style="margin-bottom: 1.5rem;">
                                             ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
                                             <div>
@@ -1934,3 +1984,45 @@ function renderFallbackSetupCard(container, placeId, customErrorMsg) {
         </div>
     `;
 }
+
+window.showFoodPopup = function(name, img, price) {
+    const existing = document.getElementById('food-popup-overlay');
+    if (existing) existing.remove();
+
+    const popupHTML = `
+        <div class="food-popup-overlay" id="food-popup-overlay">
+            <div class="food-popup-card">
+                <button class="food-popup-close" id="food-popup-close">&times;</button>
+                <div class="food-popup-img">
+                    <img src="${img}" alt="${name}">
+                </div>
+                <div class="food-popup-info">
+                    <h3>${name}</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">Approximate Price</p>
+                    <div class="food-popup-price-tag">${price}</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+    
+    const overlay = document.getElementById('food-popup-overlay');
+    const closeBtn = document.getElementById('food-popup-close');
+
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 20);
+
+    const closePopup = () => {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.remove();
+        }, 400);
+    };
+
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closePopup();
+    });
+};
