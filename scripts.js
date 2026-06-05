@@ -1441,7 +1441,7 @@ const mysuruCategoryData = {
         places: [
             {
                 name: 'Hotel Original Mylari',
-                image: 'https://lh3.googleusercontent.com/p/AF1QipMAx4MizH6BqN1X4tL0nK8b3Z_4L5T8e9G5h2bX=s1360-w1360-h1020',
+                image: 'https://i.ytimg.com/vi/xLkG49CFExg/maxresdefault.jpg',
                 description: 'A tiny, legendary eatery in Nazarbad, famous for its incredibly soft, melt-in-the-mouth Mylari Dosas topped with fresh butter.',
                 openHours: '6:30 AM – 1:30 PM, 3:30 PM – 8:30 PM (Closed Wednesdays)',
                 bestFoods: [
