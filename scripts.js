@@ -504,6 +504,7 @@ const cityCategoryData = {
 };
 
 let currentCityId = 'mangaluru';
+let placesScrollInterval;
 
 function renderCategoryPage(categoryId, cityId = currentCityId) {
     const cityData = cityCategoryData[cityId];
