@@ -1078,7 +1078,7 @@ const bangaloreCategoryData = {
         places: [
             {
                 name: 'MTR (Mavalli Tiffin Room)',
-                image: 'https://im.whatshot.in/img/2020/Apr/mtr-cropped-1586777647.jpg',
+                image: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2024/04/Mavalli-Tiffin-Room-MTR.jpg',
                 description: 'A legendary heritage restaurant in Bangalore, celebrated for inventing the Rava Idli and serving outstanding Brahmin-style South Indian food.',
                 openHours: '6:30 AM – 11:00 AM, 12:30 PM – 9:00 PM',
                 bestFoods: [
@@ -1090,7 +1090,7 @@ const bangaloreCategoryData = {
             },
             {
                 name: 'Vidyarthi Bhavan',
-                image: 'https://masalachaimedia.com/wp-content/uploads/2023/11/Vidyarthi-Bhavan-Bannerghatta-Road.jpg',
+                image: 'https://im.whatshot.in/img/2022/Apr/pjimage-2-1650271466-1650353780.jpg?wm=1&w=1200&h=630&cc=1',
                 description: 'A historic vegetarian restaurant in Gandhi Bazaar, iconic for its thick, crispy, ghee-roasted Masala Dosas served with mint chutney.',
                 openHours: '6:30 AM – 11:30 AM, 2:00 PM – 8:00 PM (Closed Fridays)',
                 bestFoods: [
@@ -1102,7 +1102,7 @@ const bangaloreCategoryData = {
             },
             {
                 name: 'Nagarjuna Restaurant',
-                image: 'https://lh3.googleusercontent.com/p/AF1QipN9r78gA8nLypvH1t9J2e-X4W7t0e2W6zK1f5e=s1360-w1360-h1020',
+                image: 'https://img.restaurantguru.com/r088-Nagarjuna-Restaurant-Whitefield-facade.jpg',
                 description: 'Renowned for its spicy and authentic Andhra-style meals, biryanis, and signature chili chicken, serving food lovers since 1984.',
                 openHours: '12:00 PM – 3:45 PM, 7:00 PM – 10:45 PM',
                 bestFoods: [
@@ -1114,7 +1114,7 @@ const bangaloreCategoryData = {
             },
             {
                 name: 'Truffles',
-                image: 'https://lh3.googleusercontent.com/p/AF1QipNq4w2pGk4h_rGf_wG1yO4t6L1g3kQ1g3kQ1g3k=s1360-w1360-h1020',
+                image: 'https://i.ytimg.com/vi/paJSeQKjIF4/maxresdefault.jpg',
                 description: 'Extremely popular cafe famous for its gourmet burgers, heavy shakes, and delicious desserts, a favorite hangout spot for youngsters.',
                 openHours: '11:00 AM – 11:00 PM',
                 bestFoods: [
