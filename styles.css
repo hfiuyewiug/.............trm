@@ -592,6 +592,12 @@ main {
     margin-top: 0.5rem;
 }
 
+.popup-food-card:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.15);
+    border-color: rgba(255, 107, 107, 0.4) !important;
+}
+
 .explore-link {
     color: var(--primary-color);
     text-decoration: none;

@@ -1985,9 +1985,47 @@ function renderFallbackSetupCard(container, placeId, customErrorMsg) {
     `;
 }
 
+window.updatePopupContent = function(newName, newImg, newPrice) {
+    const imgNode = document.querySelector('.food-popup-img img');
+    const titleNode = document.querySelector('.food-popup-info h3');
+    const priceNode = document.querySelector('.food-popup-price-tag');
+    if (imgNode) imgNode.src = newImg;
+    if (titleNode) titleNode.textContent = newName;
+    if (priceNode) priceNode.textContent = newPrice;
+};
+
 window.showFoodPopup = function(name, img, price) {
     const existing = document.getElementById('food-popup-overlay');
     if (existing) existing.remove();
+
+    // Look up other food specialties for this restaurant
+    let allFoods = [];
+    const places = mangaloreCategoryData['restaurants']?.places || [];
+    for (const p of places) {
+        if (p.bestFoods && p.bestFoods.some(f => f.name === name)) {
+            allFoods = p.bestFoods;
+            break;
+        }
+    }
+
+    let scrollerHTML = '';
+    if (allFoods.length > 0) {
+        scrollerHTML = `
+            <div class="popup-scroller-wrapper" style="margin-top: 1rem; border-top: 1px dashed rgba(0,0,0,0.12); padding-top: 0.75rem;">
+                <div style="font-size: 0.7rem; color: #E53E3E; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; text-align: center;">Other Specialties</div>
+                <div class="popup-scroller" style="overflow: hidden; white-space: nowrap; width: 100%; background: #FFF8F8; border-radius: 8px; padding: 0.25rem 0;">
+                    <div class="popup-scroller-inner" style="display: inline-flex; gap: 0.75rem; animation: marquee 12s linear infinite;">
+                        ${[...allFoods, ...allFoods].map(food => `
+                            <div class="popup-food-card" onclick="updatePopupContent('${food.name.replace(/'/g, "\\'")}', '${food.img}', '${food.price}')" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,107,107,0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
+                                <img src="${food.img}" alt="${food.name}" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px;">
+                                <span style="font-size: 0.7rem; font-weight: 600; color: #2D3748;">${food.name}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 
     const popupHTML = `
         <div class="food-popup-overlay" id="food-popup-overlay">
@@ -2000,6 +2038,7 @@ window.showFoodPopup = function(name, img, price) {
                     <h3>${name}</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.75rem;">Approximate Price</p>
                     <div class="food-popup-price-tag">${price}</div>
+                    ${scrollerHTML}
                 </div>
             </div>
         </div>
