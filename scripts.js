@@ -1482,7 +1482,7 @@ const mysuruCategoryData = {
                 openHours: '7:00 AM – 11:30 AM, 3:30 PM – 8:00 PM (Closed Mondays)',
                 bestFoods: [
                     { name: 'GTR Special Masala Dosa', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', price: '₹80 (Approx)' },
-                    { name: 'Ghee Khara Bath', img: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/kesari-bath-recipe-1.jpg', price: '₹55 (Approx)' },
+                    { name: 'Ghee Khara Bath', img: 'https://www.yummyoyummy.com/wp-content/uploads/2017/12/DSC_0466.jpg', price: '₹55 (Approx)' },
                     { name: 'Idli Vada Combo', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', price: '₹65 (Approx)' },
                     { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹35 (Approx)' }
                 ]
