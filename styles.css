@@ -287,10 +287,23 @@ main {
 .places-grid {
     max-width: 1400px;
     margin: 0 auto 6rem;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 0 2rem 1.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     gap: 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.places-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.places-grid .place-card {
+    flex: 0 0 350px;
+    max-width: 90vw;
 }
 
 .place-card {
@@ -647,11 +660,18 @@ main {
     }
 
     .places-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1.25rem;
+        padding-bottom: 1rem;
+    }
+    .places-grid .place-card {
+        flex: 0 0 280px;
+        max-width: 85vw;
     }
     .place-img {
-        height: 100px;
+        height: 130px;
     }
     .hero h1 {
         font-size: 2.25rem;

@@ -596,6 +596,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
     `;
 
     app.innerHTML = destHTML;
+    initPlacesAutoScroll();
 
     document.getElementById('back-to-city').addEventListener('click', (e) => {
         e.preventDefault();
@@ -613,6 +614,7 @@ console.log("Scripts initializing...");
 const app = document.getElementById('app');
 
 function renderHome() {
+    if (placesScrollInterval) clearInterval(placesScrollInterval);
     const homeHTML = `
         <div class="page-content">
             <section class="hero">
@@ -745,6 +747,7 @@ function renderDestination(id) {
     `;
 
     app.innerHTML = destHTML;
+    initPlacesAutoScroll();
 
     // Add back button listener
     document.getElementById('back-home').addEventListener('click', (e) => {
@@ -2065,3 +2068,40 @@ window.showFoodPopup = function(name, img, price) {
         if (e.target === overlay) closePopup();
     });
 };
+
+function initPlacesAutoScroll() {
+    if (placesScrollInterval) clearInterval(placesScrollInterval);
+
+    const grid = document.querySelector('.places-grid');
+    if (!grid) return;
+
+    let isPaused = false;
+
+    // Pause scroll when mouse enters or touch starts
+    grid.addEventListener('mouseenter', () => { isPaused = true; });
+    grid.addEventListener('mouseleave', () => { isPaused = false; });
+    grid.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+    grid.addEventListener('touchend', () => { isPaused = false; });
+
+    placesScrollInterval = setInterval(() => {
+        if (isPaused) return;
+
+        const card = grid.querySelector('.place-card');
+        if (!card) return;
+
+        const cardWidth = card.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(grid).gap) || 24;
+        const step = cardWidth + gap;
+
+        const maxScroll = grid.scrollWidth - grid.clientWidth;
+        if (maxScroll <= 0) return; // No scrolling needed if all cards fit
+
+        if (grid.scrollLeft >= maxScroll - 5) {
+            // Smoothly scroll back to the beginning
+            grid.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            // Scroll to the right by one card
+            grid.scrollBy({ left: step, behavior: 'smooth' });
+        }
+    }, 3000);
+}
