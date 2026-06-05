@@ -1453,7 +1453,7 @@ const mysuruCategoryData = {
             },
             {
                 name: 'Hanumanthu Mess',
-                image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/village5.png',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/90/85/1f/sunday.jpg?w=1200&h=1200&s=1',
                 description: 'An iconic heritage mess serving legendary wood-fired mutton pulao (biryani) that has been a local favorite for decades.',
                 openHours: '6:00 AM – 10:00 AM, 11:30 AM – 4:00 PM, 6:30 PM – 10:00 PM',
                 bestFoods: [
@@ -1465,7 +1465,7 @@ const mysuruCategoryData = {
             },
             {
                 name: 'Guru Sweet Mart',
-                image: 'https://lh3.googleusercontent.com/p/AF1QipN38j-eP8eH7lZ4wE1L2E2E6E2E6E2E6E2E6E2E=s1360-w1360-h1020',
+                image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-guru-sweet-mart-2.jpg',
                 description: 'The absolute birthplace of the iconic Mysore Pak, established by the descendants of the royal chef who created it for the Maharaja.',
                 openHours: '9:00 AM – 10:00 PM',
                 bestFoods: [
@@ -1477,7 +1477,7 @@ const mysuruCategoryData = {
             },
             {
                 name: 'Gayatri Tiffin Room (GTR)',
-                image: 'https://lh3.googleusercontent.com/p/AF1QipO3w8qGk4h_rGf_wG1yO4t6L1g3kQ1g3kQ1g3k=s1360-w1360-h1020',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/22/e5/a8/img-20200301-174925-largejpg.jpg?w=1000&h=-1&s=1',
                 description: 'A heritage South Indian vegetarian restaurant, popular for its crispy ghee-laden Masala Dosas and delicious filter coffee.',
                 openHours: '7:00 AM – 11:30 AM, 3:30 PM – 8:00 PM (Closed Mondays)',
                 bestFoods: [
