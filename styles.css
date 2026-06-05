@@ -1461,28 +1461,28 @@ main {
         font-size: 1.75rem;
     }
 
-    /* 2-Column Listing for Places on small phones to let content breathe */
+    /* Single Column Listing for Places on small phones to let content breathe */
     .places-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
         padding: 0 0.75rem;
     }
 
     .place-img {
-        height: 110px; /* Gorgeous height for 2-column on phone */
+        height: 180px; /* Gorgeous height for single column on phone */
     }
 
     .place-info {
-        padding: 0.75rem;
+        padding: 1.25rem;
     }
 
     .place-info h3 {
-        font-size: 0.95rem;
+        font-size: 1.15rem;
     }
 
     .place-info p {
-        -webkit-line-clamp: 3;
-        margin-bottom: 0.75rem;
+        -webkit-line-clamp: none; /* Let whole text be visible nicely */
+        margin-bottom: 1.25rem;
     }
 
     .category-grid {
