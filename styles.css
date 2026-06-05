@@ -374,6 +374,41 @@ main {
     justify-content: center;
 }
 
+.best-food-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #FFF5F5;
+    border: 1px solid #FFD8D8;
+    border-radius: 12px;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.best-food-box img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.best-food-title {
+    font-size: 0.72rem;
+    color: #E53E3E;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.1rem;
+}
+
+.best-food-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2D3748;
+}
+
 .explore-link {
     color: var(--primary-color);
     text-decoration: none;

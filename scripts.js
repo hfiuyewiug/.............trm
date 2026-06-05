@@ -175,7 +175,7 @@ const mangaloreCategories = [
     { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416' },
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
-    { id: 'coming_soon_1', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
     { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
 ];
@@ -240,6 +240,43 @@ const mangaloreCategoryData = {
             { name: 'Milagres Church', image: 'https://www.shatravelsmts.com/uploads/image/tour-packages/11-best-places-to-visit-in-mangalore/milagres-church.jpg', description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.' },
             { name: 'Rosario Cathedral', image: 'https://th-i.thgim.com/public/news/national/karnataka/p052cm/article25479880.ece/alternates/LANDSCAPE_1200/13BG-CATHEDRAL', description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.' },
             { name: 'Infant Jesus Shrine', image: 'https://www.infantjesusmangalore.net/images/shrine1.jpg', description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.' }
+        ]
+    },
+    'restaurants': {
+        name: 'Best Restaurants in Mangalore',
+        places: [
+            {
+                name: 'Machali',
+                image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png',
+                description: 'A legendary home-style seafood restaurant in Mangaluru, celebrated for its fresh fish, traditional local masalas, and quick service.',
+                openHours: '11:30 AM – 3:30 PM, 7:00 PM – 10:00 PM',
+                bestFood: 'Anjal Fish Fry & Fish Thali',
+                bestFoodImg: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg'
+            },
+            {
+                name: 'Shetty Lunch Home',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2020/02/Shetty-Lunch-Home-Seafood-and-Mangalore-Cuisine-Restaurant-Adyar-Mangalore-P1.jpg',
+                description: 'The iconic restaurant credited with the invention of the world-famous Chicken Ghee Roast, serving outstanding traditional recipes.',
+                openHours: '11:30 AM – 3:30 PM, 6:30 PM – 10:30 PM',
+                bestFood: 'Chicken Ghee Roast',
+                bestFoodImg: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png'
+            },
+            {
+                name: 'Pallkhi Restaurant',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2016/06/Pallkhi-Restaurant-Balmatta-Road-Mangalore-P1.jpg',
+                description: 'One of Mangaluru\'s premier dining landmarks, renowned for its heritage-style fine dining, authentic local curries, and warm hospitality.',
+                openHours: '11:30 AM – 3:30 PM, 7:00 PM – 11:00 PM',
+                bestFood: 'Chicken Kori Rotti & Seafood Platter',
+                bestFoodImg: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg'
+            },
+            {
+                name: 'Village Restaurant',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/village5.png',
+                description: 'A charming theme-style garden restaurant offering a rustic coastal village ambiance and a delectable range of Mangalorean delicacies.',
+                openHours: '12:00 PM – 3:30 PM, 7:00 PM – 11:00 PM',
+                bestFood: 'Mangalorean Fish Curry & Neer Dosa',
+                bestFoodImg: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg'
+            }
         ]
     }
 };
@@ -486,7 +523,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                         <div class="place-info">
                             <h3>${place.name}</h3>
                             <p>${place.description}</p>
-                            ${place.bestSeason || place.bestTime ? `
+                            ${place.bestSeason || place.bestTime || place.openHours ? `
                             <div class="place-meta">
                                 ${place.bestSeason ? `
                                 <div class="meta-item season">
@@ -500,6 +537,21 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                     <span><strong>Best Time:</strong> ${place.bestTime}</span>
                                 </div>
                                 ` : ''}
+                                ${place.openHours ? `
+                                <div class="meta-item time">
+                                    <span class="meta-icon">⏰</span>
+                                    <span><strong>Timings:</strong> ${place.openHours}</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                            ` : ''}
+                            ${place.bestFood ? `
+                            <div class="best-food-box">
+                                ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
+                                <div>
+                                    <div class="best-food-title">Best Food Choice</div>
+                                    <div class="best-food-name">${place.bestFood}</div>
+                                </div>
                             </div>
                             ` : ''}
                             <a href="#" class="explore-link" data-name="${place.name}" ${cityId === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>Explore →</a>
@@ -741,6 +793,7 @@ function openMustWatchModal(category) {
         if (category.name.includes("Temples")) return "Temple Square, Mangalore";
         if (category.name.includes("Malls")) return "City Centre, Mangalore";
         if (category.name.includes("Trekking")) return "Ghats Region, Mangalore";
+        if (category.name.includes("Restaurants")) return "Food District, Mangalore";
         return "Heritage Block, Mangalore";
     };
 
@@ -777,7 +830,7 @@ function openMustWatchModal(category) {
                                             <span>${getLocation(place.name)}</span>
                                         </div>
                                         <p>${place.description}</p>
-                                        ${place.bestSeason || place.bestTime ? `
+                                        ${place.bestSeason || place.bestTime || place.openHours ? `
                                         <div class="place-meta">
                                             ${place.bestSeason ? `
                                             <div class="meta-item season">
@@ -791,6 +844,21 @@ function openMustWatchModal(category) {
                                                 <span><strong>Best Time:</strong> ${place.bestTime}</span>
                                             </div>
                                             ` : ''}
+                                            ${place.openHours ? `
+                                            <div class="meta-item time">
+                                                <span class="meta-icon">⏰</span>
+                                                <span><strong>Timings:</strong> ${place.openHours}</span>
+                                            </div>
+                                            ` : ''}
+                                        </div>
+                                        ` : ''}
+                                        ${place.bestFood ? `
+                                        <div class="best-food-box" style="margin-bottom: 1.5rem;">
+                                            ${place.bestFoodImg ? `<img src="${place.bestFoodImg}" alt="${place.bestFood}" loading="lazy" decoding="async">` : ''}
+                                            <div>
+                                                <div class="best-food-title">Best Food Choice</div>
+                                                <div class="best-food-name">${place.bestFood}</div>
+                                            </div>
                                         </div>
                                         ` : ''}
                                         <button class="must-watch-explore-btn">
