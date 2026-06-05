@@ -265,8 +265,8 @@ const mangaloreCategoryData = {
                 bestFoods: [
                     { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
                     { name: 'Kane (Lady Fish) Fry', img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', price: '₹280 (Approx)' },
-                    { name: 'Neer Dosa with Curry', img: 'https://www.thespruceeats.com/thmb/p2NEX4tQkL5_lK91B2H6vK90Lz8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/neer-dosa-water-crepes-recipe-1957723-hero-01-c88f17eb513b41d2938a166e4a2d8291.jpg', price: '₹120 (Approx)' },
-                    { name: 'Silver Fish Rava Fry', img: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2Fgadey_kalu_ed7e47ceb6.jpg&w=1920&q=75', price: '₹220 (Approx)' }
+                    { name: 'Neer Dosa with Curry', img: 'https://www.idfreshfood.com/wp-content/uploads/2020/12/gsrgergge.jpg', price: '₹120 (Approx)' },
+                    { name: 'Silver Fish Rava Fry', img: 'https://i.pinimg.com/originals/9e/c8/24/9ec824618f757fb1dad66ccdc0640103.jpg', price: '₹220 (Approx)' }
                 ]
             },
             {
