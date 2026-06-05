@@ -1457,10 +1457,10 @@ const mysuruCategoryData = {
                 description: 'An iconic heritage mess serving legendary wood-fired mutton pulao (biryani) that has been a local favorite for decades.',
                 openHours: '6:00 AM – 10:00 AM, 11:30 AM – 4:00 PM, 6:30 PM – 10:00 PM',
                 bestFoods: [
-                    { name: 'Mutton Pulao', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', price: '₹240 (Approx)' },
-                    { name: 'Chicken Pulao', img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', price: '₹190 (Approx)' },
-                    { name: 'Mutton Fry', img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', price: '₹220 (Approx)' },
-                    { name: 'Boti Fry', img: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg', price: '₹180 (Approx)' }
+                    { name: 'Mutton Pulao', img: 'https://i.ytimg.com/vi/DLeLTnaO65Q/maxresdefault.jpg', price: '₹240 (Approx)' },
+                    { name: 'Chicken Pulao', img: 'https://kingofspices.co.nz/wp-content/uploads/2024/02/Chicken-Pulao.jpg', price: '₹190 (Approx)' },
+                    { name: 'Mutton Fry', img: 'https://media.oceanofrecipes.com/images/indian/mutton-fry/19.JPG', price: '₹220 (Approx)' },
+                    { name: 'Boti Fry', img: 'https://i.ytimg.com/vi/fe2xqAh42L0/maxresdefault.jpg', price: '₹180 (Approx)' }
                 ]
             },
             {
