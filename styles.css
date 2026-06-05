@@ -563,6 +563,43 @@ main {
     width: 100%;
     overflow: hidden;
     background: #e2e8f0;
+    position: relative;
+}
+
+.popup-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    line-height: 1;
+    padding-bottom: 4px; /* Align vertically */
+}
+
+.popup-nav-btn:hover {
+    background: #FF6B6B;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.popup-nav-btn.prev {
+    left: 1rem;
+}
+
+.popup-nav-btn.next {
+    right: 1rem;
 }
 
 .food-popup-img img {

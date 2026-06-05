@@ -2021,12 +2021,15 @@ window.showFoodPopup = function(name, img, price) {
         `;
     }
 
+    const hasMultipleFoods = allFoods.length > 1;
     const popupHTML = `
         <div class="food-popup-overlay" id="food-popup-overlay">
             <div class="food-popup-card">
                 <button class="food-popup-close" id="food-popup-close" aria-label="Close popup">&times;</button>
                 <div class="food-popup-img">
+                    ${hasMultipleFoods ? `<button class="popup-nav-btn prev" id="popup-prev-btn" aria-label="Previous specialty">&lsaquo;</button>` : ''}
                     <img src="${img}" alt="${name}">
+                    ${hasMultipleFoods ? `<button class="popup-nav-btn next" id="popup-next-btn" aria-label="Next specialty">&rsaquo;</button>` : ''}
                 </div>
                 <div class="food-popup-info">
                     <h3 class="food-popup-title">${name}</h3>
@@ -2042,6 +2045,8 @@ window.showFoodPopup = function(name, img, price) {
     
     const overlay = document.getElementById('food-popup-overlay');
     const closeBtn = document.getElementById('food-popup-close');
+    const prevBtn = document.getElementById('popup-prev-btn');
+    const nextBtn = document.getElementById('popup-next-btn');
 
     setTimeout(() => {
         overlay.classList.add('active');
@@ -2077,6 +2082,16 @@ window.showFoodPopup = function(name, img, price) {
         resetAutoplay();
     };
 
+    const navigatePopupFood = (direction) => {
+        if (allFoods.length <= 1) return;
+        let nextIndex = (currentIndex + direction) % allFoods.length;
+        if (nextIndex < 0) nextIndex = allFoods.length - 1;
+        selectPopupFood(nextIndex);
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => navigatePopupFood(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => navigatePopupFood(1));
+
     function startAutoplay() {
         popupAutoPlayInterval = setInterval(() => {
             if (allFoods.length <= 1) return;
@@ -2102,6 +2117,7 @@ window.showFoodPopup = function(name, img, price) {
 
     const closePopup = () => {
         clearInterval(popupAutoPlayInterval);
+        delete window.selectPopupFood;
         overlay.classList.remove('active');
         setTimeout(() => {
             overlay.remove();
