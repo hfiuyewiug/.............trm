@@ -184,62 +184,332 @@ const mangaloreCategoryData = {
     'beaches': {
         name: 'Mangalore Beaches',
         places: [
-            { name: 'Panambur Beach', image: 'assets/places/panambur_beach.jpg', description: 'A clean and popular beach known for its golden sands and water sports.' },
-            { name: 'Tannirbhavi Beach', image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.' },
-            { name: 'Someshwara Beach', image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.' },
-            { name: 'Surathkal Beach', image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', description: 'A serene beach known for its lighthouse that offers a spectacular view.' },
-            { name: 'Sasihithlu Beach', image: 'assets/places/sasihithlu_beach.jpg', description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.' },
-            { name: 'Ullal Beach', image: 'assets/places/ullal_beach.jpg', description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.' },
-            { name: 'Bengre Beach', image: 'assets/places/bengre_beach.png', description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.' },
-            { name: 'Talapady Beach', image: 'assets/places/talapady_beach.jpg', description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.' },
-            { name: 'Batapady Beach', image: 'assets/places/batapady_beach.jpg', description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.' },
-            { name: 'Mukka Beach', image: 'assets/places/mukka_beach.jpg', description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.' },
-            { name: 'Kodical Beach', image: 'assets/places/kodical_beach.jpg', description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.' },
-            { name: 'Chitrapura Beach', image: 'assets/places/chitrapura_beach.jpg', description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.' },
-            { name: 'Mulki Beach', image: 'assets/places/mulki_beach.jpg', description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.' },
-            { name: 'Hosabettu Beach', image: 'assets/places/hosabettu_beach.gif', description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.' }
+            { 
+                name: 'Panambur Beach', 
+                image: 'assets/places/panambur_beach.jpg', 
+                description: 'A clean and popular beach known for its golden sands and water sports.',
+                bestTime: '4:30 PM – 7:00 PM (Sunset)',
+                bestChoice: 'Jet Ski & Water Sports Adventures',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Tannirbhavi Beach', 
+                image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', 
+                description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.',
+                bestTime: '5:00 PM – 7:15 PM',
+                bestChoice: 'Scenic Ferry Ride & Sunset View',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Someshwara Beach', 
+                image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', 
+                description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.',
+                bestTime: '4:30 PM – 6:30 PM',
+                bestChoice: 'Rudra Shile Rock Formations Exploration',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Surathkal Beach', 
+                image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', 
+                description: 'A serene beach known for its lighthouse that offers a spectacular view.',
+                bestTime: '5:00 PM – 7:00 PM',
+                bestChoice: 'Panoramic View from the Lighthouse',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Sasihithlu Beach', 
+                image: 'assets/places/sasihithlu_beach.jpg', 
+                description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.',
+                bestTime: '6:00 AM – 9:00 AM',
+                bestChoice: 'Surfing at the River Mouth Confluence',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Ullal Beach', 
+                image: 'assets/places/ullal_beach.jpg', 
+                description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.',
+                bestTime: '5:00 PM – 7:00 PM',
+                bestChoice: 'Tranquil Shoreline Sunset Walks',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Bengre Beach', 
+                image: 'assets/places/bengre_beach.png', 
+                description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.',
+                bestTime: '4:30 PM – 6:45 PM',
+                bestChoice: 'Scenic Estuary Sunset views',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Talapady Beach', 
+                image: 'assets/places/talapady_beach.jpg', 
+                description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.',
+                bestTime: '5:00 PM – 7:00 PM',
+                bestChoice: 'Quiet Coastal Beach Walk',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Batapady Beach', 
+                image: 'assets/places/batapady_beach.jpg', 
+                description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.',
+                bestTime: '4:30 PM – 7:00 PM',
+                bestChoice: 'Hidden Seaside Scenic Gateway',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Mukka Beach', 
+                image: 'assets/places/mukka_beach.jpg', 
+                description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.',
+                bestTime: '5:00 PM – 7:15 PM',
+                bestChoice: 'Golden Sands & Seagull Watching',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Kodical Beach', 
+                image: 'assets/places/kodical_beach.jpg', 
+                description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.',
+                bestTime: '4:30 PM – 6:30 PM',
+                bestChoice: 'Rocky Shore Scenic Stroll',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Chitrapura Beach', 
+                image: 'assets/places/chitrapura_beach.jpg', 
+                description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.',
+                bestTime: '5:00 PM – 7:00 PM',
+                bestChoice: 'Quiet Coastal Sea Breeze Relaxation',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1473116763269-255448993767?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Mulki Beach', 
+                image: 'assets/places/mulki_beach.jpg', 
+                description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.',
+                bestTime: '6:00 AM – 10:00 AM',
+                bestChoice: 'Kayaking & Surfing Lessons',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Hosabettu Beach', 
+                image: 'assets/places/hosabettu_beach.gif', 
+                description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.',
+                bestTime: '5:00 PM – 7:00 PM',
+                bestChoice: 'Isolated Beach View & Solitude',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
+            }
         ]
     },
     'temples': {
         name: 'Mangalore Temples',
         places: [
-            { name: 'Swami Koragajja Temple', image: 'assets/places/swami_koragajja_temple.jpg', description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.' },
-            { name: 'Kadri Manjunath Temple', image: 'assets/places/kadri_temple.jpg', description: 'An ancient Hindu temple with unique architecture and historical significance.' },
-            { name: 'Kudroli Gokarnath Temple', image: 'https://imvoyager.com/wp-content/uploads/2021/04/Kudroli-Temple-Mangalore-Kudroli-Gokarnanatha-Temple-Gokarnanatheshwara-Temple--640x437.png', description: 'A beautiful temple known for its magnificent Dasara celebrations.' },
-            { name: 'Mangaladevi Temple', image: 'https://www.thetravelmagazine.net/wp-content/uploads/Mangaladevi-Temple-Sunset.jpg', description: 'The ancient temple after which the city of Mangalore is named.' },
-            { name: 'Polali Rajarajeshwari Temple', image: 'https://tempotravellermangalore.in/uploads/image/tour-packages/pilgrimage-places-in-mangalore/polali-rajarajeshwari-temple.jpg', description: 'Famous for its wooden idols and the historic Polali Chendu festival.' },
-            { name: 'Kateel Temple', image: 'assets/places/kateel_temple.webp', description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.' },
-            { name: 'Someshwara Temple', image: 'assets/places/someshwara_temple.jpg', description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.' },
-            { name: 'Urwa Marigudi Temple', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.' },
-            { name: '🌺 Bappanadu Durgaparameshwari Temple', image: 'assets/places/bappanadu_temple.jpg', description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.' },
-            { name: 'Karinjeshwara Hill Temple', image: 'assets/places/karinjeshwara_temple.jpg', description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.' }
+            { 
+                name: 'Swami Koragajja Temple', 
+                image: 'assets/places/swami_koragajja_temple.jpg', 
+                description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.',
+                openHours: '6:00 AM – 1:00 PM, 4:00 PM – 9:00 PM',
+                bestTime: 'Evening Aarti (6:30 PM)',
+                bestChoice: 'Koragajja Darshan & Offering Betel Leaves',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Kadri Manjunath Temple', 
+                image: 'assets/places/kadri_temple.jpg', 
+                description: 'An ancient Hindu temple with unique architecture and historical significance.',
+                openHours: '5:30 AM – 1:00 PM, 4:00 PM – 8:30 PM',
+                bestTime: 'Morning Pooja (7:00 AM)',
+                bestChoice: 'Lokeshwara Bronze Statue & Natural Springs',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1609137882611-37f2252a11b9?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Kudroli Gokarnath Temple', 
+                image: 'https://imvoyager.com/wp-content/uploads/2021/04/Kudroli-Temple-Mangalore-Kudroli-Gokarnanatha-Temple-Gokarnanatheshwara-Temple--640x437.png', 
+                description: 'A beautiful temple known for its magnificent Dasara celebrations.',
+                openHours: '6:00 AM – 2:00 PM, 4:30 PM – 9:00 PM',
+                bestTime: 'Evening lighting (6:30 PM)',
+                bestChoice: 'Golden Gopuram View & Dasara Festivities',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Mangaladevi Temple', 
+                image: 'https://www.thetravelmagazine.net/wp-content/uploads/Mangaladevi-Temple-Sunset.jpg', 
+                description: 'The ancient temple after which the city of Mangalore is named.',
+                openHours: '6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM',
+                bestTime: 'Navratri Festival Week (All day)',
+                bestChoice: 'Traditional Pooja & Historic Temple Origin Site',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Polali Rajarajeshwari Temple', 
+                image: 'https://tempotravellermangalore.in/uploads/image/tour-packages/pilgrimage-places-in-mangalore/polali-rajarajeshwari-temple.jpg', 
+                description: 'Famous for its wooden idols and the historic Polali Chendu festival.',
+                openHours: '6:00 AM – 12:30 PM, 4:00 PM – 8:00 PM',
+                bestTime: 'Polali Chendu Festival (March/April)',
+                bestChoice: 'Sri Rajarajeshwari Clay Idol Darshan',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Kateel Temple', 
+                image: 'assets/places/kateel_temple.webp', 
+                description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.',
+                openHours: '6:00 AM – 9:30 PM',
+                bestTime: 'Morning Aarti (10:00 AM)',
+                bestChoice: 'Island Temple Darshan & River Sunset Views',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Someshwara Temple', 
+                image: 'assets/places/someshwara_temple.jpg', 
+                description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.',
+                openHours: '6:00 AM – 1:00 PM, 4:00 PM – 8:00 PM',
+                bestTime: 'Sunset timings (5:30 PM)',
+                bestChoice: 'Sea-Facing Shoreline Shiva Temple Visit',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Urwa Marigudi Temple', 
+                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', 
+                description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.',
+                openHours: '6:00 AM – 1:00 PM, 4:00 PM – 9:00 PM',
+                bestTime: 'Tuesdays & Fridays (All day)',
+                bestChoice: 'Urwa Mariamman Pooja & Dasara Processions',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: '🌺 Bappanadu Durgaparameshwari Temple', 
+                image: 'assets/places/bappanadu_temple.jpg', 
+                description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.',
+                openHours: '5:30 AM – 1:30 PM, 4:00 PM – 8:30 PM',
+                bestTime: 'Annual Bappanadu Dolu Festival',
+                bestChoice: 'Communal Harmony Shrine & Sacred Bappanadu Drum',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Karinjeshwara Hill Temple', 
+                image: 'assets/places/karinjeshwara_temple.jpg', 
+                description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.',
+                openHours: '6:00 AM – 12:00 PM, 4:00 PM – 7:00 PM',
+                bestTime: 'Early Morning (6:30 AM)',
+                bestChoice: 'Scenic Hill Climb & Temple pond view',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
+            }
         ]
     },
     'malls': {
         name: 'Mangalore Malls',
         places: [
-            { name: 'City Centre Mall', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg', description: 'One of the largest malls in Mangalore with great shopping, dining, and multiplex.' },
-            { name: 'Forum Fiza Mall', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/0b/50/07/central-atrium-of-the.jpg', description: 'A premium shopping destination offering global brands and entertainment options.' },
-            { name: 'Lotus Mall (Upcoming)', image: 'https://1.bp.blogspot.com/-ukW_y6j0NO4/UAj7Xco44hI/AAAAAAAALMw/dFO_pcSzgjU/s1600/2s8obah.jpg', description: 'An upcoming mega mall promising a world-class shopping experience.' },
-            { name: 'Bharath Mall', image: 'https://content.jdmagicbox.com/comp/mangalore/54/0824p824std2004954/catalogue/bharath-mall-bejai-mangalore-malls-z1qvkl4h1d.jpg', description: 'One of the first modern malls in the city, popular among locals.' }
+            { 
+                name: 'City Centre Mall', 
+                image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg', 
+                description: 'One of the largest malls in Mangalore with great shopping, dining, and multiplex.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Weekends (All day)',
+                bestChoice: 'Cinepolis Movie Screening & Food Court Dining',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Forum Fiza Mall', 
+                image: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/0b/50/07/central-atrium-of-the.jpg', 
+                description: 'A premium shopping destination offering global brands and entertainment options.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Evening hours (6:00 PM onwards)',
+                bestChoice: 'Global Brands Shopping & Bowling Alley Gaming',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Lotus Mall (Upcoming)', 
+                image: 'https://1.bp.blogspot.com/-ukW_y6j0NO4/UAj7Xco44hI/AAAAAAAALMw/dFO_pcSzgjU/s1600/2s8obah.jpg', 
+                description: 'An upcoming mega mall promising a world-class shopping experience.',
+                openHours: 'Under Construction',
+                bestTime: 'Post Launch',
+                bestChoice: 'Multiplex & Premium Leisure Zones',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Bharath Mall', 
+                image: 'https://content.jdmagicbox.com/comp/mangalore/54/0824p824std2004954/catalogue/bharath-mall-bejai-mangalore-malls-z1qvkl4h1d.jpg', 
+                description: 'One of the first modern malls in the city, popular among locals.',
+                openHours: '10:00 AM – 9:30 PM',
+                bestTime: 'Afternoon Shopping hours',
+                bestChoice: 'Supermarket Shopping & Multiplex Theatre',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'
+            }
         ]
     },
     'trekking': {
         name: 'Mangalore Trekking Places',
         places: [
-            { name: 'Jamalabad Fort', image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2Fgadey_kalu_ed7e47ceb6.jpg&w=1920&q=75', description: 'A challenging trek to a historic hilltop fort with stunning 360-degree views.' },
-            { name: 'Ermayi Falls Trek', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416', description: 'A scenic trek through lush forests leading to a multi-tiered waterfall.' },
-            { name: 'Karinchieshwara Trek', image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1705557186/bbj/m1wifaroojflvk5woe3g.jpg', description: 'A steep trek blending nature and spirituality, ending at an ancient cliffside temple.' },
-            { name: 'Gadaikallu', image: 'https://i.pinimg.com/originals/ce/6f/61/ce6f61f2917fb5e4712fc7c7c663311c.jpg', description: 'A prominent rock formation offering an adventurous climb and beautiful vistas.' }
+            { 
+                name: 'Jamalabad Fort', 
+                image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2Fgadey_kalu_ed7e47ceb6.jpg&w=1920&q=75', 
+                description: 'A challenging trek to a historic hilltop fort with stunning 360-degree views.',
+                bestTime: '6:00 AM – 11:00 AM',
+                bestChoice: 'Gadaikallu Cliff Climbing Challenge',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Ermayi Falls Trek', 
+                image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416', 
+                description: 'A scenic trek through lush forests leading to a multi-tiered waterfall.',
+                bestTime: '7:30 AM – 12:00 PM',
+                bestChoice: 'Forest Trail Hike & Multi-tiered Waterfall Swim',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Karinchieshwara Trek', 
+                image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1705557186/bbj/m1wifaroojflvk5woe3g.jpg', 
+                description: 'A steep trek blending nature and spirituality, ending at an ancient cliffside temple.',
+                bestTime: '6:00 AM – 9:00 AM',
+                bestChoice: 'Cliff Edge Steps Climb & Hilltop Temple Darshan',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Gadaikallu', 
+                image: 'https://i.pinimg.com/originals/ce/6f/61/ce6f61f2917fb5e4712fc7c7c663311c.jpg', 
+                description: 'A prominent rock formation offering an adventurous climb and beautiful vistas.',
+                bestTime: '5:30 AM – 9:30 AM',
+                bestChoice: 'Sunrise Rock Face Expedition Climb',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=200'
+            }
         ]
     },
     'churches': {
         name: 'Famous Churches',
         places: [
-            { name: 'St. Aloysius Chapel', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg', description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.' },
-            { name: 'Milagres Church', image: 'https://www.shatravelsmts.com/uploads/image/tour-packages/11-best-places-to-visit-in-mangalore/milagres-church.jpg', description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.' },
-            { name: 'Rosario Cathedral', image: 'https://th-i.thgim.com/public/news/national/karnataka/p052cm/article25479880.ece/alternates/LANDSCAPE_1200/13BG-CATHEDRAL', description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.' },
-            { name: 'Infant Jesus Shrine', image: 'https://www.infantjesusmangalore.net/images/shrine1.jpg', description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.' }
+            { 
+                name: 'St. Aloysius Chapel', 
+                image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg', 
+                description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.',
+                openHours: '9:00 AM – 1:30 PM, 2:30 PM – 6:00 PM',
+                bestTime: 'Morning visit (10:00 AM)',
+                bestChoice: 'Sistine Chapel-like Exquisite Ceiling Frescoes',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1548625361-155deee223c2?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Milagres Church', 
+                image: 'https://www.shatravelsmts.com/uploads/image/tour-packages/11-best-places-to-visit-in-mangalore/milagres-church.jpg', 
+                description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.',
+                openHours: '6:00 AM – 7:30 PM',
+                bestTime: 'Sunday Morning Mass',
+                bestChoice: 'century-old Roman Catholic Architectural Heritage',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1438263308705-f6c8f370ba36?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Rosario Cathedral', 
+                image: 'https://th-i.thgim.com/public/news/national/karnataka/p052cm/article25479880.ece/alternates/LANDSCAPE_1200/13BG-CATHEDRAL', 
+                description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.',
+                openHours: '6:00 AM – 7:00 PM',
+                bestTime: 'Morning Quiet Hours',
+                bestChoice: 'Italian-style architecture & spectacular Dome structure',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1548625361-155deee223c2?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Infant Jesus Shrine', 
+                image: 'https://www.infantjesusmangalore.net/images/shrine1.jpg', 
+                description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.',
+                openHours: '5:30 AM – 8:30 PM',
+                bestTime: 'Thursdays Novena services',
+                bestChoice: 'Prayers in the massive modern amphitheater',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=200'
+            }
         ]
     },
     'restaurants': {
@@ -585,6 +855,14 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                     <div class="best-food-name">${place.bestFood}</div>
                                 </div>
                             </div>
+                            ` : place.bestChoice ? `
+                            <div class="best-food-box" style="background: #F0FDF4; border-color: #BBF7D0;">
+                                ${place.bestChoiceImg ? `<img src="${place.bestChoiceImg}" alt="${place.bestChoice}" loading="lazy" decoding="async">` : ''}
+                                <div>
+                                    <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
+                                    <div class="best-food-name">${place.bestChoice}</div>
+                                </div>
+                            </div>
                             ` : ''}
                             <a href="#" class="explore-link" data-name="${place.name}" ${cityId === 'mangaluru' ? 'onclick="handleMangaloreExplore(event, this.dataset.name)"' : ''}>Explore →</a>
                         </div>
@@ -909,6 +1187,14 @@ function openMustWatchModal(category) {
                                             <div>
                                                 <div class="best-food-title">Best Food Choice</div>
                                                 <div class="best-food-name">${place.bestFood}</div>
+                                            </div>
+                                        </div>
+                                        ` : place.bestChoice ? `
+                                        <div class="best-food-box" style="margin-bottom: 1.5rem; background: #F0FDF4; border-color: #BBF7D0;">
+                                            ${place.bestChoiceImg ? `<img src="${place.bestChoiceImg}" alt="${place.bestChoice}" loading="lazy" decoding="async">` : ''}
+                                            <div>
+                                                <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
+                                                <div class="best-food-name">${place.bestChoice}</div>
                                             </div>
                                         </div>
                                         ` : ''}
