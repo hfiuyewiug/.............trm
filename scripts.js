@@ -565,7 +565,8 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                             ${place.bestFoods ? `
                             <div class="best-food-slider-wrapper">
                                 <div class="best-food-title">Best Food Choices (Click to view price)</div>
-                                <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" onclick="showFoodPopup('${place.bestFoods[0].name.replace(/'/g, "\\'")}', '${place.bestFoods[0].img}', '${place.bestFoods[0].price}')">
+                                <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" data-active-index="0" onclick="handleSliderCardClick(event, this)">
+                                    <button class="slider-nav-btn prev" onclick="handleSliderNav(event, this, -1)">&lsaquo;</button>
                                     <div class="food-slider-content">
                                         <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
                                         <div class="food-slider-info">
@@ -573,6 +574,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                             <span class="food-slider-price">${place.bestFoods[0].price}</span>
                                         </div>
                                     </div>
+                                    <button class="slider-nav-btn next" onclick="handleSliderNav(event, this, 1)">&rsaquo;</button>
                                 </div>
                             </div>
 ` : place.bestFood ? `
@@ -889,7 +891,8 @@ function openMustWatchModal(category) {
                                         ${place.bestFoods ? `
                                         <div class="best-food-slider-wrapper" style="margin-bottom: 1.5rem;">
                                             <div class="best-food-title">Best Food Choices (Click to view price)</div>
-                                            <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" onclick="showFoodPopup('${place.bestFoods[0].name.replace(/'/g, "\\'")}', '${place.bestFoods[0].img}', '${place.bestFoods[0].price}')">
+                                            <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" data-active-index="0" onclick="handleSliderCardClick(event, this)">
+                                                <button class="slider-nav-btn prev" onclick="handleSliderNav(event, this, -1)">&lsaquo;</button>
                                                 <div class="food-slider-content">
                                                     <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
                                                     <div class="food-slider-info">
@@ -897,6 +900,7 @@ function openMustWatchModal(category) {
                                                         <span class="food-slider-price">${place.bestFoods[0].price}</span>
                                                     </div>
                                                 </div>
+                                                <button class="slider-nav-btn next" onclick="handleSliderNav(event, this, 1)">&rsaquo;</button>
                                             </div>
                                         </div>
 ` : place.bestFood ? `
@@ -2156,44 +2160,112 @@ function initBestFoodSliders() {
             if (placeData) break;
         }
 
-        if (!placeData || !placeData.bestFoods || placeData.bestFoods.length <= 1) return;
+        if (!placeData || !placeData.bestFoods || placeData.bestFoods.length <= 1) {
+            // Hide nav buttons if only 1 food
+            card.querySelectorAll('.slider-nav-btn').forEach(btn => btn.style.display = 'none');
+            return;
+        }
 
-        let currentIndex = 0;
-        const intervalId = setInterval(() => {
-            const content = card.querySelector('.food-slider-content');
-            if (!content) return;
+        // Start autoplay
+        const startAutoplay = () => {
+            const intervalId = setInterval(() => {
+                navigateSliderCard(card, 1);
+            }, 3000);
+            card.setAttribute('data-interval-id', intervalId);
+            bestFoodSliderIntervals.push(intervalId);
+        };
 
-            // Slide out left (fade out / move left)
-            content.classList.add('sliding-out');
-
-            setTimeout(() => {
-                // Update to next index
-                currentIndex = (currentIndex + 1) % placeData.bestFoods.length;
-                const nextFood = placeData.bestFoods[currentIndex];
-
-                const img = content.querySelector('.food-slider-img');
-                const name = content.querySelector('.food-slider-name');
-                const price = content.querySelector('.food-slider-price');
-
-                if (img) img.src = nextFood.img;
-                if (name) name.textContent = nextFood.name;
-                if (price) price.textContent = nextFood.price;
-
-                // Update card click handler to show popup for the current food item
-                card.setAttribute('onclick', `showFoodPopup('${nextFood.name.replace(/'/g, "\\'")}', '${nextFood.img}', '${nextFood.price}')`);
-
-                // Slide in right
-                content.classList.remove('sliding-out');
-                content.classList.add('sliding-in');
-
-                setTimeout(() => {
-                    content.classList.remove('sliding-in');
-                }, 350);
-            }, 350);
-        }, 3000); // Change every 3 seconds
-
-        bestFoodSliderIntervals.push(intervalId);
+        startAutoplay();
     });
 }
+
+window.handleSliderCardClick = function(event, card) {
+    const imgNode = card.querySelector('.food-slider-img');
+    const nameNode = card.querySelector('.food-slider-name');
+    const priceNode = card.querySelector('.food-slider-price');
+    if (nameNode && imgNode && priceNode) {
+        showFoodPopup(nameNode.textContent, imgNode.src, priceNode.textContent);
+    }
+};
+
+window.handleSliderNav = function(event, btn, direction) {
+    event.stopPropagation();
+    event.preventDefault();
+    const card = btn.closest('.best-food-slider-card');
+    if (!card) return;
+
+    // Reset autoplay interval
+    const intervalId = card.getAttribute('data-interval-id');
+    if (intervalId) {
+        clearInterval(parseInt(intervalId));
+        bestFoodSliderIntervals = bestFoodSliderIntervals.filter(id => id !== parseInt(intervalId));
+    }
+
+    // Navigate card
+    navigateSliderCard(card, direction);
+
+    // Restart autoplay
+    const newIntervalId = setInterval(() => {
+        navigateSliderCard(card, 1);
+    }, 3000);
+    card.setAttribute('data-interval-id', newIntervalId);
+    bestFoodSliderIntervals.push(newIntervalId);
+};
+
+window.navigateSliderCard = function(card, direction) {
+    const placeName = card.getAttribute('data-place-name');
+    
+    // Find place data
+    let placeData = null;
+    for (const cityId of Object.keys(cityCategoryData)) {
+        const cityData = cityCategoryData[cityId];
+        for (const catId of Object.keys(cityData)) {
+            const category = cityData[catId];
+            if (category.places) {
+                const found = category.places.find(p => p.name === placeName);
+                if (found) {
+                    placeData = found;
+                    break;
+                }
+            }
+        }
+        if (placeData) break;
+    }
+
+    if (!placeData || !placeData.bestFoods || placeData.bestFoods.length <= 1) return;
+
+    let currentIndex = parseInt(card.getAttribute('data-active-index') || '0');
+    let nextIndex = (currentIndex + direction) % placeData.bestFoods.length;
+    if (nextIndex < 0) nextIndex = placeData.bestFoods.length - 1;
+
+    const content = card.querySelector('.food-slider-content');
+    if (!content) return;
+
+    const isPrev = direction === -1;
+    const slideOutClass = isPrev ? 'sliding-out-right' : 'sliding-out';
+    const slideInClass = isPrev ? 'sliding-in-left' : 'sliding-in';
+
+    content.classList.add(slideOutClass);
+
+    setTimeout(() => {
+        card.setAttribute('data-active-index', nextIndex);
+        const nextFood = placeData.bestFoods[nextIndex];
+
+        const img = content.querySelector('.food-slider-img');
+        const name = content.querySelector('.food-slider-name');
+        const price = content.querySelector('.food-slider-price');
+
+        if (img) img.src = nextFood.img;
+        if (name) name.textContent = nextFood.name;
+        if (price) price.textContent = nextFood.price;
+
+        content.classList.remove(slideOutClass);
+        content.classList.add(slideInClass);
+
+        setTimeout(() => {
+            content.classList.remove(slideInClass);
+        }, 350);
+    }, 350);
+};
 
 
