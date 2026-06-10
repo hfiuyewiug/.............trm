@@ -2720,9 +2720,10 @@ main {
 
 .double-tap-text {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem; /* ~50% reduction from 1.8rem */
+    font-size: 0.65rem; /* Reduced to very small as requested */
     font-weight: 700;
-    letter-spacing: -0.2px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     background: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2777,6 +2778,6 @@ main {
 /* Mobile responsiveness */
 @media (max-width: 480px) {
     .double-tap-text {
-        font-size: 0.8rem;
+        font-size: 0.55rem;
     }
 }
