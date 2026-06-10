@@ -1861,7 +1861,7 @@ function bindDoubleTapListeners() {
             }
             
             // Show the Instagram-style overlay branding text
-            const imgWrapper = card.querySelector('.food-card-img-wrapper');
+            const imgWrapper = card.querySelector('.food-card-img-wrapper') || card;
             if (imgWrapper) {
                 const existing = imgWrapper.querySelector('.double-tap-overlay');
                 if (existing) existing.remove();
@@ -2313,20 +2313,26 @@ function renderDestination(id) {
                 </div>
                 
                 ${isPremiumCity ? `
-                <div class="category-card famous-food-header-card" data-cat-id="food">
+                <div class="category-card famous-food-header-card" data-cat-id="food" style="cursor: default;">
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
-                            ${cityFoods[dest.id].map(item => `
-                                <div class="swiper-slide" style="position: relative;">
+                            ${cityFoods[dest.id].map(item => {
+                                const isFav = isFoodFavorite(item.name);
+                                return `
+                                <div class="swiper-slide favorite-food-card" data-name="${item.name}" style="position: relative; cursor: pointer;">
                                     <img src="${item.img}" alt="${item.name}" loading="lazy" decoding="async">
-                                    <div style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2);">
+                                    <div class="food-favorite-icon-badge">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                    </div>
+                                    <div style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); z-index: 2;">
                                         ${item.name}
                                     </div>
                                 </div>
-                            `).join('')}
+                                `;
+                            }).join('')}
                         </div>
                     </div>
-                    <div class="category-overlay">
+                    <div class="category-overlay" style="pointer-events: none;">
                         <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
                         <p style="margin:0; font-size: 0.9rem;">
                             ${dest.id === 'mangaluru' ? 'Chicken Kori Rotti, Fish Fry, Mangalore Bun & More' : dest.id === 'bangalore' ? 'Rasgulla, Masala Dosa, Filter Coffee & More' : 'Mysore Pak, Mysore Masala Dosa, Mylari & More'}
@@ -2405,6 +2411,7 @@ function renderDestination(id) {
             touchRatio: 1.2,
             resistanceRatio: 0.8,
         });
+        bindDoubleTapListeners();
     }
 
     // Add Must Watch button listener if present
@@ -2420,7 +2427,7 @@ function renderDestination(id) {
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', () => {
             const catId = card.getAttribute('data-cat-id');
-            if (catId && !catId.startsWith('coming_soon')) {
+            if (catId && !catId.startsWith('coming_soon') && catId !== 'food') {
                 renderCategoryPage(catId, dest.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
