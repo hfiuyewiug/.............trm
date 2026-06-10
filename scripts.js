@@ -177,7 +177,7 @@ const mangaloreCategories = [
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
     { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.trawell.in/admin/images/upload/547012922Pilikula_Main.jpg' },
-    { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
+    { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://aroundmangalore.com/wp-content/uploads/2017/10/ONYX-Air-Lounge-Kitchen-MG-Road-Mangalore-P4.jpg' }
 ];
 
 const mangaloreCategoryData = {
@@ -621,6 +621,56 @@ const mangaloreCategoryData = {
                 bestTime: 'Morning (10:00 AM)',
                 bestChoice: 'Wildlife Safari & Tiger Enclosure',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&q=80&w=200'
+            }
+        ]
+    },
+    'breweries': {
+        name: 'Breweries & Pubs in Mangalore',
+        places: [
+            {
+                name: 'ONYX Air Lounge & Kitchen',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2017/10/ONYX-Air-Lounge-Kitchen-MG-Road-Mangalore-P4.jpg',
+                description: 'A premium lounge offering great music, vibrant ambiance, and a fantastic selection of beverages.',
+                openHours: '11:00 AM – 11:30 PM',
+                bestTime: 'Weekend Evenings',
+                bestChoice: 'Approx. Spend for 1 Person: ₹500–₹1,200',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Froth On Top',
+                image: 'https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/10/Froth-On-Top.jpg',
+                description: 'A cozy and lively pub perfect for hanging out with friends over drinks and delicious bar bites.',
+                openHours: '11:00 AM – 11:30 PM',
+                bestTime: 'Evening (7:00 PM)',
+                bestChoice: 'Approx. Spend for 1 Person: ₹400–₹1,000',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Spindrift',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2016/01/Spindrift-Bharath-Mall-Mangalore.jpg',
+                description: 'Mangalore\'s first microbrewery offering craft beers, excellent food, and a fantastic vibe.',
+                openHours: '11:00 AM – 11:30 PM',
+                bestTime: 'Friday Nights',
+                bestChoice: 'Approx. Spend for 1 Person: ₹500–₹1,200',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1582222165039-4458b6fa202f?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'The Liquid Lounge',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/ba/81/14/the-liquid-lounge.jpg?w=1200&h=-1&s=1',
+                description: 'A classic favorite in the city with a retro feel, great cocktails, and hearty food.',
+                openHours: '11:00 AM – 11:30 PM',
+                bestTime: 'Evening (8:00 PM)',
+                bestChoice: 'Approx. Spend for 1 Person: ₹400–₹1,000',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Sherlock s Lounge and Kitchen',
+                image: 'https://cdn.aroundmangalore.com/wp-content/uploads/2021/10/Sherlocks-Lounge-Kitchen-Forum-Mall-Mangalore.jpg',
+                description: 'A popular pub franchise known for its signature cocktails, upbeat music, and vibrant crowd.',
+                openHours: '11:00 AM – 11:30 PM',
+                bestTime: 'Weekend Nights',
+                bestChoice: 'Approx. Spend for 1 Person: ₹500–₹1,200',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1563215037-29bd2f11ed42?auto=format&fit=crop&q=80&w=200'
             }
         ]
     }
