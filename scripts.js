@@ -1762,7 +1762,7 @@ const cityFoods = {
         { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' }
     ],
     'bangalore': [
-        { img: 'https://img.magnific.com/premium-photo/exotic-saffron-rasgulla-indian-traditional-sweet-dessert-rasgulla-image-photography_1020697-145225.jpg', name: 'Rasgulla' },
+        { img: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Bengali_Rasgulla.jpg', name: 'Rasgulla' },
         { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Masala Dosa' },
         { img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', name: 'Filter Coffee' },
         { img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', name: 'Idli Vada' },
@@ -1861,7 +1861,7 @@ function bindDoubleTapListeners() {
             }
             
             // Show the Instagram-style overlay branding text
-            const imgWrapper = card.querySelector('.food-card-img-wrapper') || card;
+            const imgWrapper = card.querySelector('.food-swiper-img-wrapper') || card.querySelector('.place-img') || card;
             if (imgWrapper) {
                 const existing = imgWrapper.querySelector('.double-tap-overlay');
                 if (existing) existing.remove();
@@ -1937,7 +1937,7 @@ function renderFoodCategoryPage(cityId) {
                     const isFav = isFoodFavorite(place.name);
                     return `
                     <div class="place-card favorite-food-card" data-name="${place.name}">
-                        <div class="place-img food-card-img-wrapper" style="position: relative;">
+                        <div class="place-img" style="position: relative;">
                             <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
                             <div class="food-favorite-icon-badge">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -2019,7 +2019,7 @@ function renderGlobalFavoritesPage() {
             <div class="favorite-foods-container places-grid">
                 ${allMatchingFoods.map(place => `
                     <div class="place-card favorite-food-card" data-name="${place.name}">
-                        <div class="place-img food-card-img-wrapper" style="position: relative;">
+                        <div class="place-img" style="position: relative;">
                             <img src="${place.image}" alt="${place.name}">
                             <div class="food-favorite-icon-badge">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF4A4A" stroke="#FF4A4A" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -2314,29 +2314,30 @@ function renderDestination(id) {
                 
                 ${isPremiumCity ? `
                 <div class="category-card famous-food-header-card" data-cat-id="food" style="cursor: default;">
+                    <div style="position: absolute; top: 12px; left: 12px; background: rgba(245, 166, 35, 0.95); color: white; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 700; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 0.5px;">
+                        Famous Food
+                    </div>
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
                             ${cityFoods[dest.id].map(item => {
                                 const isFav = isFoodFavorite(item.name);
                                 return `
-                                <div class="swiper-slide favorite-food-card" data-name="${item.name}" style="position: relative; cursor: pointer;">
-                                    <img src="${item.img}" alt="${item.name}" loading="lazy" decoding="async">
-                                    <div class="food-favorite-icon-badge">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                <div class="swiper-slide favorite-food-card" data-name="${item.name}" style="display: flex; flex-direction: column; overflow: hidden; height: 100%; position: relative; cursor: pointer;">
+                                    <div class="food-swiper-img-wrapper" style="position: relative; flex: 1; overflow: hidden; width: 100%;">
+                                        <img src="${item.img}" alt="${item.name}" loading="lazy" decoding="async">
+                                        <div class="food-favorite-icon-badge">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                        </div>
                                     </div>
-                                    <div style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); z-index: 2;">
-                                        ${item.name}
+                                    <div class="food-card-info" style="padding: 10px 12px; background: var(--card-bg, #ffffff); border-top: 1px solid rgba(0, 0, 0, 0.05); text-align: center; z-index: 3;">
+                                        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-main, #0f172a); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0;">
+                                            ${item.name}
+                                        </span>
                                     </div>
                                 </div>
                                 `;
                             }).join('')}
                         </div>
-                    </div>
-                    <div class="category-overlay" style="pointer-events: none;">
-                        <h3 style="margin:0; font-size: 1.2rem;">Famous Food</h3>
-                        <p style="margin:0; font-size: 0.9rem;">
-                            ${dest.id === 'mangaluru' ? 'Chicken Kori Rotti, Fish Fry, Mangalore Bun & More' : dest.id === 'bangalore' ? 'Rasgulla, Masala Dosa, Filter Coffee & More' : 'Mysore Pak, Mysore Masala Dosa, Mylari & More'}
-                        </p>
                     </div>
                 </div>
                 ` : ''}
