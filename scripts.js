@@ -1936,19 +1936,29 @@ function renderFoodCategoryPage(cityId) {
                 ${category.places.map(place => {
                     const isFav = isFoodFavorite(place.name);
                     return `
-                    <div class="favorite-food-card" data-name="${place.name}">
-                        <div class="food-card-img-wrapper">
+                    <div class="place-card favorite-food-card" data-name="${place.name}">
+                        <div class="place-img food-card-img-wrapper" style="position: relative;">
                             <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
                             <div class="food-favorite-icon-badge">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                             </div>
                         </div>
-                        <div class="place-info" style="padding: 1.2rem 0.5rem 0.5rem;">
-                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">${place.name}</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.4; margin-bottom: 0.8rem;">${place.description}</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 0.5rem;">
-                                <span style="font-size: 0.85rem; color: #16A34A; font-weight: 600;">✨ ${place.bestChoice}</span>
-                                <span style="font-size: 0.8rem; background: #F3F4F6; color: #4B5563; padding: 2px 8px; border-radius: 4px; font-weight: 500;">⏰ ${place.bestTime}</span>
+                        <div class="place-info">
+                            <div class="place-title-row">
+                                <h3>${place.name}</h3>
+                            </div>
+                            <p>${place.description}</p>
+                            <div class="place-meta">
+                                <div class="meta-item time">
+                                    <span class="meta-icon">⏰</span>
+                                    <span><strong>Best Time:</strong> ${place.bestTime}</span>
+                                </div>
+                            </div>
+                            <div class="best-food-box" style="background: #F0FDF4; border-color: #BBF7D0; margin-top: 1rem;">
+                                <div>
+                                    <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
+                                    <div class="best-food-name">${place.bestChoice}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2008,22 +2018,27 @@ function renderGlobalFavoritesPage() {
         foodsHTML = `
             <div class="favorite-foods-container places-grid">
                 ${allMatchingFoods.map(place => `
-                    <div class="favorite-food-card" data-name="${place.name}">
-                        <div class="food-card-img-wrapper">
+                    <div class="place-card favorite-food-card" data-name="${place.name}">
+                        <div class="place-img food-card-img-wrapper" style="position: relative;">
                             <img src="${place.image}" alt="${place.name}">
                             <div class="food-favorite-icon-badge">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF4A4A" stroke="#FF4A4A" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                             </div>
                         </div>
-                        <div class="place-info" style="padding: 1.2rem 0.5rem 0.5rem;">
+                        <div class="place-info">
                             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
                                 <span style="font-size: 0.75rem; background: #EEF2FF; color: #4F46E5; padding: 2px 8px; border-radius: 12px; font-weight: 600;">📍 ${place.cityName}</span>
                                 <span style="font-size: 0.8rem; background: #F3F4F6; color: #4B5563; padding: 2px 8px; border-radius: 4px; font-weight: 500;">⏰ ${place.bestTime}</span>
                             </div>
-                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">${place.name}</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.4; margin-bottom: 0.8rem;">${place.description}</p>
-                            <div style="border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 0.5rem;">
-                                <span style="font-size: 0.85rem; color: #16A34A; font-weight: 600;">✨ ${place.bestChoice}</span>
+                            <div class="place-title-row">
+                                <h3>${place.name}</h3>
+                            </div>
+                            <p>${place.description}</p>
+                            <div class="best-food-box" style="background: #F0FDF4; border-color: #BBF7D0; margin-top: 1rem;">
+                                <div>
+                                    <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
+                                    <div class="best-food-name">${place.bestChoice}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
