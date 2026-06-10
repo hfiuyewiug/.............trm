@@ -2314,7 +2314,7 @@ function renderDestination(id) {
                 
                 ${isPremiumCity ? `
                 <div class="category-card famous-food-header-card" data-cat-id="food" style="cursor: default;">
-                    <div style="position: absolute; top: 12px; left: 12px; background: rgba(245, 166, 35, 0.95); color: white; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 700; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 0.5px;">
+                    <div style="position: absolute; top: 12px; left: 12px; color: #0b1a30; font-size: 0.75rem; font-weight: 800; z-index: 5; text-transform: uppercase; letter-spacing: 0.8px; text-shadow: 0 0 6px #ffffff, 0 0 3px #ffffff, 0 1px 2px rgba(0,0,0,0.2);">
                         Famous Food
                     </div>
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
