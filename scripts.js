@@ -188,6 +188,7 @@ const mangaloreCategoryData = {
                 name: 'Panambur Beach', 
                 image: 'assets/places/panambur_beach.jpg', 
                 description: 'A clean and popular beach known for its golden sands and water sports.',
+                rating: '4.5',
                 bestTime: '4:30 PM – 7:00 PM (Sunset)',
                 bestChoice: 'Jet Ski & Water Sports Adventures',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
@@ -196,6 +197,7 @@ const mangaloreCategoryData = {
                 name: 'Tannirbhavi Beach', 
                 image: 'https://www.hlimg.com/images/things2do/738X538/28mn_mnrmm1_Bea_29_2176132g_1508082724t.jpg', 
                 description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.',
+                rating: '4.7',
                 bestTime: '5:00 PM – 7:15 PM',
                 bestChoice: 'Scenic Ferry Ride & Sunset View',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
@@ -204,6 +206,7 @@ const mangaloreCategoryData = {
                 name: 'Someshwara Beach', 
                 image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2F5_a_SOMESHWARA_BEACH_9e97b6ef87.jpg&w=1920&q=75', 
                 description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.',
+                rating: '4.6',
                 bestTime: '4:30 PM – 6:30 PM',
                 bestChoice: 'Rudra Shile Rock Formations Exploration',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=200'
@@ -212,6 +215,7 @@ const mangaloreCategoryData = {
                 name: 'Surathkal Beach', 
                 image: 'https://www.mustvisitplace.com/wp-content/uploads/2019/03/Surathkal-beach-3-768x648.jpg', 
                 description: 'A serene beach known for its lighthouse that offers a spectacular view.',
+                rating: '4.8',
                 bestTime: '5:00 PM – 7:00 PM',
                 bestChoice: 'Panoramic View from the Lighthouse',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
@@ -220,6 +224,7 @@ const mangaloreCategoryData = {
                 name: 'Sasihithlu Beach', 
                 image: 'assets/places/sasihithlu_beach.jpg', 
                 description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.',
+                rating: '4.9',
                 bestTime: '6:00 AM – 9:00 AM',
                 bestChoice: 'Surfing at the River Mouth Confluence',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
@@ -228,6 +233,7 @@ const mangaloreCategoryData = {
                 name: 'Ullal Beach', 
                 image: 'assets/places/ullal_beach.jpg', 
                 description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.',
+                rating: '4.4',
                 bestTime: '5:00 PM – 7:00 PM',
                 bestChoice: 'Tranquil Shoreline Sunset Walks',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
@@ -236,6 +242,7 @@ const mangaloreCategoryData = {
                 name: 'Bengre Beach', 
                 image: 'assets/places/bengre_beach.png', 
                 description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.',
+                rating: '4.5',
                 bestTime: '4:30 PM – 6:45 PM',
                 bestChoice: 'Scenic Estuary Sunset views',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200'
@@ -244,6 +251,7 @@ const mangaloreCategoryData = {
                 name: 'Talapady Beach', 
                 image: 'assets/places/talapady_beach.jpg', 
                 description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.',
+                rating: '4.2',
                 bestTime: '5:00 PM – 7:00 PM',
                 bestChoice: 'Quiet Coastal Beach Walk',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?auto=format&fit=crop&q=80&w=200'
@@ -441,33 +449,73 @@ const mangaloreCategoryData = {
                 name: 'Jamalabad Fort', 
                 image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2Fgadey_kalu_ed7e47ceb6.jpg&w=1920&q=75', 
                 description: 'A challenging trek to a historic hilltop fort with stunning 360-degree views.',
+                rating: '4.7',
                 bestTime: '6:00 AM – 11:00 AM',
-                bestChoice: 'Gadaikallu Cliff Climbing Challenge',
+                bestChoice: 'Gadaikallu Cliff Climbing Challenge <strong>(~65 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=200'
             },
             { 
                 name: 'Ermayi Falls Trek', 
                 image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416', 
                 description: 'A scenic trek through lush forests leading to a multi-tiered waterfall.',
+                rating: '4.5',
                 bestTime: '7:30 AM – 12:00 PM',
-                bestChoice: 'Forest Trail Hike & Multi-tiered Waterfall Swim',
+                bestChoice: 'Forest Trail Hike & Waterfall Swim <strong>(~75 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=200'
             },
             { 
                 name: 'Karinchieshwara Trek', 
                 image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1705557186/bbj/m1wifaroojflvk5woe3g.jpg', 
                 description: 'A steep trek blending nature and spirituality, ending at an ancient cliffside temple.',
+                rating: '4.6',
                 bestTime: '6:00 AM – 9:00 AM',
-                bestChoice: 'Cliff Edge Steps Climb & Hilltop Temple Darshan',
+                bestChoice: 'Cliff Edge Steps Climb & Temple Darshan <strong>(~35 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
             },
             { 
                 name: 'Gadaikallu', 
                 image: 'https://i.pinimg.com/originals/ce/6f/61/ce6f61f2917fb5e4712fc7c7c663311c.jpg', 
                 description: 'A prominent rock formation offering an adventurous climb and beautiful vistas.',
+                rating: '4.7',
                 bestTime: '5:30 AM – 9:30 AM',
-                bestChoice: 'Sunrise Rock Face Expedition Climb',
+                bestChoice: 'Sunrise Rock Face Expedition Climb <strong>(~65 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Saripalla View',
+                image: 'https://www.nativeplanet.com/img/2023/06/saripalla-1687945738.jpg',
+                description: 'A hidden gem offering mesmerizing panoramic views of the lush green valleys and the winding Netravati river.',
+                rating: '4.4',
+                bestTime: '5:30 PM – 7:00 PM (Sunset)',
+                bestChoice: 'Golden Hour Photography & Valley Views <strong>(~10 km from Mangaluru)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Kumara Parvatha',
+                image: 'https://visitmangalore.in/_next/image?url=https:%2F%2Fapi.visitmangalore.in%2Fuploads%2FKumaraparvatha_6_final_67f500c478.jpg&w=2048&q=75',
+                description: 'One of the most challenging and rewarding treks in the Western Ghats, taking you through dense forests and grasslands.',
+                rating: '4.9',
+                bestTime: '6:00 AM – 5:00 PM',
+                bestChoice: 'Pushpagiri Peak Summit Hike <strong>(~110 km from Mangaluru)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1516654766858-f584e2311749?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Netravati Peak Trek',
+                image: 'https://trekentrip.com/wp-content/uploads/2024/10/netravati-peak-1024x576.jpeg',
+                description: 'A scenic trail winding through the rolling hills of the Western Ghats, offering breathtaking views above the clouds.',
+                rating: '4.8',
+                bestTime: '7:00 AM – 4:00 PM',
+                bestChoice: 'Cloud Canopy & Ridgeway Walk <strong>(~85 km from Mangaluru)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Bandaje Arbi Falls Trek',
+                image: 'https://monksonwheels.com/wp-content/uploads/2021/09/Ballalarayanadurga-Fort-And-Bandaje-Arbi-Falls-Trek-Photo-6.jpg',
+                description: 'An exciting trek leading to a spectacular waterfall cascading from the top of the Western Ghats.',
+                rating: '4.7',
+                bestTime: '6:30 AM – 2:00 PM',
+                bestChoice: 'Waterfall Edge & Grassland Trek <strong>(~90 km from Mangaluru)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1432405972618-c6c00202124c?auto=format&fit=crop&q=80&w=200'
             }
         ]
     },
@@ -1669,7 +1717,10 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                             <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                         </div>
                         <div class="place-info">
-                            <h3>${place.name}</h3>
+                            <div class="place-title-row">
+                                <h3>${place.name}</h3>
+                                ${place.rating ? `<span class="place-rating"><span class="star-icon">⭐</span> ${place.rating}</span>` : ''}
+                            </div>
                             <p>${place.description}</p>
                             ${place.bestSeason || place.bestTime || place.openHours ? `
                             <div class="place-meta">
