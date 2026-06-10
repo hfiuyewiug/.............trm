@@ -190,7 +190,7 @@ const mangaloreCategoryData = {
                 description: 'A clean and popular beach known for its golden sands and water sports.',
                 rating: '4.5',
                 bestTime: '4:30 PM – 7:00 PM (Sunset)',
-                bestChoice: 'Jet Ski & Water Sports Adventures',
+                bestChoice: 'Jet Ski & Water Sports Adventures <strong>(~10 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -199,7 +199,7 @@ const mangaloreCategoryData = {
                 description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.',
                 rating: '4.7',
                 bestTime: '5:00 PM – 7:15 PM',
-                bestChoice: 'Scenic Ferry Ride & Sunset View',
+                bestChoice: 'Scenic Ferry Ride & Sunset View <strong>(~9 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -208,7 +208,7 @@ const mangaloreCategoryData = {
                 description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.',
                 rating: '4.6',
                 bestTime: '4:30 PM – 6:30 PM',
-                bestChoice: 'Rudra Shile Rock Formations Exploration',
+                bestChoice: 'Rudra Shile Rock Formations Exploration <strong>(~17 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -217,7 +217,7 @@ const mangaloreCategoryData = {
                 description: 'A serene beach known for its lighthouse that offers a spectacular view.',
                 rating: '4.8',
                 bestTime: '5:00 PM – 7:00 PM',
-                bestChoice: 'Panoramic View from the Lighthouse',
+                bestChoice: 'Panoramic View from the Lighthouse <strong>(~16 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -226,7 +226,7 @@ const mangaloreCategoryData = {
                 description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.',
                 rating: '4.9',
                 bestTime: '6:00 AM – 9:00 AM',
-                bestChoice: 'Surfing at the River Mouth Confluence',
+                bestChoice: 'Surfing at the River Mouth Confluence <strong>(~24 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -235,7 +235,7 @@ const mangaloreCategoryData = {
                 description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.',
                 rating: '4.4',
                 bestTime: '5:00 PM – 7:00 PM',
-                bestChoice: 'Tranquil Shoreline Sunset Walks',
+                bestChoice: 'Tranquil Shoreline Sunset Walks <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -244,7 +244,7 @@ const mangaloreCategoryData = {
                 description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.',
                 rating: '4.5',
                 bestTime: '4:30 PM – 6:45 PM',
-                bestChoice: 'Scenic Estuary Sunset views',
+                bestChoice: 'Scenic Estuary Sunset views <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -253,7 +253,7 @@ const mangaloreCategoryData = {
                 description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.',
                 rating: '4.2',
                 bestTime: '5:00 PM – 7:00 PM',
-                bestChoice: 'Quiet Coastal Beach Walk',
+                bestChoice: 'Quiet Coastal Beach Walk <strong>(~17 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -261,7 +261,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/batapady_beach.jpg', 
                 description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.',
                 bestTime: '4:30 PM – 7:00 PM',
-                bestChoice: 'Hidden Seaside Scenic Gateway',
+                bestChoice: 'Hidden Seaside Scenic Gateway <strong>(~19 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -269,7 +269,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/mukka_beach.jpg', 
                 description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.',
                 bestTime: '5:00 PM – 7:15 PM',
-                bestChoice: 'Golden Sands & Seagull Watching',
+                bestChoice: 'Golden Sands & Seagull Watching <strong>(~20 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -277,7 +277,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/kodical_beach.jpg', 
                 description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.',
                 bestTime: '4:30 PM – 6:30 PM',
-                bestChoice: 'Rocky Shore Scenic Stroll',
+                bestChoice: 'Rocky Shore Scenic Stroll <strong>(~7 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -285,7 +285,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/chitrapura_beach.jpg', 
                 description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.',
                 bestTime: '5:00 PM – 7:00 PM',
-                bestChoice: 'Quiet Coastal Sea Breeze Relaxation',
+                bestChoice: 'Quiet Coastal Sea Breeze Relaxation <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1473116763269-255448993767?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -293,7 +293,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/mulki_beach.jpg', 
                 description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.',
                 bestTime: '6:00 AM – 10:00 AM',
-                bestChoice: 'Kayaking & Surfing Lessons',
+                bestChoice: 'Kayaking & Surfing Lessons <strong>(~29 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
             },
             { 
@@ -301,7 +301,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/hosabettu_beach.gif', 
                 description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.',
                 bestTime: '5:00 PM – 7:00 PM',
-                bestChoice: 'Isolated Beach View & Solitude',
+                bestChoice: 'Isolated Beach View & Solitude <strong>(~14 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
             }
         ]
