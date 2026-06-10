@@ -721,6 +721,39 @@ const mangaloreCategoryData = {
                 bestChoiceImg: 'https://images.unsplash.com/photo-1563215037-29bd2f11ed42?auto=format&fit=crop&q=80&w=200'
             }
         ]
+    },
+    'food': {
+        name: 'Favorite Foods',
+        places: [
+            {
+                name: 'Chicken Kori Rotti',
+                image: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg',
+                description: 'A classic Mangalorean dish featuring crisp dry wafers made of rice, served with spicy and aromatic chicken curry.',
+                bestTime: 'Lunch / Dinner',
+                bestChoice: 'Traditional Bunt-style Chicken Curry & Crispy Rice Wafers'
+            },
+            {
+                name: 'Fish Fry',
+                image: 'https://images.indianexpress.com/2016/04/anjal-masala-fry_820_nikhil-pai.jpg',
+                description: 'Freshly caught Anjal (Seer fish) coated in a fiery, homemade red chili masala paste and shallow-fried to perfection.',
+                bestTime: 'Lunch Time',
+                bestChoice: 'Anjal Masala Rava Fry at Machali'
+            },
+            {
+                name: 'Mangalore Bun',
+                image: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg',
+                description: 'Sweet, soft, fluffy, and deep-fried banana buns served with spicy coconut chutney and sambar, a breakfast favorite.',
+                bestTime: 'Breakfast / Evening',
+                bestChoice: 'Hot Banana Buns with Coconut Chutney'
+            },
+            {
+                name: 'Ghee Roast',
+                image: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png',
+                description: 'A rich and spicy Mangalorean specialty of meat or seafood slow-cooked in pure ghee and a complex red masala paste.',
+                bestTime: 'Lunch / Dinner',
+                bestChoice: 'Chicken Ghee Roast at Shetty Lunch Home'
+            }
+        ]
     }
 };
 
@@ -1282,6 +1315,46 @@ const bangaloreCategoryData = {
                 ]
             }
         ]
+    },
+    'food': {
+        name: 'Favorite Foods',
+        places: [
+            {
+                name: 'Rasgulla',
+                image: 'https://img.magnific.com/premium-photo/exotic-saffron-rasgulla-indian-traditional-sweet-dessert-rasgulla-image-photography_1020697-145225.jpg',
+                description: 'Sweet, spongy cheese balls soaked in sugar syrup, widely popular in Bangalore sweet shops.',
+                bestTime: 'Anytime Dessert',
+                bestChoice: 'Soft Premium Sponge Rasgullas'
+            },
+            {
+                name: 'Masala Dosa',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                description: 'Crispy rice crepe roasted with pure ghee, stuffed with seasoned potato mash, served with spicy chutneys.',
+                bestTime: 'Morning Breakfast',
+                bestChoice: 'Ghee Masala Dosa at Vidyarthi Bhavan'
+            },
+            {
+                name: 'Filter Coffee',
+                image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800',
+                description: 'Strong, aromatic South Indian style milk coffee brewed in traditional brass filters and served frothy.',
+                bestTime: 'Morning / Evening',
+                bestChoice: 'Classic Hot Brass Filter Coffee'
+            },
+            {
+                name: 'Idli Vada',
+                image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800',
+                description: 'Soft, steamed rice cakes served alongside a crispy deep-fried savory lentil doughnut with piping hot sambar.',
+                bestTime: 'Breakfast',
+                bestChoice: 'Soft Steamed Idli & Crispy Uddina Vada'
+            },
+            {
+                name: 'Ragi Mudde',
+                image: 'https://blog.swiggy.com/wp-content/uploads/2024/02/Ragi-Mudde.jpg',
+                description: 'Nutritious and wholesome finger millet balls served with spicy country-style chicken or mixed vegetable curry.',
+                bestTime: 'Lunch / Dinner',
+                bestChoice: 'Nutritious Ragi Mudde with Bassaru'
+            }
+        ]
     }
 };
 
@@ -1645,6 +1718,39 @@ const mysuruCategoryData = {
                 ]
             }
         ]
+    },
+    'food': {
+        name: 'Favorite Foods',
+        places: [
+            {
+                name: 'Mysore Pak',
+                image: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75',
+                description: 'A rich, melt-in-the-mouth royal dessert made of gram flour, pure clarified butter (ghee), and sugar.',
+                bestTime: 'Dessert Time',
+                bestChoice: 'Authentic Royal Mysore Pak at Guru Sweet Mart'
+            },
+            {
+                name: 'Mysore Masala Dosa',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                description: 'Ghee-laden crispy dosa smeared with spicy garlic-red chili chutney on the inside and loaded with potato bhaji.',
+                bestTime: 'Breakfast / Evening',
+                bestChoice: 'Crispy Mysore Masala Dosa with Chutney'
+            },
+            {
+                name: 'Mysore Bonda',
+                image: 'https://figarooliveoil.com/wp-content/uploads/2022/02/mysore-bonda.png',
+                description: 'Golden, crispy, deep-fried fritters made with black gram flour and coconut bits, served with spicy chutney.',
+                bestTime: 'Evening Snack',
+                bestChoice: 'Crispy Mysore Bonda with Coconut Chutney'
+            },
+            {
+                name: 'Hanumanthu Biryani',
+                image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800',
+                description: 'Legendary heritage mutton pulao cooked in short-grain jeera samba rice over a slow wood fire.',
+                bestTime: 'Lunch / Dinner',
+                bestChoice: 'Heritage Mutton Pulao at Hanumanthu Mess'
+            }
+        ]
     }
 };
 
@@ -1685,7 +1791,330 @@ const cityCategoryData = {
 let currentCityId = 'mangaluru';
 let bestFoodSliderIntervals = [];
 
+// LocalStorage helpers for Favorite Foods
+function getFavoriteFoods() {
+    try {
+        const favs = localStorage.getItem('explore_favorite_foods');
+        return favs ? JSON.parse(favs) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function isFoodFavorite(name) {
+    return getFavoriteFoods().includes(name);
+}
+
+function toggleFoodFavorite(name) {
+    let favs = getFavoriteFoods();
+    const index = favs.indexOf(name);
+    let isFav = false;
+    if (index === -1) {
+        favs.push(name);
+        isFav = true;
+    } else {
+        favs.splice(index, 1);
+    }
+    localStorage.setItem('explore_favorite_foods', JSON.stringify(favs));
+    updateNavbarFavoriteIcon();
+    return isFav;
+}
+
+function updateNavbarFavoriteIcon() {
+    const navbarFavImg = document.querySelector('.nav-actions .nav-icon img[src*="favorite"]');
+    if (navbarFavImg) {
+        const favs = getFavoriteFoods();
+        if (favs.length > 0) {
+            navbarFavImg.src = 'https://api.iconify.design/material-symbols:favorite.svg?color=%23FF4A4A';
+        } else {
+            navbarFavImg.src = 'https://api.iconify.design/material-symbols:favorite-outline.svg';
+        }
+    }
+}
+
+function bindDoubleTapListeners() {
+    const cards = document.querySelectorAll('.favorite-food-card');
+    cards.forEach(card => {
+        let lastTap = 0;
+        const foodName = card.getAttribute('data-name');
+        
+        const handleDoubleTap = (e) => {
+            e.preventDefault();
+            
+            const isFav = toggleFoodFavorite(foodName);
+            
+            // Update heart icon instantly
+            const badgeSvg = card.querySelector('.heart-icon-svg');
+            if (badgeSvg) {
+                if (isFav) {
+                    badgeSvg.setAttribute('fill', '#FF4A4A');
+                    badgeSvg.setAttribute('stroke', '#FF4A4A');
+                } else {
+                    badgeSvg.setAttribute('fill', 'none');
+                    badgeSvg.setAttribute('stroke', '#ffffff');
+                }
+                
+                badgeSvg.style.transform = 'scale(1.4)';
+                setTimeout(() => {
+                    badgeSvg.style.transform = '';
+                }, 250);
+            }
+            
+            // Show the Instagram-style overlay branding text
+            const imgWrapper = card.querySelector('.food-card-img-wrapper');
+            if (imgWrapper) {
+                const existing = imgWrapper.querySelector('.double-tap-overlay');
+                if (existing) existing.remove();
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'double-tap-overlay';
+                overlay.innerHTML = `<span class="double-tap-text">WeekendExplore.in</span>`;
+                imgWrapper.appendChild(overlay);
+                
+                setTimeout(() => {
+                    overlay.remove();
+                }, 1000);
+            }
+        };
+
+        card.addEventListener('click', (e) => {
+            const badge = e.target.closest('.food-favorite-icon-badge');
+            if (badge) {
+                e.stopPropagation();
+                const isFav = toggleFoodFavorite(foodName);
+                const badgeSvg = card.querySelector('.heart-icon-svg');
+                if (badgeSvg) {
+                    if (isFav) {
+                        badgeSvg.setAttribute('fill', '#FF4A4A');
+                        badgeSvg.setAttribute('stroke', '#FF4A4A');
+                    } else {
+                        badgeSvg.setAttribute('fill', 'none');
+                        badgeSvg.setAttribute('stroke', '#ffffff');
+                    }
+                    badgeSvg.style.transform = 'scale(1.3)';
+                    setTimeout(() => {
+                        badgeSvg.style.transform = '';
+                    }, 200);
+                }
+                return;
+            }
+
+            const now = Date.now();
+            const DOUBLE_PRESS_DELAY = 300;
+            if (now - lastTap < DOUBLE_PRESS_DELAY) {
+                handleDoubleTap(e);
+            }
+            lastTap = now;
+        });
+    });
+}
+
+function renderFoodCategoryPage(cityId) {
+    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
+    bestFoodSliderIntervals = [];
+
+    const cityData = cityCategoryData[cityId];
+    const category = cityData['food'];
+    if (!category) return;
+
+    const cityName = cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
+
+    const destHTML = `
+        <div class="page-content">
+            <header class="dest-header">
+                <div class="dest-header-row" style="margin-bottom: 2rem;">
+                    <a href="#" class="back-btn" id="back-to-city" style="margin-bottom: 0;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back to ${cityName}
+                    </a>
+                </div>
+                <h1>${category.name}</h1>
+                <p>Explore local culinary masterpieces and double-tap to save them to your favorites.</p>
+            </header>
+
+            <div class="favorite-foods-container places-grid">
+                ${category.places.map(place => {
+                    const isFav = isFoodFavorite(place.name);
+                    return `
+                    <div class="favorite-food-card" data-name="${place.name}">
+                        <div class="food-card-img-wrapper">
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                            <div class="food-favorite-icon-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#FF4A4A' : 'none'}" stroke="${isFav ? '#FF4A4A' : '#ffffff'}" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="place-info" style="padding: 1.2rem 0.5rem 0.5rem;">
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">${place.name}</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.4; margin-bottom: 0.8rem;">${place.description}</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 0.5rem;">
+                                <span style="font-size: 0.85rem; color: #16A34A; font-weight: 600;">✨ ${place.bestChoice}</span>
+                                <span style="font-size: 0.8rem; background: #F3F4F6; color: #4B5563; padding: 2px 8px; border-radius: 4px; font-weight: 500;">⏰ ${place.bestTime}</span>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `;
+
+    app.innerHTML = destHTML;
+    bindDoubleTapListeners();
+
+    document.getElementById('back-to-city').addEventListener('click', (e) => {
+        e.preventDefault();
+        renderDestination(cityId);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function renderGlobalFavoritesPage() {
+    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
+    bestFoodSliderIntervals = [];
+
+    const favFoodNames = getFavoriteFoods();
+    
+    const allMatchingFoods = [];
+    for (const cityId of Object.keys(cityCategoryData)) {
+        const foodCategory = cityCategoryData[cityId]?.['food'];
+        if (foodCategory && foodCategory.places) {
+            for (const food of foodCategory.places) {
+                if (favFoodNames.includes(food.name)) {
+                    if (!allMatchingFoods.some(f => f.name === food.name)) {
+                        allMatchingFoods.push({
+                            ...food,
+                            cityId: cityId,
+                            cityName: cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru'
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    let foodsHTML = '';
+    if (allMatchingFoods.length === 0) {
+        foodsHTML = `
+            <div style="text-align: center; padding: 4rem 2rem; background: var(--card-bg, #fff); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-top: 2rem; border: 1px solid rgba(0,0,0,0.04);">
+                <div style="font-size: 3.5rem; margin-bottom: 1.5rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));">🍲</div>
+                <h2 style="font-size: 1.8rem; font-weight: 700; color: #2D3748; margin-bottom: 0.5rem;">No Favorite Foods Yet</h2>
+                <p style="color: var(--text-light); max-width: 480px; margin: 0 auto 2rem; line-height: 1.5; font-size: 0.95rem;">
+                    Go to the Famous Food section of any city, explore the mouthwatering dishes, and double-tap to add them here!
+                </p>
+                <button class="signin-btn" onclick="renderHome()" style="padding: 0.75rem 2rem; font-size: 0.95rem; font-weight: 600;">Explore Destinations</button>
+            </div>
+        `;
+    } else {
+        foodsHTML = `
+            <div class="favorite-foods-container places-grid">
+                ${allMatchingFoods.map(place => `
+                    <div class="favorite-food-card" data-name="${place.name}">
+                        <div class="food-card-img-wrapper">
+                            <img src="${place.image}" alt="${place.name}">
+                            <div class="food-favorite-icon-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF4A4A" stroke="#FF4A4A" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="place-info" style="padding: 1.2rem 0.5rem 0.5rem;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+                                <span style="font-size: 0.75rem; background: #EEF2FF; color: #4F46E5; padding: 2px 8px; border-radius: 12px; font-weight: 600;">📍 ${place.cityName}</span>
+                                <span style="font-size: 0.8rem; background: #F3F4F6; color: #4B5563; padding: 2px 8px; border-radius: 4px; font-weight: 500;">⏰ ${place.bestTime}</span>
+                            </div>
+                            <h3 style="margin-bottom: 0.5rem; font-size: 1.2rem;">${place.name}</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.4; margin-bottom: 0.8rem;">${place.description}</p>
+                            <div style="border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 0.8rem; margin-top: 0.5rem;">
+                                <span style="font-size: 0.85rem; color: #16A34A; font-weight: 600;">✨ ${place.bestChoice}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    const pageHTML = `
+        <div class="page-content">
+            <header class="dest-header">
+                <div class="dest-header-row" style="margin-bottom: 2rem;">
+                    <a href="#" class="back-btn" id="back-to-home-from-favs" style="margin-bottom: 0;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back to Home
+                    </a>
+                </div>
+                <h1>My Favorite Foods</h1>
+                <p>All your double-tapped favorite dishes across Karnataka destinations, kept right here.</p>
+            </header>
+            ${foodsHTML}
+        </div>
+    `;
+
+    app.innerHTML = pageHTML;
+
+    // Remove active class from navigation links
+    document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+
+    if (allMatchingFoods.length > 0) {
+        bindDoubleTapListeners();
+        
+        const cards = document.querySelectorAll('.favorite-food-card');
+        cards.forEach(card => {
+            const foodName = card.getAttribute('data-name');
+            card.addEventListener('click', (e) => {
+                const badge = e.target.closest('.food-favorite-icon-badge');
+                setTimeout(() => {
+                    if (!isFoodFavorite(foodName)) {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.remove();
+                            if (document.querySelectorAll('.favorite-food-card').length === 0) {
+                                renderGlobalFavoritesPage();
+                            }
+                        }, 500);
+                    }
+                }, 310);
+            });
+        });
+    }
+
+    document.getElementById('back-to-home-from-favs').addEventListener('click', (e) => {
+        e.preventDefault();
+        renderHome();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function initNavbarFavoriteListener() {
+    const navbarFavBtn = document.querySelector('.nav-actions .nav-icon img[src*="favorite-outline"]')?.closest('.nav-icon') || 
+                          document.querySelector('.nav-icon img[alt="Fav"]')?.closest('.nav-icon');
+    if (navbarFavBtn) {
+        navbarFavBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            renderGlobalFavoritesPage();
+        });
+    }
+
+    const exploreNavLink = document.querySelector('.nav-links .nav-link:first-child') || 
+                            document.querySelector('.nav-links .nav-link');
+    if (exploreNavLink) {
+        exploreNavLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+            exploreNavLink.classList.add('active');
+            renderHome();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    updateNavbarFavoriteIcon();
+}
+
 function renderCategoryPage(categoryId, cityId = currentCityId) {
+    if (categoryId === 'food') {
+        renderFoodCategoryPage(cityId);
+        return;
+    }
     const cityData = cityCategoryData[cityId];
     if (!cityData) return;
     const category = cityData[categoryId];
@@ -1986,6 +2415,7 @@ function renderDestination(id) {
 
 // Initial render
 renderHome();
+initNavbarFavoriteListener();
 
 function openMustWatchModal(category, cityId = currentCityId) {
     // Remove existing modal if any
