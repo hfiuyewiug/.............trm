@@ -58,7 +58,7 @@ const destinations = [
     {
         id: 'mangaluru',
         name: 'Mangaluru',
-        image: 'assets/destinations/mangaluru_custom.png',
+        image: 'https://www.traveltourguru.in/blog/wp-content/uploads/2022/10/Surathkal-Lighthouse-at-NITK-Beach.jpg',
         color: '#FF6B6B',
         famousPlaces: [
             {
@@ -170,13 +170,13 @@ const destinations = [
 ];
 
 const mangaloreCategories = [
-    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'assets/places/panambur_beach.jpg' },
+    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://www.traveltourguru.in/blog/wp-content/uploads/2022/10/Surathkal-Lighthouse-at-NITK-Beach.jpg' },
     { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'assets/places/kadri_temple.jpg' },
     { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416' },
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
-    { id: 'coming_soon_2', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true },
+    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.trawell.in/admin/images/upload/547012922Pilikula_Main.jpg' },
     { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
 ];
 
@@ -562,6 +562,65 @@ const mangaloreCategoryData = {
                     { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
                     { name: 'Mangalore Buns', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹60 (Approx)' }
                 ]
+            }
+        ]
+    },
+    'parks': {
+        name: 'Mangalore Parks',
+        places: [
+            { 
+                name: 'Kadri Park', 
+                image: 'https://i.ytimg.com/vi/afM2SZAJTrQ/hqdefault.jpg', 
+                description: 'The largest and most beautiful park in Mangaluru, famous for its musical fountain and lush greenery.',
+                openHours: '6:00 AM – 8:30 PM',
+                bestTime: 'Evening Musical Fountain (7:00 PM)',
+                bestChoice: 'Musical Fountain Show & Toy Train Ride',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Tagore Park (Lighthouse Hill Park)', 
+                image: 'https://mangaloretourism.in/images/places-to-visit/header/tagore-park-light-house-hill-garden-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg', 
+                description: 'A historic park offering a spectacular view of the Arabian Sea and the sunset, located near St. Aloysius College.',
+                openHours: '4:00 PM – 8:00 PM',
+                bestTime: 'Sunset (6:00 PM)',
+                bestChoice: 'Spectacular Arabian Sea Sunset Views',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Tannirbhavi Tree Park', 
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/f9/cc/d5/20191031-110820-largejpg.jpg?w=1200&h=1200&s=1', 
+                description: 'A serene tree park near the coast set up by the Forest Department, featuring medicinal plants and wooden sculptures.',
+                openHours: '10:00 AM – 7:00 PM',
+                bestTime: 'Late Afternoon (4:30 PM)',
+                bestChoice: 'Nature Trails & Tree Canopy Walk',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Mahatma Gandhi Park', 
+                image: 'https://threebestrated.in/images/MahatmaGandhiPark-Mangalore-KA-1.jpeg', 
+                description: 'A prominent urban park offering a peaceful walking environment amidst the bustling city.',
+                openHours: '6:00 AM – 8:00 PM',
+                bestTime: 'Early Morning (6:30 AM)',
+                bestChoice: 'Quiet Morning Walks',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Pilikula Nisargadhama', 
+                image: 'https://www.trawell.in/admin/images/upload/547012922Pilikula_Main.jpg', 
+                description: 'An eco-education and tourism park featuring a lake, botanical garden, and cultural village.',
+                openHours: '9:30 AM – 5:30 PM',
+                bestTime: 'Morning (10:00 AM)',
+                bestChoice: 'Lake Boating & Artisan Village',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
+            },
+            { 
+                name: 'Pilikula Biological Park', 
+                image: 'https://mangaloretourism.in/images/v2/places-to-visit/pilikula-biological-park-mangalore-tourism-header.jpg', 
+                description: 'A major zoo and biological park known for its wildlife conservation efforts and tiger breeding program.',
+                openHours: '9:30 AM – 5:30 PM',
+                bestTime: 'Morning (10:00 AM)',
+                bestChoice: 'Wildlife Safari & Tiger Enclosure',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&q=80&w=200'
             }
         ]
     }
