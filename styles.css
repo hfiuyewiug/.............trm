@@ -1687,15 +1687,14 @@ main {
         padding: 0.75rem 1rem;
     }
     .navbar-brand {
-        gap: 0.35rem;
+        gap: 0;
     }
     .brand-text-main, .brand-text-sub {
-        font-size: 0.9rem;
+        font-size: 1.15rem;
         display: inline-block;
     }
     .brand-icon {
-        width: 20px;
-        height: 20px;
+        display: none !important;
     }
     
     .signin-btn {
