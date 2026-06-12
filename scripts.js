@@ -617,10 +617,10 @@ const mangaloreCategoryData = {
                 description: 'A popular Mandi restaurant near Mangalore Central Railway Station in Attavar, renowned for serving delicious Arabian flavors and offering unlimited mandi rice refills with its platters.',
                 openHours: '12:00 PM – 11:00 PM',
                 bestFoods: [
-                    { name: 'Half Chicken Al Faham Mandi (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹350–₹450' },
-                    { name: 'Full Chicken Al Faham Mandi (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹650–₹850' },
-                    { name: 'Al Faham Mandi with Drinks (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹700–₹1,000' },
-                    { name: 'Chicken/Mutton Mandi Platter (For 6)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹2,000–₹3,500 (Incl. Unlimited Rice)' }
+                    { name: 'Half Chicken Al Faham Mandi (For 2)', img: 'assets/places/al_faham_mandi.png', price: '₹350–₹450' },
+                    { name: 'Full Chicken Al Faham Mandi (For 2)', img: 'assets/places/al_faham_mandi.png', price: '₹650–₹850' },
+                    { name: 'Al Faham Mandi with Drinks (For 2)', img: 'assets/places/mandi_feast.png', price: '₹700–₹1,000' },
+                    { name: 'Mandi Platter (For 6 - Mutton/Chicken)', img: 'assets/places/mandi_feast.png', price: '₹2,000–₹3,500 (Incl. Unlimited Rice)' }
                 ]
             }
         ]
