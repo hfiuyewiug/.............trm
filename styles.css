@@ -874,6 +874,16 @@ main {
     body {
         background-attachment: scroll;
     }
+    .navbar-brand {
+        gap: 0.5rem;
+    }
+    .brand-text-main, .brand-text-sub {
+        font-size: 1.25rem;
+    }
+    .brand-icon {
+        width: 24px;
+        height: 24px;
+    }
     .main-header {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
@@ -1673,6 +1683,16 @@ main {
 @media (max-width: 480px) {
     .navbar {
         padding: 0.75rem 1rem;
+    }
+    .navbar-brand {
+        gap: 0.35rem;
+    }
+    .brand-text-main, .brand-text-sub {
+        font-size: 1.05rem;
+    }
+    .brand-icon {
+        width: 20px;
+        height: 20px;
     }
     
     .signin-btn {
