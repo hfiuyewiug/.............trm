@@ -2170,7 +2170,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                 ${category.places.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                         </div>
                         <div class="place-info">
                             <div class="place-title-row">
@@ -2508,7 +2508,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
                             <div class="swiper-slide">
                                 <div class="must-watch-card">
                                     <div class="must-watch-card-img">
-                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                                         <div class="must-watch-badges">
                                             <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
                                             <span class="must-watch-badge">Must Visit</span>
@@ -2952,7 +2952,7 @@ function openCityMustWatchModal(cityId) {
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
-                                                <img src="${place.image}" alt="${place.name}" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : ''}>
+                                                <img src="${place.image}" alt="${place.name}" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
                                                     <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>
