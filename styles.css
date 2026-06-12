@@ -1687,8 +1687,11 @@ main {
     .navbar-brand {
         gap: 0.35rem;
     }
-    .brand-text-main, .brand-text-sub {
-        font-size: 1.05rem;
+    .brand-text-main {
+        font-size: 1.15rem;
+    }
+    .brand-text-sub {
+        display: none;
     }
     .brand-icon {
         width: 20px;
@@ -1744,28 +1747,88 @@ main {
         font-size: 1.75rem;
     }
 
-    /* Single Column Listing for Places on small phones to let content breathe */
+    /* Responsive grid layout for place cards in phone view */
     .places-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 0.75rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        padding: 0 0.5rem;
     }
 
     .place-img {
-        height: 180px; /* Gorgeous height for single column on phone */
+        height: 110px;
     }
 
     .place-info {
-        padding: 1.25rem;
+        padding: 0.75rem;
     }
 
     .place-info h3 {
-        font-size: 1.15rem;
+        font-size: 0.95rem;
     }
 
     .place-info p {
-        -webkit-line-clamp: none; /* Let whole text be visible nicely */
-        margin-bottom: 1.25rem;
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+        margin-bottom: 0.75rem;
+    }
+
+    .place-rating {
+        padding: 0.1rem 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    .place-meta {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding-top: 0.5rem;
+    }
+
+    .best-food-slider-card {
+        padding: 0.4rem 0.5rem !important;
+        height: 64px !important;
+        border-radius: 10px !important;
+    }
+    
+    .food-slider-img {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 6px !important;
+    }
+    
+    .food-slider-name {
+        font-size: 0.75rem !important;
+    }
+    
+    .food-slider-price {
+        font-size: 0.7rem !important;
+    }
+    
+    .slider-nav-btn {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 1rem !important;
+    }
+
+    .best-food-box {
+        padding: 0.4rem !important;
+        border-radius: 10px !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .best-food-box img {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 6px !important;
+    }
+
+    .best-food-name {
+        font-size: 0.75rem !important;
+    }
+
+    .best-food-title {
+        font-size: 0.65rem !important;
     }
 
     .category-grid {
