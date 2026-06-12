@@ -2266,7 +2266,7 @@ function renderHome() {
             <section class="hero">
                 <div class="badge">
                     <img src="https://api.iconify.design/material-symbols:location-on.svg?color=%238338EC" alt="Loc">
-                    Explore the best of Karnataka
+                    Explore with Weekend Explore
                 </div>
                 <h1>Where do<br>you want to go?</h1>
                 <p>Choose your perfect destination and create beautiful memories.</p>
