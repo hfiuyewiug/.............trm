@@ -58,6 +58,50 @@ body {
     align-items: center;
 }
 
+/* Navbar Brand Animation styles */
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #8338EC 0%, #FF007F 50%, #00F0FF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineText 4s linear infinite;
+    transition: var(--transition);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.03) translateY(-1px);
+    filter: drop-shadow(0 4px 12px rgba(131, 56, 236, 0.15));
+}
+
+.brand-icon {
+    animation: compassRotate 8s linear infinite;
+    transform-origin: center;
+    transition: var(--transition);
+}
+
+.navbar-brand:hover .brand-icon {
+    animation-duration: 2s; /* faster rotation on hover */
+}
+
+@keyframes shineText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes compassRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;

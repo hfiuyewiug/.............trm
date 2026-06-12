@@ -14,7 +14,20 @@
 <body>
     <header class="main-header">
         <nav class="navbar">
-            <a href="#" class="navbar-brand" onclick="renderHome()" style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; letter-spacing: -0.5px;">✨ Weekend Explore</a>
+            <a href="#" class="navbar-brand" onclick="renderHome()">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2.5" class="brand-icon">
+                    <defs>
+                        <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8338EC" />
+                            <stop offset="50%" stop-color="#FF007F" />
+                            <stop offset="100%" stop-color="#00F0FF" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="12" cy="12" r="10" stroke="url(#brandGrad)" />
+                    <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="url(#brandGrad)" stroke="url(#brandGrad)" />
+                </svg>
+                <span>Weekend Explore</span>
+            </a>
             <div class="nav-links">
                 <a href="#" class="nav-link active">Explore</a>
                 <a href="#" class="nav-link">Trips</a>
