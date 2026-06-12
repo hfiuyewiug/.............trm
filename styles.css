@@ -1687,11 +1687,9 @@ main {
     .navbar-brand {
         gap: 0.35rem;
     }
-    .brand-text-main {
-        font-size: 1.15rem;
-    }
-    .brand-text-sub {
-        display: none;
+    .brand-text-main, .brand-text-sub {
+        font-size: 1.02rem;
+        display: inline-block;
     }
     .brand-icon {
         width: 20px;
