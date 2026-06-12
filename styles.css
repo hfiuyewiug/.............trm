@@ -1696,6 +1696,9 @@ main {
     .brand-icon {
         display: none !important;
     }
+    .nav-actions .nav-icon:first-child {
+        display: none !important;
+    }
     
     .signin-btn {
         padding: 0.5rem 1rem;
