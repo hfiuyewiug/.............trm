@@ -1747,88 +1747,29 @@ main {
         font-size: 1.75rem;
     }
 
-    /* Responsive grid layout for place cards in phone view */
+    /* Compact single column layout for place cards in phone view */
     .places-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-        padding: 0 0.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 0 1rem;
     }
 
     .place-img {
-        height: 110px;
+        height: 160px;
     }
 
     .place-info {
-        padding: 0.75rem;
+        padding: 1.1rem;
     }
 
     .place-info h3 {
-        font-size: 0.95rem;
+        font-size: 1.15rem;
     }
 
     .place-info p {
-        font-size: 0.8rem;
-        -webkit-line-clamp: 2;
-        margin-bottom: 0.75rem;
-    }
-
-    .place-rating {
-        padding: 0.1rem 0.4rem;
-        font-size: 0.75rem;
-    }
-
-    .place-meta {
-        font-size: 0.75rem;
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem;
-        padding-top: 0.5rem;
-    }
-
-    .best-food-slider-card {
-        padding: 0.4rem 0.5rem !important;
-        height: 64px !important;
-        border-radius: 10px !important;
-    }
-    
-    .food-slider-img {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 6px !important;
-    }
-    
-    .food-slider-name {
-        font-size: 0.75rem !important;
-    }
-    
-    .food-slider-price {
-        font-size: 0.7rem !important;
-    }
-    
-    .slider-nav-btn {
-        width: 20px !important;
-        height: 20px !important;
-        font-size: 1rem !important;
-    }
-
-    .best-food-box {
-        padding: 0.4rem !important;
-        border-radius: 10px !important;
-        margin-top: 0.5rem !important;
-        margin-bottom: 0.75rem !important;
-    }
-
-    .best-food-box img {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 6px !important;
-    }
-
-    .best-food-name {
-        font-size: 0.75rem !important;
-    }
-
-    .best-food-title {
-        font-size: 0.65rem !important;
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
+        margin-bottom: 1.1rem;
     }
 
     .category-grid {
