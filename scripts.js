@@ -610,6 +610,18 @@ const mangaloreCategoryData = {
                     { name: 'Chicken Ghee Roast', img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', price: '₹340 (Approx)' },
                     { name: 'Mangalore Buns', img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', price: '₹60 (Approx)' }
                 ]
+            },
+            {
+                name: 'Mandi Stories',
+                image: 'https://mandistories.com/03_images/logo.png',
+                description: 'A popular Mandi restaurant near Mangalore Central Railway Station in Attavar, renowned for serving delicious Arabian flavors and offering unlimited mandi rice refills with its platters.',
+                openHours: '12:00 PM – 11:00 PM',
+                bestFoods: [
+                    { name: 'Half Chicken Al Faham Mandi (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹350–₹450' },
+                    { name: 'Full Chicken Al Faham Mandi (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹650–₹850' },
+                    { name: 'Al Faham Mandi with Drinks (For 2)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹700–₹1,000' },
+                    { name: 'Chicken/Mutton Mandi Platter (For 6)', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=200', price: '₹2,000–₹3,500 (Incl. Unlimited Rice)' }
+                ]
             }
         ]
     },
@@ -3158,6 +3170,7 @@ const cityCoordinates = {
     'shetty lunch home': { lat: 12.8710, lng: 74.8440 },
     'pallkhi restaurant': { lat: 12.8735, lng: 74.8425 },
     'village restaurant': { lat: 12.9010, lng: 74.8530 },
+    'mandi stories': { lat: 12.8687, lng: 74.8464 },
 
     // Bangalore
     'cubbon park': { lat: 12.9738, lng: 77.5906 },
@@ -3394,6 +3407,7 @@ const cityPlaceIds = {
     'shetty lunch home': 'ChIJuUR113dApzsR3kSw_V8lJWs',
     'pallkhi restaurant': 'ChIJuUR113dApzsR3kSw_V8lJWs',
     'village restaurant': 'ChIJuUR113dApzsR3kSw_V8lJWs',
+    'mandi stories': 'ChIJuUR113dApzsR3kSw_V8lJWs',
 
     // Bangalore
     'cubbon park': 'ChIJj45qDtcXrjsRN3D7b85p-aA',
