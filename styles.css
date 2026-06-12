@@ -875,6 +875,9 @@ main {
     body {
         background-attachment: scroll;
     }
+    .nav-actions .nav-icon:first-child {
+        display: none !important;
+    }
     .navbar-brand {
         gap: 0.5rem;
     }
