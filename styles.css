@@ -65,6 +65,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    white-space: nowrap;
     transition: var(--transition);
 }
 
@@ -878,7 +879,8 @@ main {
         gap: 0.5rem;
     }
     .brand-text-main, .brand-text-sub {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        display: inline-block;
     }
     .brand-icon {
         width: 24px;
@@ -1688,7 +1690,7 @@ main {
         gap: 0.35rem;
     }
     .brand-text-main, .brand-text-sub {
-        font-size: 1.02rem;
+        font-size: 0.9rem;
         display: inline-block;
     }
     .brand-icon {
