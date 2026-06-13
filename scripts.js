@@ -896,7 +896,7 @@ const bangaloreCategories = [
     { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://www.treebo.com/blog/wp-content/uploads/2016/02/Prost-Brew-Pub-Koramangala-1.jpg' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800' },
-    { id: 'coming_soon_3', name: 'Coming Soon', desc: '', image: 'https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80&w=1000', empty: true }
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800' }
 ];
 
 const bangaloreCategoryData = {
@@ -1447,6 +1447,50 @@ const bangaloreCategoryData = {
             }
         ]
     },
+    'gaming': {
+        name: 'Gaming & Esports Zone',
+        places: [
+            {
+                name: 'Echo Esports Lounge',
+                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=200'
+                ],
+                description: 'A premium gaming lounge in Basavanagudi featuring top-spec PC rigs, high-refresh-rate displays, and PS5 gaming setups. Play games like Valorant, CS2, FIFA/FC 25, and GTA V.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Afternoon & Evening Sessions',
+                bestChoice: 'Price: ₹80 per hour <strong>(Basavanagudi)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'CLAN Gaming',
+                image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=200'
+                ],
+                description: 'A massive dedicated esports hub located in HBR Layout. Offers state-of-the-art gaming setups, comfortable racing rigs, and a streaming zone for creators.',
+                openHours: '9:00 AM – 11:00 PM',
+                bestTime: 'Weekend Tournaments',
+                bestChoice: 'Price: ₹120 per hour <strong>(HBR Layout)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Torq03',
+                image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=200'
+                ],
+                description: 'A huge family-friendly entertainment destination in Marathahalli featuring high-speed go-karting track, arcade games, bowling lanes, and virtual reality simulators.',
+                openHours: '11:00 AM – 10:00 PM',
+                bestTime: 'Evening & Holidays',
+                bestChoice: 'Bowling/Go-Karting: ₹250–₹500 <strong>(Marathahalli)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=200'
+            }
+        ]
+    },
     'food': {
         name: 'Favorite Foods',
         places: [
@@ -1497,7 +1541,8 @@ const mysuruCategories = [
     { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
     { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg' },
     { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=800' }
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=800' },
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800' }
 ];
 
 const mysuruCategoryData = {
@@ -1847,6 +1892,50 @@ const mysuruCategoryData = {
                     { name: 'Idli Vada Combo', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', price: '₹65 (Approx)' },
                     { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹35 (Approx)' }
                 ]
+            }
+        ]
+    },
+    'gaming': {
+        name: 'Gaming & Esports Zone',
+        places: [
+            {
+                name: 'Legion X Gaming Café',
+                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
+                ],
+                description: 'A newly opened popular gaming cafe in Bogadi, catering to PC and console gaming enthusiasts. Featuring high-end setups for multiplayer and competitive esports.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Afternoons & Evenings',
+                bestChoice: 'Price: ₹80–₹150 per hour <strong>(Bogadi)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Gamers Hub Mysuru',
+                image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=200'
+                ],
+                description: 'Located in Gokulam/Bogadi area, this popular student hangout is perfect for competitive multiplayer matches, featuring PS5 console play and PC setups.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Post-college hours',
+                bestChoice: 'Price: ₹100–₹250 per hour <strong>(Gokulam)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'SMAAASH (Mall of Mysore)',
+                image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
+                images: [
+                    'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
+                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600'
+                ],
+                description: 'Premium entertainment center located inside Mall of Mysore. Offers multi-activity fun including bowling, VR gaming simulators, arcade stations, and virtual sports.',
+                openHours: '11:00 AM – 10:00 PM',
+                bestTime: 'Weekends & Evenings',
+                bestChoice: 'Bowling & VR Packages: ₹150–₹500 <strong>(Mall of Mysore)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=200'
             }
         ]
     },
