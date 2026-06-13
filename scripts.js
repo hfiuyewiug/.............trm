@@ -792,6 +792,11 @@ const mangaloreCategoryData = {
             {
                 name: 'NTG Esports Lounge',
                 image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                    'https://gamingnation.in/wp-content/uploads/2022/07/LXG-League-of-Extraordinary-Gamers.webp',
+                    'https://hub.washington.edu/wordpress/wp-content/uploads/2019/10/190328_PartnerPreview_01-min-1.jpg'
+                ],
                 description: 'A premium gaming lounge equipped with PS5 consoles and high-performance PC stations. Perfect for competitive multiplayer games like Tekken, Mortal Kombat, Valorant, FIFA, and CS2.',
                 openHours: '10:00 AM – 10:00 PM',
                 bestTime: 'Evening Sessions',
