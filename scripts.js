@@ -813,7 +813,7 @@ const mangaloreCategoryData = {
                 image: 'https://www.passengerterminaltoday.com/wp-content/uploads/2022/11/featured-image-5-e1669723546586.jpg',
                 images: [
                     'https://www.passengerterminaltoday.com/wp-content/uploads/2022/11/featured-image-5-e1669723546586.jpg',
-                    'https://hellomangaluru.online/media/2022/07/WhatsApp-Image-2022-07-06-at-10.33.19-AM.jpeg',
+                    'https://img.magnific.com/premium-photo/modern-gaming-lounge-with-interactive-digital-gaming-setups-glowing-game-consoles-providing_1297101-7277.jpg?w=996',
                     'https://hellomangaluru.online/media/2022/07/WhatsApp-Image-2022-07-06-at-10.54.09-AM-1.jpeg'
                 ],
                 description: 'Located in Balmatta, this comfortable gaming lounge is perfect for casual and competitive gaming with PS5, FC 25, WWE 2K, GTA V, and various cricket games.',
