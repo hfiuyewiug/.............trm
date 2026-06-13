@@ -810,9 +810,8 @@ const mangaloreCategoryData = {
             },
             {
                 name: 'Achilles Gaming Lounge',
-                image: 'https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?auto=format&fit=crop&q=80&w=600',
+                image: 'https://www.passengerterminaltoday.com/wp-content/uploads/2022/11/featured-image-5-e1669723546586.jpg',
                 images: [
-                    'https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?auto=format&fit=crop&q=80&w=600',
                     'https://www.passengerterminaltoday.com/wp-content/uploads/2022/11/featured-image-5-e1669723546586.jpg',
                     'https://hellomangaluru.online/media/2022/07/WhatsApp-Image-2022-07-06-at-10.33.19-AM.jpeg',
                     'https://hellomangaluru.online/media/2022/07/WhatsApp-Image-2022-07-06-at-10.54.09-AM-1.jpeg'
