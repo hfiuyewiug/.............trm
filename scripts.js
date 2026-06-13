@@ -810,6 +810,12 @@ const mangaloreCategoryData = {
             {
                 name: 'SMAAASH (Fiza Mall)',
                 image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
+                images: [
+                    'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
+                    'https://media.insider.in/image/upload/w_800/v1755668919/vbytwhehwcnpdabe7v8x.jpg',
+                    'https://media.insider.in/image/upload/c_crop,g_custom/v1772022726/gghpjfnzfdarqec5dagq.png',
+                    'https://media.insider.in/image/upload/w_800/v1762517379/fyzmqlfcbd5j13htztg6.jpg'
+                ],
                 description: 'The ultimate family entertainment center offering immersive VR games, bowling, arcade machines, cricket simulators, and interactive dance games.',
                 openHours: '11:00 AM – 10:00 PM',
                 bestTime: 'Evening & Weekend Fun',
@@ -2262,8 +2268,21 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
             <div class="places-grid">
                 ${category.places.map(place => `
                     <div class="place-card">
-                        <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : categoryId === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
+                        <div class="place-img" style="position: relative; overflow: hidden;">
+                            ${place.images && place.images.length > 0 ? `
+                                <div class="place-img-slider" data-active-index="0" style="display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                                    ${place.images.map(imgUrl => `
+                                        <img src="${imgUrl}" alt="${place.name}" loading="lazy" decoding="async" style="min-width: 100%; height: 100%; object-fit: cover; ${categoryId === 'gaming' ? 'transform: scale(1.25); transform-origin: center;' : ''}">
+                                    `).join('')}
+                                </div>
+                                <div class="slider-dots" style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
+                                    ${place.images.map((_, idx) => `
+                                        <span class="slider-dot" data-index="${idx}" style="width: 8px; height: 8px; border-radius: 50%; background: ${idx === 0 ? '#ffffff' : 'rgba(255,255,255,0.5)'}; transition: background 0.3s; cursor: pointer;"></span>
+                                    `).join('')}
+                                </div>
+                            ` : `
+                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : categoryId === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
+                            `}
                         </div>
                         <div class="place-info">
                             <div class="place-title-row">
@@ -2335,6 +2354,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
 
     app.innerHTML = destHTML;
     initBestFoodSliders();
+    initPlaceImageSliders();
 
     document.getElementById('back-to-city').addEventListener('click', (e) => {
         e.preventDefault();
@@ -4305,5 +4325,50 @@ window.navigateSliderCard = function(card, direction) {
         }, 350);
     }, 350);
 };
+
+function initPlaceImageSliders() {
+    if (window.placeImageSliderIntervals) {
+        window.placeImageSliderIntervals.forEach(clearInterval);
+    }
+    window.placeImageSliderIntervals = [];
+
+    const sliders = document.querySelectorAll('.place-img-slider');
+    sliders.forEach(slider => {
+        const dotContainer = slider.nextElementSibling;
+        const dots = dotContainer ? dotContainer.querySelectorAll('.slider-dot') : [];
+        const slideCount = slider.children.length;
+        if (slideCount <= 1) return;
+
+        const intervalId = setInterval(() => {
+            let activeIndex = parseInt(slider.getAttribute('data-active-index') || '0');
+            activeIndex = (activeIndex + 1) % slideCount;
+            slider.setAttribute('data-active-index', activeIndex);
+            slider.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+            dots.forEach((dot, idx) => {
+                if (idx === activeIndex) {
+                    dot.style.background = '#ffffff';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.5)';
+                }
+            });
+        }, 3000);
+
+        window.placeImageSliderIntervals.push(intervalId);
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                const idx = parseInt(dot.getAttribute('data-index'));
+                slider.setAttribute('data-active-index', idx);
+                slider.style.transform = `translateX(-${idx * 100}%)`;
+                dots.forEach((d, i) => {
+                    d.style.background = i === idx ? '#ffffff' : 'rgba(255,255,255,0.5)';
+                });
+            });
+        });
+    });
+}
 
 
