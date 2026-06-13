@@ -177,7 +177,9 @@ const mangaloreCategories = [
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
     { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.trawell.in/admin/images/upload/547012922Pilikula_Main.jpg' },
-    { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://aroundmangalore.com/wp-content/uploads/2017/10/ONYX-Air-Lounge-Kitchen-MG-Road-Mangalore-P4.jpg' }
+    { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://aroundmangalore.com/wp-content/uploads/2017/10/ONYX-Air-Lounge-Kitchen-MG-Road-Mangalore-P4.jpg' },
+    { id: 'boating', name: 'Boating & Water Sports', desc: 'Explore boating spots →', image: 'https://aroundmangalore.com/wp-content/uploads/2015/09/Pilikula-6.png' },
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://i.ytimg.com/vi/npcPBNhWrL4/hqdefault.jpg' }
 ];
 
 const mangaloreCategoryData = {
@@ -731,6 +733,97 @@ const mangaloreCategoryData = {
                 bestTime: 'Weekend Nights',
                 bestChoice: 'Approx. Spend for 1 Person: ₹500–₹1,200',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1563215037-29bd2f11ed42?auto=format&fit=crop&q=80&w=200'
+            }
+        ]
+    },
+    'boating': {
+        name: 'Boating & Water Sports',
+        places: [
+            {
+                name: 'Sultan Bathery Ferry Service',
+                image: 'https://i.ytimg.com/vi/HSxVIyMfXeg/maxresdefault.jpg',
+                description: 'Historic watchtower built by Tipu Sultan, serving as a scenic boating/ferry point to cross the river to Tannirbhavi Beach.',
+                openHours: '9:00 AM – 7:00 PM',
+                bestTime: 'Scenic river crossing (~6 km from City Center)',
+                bestChoice: 'Ferry Ride: ₹15 per person',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Pilikula Boating Centre',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2015/09/Pilikula-6.png',
+                description: 'Located in the lush Pilikula Nisargadhama, this scenic lake offers peaceful pedal and motor boating options surrounded by gardens.',
+                openHours: '10:00 AM – 5:30 PM (Closed Mondays)',
+                bestTime: 'Quiet lake ride (~12 km from City Center)',
+                bestChoice: 'Pedal/Row Boating: ₹50 per person',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'River Heaven Boat & Kayaking Services',
+                image: 'https://d26dp53kz39178.cloudfront.net/media/uploads/products/312089878_508899604423720_3046789961187734139_n_result-1668622141115.webp',
+                description: 'A serene backwater kayaking and boating facility offering beautiful river cruises, single/double kayaking, and sunset experiences.',
+                openHours: '6:00 AM – 6:30 PM',
+                bestTime: 'Sunrise & Sunset Kayaking (~10 km from City Center)',
+                bestChoice: 'Kayaking Session: ₹300 per person',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Tannirbhavi Beach Boating',
+                image: 'https://i.ytimg.com/vi/0hjzuYVE1kQ/maxresdefault.jpg',
+                description: 'Enjoy thrilling water sports, including speedboats, banana boats, and jet skiing, right off the beautiful shores of Tannirbhavi Beach.',
+                openHours: '9:00 AM – 7:00 PM',
+                bestTime: 'Sunset Water Sports (~9 km from City Center)',
+                bestChoice: 'Speedboat & Banana Rides: ₹100 per person',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
+            }
+        ]
+    },
+    'gaming': {
+        name: 'Gaming & Esports Zone',
+        places: [
+            {
+                name: 'Esports Arena (Empire Mall)',
+                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                description: 'A popular gaming hub in Empire Mall featuring PS5 console gaming, high-end PC setups, and a lively competitive vibe. Play games like FIFA/FC 25, Valorant, BGMI, and racing games.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Afternoons & Weekends',
+                bestChoice: 'Price: ₹100–₹250 per hour <strong>(~1 km from City Center)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'NTG Esports Lounge',
+                image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
+                description: 'A premium gaming lounge equipped with PS5 consoles and high-performance PC stations. Perfect for competitive multiplayer games like Tekken, Mortal Kombat, Valorant, FIFA, and CS2.',
+                openHours: '10:00 AM – 10:00 PM',
+                bestTime: 'Evening Sessions',
+                bestChoice: 'Price: ₹100–₹250 per hour <strong>(~2 km from City Center)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Achilles Gaming Lounge',
+                image: 'https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?auto=format&fit=crop&q=80&w=600',
+                description: 'Located in Balmatta, this comfortable gaming lounge is perfect for casual and competitive gaming with PS5, FC 25, WWE 2K, GTA V, and various cricket games.',
+                openHours: '10:30 AM – 10:30 PM',
+                bestTime: 'Casual & Group Gaming',
+                bestChoice: 'Price: ₹100–₹300 per hour <strong>(~1 km from City Center)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'SMAAASH (Fiza Mall)',
+                image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
+                description: 'The ultimate family entertainment center offering immersive VR games, bowling, arcade machines, cricket simulators, and interactive dance games.',
+                openHours: '11:00 AM – 10:00 PM',
+                bestTime: 'Evening & Weekend Fun',
+                bestChoice: 'Bowling: ₹109–₹329 | Packages: ₹1319–₹1759 <strong>(~2 km from City Center)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Timezone (Fiza Mall)',
+                image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
+                description: 'A family-friendly arcade zone in Fiza Mall featuring high-tech arcade games, bowling lanes, bumper cars, basketball shootout games, and prize vending machines.',
+                openHours: '11:00 AM – 10:00 PM',
+                bestTime: 'Family Outings',
+                bestChoice: 'Arcade: ₹40–₹150/game | Bowling: ₹200–₹400 <strong>(~2 km from City Center)</strong>',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=200'
             }
         ]
     },
@@ -2170,7 +2263,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                 ${category.places.map(place => `
                     <div class="place-card">
                         <div class="place-img">
-                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : categoryId === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
                         </div>
                         <div class="place-info">
                             <div class="place-title-row">
@@ -2385,7 +2478,7 @@ function renderDestination(id) {
                         ${cityCategories[dest.id].map(cat => `
                             <div class="category-card ${cat.empty ? 'empty-card' : ''}" data-cat-id="${cat.id}">
                                 <div class="category-img">
-                                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async">
+                                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async" ${cat.id === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
                                 </div>
                                 <div class="category-overlay">
                                     <h3>${cat.name}</h3>
