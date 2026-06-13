@@ -783,6 +783,11 @@ const mangaloreCategoryData = {
             {
                 name: 'Esports Arena (Empire Mall)',
                 image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
+                    'assets/places/esports_arena_1.jpg',
+                    'assets/places/esports_arena_2.jpg'
+                ],
                 description: 'A popular gaming hub in Empire Mall featuring PS5 console gaming, high-end PC setups, and a lively competitive vibe. Play games like FIFA/FC 25, Valorant, BGMI, and racing games.',
                 openHours: '10:00 AM – 10:00 PM',
                 bestTime: 'Afternoons & Weekends',
@@ -2286,10 +2291,12 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                     <div class="place-card">
                         <div class="place-img" style="position: relative; overflow: hidden;">
                             ${place.images && place.images.length > 0 ? `
-                                <div class="place-img-slider" data-active-index="0" style="display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
-                                    ${place.images.map(imgUrl => `
-                                        <img src="${imgUrl}" alt="${place.name}" loading="lazy" decoding="async" style="min-width: 100%; height: 100%; object-fit: cover; ${categoryId === 'gaming' ? 'transform: scale(1.25); transform-origin: center;' : ''}">
-                                    `).join('')}
+                                <div style="width: 100%; height: 100%; overflow: hidden; ${categoryId === 'gaming' ? 'transform: scale(1.25); transform-origin: center;' : ''}">
+                                    <div class="place-img-slider" data-active-index="0" style="display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform;">
+                                        ${place.images.map(imgUrl => `
+                                            <img src="${imgUrl}" alt="${place.name}" loading="lazy" decoding="async" style="min-width: 100%; height: 100%; object-fit: cover;">
+                                        `).join('')}
+                                    </div>
                                 </div>
                                 <div class="slider-dots" style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
                                     ${place.images.map((_, idx) => `
