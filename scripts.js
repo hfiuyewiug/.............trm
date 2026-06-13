@@ -825,6 +825,11 @@ const mangaloreCategoryData = {
             {
                 name: 'Timezone (Fiza Mall)',
                 image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
+                images: [
+                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600',
+                    'https://im.whatshot.in/img/2023/Oct/image-2-1696423723.jpg',
+                    'https://www.nexusselecttrust.com/resources/assets/images/fiza/Exterior/DSC_15361_5.png'
+                ],
                 description: 'A family-friendly arcade zone in Fiza Mall featuring high-tech arcade games, bowling lanes, bumper cars, basketball shootout games, and prize vending machines.',
                 openHours: '11:00 AM – 10:00 PM',
                 bestTime: 'Family Outings',
