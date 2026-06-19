@@ -4587,31 +4587,57 @@ function initPlaceImageSliders() {
             welcomeUtterance = new SpeechSynthesisUtterance(text);
 
             const voices = window.speechSynthesis.getVoices();
+            
+            // Strict preference list for the best female voices available on system/browser
+            const preferredFemaleVoices = [
+                // Premium Natural / Online Voices (extremely high quality & realistic)
+                'microsoft jenny online (natural)',
+                'microsoft aria online (natural)',
+                'microsoft sonia online (natural)',
+                'google uk english female',
+                'google us english',
+                // Premium macOS / iOS Offline Voices
+                'samantha',
+                'victoria',
+                'karen',
+                'tessa',
+                'veena',
+                'moira',
+                'fiona',
+                // Standard Offline Voices
+                'microsoft zira',
+                'hazel'
+            ];
+
             let femaleVoice = null;
-            
-            // Look for common female voice names in English
-            const femaleNames = ['zira', 'samantha', 'karen', 'moira', 'tessa', 'veena', 'susan', 'hazel', 'victoria', 'google uk english female', 'female', 'natural'];
-            
-            for (const v of voices) {
-                const nameLower = v.name.toLowerCase();
-                if (v.lang.startsWith('en') && femaleNames.some(fn => nameLower.includes(fn))) {
-                    femaleVoice = v;
-                    break;
-                }
+
+            // Find the best available voice from our preferred list
+            for (const pref of preferredFemaleVoices) {
+                femaleVoice = voices.find(v => {
+                    if (!v.lang.startsWith('en')) return false;
+                    const nameLower = v.name.toLowerCase();
+                    return nameLower.includes(pref);
+                });
+                if (femaleVoice) break;
             }
 
-            // Fallback English female voice search
+            // Fallback: look for any voice containing "female" or "online"
             if (!femaleVoice) {
-                femaleVoice = voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female')) ||
-                              voices.find(v => v.lang.startsWith('en'));
+                femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('online')));
+            }
+
+            // Ultimate Fallback: any English voice
+            if (!femaleVoice) {
+                femaleVoice = voices.find(v => v.lang.startsWith('en'));
             }
 
             if (femaleVoice) {
                 welcomeUtterance.voice = femaleVoice;
             }
 
-            welcomeUtterance.rate = 0.9;  // Friendly, clear speed
-            welcomeUtterance.pitch = 1.1; // Slightly higher pitch for friendly female tone
+            welcomeUtterance.volume = 1.0; // Ensure clear, loud volume
+            welcomeUtterance.rate = 0.85;  // Friendly, warm, slow and clear speech rate
+            welcomeUtterance.pitch = 1.05; // Slightly enhanced natural friendly pitch
 
             welcomeUtterance.onend = function() {
                 hasSpoken = true;
