@@ -1728,6 +1728,9 @@ main {
     .nav-actions .nav-icon:first-child {
         display: none !important;
     }
+    #welcome-mute-btn {
+        display: none !important;
+    }
     
     .signin-btn {
         padding: 0.5rem 1rem;
