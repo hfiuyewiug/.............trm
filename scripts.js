@@ -2702,14 +2702,17 @@ function openMustWatchModal(category, cityId = currentCityId) {
     // Select top 3 places as the "Must Watching Places"
     const topPlaces = category.places.slice(0, 3);
     
+    const cityName = cityId === 'mangaluru' ? 'Mangalore' : cityId === 'bangalore' ? 'Bangalore' : 'Mysore';
+    
     // Helper to get static location and rating
     const getLocation = (placeName) => {
-        if (category.name.includes("Beaches")) return "Coastal Hwy, Mangalore";
-        if (category.name.includes("Temples")) return "Temple Square, Mangalore";
-        if (category.name.includes("Malls")) return "City Centre, Mangalore";
-        if (category.name.includes("Trekking")) return "Ghats Region, Mangalore";
-        if (category.name.includes("Restaurants")) return "Food District, Mangalore";
-        return "Heritage Block, Mangalore";
+        if (category.name.includes("Beaches")) return `Coastal Hwy, ${cityName}`;
+        if (category.name.includes("Temples") || category.name.includes("Heritage")) return `Temple Square, ${cityName}`;
+        if (category.name.includes("Malls") || category.name.includes("Shopping")) return `City Centre, ${cityName}`;
+        if (category.name.includes("Trekking")) return `Ghats Region, ${cityName}`;
+        if (category.name.includes("Restaurants") || category.name.includes("Breweries")) return `Food District, ${cityName}`;
+        if (category.name.includes("Gaming")) return `Gaming District, ${cityName}`;
+        return `Heritage Block, ${cityName}`;
     };
 
     const getRating = (index) => {
@@ -3397,6 +3400,14 @@ const cityCoordinates = {
     'mandi stories': { lat: 12.8687, lng: 74.8464 },
 
     // Bangalore
+    'echo esports lounge': { lat: 12.9463, lng: 77.5738 },
+    'clan gaming': { lat: 13.0310, lng: 77.6250 },
+    'torq03': { lat: 12.9525, lng: 77.7013 },
+    'obbattu (holige)': { lat: 12.9716, lng: 77.5946 },
+    'masala dosa': { lat: 12.9716, lng: 77.5946 },
+    'filter coffee': { lat: 12.9716, lng: 77.5946 },
+    'idli vada': { lat: 12.9716, lng: 77.5946 },
+    'ragi mudde': { lat: 12.9716, lng: 77.5946 },
     'cubbon park': { lat: 12.9738, lng: 77.5906 },
     'lalbagh botanical garden': { lat: 12.9507, lng: 77.5848 },
     'bannerghatta national park': { lat: 12.8009, lng: 77.5739 },
@@ -3465,6 +3476,13 @@ const cityCoordinates = {
     'truffles': { lat: 12.9715, lng: 77.6010 },
 
     // Mysuru
+    'legion x gaming café': { lat: 12.3160, lng: 76.6080 },
+    'gamers hub mysuru': { lat: 12.3323, lng: 76.6202 },
+    'smaaash (mall of mysore)': { lat: 12.2978, lng: 76.6646 },
+    'mysore pak': { lat: 12.3082, lng: 76.6520 },
+    'mysore masala dosa': { lat: 12.3082, lng: 76.6520 },
+    'mysore bonda': { lat: 12.3082, lng: 76.6520 },
+    'hanumanthu biryani': { lat: 12.3082, lng: 76.6520 },
     'mysore palace': { lat: 12.3052, lng: 76.6552 },
     'jaganmohana palace art gallery': { lat: 12.3061, lng: 76.6506 },
     'lalitha mahal palace': { lat: 12.3021, lng: 76.6917 },
@@ -3634,6 +3652,14 @@ const cityPlaceIds = {
     'mandi stories': 'ChIJuUR113dApzsR3kSw_V8lJWs',
 
     // Bangalore
+    'echo esports lounge': 'ChIJrR6h8RkrrjsR83C4v0u1K0w',
+    'clan gaming': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
+    'torq03': 'ChIJN-Z-q3-qrjsR91K-Kx1L16s',
+    'obbattu (holige)': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
+    'masala dosa': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
+    'filter coffee': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
+    'idli vada': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
+    'ragi mudde': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
     'cubbon park': 'ChIJj45qDtcXrjsRN3D7b85p-aA',
     'lalbagh botanical garden': 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0',
     'bannerghatta national park': 'ChIJ_e21-d8XrjsRN-cuxU6vK2A',
@@ -3702,6 +3728,13 @@ const cityPlaceIds = {
     'truffles': 'ChIJ4z4z1t8XrjsRtfvOQ4z6nI0',
 
     // Mysuru
+    'legion x gaming café': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'gamers hub mysuru': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'smaaash (mall of mysore)': 'ChIJl-7L3t8XrjsR5fvOQ4z6nI0',
+    'mysore pak': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'mysore masala dosa': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'mysore bonda': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'hanumanthu biryani': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
     'mysore palace': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
     'jaganmohana palace art gallery': 'ChIJ2-7L3t8XrjsR5fvOQ4z6nI0',
     'lalitha mahal palace': 'ChIJ3-7L3t8XrjsR5fvOQ4z6nI0',
