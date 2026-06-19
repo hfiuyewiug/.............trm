@@ -4517,12 +4517,25 @@ function initPlaceImageSliders() {
 
 // Welcome Voice Player Manager
 (function() {
-    let hasSpoken = false;
-    let welcomeUtterance = null;
+    let welcomeAudio = null;
+    let hasPlayed = false;
 
     // Check if voice is muted (persists across visits)
     function isMuted() {
         return localStorage.getItem('welcome-voice-muted') === 'true';
+    }
+
+    // Lazy load the HTML5 Audio instance
+    function getAudio() {
+        if (!welcomeAudio) {
+            welcomeAudio = new Audio('assets/welcome.mp3');
+            welcomeAudio.volume = 1.0;
+            welcomeAudio.addEventListener('ended', () => {
+                hasPlayed = true;
+                sessionStorage.setItem('welcomed', 'true');
+            });
+        }
+        return welcomeAudio;
     }
 
     // Toggle mute status and update storage/UI
@@ -4532,16 +4545,15 @@ function initPlaceImageSliders() {
         localStorage.setItem('welcome-voice-muted', nextMuted ? 'true' : 'false');
         updateMuteButtonUI(nextMuted);
 
+        const audio = getAudio();
         if (nextMuted) {
-            // Cancel current speech if speaking
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-            }
+            audio.pause();
+            audio.currentTime = 0;
         } else {
             // If they unmute, play the greeting
-            hasSpoken = false;
+            hasPlayed = false;
             sessionStorage.removeItem('welcomed');
-            speak();
+            play();
         }
     }
 
@@ -4572,87 +4584,21 @@ function initPlaceImageSliders() {
         }
     }
 
-    function speak() {
-        if (hasSpoken || isMuted()) return;
+    function play() {
+        if (hasPlayed || isMuted()) return;
         if (sessionStorage.getItem('welcomed') === 'true') {
-            hasSpoken = true;
+            hasPlayed = true;
             return;
         }
 
-        if ('speechSynthesis' in window) {
-            // Cancel any ongoing speech to start fresh
-            window.speechSynthesis.cancel();
-
-            const text = "Welcome to Weekend Explore";
-            welcomeUtterance = new SpeechSynthesisUtterance(text);
-
-            const voices = window.speechSynthesis.getVoices();
-            
-            // Strict preference list for the best female voices available on system/browser
-            const preferredFemaleVoices = [
-                // Premium Natural / Online Voices (extremely high quality & realistic)
-                'microsoft jenny online (natural)',
-                'microsoft aria online (natural)',
-                'microsoft sonia online (natural)',
-                'google uk english female',
-                'google us english',
-                // Premium macOS / iOS Offline Voices
-                'samantha',
-                'victoria',
-                'karen',
-                'tessa',
-                'veena',
-                'moira',
-                'fiona',
-                // Standard Offline Voices
-                'microsoft zira',
-                'hazel'
-            ];
-
-            let femaleVoice = null;
-
-            // Find the best available voice from our preferred list
-            for (const pref of preferredFemaleVoices) {
-                femaleVoice = voices.find(v => {
-                    if (!v.lang.startsWith('en')) return false;
-                    const nameLower = v.name.toLowerCase();
-                    return nameLower.includes(pref);
-                });
-                if (femaleVoice) break;
-            }
-
-            // Fallback: look for any voice containing "female" or "online"
-            if (!femaleVoice) {
-                femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('online')));
-            }
-
-            // Ultimate Fallback: any English voice
-            if (!femaleVoice) {
-                femaleVoice = voices.find(v => v.lang.startsWith('en'));
-            }
-
-            if (femaleVoice) {
-                welcomeUtterance.voice = femaleVoice;
-            }
-
-            welcomeUtterance.volume = 1.0; // Ensure clear, loud volume
-            welcomeUtterance.rate = 0.85;  // Friendly, warm, slow and clear speech rate
-            welcomeUtterance.pitch = 1.05; // Slightly enhanced natural friendly pitch
-
-            welcomeUtterance.onend = function() {
-                hasSpoken = true;
-                sessionStorage.setItem('welcomed', 'true');
-            };
-
-            welcomeUtterance.onerror = function() {
-                hasSpoken = true;
-                sessionStorage.setItem('welcomed', 'true');
-            };
-
-            window.speechSynthesis.speak(welcomeUtterance);
-            hasSpoken = true;
+        const audio = getAudio();
+        audio.play().then(() => {
+            hasPlayed = true;
             sessionStorage.setItem('welcomed', 'true');
-        }
+        }).catch(err => {
+            // Log autoplay restriction block (expected on first load before click)
+            console.log('Autoplay restriction active. Playback deferred to interaction.');
+        });
     }
 
     function initWelcomeVoice() {
@@ -4668,9 +4614,9 @@ function initPlaceImageSliders() {
         }
 
         // Try playing immediately
-        speak();
+        play();
 
-        // Autoplay workaround: browsers block speak on load without user interaction.
+        // Autoplay workaround: browsers block audio play on load without user interaction.
         // We register document-level interaction listeners to capture the first interaction.
         const interactionEvents = ['click', 'touchstart', 'mousedown', 'keydown'];
         const handleFirstInteraction = (e) => {
@@ -4678,20 +4624,11 @@ function initPlaceImageSliders() {
             if (e.target.closest('#welcome-mute-btn')) {
                 return;
             }
-            speak();
-            // Remove listeners once speech is attempted
+            play();
+            // Remove listeners once playback is attempted
             interactionEvents.forEach(evt => document.removeEventListener(evt, handleFirstInteraction));
         };
         interactionEvents.forEach(evt => document.addEventListener(evt, handleFirstInteraction, { passive: true }));
-
-        // For Chrome/Opera: voices are loaded asynchronously.
-        if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined) {
-            window.speechSynthesis.onvoiceschanged = () => {
-                if (!hasSpoken) {
-                    speak();
-                }
-            };
-        }
     }
 
     // Initialize when DOM is fully ready
