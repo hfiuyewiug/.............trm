@@ -4561,24 +4561,15 @@ function initPlaceImageSliders() {
         const btn = document.getElementById('welcome-mute-btn');
         if (!btn) return;
         
+        const img = btn.querySelector('img');
+        if (!img) return;
+
         if (muted) {
-            btn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <line x1="22" y1="9" x2="16" y2="15"></line>
-                    <line x1="16" y1="9" x2="22" y2="15"></line>
-                </svg>
-            `;
+            img.src = 'https://api.iconify.design/material-symbols:volume-off-outline.svg';
             btn.title = "Unmute Welcome Voice";
             btn.setAttribute('aria-label', "Unmute welcome voice");
         } else {
-            btn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="sound-wave"></path>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="sound-wave"></path>
-                </svg>
-            `;
+            img.src = 'https://api.iconify.design/material-symbols:volume-up-outline.svg';
             btn.title = "Mute Welcome Voice";
             btn.setAttribute('aria-label', "Mute welcome voice");
         }
@@ -4618,7 +4609,7 @@ function initPlaceImageSliders() {
 
         // Autoplay workaround: browsers block audio play on load without user interaction.
         // We register document-level interaction listeners to capture the first interaction.
-        const interactionEvents = ['click', 'touchstart', 'mousedown', 'keydown'];
+        const interactionEvents = ['click', 'touchend', 'touchstart', 'mousedown', 'keydown'];
         const handleFirstInteraction = (e) => {
             // Do not play if they clicked the mute button directly
             if (e.target.closest('#welcome-mute-btn')) {
