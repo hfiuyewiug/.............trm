@@ -156,6 +156,26 @@ body {
     height: 20px;
 }
 
+.mute-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.mute-btn:hover {
+    color: var(--primary-color);
+}
+
 .signin-btn {
     background-color: var(--primary-color);
     color: white;
@@ -874,6 +894,9 @@ main {
 @media (max-width: 768px) {
     body {
         background-attachment: scroll;
+    }
+    .nav-actions {
+        gap: 1rem !important;
     }
     .nav-actions .nav-icon:first-child {
         display: none !important;
@@ -2879,6 +2902,9 @@ main {
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
+    .nav-actions {
+        gap: 0.75rem !important;
+    }
     .double-tap-text {
         font-size: 0.55rem;
     }

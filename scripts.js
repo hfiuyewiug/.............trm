@@ -4545,10 +4545,11 @@ function initPlaceImageSliders() {
         localStorage.setItem('welcome-voice-muted', nextMuted ? 'true' : 'false');
         updateMuteButtonUI(nextMuted);
 
-        const audio = getAudio();
         if (nextMuted) {
-            audio.pause();
-            audio.currentTime = 0;
+            if (welcomeAudio) {
+                welcomeAudio.pause();
+                welcomeAudio.currentTime = 0;
+            }
         } else {
             // If they unmute, play the greeting
             hasPlayed = false;
@@ -4560,16 +4561,25 @@ function initPlaceImageSliders() {
     function updateMuteButtonUI(muted) {
         const btn = document.getElementById('welcome-mute-btn');
         if (!btn) return;
-        
-        const img = btn.querySelector('img');
-        if (!img) return;
 
         if (muted) {
-            img.src = 'https://api.iconify.design/material-symbols:volume-off-outline.svg';
+            btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="22" y1="9" x2="16" y2="15"></line>
+                    <line x1="16" y1="9" x2="22" y2="15"></line>
+                </svg>
+            `;
             btn.title = "Unmute Welcome Voice";
             btn.setAttribute('aria-label', "Unmute welcome voice");
         } else {
-            img.src = 'https://api.iconify.design/material-symbols:volume-up-outline.svg';
+            btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="sound-wave"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="sound-wave"></path>
+                </svg>
+            `;
             btn.title = "Mute Welcome Voice";
             btn.setAttribute('aria-label', "Mute welcome voice");
         }
@@ -4587,8 +4597,8 @@ function initPlaceImageSliders() {
             hasPlayed = true;
             sessionStorage.setItem('welcomed', 'true');
         }).catch(err => {
-            // Log autoplay restriction block (expected on first load before click)
             console.log('Autoplay restriction active. Playback deferred to interaction.');
+            welcomeAudio = null; // discard failed instance so next play creates a clean one
         });
     }
 
@@ -4609,17 +4619,31 @@ function initPlaceImageSliders() {
 
         // Autoplay workaround: browsers block audio play on load without user interaction.
         // We register document-level interaction listeners to capture the first interaction.
-        const interactionEvents = ['click', 'touchend', 'touchstart', 'mousedown', 'keydown'];
+        // We listen to touchstart, touchend, click, and keydown, and only remove them if play succeeds.
+        const interactionEvents = ['click', 'touchstart', 'touchend', 'keydown'];
         const handleFirstInteraction = (e) => {
             // Do not play if they clicked the mute button directly
             if (e.target.closest('#welcome-mute-btn')) {
                 return;
             }
-            play();
-            // Remove listeners once playback is attempted
-            interactionEvents.forEach(evt => document.removeEventListener(evt, handleFirstInteraction));
+
+            if (hasPlayed || isMuted() || sessionStorage.getItem('welcomed') === 'true') {
+                interactionEvents.forEach(evt => document.removeEventListener(evt, handleFirstInteraction));
+                return;
+            }
+
+            const audio = getAudio();
+            audio.play().then(() => {
+                hasPlayed = true;
+                sessionStorage.setItem('welcomed', 'true');
+                // Play succeeded! Now we can safely remove the listeners
+                interactionEvents.forEach(evt => document.removeEventListener(evt, handleFirstInteraction));
+            }).catch(err => {
+                console.log('Playback failed, keeping listeners active for next gesture:', err.message);
+                welcomeAudio = null; // discard failed instance
+            });
         };
-        interactionEvents.forEach(evt => document.addEventListener(evt, handleFirstInteraction, { passive: true }));
+        interactionEvents.forEach(evt => document.addEventListener(evt, handleFirstInteraction));
     }
 
     // Initialize when DOM is fully ready
