@@ -4515,4 +4515,166 @@ function initPlaceImageSliders() {
     });
 }
 
+// Welcome Voice Player Manager
+(function() {
+    let hasSpoken = false;
+    let welcomeUtterance = null;
+
+    // Check if voice is muted (persists across visits)
+    function isMuted() {
+        return localStorage.getItem('welcome-voice-muted') === 'true';
+    }
+
+    // Toggle mute status and update storage/UI
+    function toggleMute() {
+        const currentlyMuted = isMuted();
+        const nextMuted = !currentlyMuted;
+        localStorage.setItem('welcome-voice-muted', nextMuted ? 'true' : 'false');
+        updateMuteButtonUI(nextMuted);
+
+        if (nextMuted) {
+            // Cancel current speech if speaking
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        } else {
+            // If they unmute, play the greeting
+            hasSpoken = false;
+            sessionStorage.removeItem('welcomed');
+            speak();
+        }
+    }
+
+    function updateMuteButtonUI(muted) {
+        const btn = document.getElementById('welcome-mute-btn');
+        if (!btn) return;
+        
+        if (muted) {
+            btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="22" y1="9" x2="16" y2="15"></line>
+                    <line x1="16" y1="9" x2="22" y2="15"></line>
+                </svg>
+            `;
+            btn.title = "Unmute Welcome Voice";
+            btn.setAttribute('aria-label', "Unmute welcome voice");
+        } else {
+            btn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="speaker-icon">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="sound-wave"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="sound-wave"></path>
+                </svg>
+            `;
+            btn.title = "Mute Welcome Voice";
+            btn.setAttribute('aria-label', "Mute welcome voice");
+        }
+    }
+
+    function speak() {
+        if (hasSpoken || isMuted()) return;
+        if (sessionStorage.getItem('welcomed') === 'true') {
+            hasSpoken = true;
+            return;
+        }
+
+        if ('speechSynthesis' in window) {
+            // Cancel any ongoing speech to start fresh
+            window.speechSynthesis.cancel();
+
+            const text = "Welcome to Weekend Explore";
+            welcomeUtterance = new SpeechSynthesisUtterance(text);
+
+            const voices = window.speechSynthesis.getVoices();
+            let femaleVoice = null;
+            
+            // Look for common female voice names in English
+            const femaleNames = ['zira', 'samantha', 'karen', 'moira', 'tessa', 'veena', 'susan', 'hazel', 'victoria', 'google uk english female', 'female', 'natural'];
+            
+            for (const v of voices) {
+                const nameLower = v.name.toLowerCase();
+                if (v.lang.startsWith('en') && femaleNames.some(fn => nameLower.includes(fn))) {
+                    femaleVoice = v;
+                    break;
+                }
+            }
+
+            // Fallback English female voice search
+            if (!femaleVoice) {
+                femaleVoice = voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female')) ||
+                              voices.find(v => v.lang.startsWith('en'));
+            }
+
+            if (femaleVoice) {
+                welcomeUtterance.voice = femaleVoice;
+            }
+
+            welcomeUtterance.rate = 0.9;  // Friendly, clear speed
+            welcomeUtterance.pitch = 1.1; // Slightly higher pitch for friendly female tone
+
+            welcomeUtterance.onend = function() {
+                hasSpoken = true;
+                sessionStorage.setItem('welcomed', 'true');
+            };
+
+            welcomeUtterance.onerror = function() {
+                hasSpoken = true;
+                sessionStorage.setItem('welcomed', 'true');
+            };
+
+            window.speechSynthesis.speak(welcomeUtterance);
+            hasSpoken = true;
+            sessionStorage.setItem('welcomed', 'true');
+        }
+    }
+
+    function initWelcomeVoice() {
+        // Update the mute button UI immediately on load to reflect user preference
+        updateMuteButtonUI(isMuted());
+
+        const btn = document.getElementById('welcome-mute-btn');
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMute();
+            });
+        }
+
+        // Try playing immediately
+        speak();
+
+        // Autoplay workaround: browsers block speak on load without user interaction.
+        // We register document-level interaction listeners to capture the first interaction.
+        const interactionEvents = ['click', 'touchstart', 'mousedown', 'keydown'];
+        const handleFirstInteraction = (e) => {
+            // Do not play if they clicked the mute button directly
+            if (e.target.closest('#welcome-mute-btn')) {
+                return;
+            }
+            speak();
+            // Remove listeners once speech is attempted
+            interactionEvents.forEach(evt => document.removeEventListener(evt, handleFirstInteraction));
+        };
+        interactionEvents.forEach(evt => document.addEventListener(evt, handleFirstInteraction, { passive: true }));
+
+        // For Chrome/Opera: voices are loaded asynchronously.
+        if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                if (!hasSpoken) {
+                    speak();
+                }
+            };
+        }
+    }
+
+    // Initialize when DOM is fully ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWelcomeVoice);
+    } else {
+        initWelcomeVoice();
+    }
+})();
+
+
 

@@ -2883,3 +2883,27 @@ main {
         font-size: 0.55rem;
     }
 }
+
+/* Welcome voice mute/unmute button styling */
+.mute-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.mute-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(131, 56, 236, 0.08);
+}
+
+.dark-mode .mute-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
