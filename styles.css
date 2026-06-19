@@ -901,6 +901,9 @@ main {
     .nav-actions .nav-icon:first-child {
         display: none !important;
     }
+    #welcome-mute-btn {
+        display: none !important;
+    }
     .navbar-brand {
         gap: 0.5rem;
     }
