@@ -34,7 +34,6 @@
                 <a href="#" class="nav-link">Deals</a>
                 <a href="#" class="nav-link">Experiences</a>
                 <a href="#" class="nav-link">Inspiration</a>
-                <a href="#" class="nav-link">Support</a>
             </div>
             <div class="nav-actions">
                 <div class="nav-icon"><img src="https://api.iconify.design/material-symbols:language.svg" alt="Lang"> EN</div>
@@ -46,7 +45,11 @@
                     </svg>
                 </button>
                 <div class="nav-icon"><img src="https://api.iconify.design/material-symbols:favorite-outline.svg" alt="Fav"></div>
-                <button class="signin-btn">Sign In</button>
+                <button class="hamburger-menu-btn" id="hamburger-menu-btn" aria-label="Toggle Navigation Menu">
+                    <span class="hamburger-bar bar-1"></span>
+                    <span class="hamburger-bar bar-2"></span>
+                    <span class="hamburger-bar bar-3"></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -54,6 +57,106 @@
     <main id="app">
         <!-- Content will be injected by scripts.js -->
     </main>
+
+    <!-- Hamburger Drawer Overlay -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Slide-in Drawer -->
+    <div class="menu-drawer" id="menu-drawer">
+        <div class="drawer-header">
+            <span class="drawer-title"><span class="brand-text-main">Weekend</span><span class="brand-text-sub">Explore</span></span>
+            <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <ul class="drawer-menu-list">
+                <li class="drawer-menu-item" style="--item-index: 0;">
+                    <a href="#" id="menu-about-us">
+                        <span class="menu-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </span>
+                        <span class="menu-item-text">About Us</span>
+                        <span class="menu-item-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="drawer-menu-item" style="--item-index: 1;">
+                    <a href="#" id="menu-more-info">
+                        <span class="menu-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </span>
+                        <span class="menu-item-text">More Information</span>
+                        <span class="menu-item-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="drawer-menu-item" style="--item-index: 2;">
+                    <a href="#" id="menu-support">
+                        <span class="menu-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </span>
+                        <span class="menu-item-text">Support</span>
+                        <span class="menu-item-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="drawer-menu-item" style="--item-index: 3;">
+                    <a href="#" id="menu-terms-conditions">
+                        <span class="menu-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </span>
+                        <span class="menu-item-text">Terms & Conditions</span>
+                        <span class="menu-item-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="drawer-menu-item" style="--item-index: 4;">
+                    <a href="#" id="menu-updates">
+                        <span class="menu-item-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </span>
+                        <span class="menu-item-text">Updates</span>
+                        <span class="menu-item-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="drawer-footer">
+            <div class="drawer-footer-brand">
+                <span class="brand-text-main">Weekend</span><span class="brand-text-sub">Explore</span>
+            </div>
+            <p class="drawer-footer-text">© 2026 Weekend Explore.</p>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="scripts.js?v=7"></script>

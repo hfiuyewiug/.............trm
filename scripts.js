@@ -4654,5 +4654,368 @@ function initPlaceImageSliders() {
     }
 })();
 
+// ==========================================
+// Hamburger Menu & Interactive Modals Implementation
+// ==========================================
+(function() {
+    const hamburgerBtn = document.getElementById('hamburger-menu-btn');
+    const menuDrawer = document.getElementById('menu-drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
+    if (!hamburgerBtn || !menuDrawer || !drawerOverlay) {
+        console.error('Hamburger drawer elements not found in DOM.');
+        return;
+    }
+
+    // Toggle Drawer Open/Closed
+    function toggleDrawer(open) {
+        const shouldOpen = typeof open === 'boolean' ? open : !menuDrawer.classList.contains('active');
+        
+        if (shouldOpen) {
+            hamburgerBtn.classList.add('active');
+            menuDrawer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
+        } else {
+            hamburgerBtn.classList.remove('active');
+            menuDrawer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore body scroll
+        }
+    }
+
+    hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDrawer();
+    });
+
+    drawerCloseBtn.addEventListener('click', () => toggleDrawer(false));
+    drawerOverlay.addEventListener('click', () => toggleDrawer(false));
+
+    // Escape Key to Close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            toggleDrawer(false);
+            closeAllInteractiveModals();
+        }
+    });
+
+    // Close Modals Helper
+    function closeAllInteractiveModals() {
+        const modals = document.querySelectorAll('.menu-modal-overlay');
+        modals.forEach(modal => {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.remove();
+            }, 400);
+        });
+    }
+
+    // Centered Interactive Modal Maker
+    function openInteractiveModal(title, contentHTML, onInit) {
+        // Toggle drawer off first
+        toggleDrawer(false);
+
+        // Remove any existing overlay
+        closeAllInteractiveModals();
+
+        // Create overlay and card
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-modal-overlay';
+        overlay.id = 'menu-modal-overlay';
+
+        overlay.innerHTML = `
+            <div class="menu-modal">
+                <header class="menu-modal-header">
+                    <span class="menu-modal-title">${title}</span>
+                    <button class="menu-modal-close" aria-label="Close modal">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </header>
+                <div class="menu-modal-body">
+                    ${contentHTML}
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Animate open
+        requestAnimationFrame(() => {
+            overlay.classList.add('active');
+        });
+
+        // Close on close button or overlay click
+        const closeBtn = overlay.querySelector('.menu-modal-close');
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            setTimeout(() => overlay.remove(), 400);
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+                setTimeout(() => overlay.remove(), 400);
+            }
+        });
+
+        // Initialize custom scripts/animations
+        if (typeof onInit === 'function') {
+            onInit(overlay);
+        }
+    }
+
+    // Modal Content Templates & Initializers
+    const MENU_ACTIONS = {
+        'menu-about-us': {
+            title: 'About Us',
+            getHTML: () => `
+                <div class="about-view">
+                    <div class="about-header">
+                        <h4>Weekend Explore</h4>
+                        <p>Your ultimate companion to discover the magical landscapes of South India.</p>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-card-icon">✈️</div>
+                            <h5>Our Mission</h5>
+                            <p>To provide curated, immersive travel insights that help you discover local history, authentic delicacies, and breathtaking scenery.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-card-icon">🏔️</div>
+                            <h5>Our Vision</h5>
+                            <p>To make weekend travel planning seamless, sustainable, and memorable by showcasing the best of Karnataka and beyond.</p>
+                        </div>
+                        <div class="about-card full-width">
+                            <div class="about-card-icon">✨</div>
+                            <h5>Who We Are</h5>
+                            <p>We are a team of passionate explorers and travel enthusiasts dedicated to uncovering hidden routes, premium local homestays, and pristine spots that traditional tourist guides miss.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            init: null
+        },
+        'menu-more-info': {
+            title: 'More Information',
+            getHTML: () => `
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the top travel destinations covered?</span>
+                            <span class="faq-arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We specialize in curated guides for South India, including Coorg (Kodagu), Chikmagalur, Hampi, and coastal Mangaluru. Each destination features historical details, local recommendations, and real-time places information.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How does the Google Places integration work?</span>
+                            <span class="faq-arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Our application integrates a secure backend proxy layer that safely routes queries to the official Google Places API, returning ratings, operating status, user reviews, and photos without exposing sensitive API credentials.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are there curated weekend itineraries?</span>
+                            <span class="faq-arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Yes! We provide tailored weekend schedules for every premium destination. Click on a destination card on our homepage to view detailed multi-day routes, maps, and recommended transport guides.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            init: (modal) => {
+                const questions = modal.querySelectorAll('.faq-question');
+                questions.forEach(q => {
+                    q.addEventListener('click', () => {
+                        const item = q.parentElement;
+                        const answer = item.querySelector('.faq-answer');
+                        const isActive = item.classList.contains('active');
+
+                        // Collapse all first for clean single-expand
+                        modal.querySelectorAll('.faq-item').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                                otherItem.querySelector('.faq-answer').style.opacity = '0';
+                            }
+                        });
+
+                        if (isActive) {
+                            item.classList.remove('active');
+                            answer.style.maxHeight = '0';
+                            answer.style.opacity = '0';
+                        } else {
+                            item.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            answer.style.opacity = '1';
+                        }
+                    });
+                });
+            }
+        },
+        'menu-support': {
+            title: 'Support Center',
+            getHTML: () => `
+                <div class="support-form-container">
+                    <form class="support-form" id="modal-support-form">
+                        <div class="form-group">
+                            <label for="support-name">Your Name</label>
+                            <input type="text" id="support-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="support-email">Email Address</label>
+                            <input type="email" id="support-email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="support-message">How can we help?</label>
+                            <textarea id="support-message" rows="4" placeholder="Tell us what you need assistance with..." required></textarea>
+                        </div>
+                        <div class="submit-btn-container">
+                            <button type="submit" class="support-submit-btn" id="support-submit-btn">
+                                <span class="btn-loader"></span>
+                                <span class="btn-success-check">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="btn-text">Submit Support Ticket</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `,
+            init: (modal) => {
+                const form = modal.querySelector('#modal-support-form');
+                const submitBtn = modal.querySelector('#support-submit-btn');
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (submitBtn.classList.contains('loading') || submitBtn.classList.contains('success')) return;
+
+                    // Trigger loading animation
+                    submitBtn.classList.add('loading');
+
+                    // Simulate API network call
+                    setTimeout(() => {
+                        submitBtn.classList.remove('loading');
+                        submitBtn.classList.add('success');
+
+                        // Clean reset and close modal after checkmark completes animation
+                        setTimeout(() => {
+                            modal.classList.remove('active');
+                            setTimeout(() => modal.remove(), 400);
+                        }, 1200);
+                    }, 1800);
+                });
+            }
+        },
+        'menu-terms-conditions': {
+            title: 'Terms & Conditions',
+            getHTML: () => `
+                <div class="terms-progress-container">
+                    <div class="terms-progress-bar" id="terms-progress-bar"></div>
+                </div>
+                <div class="terms-text">
+                    <p>Welcome to Weekend Explore! By accessing or using our website, you agree to comply with and be bound by the following terms and conditions.</p>
+                    
+                    <h6>1. Use of Content</h6>
+                    <p>All information, text, images, maps, and itineraries displayed on Weekend Explore are for educational and inspirational purposes. We strive for accuracy but cannot guarantee that all details, travel warnings, or business hours are up-to-date.</p>
+                    
+                    <h6>2. Intellectual Property</h6>
+                    <p>The graphics, brand elements, custom SVGs, and responsive design systems are the sole property of Weekend Explore. You may not copy, scrape, or distribute our design files or backend proxies without written consent.</p>
+                    
+                    <h6>3. Google API Data</h6>
+                    <p>Places ratings and review details are generated by the Google Places API. Users must comply with Google's general terms of service when interacting with maps and location data on our site.</p>
+                    
+                    <h6>4. Liability Disclaimer</h6>
+                    <p>Weekend Explore will not be held liable for any damages, incidents, loss of property, or personal injury sustained during trips organized using data or recommendations from this website. Travel safe and inspect local regulations beforehand.</p>
+                    
+                    <h6>5. Future Updates</h6>
+                    <p>We reserve the right to modify these terms at any time. Changes will be posted instantly in our Updates log. Continued use of the platform represents acceptance of all modified terms.</p>
+                </div>
+            `,
+            init: (modal) => {
+                const body = modal.querySelector('.menu-modal-body');
+                const progress = modal.querySelector('#terms-progress-bar');
+                
+                body.addEventListener('scroll', () => {
+                    const scrollHeight = body.scrollHeight - body.clientHeight;
+                    if (scrollHeight <= 0) return;
+                    const percent = (body.scrollTop / scrollHeight) * 100;
+                    progress.style.width = percent + '%';
+                });
+            }
+        },
+        'menu-updates': {
+            title: 'Platform Updates',
+            getHTML: () => `
+                <div class="updates-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-date">June 2026</div>
+                        <div class="timeline-content">
+                            <h5>Google Places Proxy Integration</h5>
+                            <p>Released a secure, server-side caching proxy service to retrieve Google Place Details, photos, and live rating distributions without front-facing API key exposure.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-date">May 2026</div>
+                        <div class="timeline-content">
+                            <h5>Ambient Audio Greetings</h5>
+                            <p>Added custom HTML5 ambient welcome narration to enhance exploration guides. Implemented smart mute settings that persist across sessions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-date">April 2026</div>
+                        <div class="timeline-content">
+                            <h5>Fluid Swipeable Galleries</h5>
+                            <p>Integrated Swiper.js bundle to enable beautiful, hardware-accelerated touchscreen touch galleries for premium local cuisine listings.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            init: null
+        }
+    };
+
+    // Bind clicks to menu items
+    Object.keys(MENU_ACTIONS).forEach(id => {
+        const link = document.getElementById(id);
+        if (link) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const config = MENU_ACTIONS[id];
+                openInteractiveModal(config.title, config.getHTML(), config.init);
+            });
+        }
+    });
+
+})();
+
 
 
