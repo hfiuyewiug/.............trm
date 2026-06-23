@@ -4777,23 +4777,31 @@ function initPlaceImageSliders() {
                 <div class="about-view">
                     <div class="about-header">
                         <h4>Weekend Explore</h4>
-                        <p>Your ultimate companion to discover the magical landscapes of South India.</p>
+                        <p>Simplifying weekend travel planning across Karnataka.</p>
                     </div>
                     <div class="about-grid">
                         <div class="about-card">
-                            <div class="about-card-icon">✈️</div>
-                            <h5>Our Mission</h5>
-                            <p>To provide curated, immersive travel insights that help you discover local history, authentic delicacies, and breathtaking scenery.</p>
+                            <div class="about-card-icon">🗺️</div>
+                            <h5>What is Weekend Explore?</h5>
+                            <p>Weekend Explore is designed to help people discover the best places to visit during their weekends. Whether you are a student, employee, traveler, or family, the platform makes it easier to find exciting destinations, famous food spots, beaches, parks, temples, cultural attractions, and hidden gems.</p>
                         </div>
                         <div class="about-card">
-                            <div class="about-card-icon">🏔️</div>
-                            <h5>Our Vision</h5>
-                            <p>To make weekend travel planning seamless, sustainable, and memorable by showcasing the best of Karnataka and beyond.</p>
+                            <div class="about-card-icon">🚀</div>
+                            <h5>Our Goal</h5>
+                            <p>Many people spend their weekends searching for places to visit or activities to do. Weekend Explore simplifies this process by providing recommendations and useful information in one place, helping users plan memorable and enjoyable weekend trips.</p>
                         </div>
-                        <div class="about-card full-width">
+                        <div class="about-card">
+                            <div class="about-card-icon">📍</div>
+                            <h5>Current Focus</h5>
+                            <p>Currently, Weekend Explore focuses on Bengaluru, Mangaluru, and Mysuru, offering carefully selected destinations and experiences that suit different interests and budgets.</p>
+                        </div>
+                        <div class="about-card">
                             <div class="about-card-icon">✨</div>
-                            <h5>Who We Are</h5>
-                            <p>We are a team of passionate explorers and travel enthusiasts dedicated to uncovering hidden routes, premium local homestays, and pristine spots that traditional tourist guides miss.</p>
+                            <h5>Our Aim</h5>
+                            <p>Our goal is to make every weekend more exciting, helping people explore new places, create unforgettable memories, and experience the beauty of Karnataka.</p>
+                        </div>
+                        <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color);">
+                            <h5 style="color: var(--primary-color); margin-bottom: 0px;">Explore More. Travel Smarter. Make Every Weekend Memorable.</h5>
                         </div>
                     </div>
                 </div>
@@ -4803,45 +4811,125 @@ function initPlaceImageSliders() {
         'menu-more-info': {
             title: 'More Information',
             getHTML: () => `
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>What are the top travel destinations covered?</span>
-                            <span class="faq-arrow">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-inner">
-                                We specialize in curated guides for South India, including Coorg (Kodagu), Chikmagalur, Hampi, and coastal Mangaluru. Each destination features historical details, local recommendations, and real-time places information.
+                <div class="about-view">
+                    <!-- Creator Card -->
+                    <div class="about-card full-width" style="border-left: 4px solid var(--primary-color); background: var(--bg-light);">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 2rem;">🎓</div>
+                            <div>
+                                <h5 style="margin-bottom: 0.25rem;">Founded by Gowtham N</h5>
+                                <p style="font-size: 0.85rem; color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">First-year Engineering Student | Yenepoya University, Mangaluru (NIAT Program)</p>
+                                <p>Created with a simple vision: to help people discover amazing places, experiences, and destinations for their weekends without spending hours searching online.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How does the Google Places integration work?</span>
-                            <span class="faq-arrow">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
+
+                    <!-- Description Card -->
+                    <div class="about-card full-width">
+                        <h5>About the Platform</h5>
+                        <p style="margin-bottom: 0.75rem;">Weekend Explore helps users find places to visit, explore famous food spots, discover hidden gems, plan weekend trips, and create memorable travel experiences. Whether you're a student, employee, traveler, or family looking for a short getaway, Weekend Explore makes exploring easier and more enjoyable.</p>
+                        <p>Currently, Weekend Explore mainly focuses on <strong>Bengaluru, Mangaluru, and Mysuru</strong>, providing information about tourist attractions, beaches, parks, temples, cafés, restaurants, cultural destinations, and budget-friendly weekend plans.</p>
+                    </div>
+
+                    <!-- Mission & Vision Cards -->
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-card-icon">🎯</div>
+                            <h5>Our Mission</h5>
+                            <p>To make weekend travel planning simple, enjoyable, and accessible by helping people discover new destinations, local attractions, and memorable experiences across Karnataka.</p>
                         </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-inner">
-                                Our application integrates a secure backend proxy layer that safely routes queries to the official Google Places API, returning ratings, operating status, user reviews, and photos without exposing sensitive API credentials.
+                        <div class="about-card">
+                            <div class="about-card-icon">👁️</div>
+                            <h5>Our Vision</h5>
+                            <p>To become Karnataka's trusted platform for weekend exploration, inspiring people to travel more, discover new places, and create unforgettable memories with friends and family.</p>
+                        </div>
+                    </div>
+
+                    <!-- Version History Accordions -->
+                    <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Version History</h5>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Weekend Explore 1.3 (Current Version)</span>
+                                <span class="faq-arrow">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The current version includes:</p>
+                                    <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                        <li>Main focus on Bengaluru, Mangaluru, and Mysuru</li>
+                                        <li>Tourist attractions and hidden gems</li>
+                                        <li>Famous food spots and cafés</li>
+                                        <li>Beaches, parks, temples, and cultural destinations</li>
+                                        <li>Budget-friendly weekend recommendations</li>
+                                        <li>Better destination organization</li>
+                                        <li>Enhanced user experience and performance</li>
+                                        <li>More detailed travel information</li>
+                                        <li>Improved accessibility and usability</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Weekend Explore 1.2</span>
+                                <span class="faq-arrow">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The second version introduced:</p>
+                                    <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                        <li>Improved user interface and design</li>
+                                        <li>Better mobile responsiveness</li>
+                                        <li>Destination categories</li>
+                                        <li>Famous food recommendations</li>
+                                        <li>Enhanced destination discovery</li>
+                                        <li>Better navigation and performance</li>
+                                        <li>Improved place organization</li>
+                                        <li>More travel-related information</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Weekend Explore 1.1</span>
+                                <span class="faq-arrow">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The foundation version focused on:</p>
+                                    <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                                        <li>Popular tourist destination listings</li>
+                                        <li>Weekend trip recommendations</li>
+                                        <li>Basic place information and descriptions</li>
+                                        <li>Famous attractions and sightseeing spots</li>
+                                        <li>Budget-friendly destination suggestions</li>
+                                        <li>Mobile-friendly browsing experience</li>
+                                        <li>Simple destination discovery system</li>
+                                        <li>Travel inspiration for students and employees</li>
+                                        <li>Karnataka-focused travel content</li>
+                                        <li>Easy navigation and user-friendly design</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Are there curated weekend itineraries?</span>
-                            <span class="faq-arrow">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-inner">
-                                Yes! We provide tailored weekend schedules for every premium destination. Click on a destination card on our homepage to view detailed multi-day routes, maps, and recommended transport guides.
-                            </div>
-                        </div>
+
+                    <!-- Creator Profile Detail -->
+                    <div class="about-card full-width" style="margin-top: 1rem;">
+                        <h5>About the Creator</h5>
+                        <p>Gowtham N is a first-year Engineering student at Yenepoya University, Mangaluru (NIAT Program) with a strong interest in technology, innovation, and building digital solutions that solve real-world problems. Weekend Explore represents a step toward creating useful platforms that help people explore, connect, and experience the world around them.</p>
+                    </div>
+
+                    <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color); margin-top: 0.5rem;">
+                        <h5 style="color: var(--primary-color); margin-bottom: 0px;">"Explore More. Travel Smarter. Make Every Weekend Memorable."</h5>
                     </div>
                 </div>
             `,
@@ -4938,22 +5026,39 @@ function initPlaceImageSliders() {
                     <div class="terms-progress-bar" id="terms-progress-bar"></div>
                 </div>
                 <div class="terms-text">
-                    <p>Welcome to Weekend Explore! By accessing or using our website, you agree to comply with and be bound by the following terms and conditions.</p>
+                    <p>Welcome to Weekend Explore. By using this platform, you agree to the following terms and conditions.</p>
                     
-                    <h6>1. Use of Content</h6>
-                    <p>All information, text, images, maps, and itineraries displayed on Weekend Explore are for educational and inspirational purposes. We strive for accuracy but cannot guarantee that all details, travel warnings, or business hours are up-to-date.</p>
+                    <h6>1. Information Purpose</h6>
+                    <p>Weekend Explore provides travel-related information, destination recommendations, food suggestions, and weekend trip ideas for informational purposes only.</p>
                     
-                    <h6>2. Intellectual Property</h6>
-                    <p>The graphics, brand elements, custom SVGs, and responsive design systems are the sole property of Weekend Explore. You may not copy, scrape, or distribute our design files or backend proxies without written consent.</p>
+                    <h6>2. Accuracy of Information</h6>
+                    <p>We strive to provide accurate and up-to-date information. However, destination details, opening hours, ticket prices, transportation schedules, and other information may change over time. Users are encouraged to verify details before making travel plans.</p>
                     
-                    <h6>3. Google API Data</h6>
-                    <p>Places ratings and review details are generated by the Google Places API. Users must comply with Google's general terms of service when interacting with maps and location data on our site.</p>
+                    <h6>3. User Responsibility</h6>
+                    <p>Users are responsible for their own travel decisions, safety, expenses, and arrangements. Weekend Explore is not responsible for any loss, inconvenience, or issues that may arise during travel.</p>
                     
-                    <h6>4. Liability Disclaimer</h6>
-                    <p>Weekend Explore will not be held liable for any damages, incidents, loss of property, or personal injury sustained during trips organized using data or recommendations from this website. Travel safe and inspect local regulations beforehand.</p>
+                    <h6>4. Third-Party Services</h6>
+                    <p>The platform may provide information related to maps, transportation services, restaurants, hotels, or other third-party services. Weekend Explore is not responsible for the content, availability, or actions of third-party providers.</p>
                     
-                    <h6>5. Future Updates</h6>
-                    <p>We reserve the right to modify these terms at any time. Changes will be posted instantly in our Updates log. Continued use of the platform represents acceptance of all modified terms.</p>
+                    <h6>5. Content Usage</h6>
+                    <p>All content, designs, logos, text, and features available on Weekend Explore are intended for personal and non-commercial use unless otherwise stated.</p>
+                    
+                    <h6>6. Changes to the Platform</h6>
+                    <p>Weekend Explore may update, modify, improve, or remove features without prior notice to enhance user experience and platform performance.</p>
+                    
+                    <h6>7. Privacy</h6>
+                    <p>We respect user privacy and aim to protect personal information. Any information collected will be used only to improve platform functionality and user experience.</p>
+                    
+                    <h6>8. Limitation of Liability</h6>
+                    <p>Weekend Explore shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of the platform or reliance on its information.</p>
+                    
+                    <h6>9. Acceptance of Terms</h6>
+                    <p>By accessing and using Weekend Explore, you acknowledge and agree to these Terms & Conditions.</p>
+                    
+                    <h6>10. Contact & Support</h6>
+                    <p>For feedback, suggestions, bug reports, or support-related queries, users can contact the Weekend Explore support team through the platform.</p>
+
+                    <p style="margin-top: 2rem; font-weight: 700; text-align: center; color: var(--primary-color);">Thank you for using Weekend Explore. We wish you safe and memorable journeys.</p>
                 </div>
             `,
             init: (modal) => {
@@ -4972,28 +5077,68 @@ function initPlaceImageSliders() {
             title: 'Platform Updates',
             getHTML: () => `
                 <div class="updates-timeline">
+                    <!-- Version 1.3 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"></div>
-                        <div class="timeline-date">June 2026</div>
+                        <div class="timeline-date">Weekend Explore 1.3</div>
                         <div class="timeline-content">
-                            <h5>Google Places Proxy Integration</h5>
-                            <p>Released a secure, server-side caching proxy service to retrieve Google Place Details, photos, and live rating distributions without front-facing API key exposure.</p>
+                            <h5>Current Version Focus</h5>
+                            <p style="margin-bottom: 0.5rem;">The current version focuses primarily on Bengaluru, Mangaluru, and Mysuru to deliver rich travel insights.</p>
+                            <p style="font-weight: 600; margin-bottom: 0.25rem;">Key Features:</p>
+                            <ul style="padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-light); display: flex; flex-direction: column; gap: 0.2rem;">
+                                <li>Detailed information about Bengaluru, Mangaluru, and Mysuru</li>
+                                <li>Tourist attractions and hidden gems</li>
+                                <li>Famous food spots and cafés</li>
+                                <li>Beaches, parks, and temples</li>
+                                <li>Cultural and heritage destinations</li>
+                                <li>Budget-friendly weekend recommendations</li>
+                                <li>Better destination organization</li>
+                                <li>Improved user experience</li>
+                                <li>Faster performance and smoother navigation</li>
+                                <li>More detailed travel insights and recommendations</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- Version 1.2 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"></div>
-                        <div class="timeline-date">May 2026</div>
+                        <div class="timeline-date">Weekend Explore 1.2</div>
                         <div class="timeline-content">
-                            <h5>Ambient Audio Greetings</h5>
-                            <p>Added custom HTML5 ambient welcome narration to enhance exploration guides. Implemented smart mute settings that persist across sessions.</p>
+                            <h5>UI & Discovery Expansion</h5>
+                            <p style="margin-bottom: 0.5rem;">The second version introduced several design and performance improvements to enhance browsing.</p>
+                            <p style="font-weight: 600; margin-bottom: 0.25rem;">Key Features:</p>
+                            <ul style="padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-light); display: flex; flex-direction: column; gap: 0.2rem;">
+                                <li>Improved user interface and design</li>
+                                <li>Better mobile responsiveness</li>
+                                <li>Destination categories</li>
+                                <li>Famous food recommendations</li>
+                                <li>Enhanced destination discovery</li>
+                                <li>Improved navigation system</li>
+                                <li>Better performance and usability</li>
+                                <li>More travel-related information</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- Version 1.1 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"></div>
-                        <div class="timeline-date">April 2026</div>
+                        <div class="timeline-date">Weekend Explore 1.1</div>
                         <div class="timeline-content">
-                            <h5>Fluid Swipeable Galleries</h5>
-                            <p>Integrated Swiper.js bundle to enable beautiful, hardware-accelerated touchscreen touch galleries for premium local cuisine listings.</p>
+                            <h5>Foundation Launch</h5>
+                            <p style="margin-bottom: 0.5rem;">The first version of Weekend Explore focused on helping users discover weekend trips across Karnataka.</p>
+                            <p style="font-weight: 600; margin-bottom: 0.25rem;">Key Features:</p>
+                            <ul style="padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-light); display: flex; flex-direction: column; gap: 0.2rem;">
+                                <li>Popular tourist destination listings</li>
+                                <li>Weekend trip recommendations</li>
+                                <li>Basic place information and descriptions</li>
+                                <li>Famous attractions and sightseeing spots</li>
+                                <li>Budget-friendly destination suggestions</li>
+                                <li>Mobile-friendly browsing experience</li>
+                                <li>Karnataka-focused travel content</li>
+                                <li>Easy navigation and user-friendly interface</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
