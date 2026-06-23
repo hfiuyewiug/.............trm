@@ -4780,25 +4780,48 @@ function initPlaceImageSliders() {
                         <p>Simplifying weekend travel planning across Karnataka.</p>
                     </div>
                     <div class="about-grid">
-                        <div class="about-card">
+                        <div class="about-card pattern-grid">
                             <div class="about-card-icon">🗺️</div>
                             <h5>What is Weekend Explore?</h5>
-                            <p>Weekend Explore is designed to help people discover the best places to visit during their weekends. Whether you are a student, employee, traveler, or family, the platform makes it easier to find exciting destinations, famous food spots, beaches, parks, temples, cultural attractions, and hidden gems.</p>
+                            <div class="about-card-highlight-text">Designed to help you discover the best places to visit during your weekends.</div>
+                            <p>Whether you're looking for quick getaways or local explorations, the platform makes it easier to find what you love.</p>
+                            <div class="about-tags-container">
+                                <span class="about-tag">Student 🎓</span>
+                                <span class="about-tag">Employee 💼</span>
+                                <span class="about-tag">Traveler ✈️</span>
+                                <span class="about-tag">Family 👨‍👩‍👧‍👦</span>
+                            </div>
+                            <div class="about-tags-container" style="margin-top: 0.5rem;">
+                                <span class="about-tag category">Famous Food 🍲</span>
+                                <span class="about-tag category">Beaches 🌊</span>
+                                <span class="about-tag category">Parks 🌳</span>
+                                <span class="about-tag category">Temples 🛕</span>
+                                <span class="about-tag category">Culture 🎭</span>
+                                <span class="about-tag category">Hidden Gems 💎</span>
+                            </div>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card pattern-grid">
                             <div class="about-card-icon">🚀</div>
                             <h5>Our Goal</h5>
-                            <p>Many people spend their weekends searching for places to visit or activities to do. Weekend Explore simplifies this process by providing recommendations and useful information in one place, helping users plan memorable and enjoyable weekend trips.</p>
+                            <div class="about-card-highlight-text">No more endless searching or planning stress.</div>
+                            <p>We simplify the exploration process by providing curated recommendations and useful travel information in one place, helping you plan memorable and enjoyable weekend trips efficiently.</p>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card pattern-dest">
                             <div class="about-card-icon">📍</div>
                             <h5>Current Focus</h5>
-                            <p>Currently, Weekend Explore focuses on Bengaluru, Mangaluru, and Mysuru, offering carefully selected destinations and experiences that suit different interests and budgets.</p>
+                            <div class="about-card-highlight-text">Exploring key hubs across Karnataka.</div>
+                            <p>We currently offer carefully selected destinations and weekend experiences that suit different budgets and interests in:</p>
+                            <div class="about-tags-container">
+                                <span class="about-tag destination">Bengaluru 🏙️</span>
+                                <span class="about-tag destination">Mangaluru 🏖️</span>
+                                <span class="about-tag destination">Mysuru 🏰</span>
+                            </div>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card pattern-grid">
                             <div class="about-card-icon">✨</div>
                             <h5>Our Aim</h5>
-                            <p>Our goal is to make every weekend more exciting, helping people explore new places, create unforgettable memories, and experience the beauty of Karnataka.</p>
+                            <div class="about-card-highlight-text">Make every weekend exciting and adventurous.</div>
+                            <p>We want to help everyone break the routine, explore new places, create unforgettable memories, and experience the beautiful culture and nature of Karnataka.</p>
                         </div>
                         <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color);">
                             <h5 style="color: var(--primary-color); margin-bottom: 0px;">Explore More. Travel Smarter. Make Every Weekend Memorable.</h5>
@@ -4848,30 +4871,34 @@ function initPlaceImageSliders() {
                     <!-- Version History Accordions -->
                     <h5 style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 700;">Version History</h5>
                     <div class="faq-list">
+                        <!-- Version 1.1 -->
                         <div class="faq-item">
                             <div class="faq-question">
-                                <span>Weekend Explore 1.3 (Current Version)</span>
+                                <span>Weekend Explore 1.1</span>
                                 <span class="faq-arrow">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                                 </span>
                             </div>
                             <div class="faq-answer">
                                 <div class="faq-answer-inner">
-                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The current version includes:</p>
+                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The foundation version focused on:</p>
                                     <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                                        <li>Main focus on Bengaluru, Mangaluru, and Mysuru</li>
-                                        <li>Tourist attractions and hidden gems</li>
-                                        <li>Famous food spots and cafés</li>
-                                        <li>Beaches, parks, temples, and cultural destinations</li>
-                                        <li>Budget-friendly weekend recommendations</li>
-                                        <li>Better destination organization</li>
-                                        <li>Enhanced user experience and performance</li>
-                                        <li>More detailed travel information</li>
-                                        <li>Improved accessibility and usability</li>
+                                        <li>Popular tourist destination listings</li>
+                                        <li>Weekend trip recommendations</li>
+                                        <li>Basic place information and descriptions</li>
+                                        <li>Famous attractions and sightseeing spots</li>
+                                        <li>Budget-friendly destination suggestions</li>
+                                        <li>Mobile-friendly browsing experience</li>
+                                        <li>Simple destination discovery system</li>
+                                        <li>Travel inspiration for students and employees</li>
+                                        <li>Karnataka-focused travel content</li>
+                                        <li>Easy navigation and user-friendly design</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Version 1.2 -->
                         <div class="faq-item">
                             <div class="faq-question">
                                 <span>Weekend Explore 1.2</span>
@@ -4895,27 +4922,28 @@ function initPlaceImageSliders() {
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Version 1.3 -->
                         <div class="faq-item">
                             <div class="faq-question">
-                                <span>Weekend Explore 1.1</span>
+                                <span>Weekend Explore 1.3 (Current Version)</span>
                                 <span class="faq-arrow">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                                 </span>
                             </div>
                             <div class="faq-answer">
                                 <div class="faq-answer-inner">
-                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The foundation version focused on:</p>
+                                    <p style="margin-bottom: 0.5rem; font-weight: 600;">The current version includes:</p>
                                     <ul style="padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                                        <li>Popular tourist destination listings</li>
-                                        <li>Weekend trip recommendations</li>
-                                        <li>Basic place information and descriptions</li>
-                                        <li>Famous attractions and sightseeing spots</li>
-                                        <li>Budget-friendly destination suggestions</li>
-                                        <li>Mobile-friendly browsing experience</li>
-                                        <li>Simple destination discovery system</li>
-                                        <li>Travel inspiration for students and employees</li>
-                                        <li>Karnataka-focused travel content</li>
-                                        <li>Easy navigation and user-friendly design</li>
+                                        <li>Main focus on Bengaluru, Mangaluru, and Mysuru</li>
+                                        <li>Tourist attractions and hidden gems</li>
+                                        <li>Famous food spots and cafés</li>
+                                        <li>Beaches, parks, temples, and cultural destinations</li>
+                                        <li>Budget-friendly weekend recommendations</li>
+                                        <li>Better destination organization</li>
+                                        <li>Enhanced user experience and performance</li>
+                                        <li>More detailed travel information</li>
+                                        <li>Improved accessibility and usability</li>
                                     </ul>
                                 </div>
                             </div>
@@ -4961,6 +4989,19 @@ function initPlaceImageSliders() {
                         }
                     });
                 });
+
+                // Expand the first version item (Weekend Explore 1.1) by default on load
+                const firstFaqItem = modal.querySelector('.faq-item');
+                if (firstFaqItem) {
+                    firstFaqItem.classList.add('active');
+                    const firstAnswer = firstFaqItem.querySelector('.faq-answer');
+                    if (firstAnswer) {
+                        setTimeout(() => {
+                            firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px';
+                            firstAnswer.style.opacity = '1';
+                        }, 100);
+                    }
+                }
             }
         },
         'menu-support': {
@@ -5077,25 +5118,23 @@ function initPlaceImageSliders() {
             title: 'Platform Updates',
             getHTML: () => `
                 <div class="updates-timeline">
-                    <!-- Version 1.3 -->
+                    <!-- Version 1.1 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"></div>
-                        <div class="timeline-date">Weekend Explore 1.3</div>
+                        <div class="timeline-date">Weekend Explore 1.1</div>
                         <div class="timeline-content">
-                            <h5>Current Version Focus</h5>
-                            <p style="margin-bottom: 0.5rem;">The current version focuses primarily on Bengaluru, Mangaluru, and Mysuru to deliver rich travel insights.</p>
+                            <h5>Foundation Launch</h5>
+                            <p style="margin-bottom: 0.5rem;">The first version of Weekend Explore focused on helping users discover weekend trips across Karnataka.</p>
                             <p style="font-weight: 600; margin-bottom: 0.25rem;">Key Features:</p>
                             <ul style="padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-light); display: flex; flex-direction: column; gap: 0.2rem;">
-                                <li>Detailed information about Bengaluru, Mangaluru, and Mysuru</li>
-                                <li>Tourist attractions and hidden gems</li>
-                                <li>Famous food spots and cafés</li>
-                                <li>Beaches, parks, and temples</li>
-                                <li>Cultural and heritage destinations</li>
-                                <li>Budget-friendly weekend recommendations</li>
-                                <li>Better destination organization</li>
-                                <li>Improved user experience</li>
-                                <li>Faster performance and smoother navigation</li>
-                                <li>More detailed travel insights and recommendations</li>
+                                <li>Popular tourist destination listings</li>
+                                <li>Weekend trip recommendations</li>
+                                <li>Basic place information and descriptions</li>
+                                <li>Famous attractions and sightseeing spots</li>
+                                <li>Budget-friendly destination suggestions</li>
+                                <li>Mobile-friendly browsing experience</li>
+                                <li>Karnataka-focused travel content</li>
+                                <li>Easy navigation and user-friendly interface</li>
                             </ul>
                         </div>
                     </div>
@@ -5121,29 +5160,56 @@ function initPlaceImageSliders() {
                         </div>
                     </div>
 
-                    <!-- Version 1.1 -->
+                    <!-- Version 1.3 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"></div>
-                        <div class="timeline-date">Weekend Explore 1.1</div>
+                        <div class="timeline-date">Weekend Explore 1.3</div>
                         <div class="timeline-content">
-                            <h5>Foundation Launch</h5>
-                            <p style="margin-bottom: 0.5rem;">The first version of Weekend Explore focused on helping users discover weekend trips across Karnataka.</p>
+                            <h5>Current Version Focus</h5>
+                            <p style="margin-bottom: 0.5rem;">The current version focuses primarily on Bengaluru, Mangaluru, and Mysuru to deliver rich travel insights.</p>
                             <p style="font-weight: 600; margin-bottom: 0.25rem;">Key Features:</p>
                             <ul style="padding-left: 1.2rem; font-size: 0.85rem; color: var(--text-light); display: flex; flex-direction: column; gap: 0.2rem;">
-                                <li>Popular tourist destination listings</li>
-                                <li>Weekend trip recommendations</li>
-                                <li>Basic place information and descriptions</li>
-                                <li>Famous attractions and sightseeing spots</li>
-                                <li>Budget-friendly destination suggestions</li>
-                                <li>Mobile-friendly browsing experience</li>
-                                <li>Karnataka-focused travel content</li>
-                                <li>Easy navigation and user-friendly interface</li>
+                                <li>Detailed information about Bengaluru, Mangaluru, and Mysuru</li>
+                                <li>Tourist attractions and hidden gems</li>
+                                <li>Famous food spots and cafés</li>
+                                <li>Beaches, parks, and temples</li>
+                                <li>Cultural and heritage destinations</li>
+                                <li>Budget-friendly weekend recommendations</li>
+                                <li>Better destination organization</li>
+                                <li>Improved user experience</li>
+                                <li>Faster performance and smoother navigation</li>
+                                <li>More detailed travel insights and recommendations</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             `,
-            init: null
+            init: (modal) => {
+                const items = modal.querySelectorAll('.timeline-item');
+                items.forEach((item, index) => {
+                    // Set Version 1.1 (first item) to active, others to inactive
+                    if (index === 0) {
+                        item.classList.add('active');
+                        item.classList.remove('inactive');
+                    } else {
+                        item.classList.add('inactive');
+                        item.classList.remove('active');
+                    }
+
+                    // Add click handler to toggle focus and blur
+                    item.addEventListener('click', () => {
+                        items.forEach(otherItem => {
+                            if (otherItem === item) {
+                                otherItem.classList.add('active');
+                                otherItem.classList.remove('inactive');
+                            } else {
+                                otherItem.classList.add('inactive');
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+            }
         }
     };
 
