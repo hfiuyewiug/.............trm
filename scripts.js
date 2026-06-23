@@ -4712,6 +4712,33 @@ function initPlaceImageSliders() {
         });
     }
 
+    // Lock Notification Popup helper
+    function showLockPopup() {
+        let popup = document.querySelector('.lock-popup-notification');
+        if (!popup) {
+            popup = document.createElement('div');
+            popup.className = 'lock-popup-notification';
+            popup.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Version Locked!</span>
+            `;
+            document.body.appendChild(popup);
+        }
+        
+        if (popup.timeoutId) {
+            clearTimeout(popup.timeoutId);
+        }
+        
+        popup.classList.add('show');
+        
+        popup.timeoutId = setTimeout(() => {
+            popup.classList.remove('show');
+        }, 1800);
+    }
+
     // Centered Interactive Modal Maker
     function openInteractiveModal(title, contentHTML, onInit) {
         // Toggle drawer off first
@@ -4965,7 +4992,7 @@ function initPlaceImageSliders() {
             `,
             init: (modal) => {
                 const questions = modal.querySelectorAll('.faq-question');
-                questions.forEach(q => {
+                questions.forEach((q, index) => {
                     q.addEventListener('click', () => {
                         const item = q.parentElement;
                         const answer = item.querySelector('.faq-answer');
@@ -4990,6 +5017,15 @@ function initPlaceImageSliders() {
                             answer.style.opacity = '1';
                         }
                     });
+
+                    // Double-click lock listener for 1.2 and 1.3 (indexes 1 and 2)
+                    if (index === 1 || index === 2) {
+                        q.addEventListener('dblclick', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            showLockPopup();
+                        });
+                    }
                 });
 
                 // Expand the first version item (Weekend Explore 1.1) by default on load
@@ -5210,6 +5246,15 @@ function initPlaceImageSliders() {
                             }
                         });
                     });
+
+                    // Double-click lock listener for 1.2 and 1.3 (indexes 1 and 2)
+                    if (index === 1 || index === 2) {
+                        item.addEventListener('dblclick', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            showLockPopup();
+                        });
+                    }
                 });
             }
         }
