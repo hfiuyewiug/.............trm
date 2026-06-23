@@ -4776,55 +4776,63 @@ function initPlaceImageSliders() {
             getHTML: () => `
                 <div class="about-view">
                     <div class="about-header">
-                        <h4>Weekend Explore</h4>
+                        <h4>About Us</h4>
                         <p>Simplifying weekend travel planning across Karnataka.</p>
                     </div>
-                    <div class="about-grid">
-                        <div class="about-card pattern-grid">
+                    <div class="about-row-container">
+                        <div class="about-row-item pattern-grid">
                             <div class="about-card-icon">🗺️</div>
-                            <h5>What is Weekend Explore?</h5>
-                            <div class="about-card-highlight-text">Designed to help you discover the best places to visit during your weekends.</div>
-                            <p>Whether you're looking for quick getaways or local explorations, the platform makes it easier to find what you love.</p>
-                            <div class="about-tags-container">
-                                <span class="about-tag">Student 🎓</span>
-                                <span class="about-tag">Employee 💼</span>
-                                <span class="about-tag">Traveler ✈️</span>
-                                <span class="about-tag">Family 👨‍👩‍👧‍👦</span>
-                            </div>
-                            <div class="about-tags-container" style="margin-top: 0.5rem;">
-                                <span class="about-tag category">Famous Food 🍲</span>
-                                <span class="about-tag category">Beaches 🌊</span>
-                                <span class="about-tag category">Parks 🌳</span>
-                                <span class="about-tag category">Temples 🛕</span>
-                                <span class="about-tag category">Culture 🎭</span>
-                                <span class="about-tag category">Hidden Gems 💎</span>
+                            <div class="about-row-item-body">
+                                <h5>What is Weekend Explore?</h5>
+                                <div class="about-card-highlight-text">Designed to help you discover the best places to visit during your weekends.</div>
+                                <p>Whether you're looking for quick getaways or local explorations, the platform makes it easier to find what you love.</p>
+                                <div class="about-tags-container">
+                                    <span class="about-tag">Student 🎓</span>
+                                    <span class="about-tag">Employee 💼</span>
+                                    <span class="about-tag">Traveler ✈️</span>
+                                    <span class="about-tag">Family 👨‍👩‍👧‍👦</span>
+                                </div>
+                                <div class="about-tags-container" style="margin-top: 0.5rem;">
+                                    <span class="about-tag category">Famous Food 🍲</span>
+                                    <span class="about-tag category">Beaches 🌊</span>
+                                    <span class="about-tag category">Parks 🌳</span>
+                                    <span class="about-tag category">Temples 🛕</span>
+                                    <span class="about-tag category">Culture 🎭</span>
+                                    <span class="about-tag category">Hidden Gems 💎</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="about-card pattern-grid">
+                        <div class="about-row-item pattern-grid">
                             <div class="about-card-icon">🚀</div>
-                            <h5>Our Goal</h5>
-                            <div class="about-card-highlight-text">No more endless searching or planning stress.</div>
-                            <p>We simplify the exploration process by providing curated recommendations and useful travel information in one place, helping you plan memorable and enjoyable weekend trips efficiently.</p>
-                        </div>
-                        <div class="about-card pattern-dest">
-                            <div class="about-card-icon">📍</div>
-                            <h5>Current Focus</h5>
-                            <div class="about-card-highlight-text">Exploring key hubs across Karnataka.</div>
-                            <p>We currently offer carefully selected destinations and weekend experiences that suit different budgets and interests in:</p>
-                            <div class="about-tags-container">
-                                <span class="about-tag destination">Bengaluru 🏙️</span>
-                                <span class="about-tag destination">Mangaluru 🏖️</span>
-                                <span class="about-tag destination">Mysuru 🏰</span>
+                            <div class="about-row-item-body">
+                                <h5>Our Goal</h5>
+                                <div class="about-card-highlight-text">No more endless searching or planning stress.</div>
+                                <p>We simplify the exploration process by providing curated recommendations and useful travel information in one place, helping you plan memorable and enjoyable weekend trips efficiently.</p>
                             </div>
                         </div>
-                        <div class="about-card pattern-grid">
-                            <div class="about-card-icon">✨</div>
-                            <h5>Our Aim</h5>
-                            <div class="about-card-highlight-text">Make every weekend exciting and adventurous.</div>
-                            <p>We want to help everyone break the routine, explore new places, create unforgettable memories, and experience the beautiful culture and nature of Karnataka.</p>
+                        <div class="about-row-item pattern-dest">
+                            <div class="about-card-icon">📍</div>
+                            <div class="about-row-item-body">
+                                <h5>Current Focus</h5>
+                                <div class="about-card-highlight-text">Exploring key hubs across Karnataka.</div>
+                                <p>We currently offer carefully selected destinations and weekend experiences that suit different budgets and interests in:</p>
+                                <div class="about-tags-container">
+                                    <span class="about-tag destination">Bengaluru 🏙️</span>
+                                    <span class="about-tag destination">Mangaluru 🏖️</span>
+                                    <span class="about-tag destination">Mysuru 🏰</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color);">
-                            <h5 style="color: var(--primary-color); margin-bottom: 0px;">Explore More. Travel Smarter. Make Every Weekend Memorable.</h5>
+                        <div class="about-row-item pattern-grid">
+                            <div class="about-card-icon">✨</div>
+                            <div class="about-row-item-body">
+                                <h5>Our Aim</h5>
+                                <div class="about-card-highlight-text">Make every weekend exciting and adventurous.</div>
+                                <p>We want to help everyone break the routine, explore new places, create unforgettable memories, and experience the beautiful culture and nature of Karnataka.</p>
+                            </div>
+                        </div>
+                        <div class="about-row-item full-width-banner" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color); display: block; padding: 1rem;">
+                            <h5 style="color: var(--primary-color); margin-bottom: 0px; font-size: 1.05rem; font-weight: 700;">Explore More. Travel Smarter. Make Every Weekend Memorable.</h5>
                         </div>
                     </div>
                 </div>
@@ -4950,13 +4958,7 @@ function initPlaceImageSliders() {
                         </div>
                     </div>
 
-                    <!-- Creator Profile Detail -->
-                    <div class="about-card full-width" style="margin-top: 1rem;">
-                        <h5>About the Creator</h5>
-                        <p>Gowtham N is a first-year Engineering student at Yenepoya University, Mangaluru (NIAT Program) with a strong interest in technology, innovation, and building digital solutions that solve real-world problems. Weekend Explore represents a step toward creating useful platforms that help people explore, connect, and experience the world around them.</p>
-                    </div>
-
-                    <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color); margin-top: 0.5rem;">
+                    <div class="about-card full-width" style="text-align: center; background: rgba(131, 56, 236, 0.05); border: 1px dashed var(--primary-color); margin-top: 1rem;">
                         <h5 style="color: var(--primary-color); margin-bottom: 0px;">"Explore More. Travel Smarter. Make Every Weekend Memorable."</h5>
                     </div>
                 </div>
