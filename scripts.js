@@ -4994,6 +4994,12 @@ function initPlaceImageSliders() {
                 const questions = modal.querySelectorAll('.faq-question');
                 questions.forEach((q, index) => {
                     q.addEventListener('click', () => {
+                        // If it's Version 1.2 or 1.3, prevent opening and show lock popup!
+                        if (index === 1 || index === 2) {
+                            showLockPopup();
+                            return;
+                        }
+
                         const item = q.parentElement;
                         const answer = item.querySelector('.faq-answer');
                         const isActive = item.classList.contains('active');
@@ -5236,6 +5242,12 @@ function initPlaceImageSliders() {
 
                     // Add click handler to toggle focus and blur
                     item.addEventListener('click', () => {
+                        // If it's Version 1.2 or 1.3, prevent selection and show lock popup!
+                        if (index === 1 || index === 2) {
+                            showLockPopup();
+                            return;
+                        }
+
                         items.forEach(otherItem => {
                             if (otherItem === item) {
                                 otherItem.classList.add('active');
