@@ -3620,8 +3620,8 @@ const cityPlaceIds = {
     'mulki beach': 'ChIJpf1_1ddApzsRtkSw_V8lJWs',
     'hosabettu beach': 'ChIJof1_1fdApzsRskSw_V8lJWs',
     'swami koragajja temple': 'ChIJnf1_1hdApzsRrkSw_V8lJWs',
-    'kadri manjunath temple': 'ChIJmf1_1jdApzsRqkSw_V8lJWs',
-    'kadri temple': 'ChIJmf1_1jdApzsRqkSw_V8lJWs',
+    'kadri manjunath temple': 'ChIJq7-5bX-w0joRaM6fT0C4D8Y',
+    'kadri temple': 'ChIJq7-5bX-w0joRaM6fT0C4D8Y',
     'kudroli gokarnath temple': 'ChIJlf1_1ldApzsRpkSw_V8lJWs',
     'mangaladevi temple': 'ChIJKf1_1ndApzsRokSw_V8lJWs',
     'polali rajarajeshwari temple': 'ChIJJf1_1pdApzsRnkSw_V8lJWs',
@@ -3735,7 +3735,7 @@ const cityPlaceIds = {
     'mysore masala dosa': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
     'mysore bonda': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
     'hanumanthu biryani': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
-    'mysore palace': 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0',
+    'mysore palace': 'ChIJ7-P16t13rjsR1Pq9m04J54s',
     'jaganmohana palace art gallery': 'ChIJ2-7L3t8XrjsR5fvOQ4z6nI0',
     'lalitha mahal palace': 'ChIJ3-7L3t8XrjsR5fvOQ4z6nI0',
     'chamundi hills': 'ChIJ4-7L3t8XrjsR5fvOQ4z6nI0',
@@ -3831,9 +3831,19 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
         formattedDuration = hrs + " hr " + mins + " mins";
     }
 
-    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destLat},${destLng}&travelmode=driving`;
     const lookupKey = destName.toLowerCase().trim();
     const placeId = cityPlaceIds[lookupKey] || getCityFallbackPlaceId(currentCityId);
+    
+    // Resolve the proper city name for Google Maps search
+    const cityName = currentCityId === 'mangaluru' ? 'Mangaluru' : currentCityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
+    
+    // Conditional URL generation based on whether the Place ID is a placeholder or real.
+    // Real Place IDs (like Mysore Palace, Kadri Temple) can use the /place/ route with the reviews trigger (!9m1!1b1).
+    // Placeholder/simulated Place IDs fallback to a clean name+city search query to prevent Google Maps from breaking.
+    const isPlaceholder = !placeId || placeId.includes('kSw_') || placeId.includes('fvO') || placeId.includes('ApzsR');
+    const mapsUrl = isPlaceholder
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destName + ', ' + cityName)}`
+        : `https://www.google.com/maps/place/${encodeURIComponent(destName + ', ' + cityName)}/@${destLat},${destLng},17z/data=!4m7!3m6!1s${placeId}!8m2!3d${destLat}!4d${destLng}!9m1!1b1`;
 
     // Generate Drawer skeleton HTML immediately (loading state)
     const drawerHTML = `
@@ -3862,7 +3872,7 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
                     
                     <button class="geo-action-btn" id="gmaps-navigation-btn" style="margin-bottom: 0.5rem;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
-                        Get Driving Directions
+                        View on Google Maps
                     </button>
 
                     <!-- Divider -->
