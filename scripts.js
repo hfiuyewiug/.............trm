@@ -3869,6 +3869,9 @@ const mockReviewsData = {
                 'Sunday: 9:00 AM – 5:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/kodagu_abbey_falls_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Rahul Sharma',
@@ -3911,6 +3914,9 @@ const mockReviewsData = {
                 'Sunday: 5:30 AM – 8:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/kodagu_rajas_seat_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Priya Patel',
@@ -3946,6 +3952,9 @@ const mockReviewsData = {
                 'Sunday: 5:30 AM – 8:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/kodagu_rajas_seat_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Priya Patel',
@@ -3981,6 +3990,9 @@ const mockReviewsData = {
                 'Sunday: 9:00 AM – 11:00 AM, 4:30 PM – 5:30 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/kodagu_dubare_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Suresh Kumar',
@@ -4016,6 +4028,9 @@ const mockReviewsData = {
                 'Sunday: 6:00 AM – 8:30 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/kodagu_talakaveri_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Karthik Raja',
@@ -4051,6 +4066,9 @@ const mockReviewsData = {
                 'Sunday: 6:00 AM – 6:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/chikkamagaluru_mullayanagiri_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Vijay Deshmukh',
@@ -4086,6 +4104,9 @@ const mockReviewsData = {
                 'Sunday: 8:00 AM – 5:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/chikkamagaluru_bababudangiri_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Rohan Joshi',
@@ -4121,6 +4142,9 @@ const mockReviewsData = {
                 'Sunday: 8:00 AM – 4:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/chikkamagaluru_hebbe_falls_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Sanjay Dutt',
@@ -4156,6 +4180,9 @@ const mockReviewsData = {
                 'Sunday: 9:00 AM – 6:00 PM'
             ]
         },
+        photos: [
+            { localPath: 'assets/places/chikkamagaluru_coffee_plantations_new.jpg' }
+        ],
         reviews: [
             {
                 author_name: 'Abhishek Roy',
@@ -4324,6 +4351,12 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
                     };
                 }
 
+                // ALWAYS override photos with our high-quality local photos for Kodagu and Chikkamagaluru places
+                // to completely bypass the default Google geocode placeholder image
+                if (mockData && mockData.photos) {
+                    data.photos = mockData.photos;
+                }
+
                 if (!data.connected) {
                     // Scenario: Backend is connected but Google Places API Key is not set
                     renderFallbackSetupCard(apiContent, placeId);
@@ -4355,11 +4388,14 @@ function renderRealPlacesDetails(container, data) {
     if (data.photos && data.photos.length > 0) {
         photosHTML = `
             <div class="gmaps-photos-gallery">
-                ${data.photos.map(p => `
-                    <div class="gmaps-photo-card">
-                        <img src="${API_BASE}/api/place-photo/${p.photo_reference}" alt="${data.name} Photo" loading="lazy">
-                    </div>
-                `).join('')}
+                ${data.photos.map(p => {
+                    const imgSrc = p.localPath ? p.localPath : `${API_BASE}/api/place-photo/${p.photo_reference}`;
+                    return `
+                        <div class="gmaps-photo-card">
+                            <img src="${imgSrc}" alt="${data.name} Photo" loading="lazy">
+                        </div>
+                    `;
+                }).join('')}
             </div>
         `;
     }
