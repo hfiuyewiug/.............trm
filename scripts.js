@@ -4342,9 +4342,11 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     const existing = document.getElementById('gmaps-drawer-overlay-bg');
     if (existing) existing.remove();
 
-    const formattedDistance = distance.toFixed(1) + " KM";
+    const formattedDistance = distance < 0.1 ? "Nearby" : distance.toFixed(1) + " KM";
     let formattedDuration = durationMins + " mins";
-    if (durationMins >= 60) {
+    if (distance < 0.1) {
+        formattedDuration = "< 5 mins";
+    } else if (durationMins >= 60) {
         const hrs = Math.floor(durationMins / 60);
         const mins = durationMins % 60;
         formattedDuration = hrs + " hr " + mins + " mins";
@@ -4361,12 +4363,12 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     else if (cityId === 'chikkamagaluru') cityName = 'Chikkamagaluru';
     
     // Conditional URL generation based on whether the Place ID is a placeholder or real.
-    // Real Place IDs (like Mysore Palace, Kadri Temple) can use the /place/ route with the reviews trigger (!9m1!1b1).
-    // Placeholder/simulated Place IDs fallback to a clean name+city search query to prevent Google Maps from breaking.
+    // Real Place IDs (like Mysore Palace, Kadri Temple) resolve via the official Google Maps search query scheme with query_place_id.
+    // Placeholder/simulated Place IDs fallback to a clean name+city search query.
     const isPlaceholder = !placeId || placeId.includes('kSw_') || placeId.includes('fvO') || placeId.includes('ApzsR');
     const mapsUrl = isPlaceholder
         ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destName + ', ' + cityName)}`
-        : `https://www.google.com/maps/place/${encodeURIComponent(destName + ', ' + cityName)}/@${destLat},${destLng},17z/data=!4m7!3m6!1s${placeId}!8m2!3d${destLat}!4d${destLng}!9m1!1b1`;
+        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destName + ', ' + cityName)}&query_place_id=${placeId}`;
 
     // Generate Drawer skeleton HTML immediately (loading state)
     const drawerHTML = `
