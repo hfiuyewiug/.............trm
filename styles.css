@@ -214,7 +214,18 @@ main {
     position: relative;
 }
 
-.badge {
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero .badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -225,6 +236,9 @@ main {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
 }
 
 .hero h1 {
@@ -235,6 +249,9 @@ main {
     background: linear-gradient(135deg, #1A1A1A 0%, #4C3BCF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.25s;
 }
 
 .hero p {
@@ -242,6 +259,9 @@ main {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto 3rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.40s;
 }
 
 /* Destination Cards Row */
@@ -252,6 +272,9 @@ main {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.55s;
 }
 
 .dest-card {
@@ -346,8 +369,8 @@ main {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    color: var(--text-light);
-    font-weight: 500;
+    color: var(--text-dark);
+    font-weight: 600;
     margin-bottom: 2rem;
     transition: var(--transition);
 }
