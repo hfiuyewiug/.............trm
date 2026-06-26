@@ -7,22 +7,22 @@ const destinations = [
         famousPlaces: [
             {
                 name: 'Abbey Falls',
-                image: 'https://images.unsplash.com/photo-1584516150909-c4330b60eb3e?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/kodagu_abbey_falls_new.jpg',
                 description: 'A stunning waterfall surrounded by lush greenery and coffee plantations.'
             },
             {
                 name: 'Raja’s Seat',
-                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/kodagu_rajas_seat_new.jpg',
                 description: 'A beautiful garden with a panoramic view of the hills and sunset.'
             },
             {
                 name: 'Dubare Elephant Camp',
-                image: 'https://images.unsplash.com/photo-1581791534721-e599df4408bc?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/kodagu_dubare_new.jpg',
                 description: 'Experience elephants up close in their natural habitat along the Kaveri river.'
             },
             {
                 name: 'Talakaveri',
-                image: 'https://images.unsplash.com/photo-1590480394626-821152686e18?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/kodagu_talakaveri_new.jpg',
                 description: 'The origin of the Kaveri river, located on the Brahmagiri hills.'
             }
         ]
@@ -35,22 +35,22 @@ const destinations = [
         famousPlaces: [
             {
                 name: 'Mullayanagiri Peak',
-                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/chikkamagaluru_mullayanagiri_new.jpg',
                 description: 'The highest peak in Karnataka, offering breathtaking panoramic views.'
             },
             {
                 name: 'Baba Budangiri',
-                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/chikkamagaluru_bababudangiri_new.jpg',
                 description: 'A sacred mountain range known for its unique trekking trails.'
             },
             {
                 name: 'Hebbe Falls',
-                image: 'https://images.unsplash.com/photo-1584516150909-c4330b60eb3e?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/chikkamagaluru_hebbe_falls_new.jpg',
                 description: 'A magnificent two-staged waterfall accessible via an adventurous jeep ride.'
             },
             {
                 name: 'Coffee Plantations',
-                image: 'https://images.unsplash.com/photo-1590480394626-821152686e18?auto=format&fit=crop&q=100&w=3840',
+                image: 'assets/places/chikkamagaluru_coffee_plantations_new.jpg',
                 description: 'Explore the sprawling coffee estates and learn about coffee processing.'
             }
         ]
@@ -3514,7 +3514,29 @@ const cityCoordinates = {
     'hotel original mylari': { lat: 12.3088, lng: 76.6631 },
     'hanumanthu mess': { lat: 12.3175, lng: 76.6490 },
     'guru sweet mart': { lat: 12.3082, lng: 76.6540 },
-    'gayatri tiffin room (gtr)': { lat: 12.3025, lng: 76.6450 }
+    'gayatri tiffin room (gtr)': { lat: 12.3025, lng: 76.6450 },
+
+    // Kodagu
+    'abbey falls': { lat: 12.4431, lng: 75.7208 },
+    'raja’s seat': { lat: 12.4131, lng: 75.7369 },
+    'raja\'s seat': { lat: 12.4131, lng: 75.7369 },
+    'dubare elephant camp': { lat: 12.3683, lng: 75.9038 },
+    'talakaveri': { lat: 12.3897, lng: 75.4886 },
+
+    // Chikkamagaluru
+    'mullayanagiri peak': { lat: 13.3908, lng: 75.7214 },
+    'baba budangiri': { lat: 13.4325, lng: 75.7661 },
+    'hebbe falls': { lat: 13.5414, lng: 75.7171 },
+    'coffee plantations': { lat: 13.3167, lng: 75.7667 },
+
+    // Vijayanagara
+    'hampi ruins': { lat: 15.3350, lng: 76.4600 },
+    'virupaksha temple': { lat: 15.3353, lng: 76.4593 },
+    'stone chariot': { lat: 15.3377, lng: 76.4718 },
+    'lotus mahal': { lat: 15.3308, lng: 76.4674 },
+
+    // Zoo fallback for Mysuru
+    'zoo': { lat: 12.3022, lng: 76.6639 }
 };
 
 const mangaloreCoordinates = cityCoordinates;
@@ -3522,6 +3544,9 @@ const mangaloreCoordinates = cityCoordinates;
 function getCityFallbackCoords(cityId) {
     if (cityId === 'bangalore') return { lat: 12.9716, lng: 77.5946 };
     if (cityId === 'mysuru') return { lat: 12.3082, lng: 76.6520 };
+    if (cityId === 'kodagu') return { lat: 12.4244, lng: 75.7382 };
+    if (cityId === 'chikkamagaluru') return { lat: 13.3167, lng: 75.7667 };
+    if (cityId === 'vijayanagara') return { lat: 15.3350, lng: 76.4600 };
     return { lat: 12.8700, lng: 74.8800 }; // Mangaluru
 }
 
@@ -3532,40 +3557,62 @@ window.handleExplore = function(event, placeName, cityId = currentCityId) {
     }
 
     if (!navigator.geolocation) {
-        showGeoToast("Geolocation is not supported by your browser.");
+        showGeoToast("Geolocation is not supported by your browser. Using default location.");
+        calculateAndOpen(12.9716, 77.5946);
         return;
     }
 
     showGeoToast("📡 Requesting location permission...");
 
+    let resolved = false;
+
+    // Set a fallback timer to resolve within 2 seconds if geolocation hangs
+    const fallbackTimeout = setTimeout(() => {
+        if (!resolved) {
+            resolved = true;
+            showGeoToast("Using default location (Bangalore) for quick results...");
+            calculateAndOpen(12.9716, 77.5946);
+        }
+    }, 2000);
+
     navigator.geolocation.getCurrentPosition(
         function(position) {
-            const userLat = position.coords.latitude;
-            const userLng = position.coords.longitude;
-
-            const lookupKey = placeName.toLowerCase().trim();
-            const destCoords = cityCoordinates[lookupKey] || getCityFallbackCoords(cityId);
-
-            const R = 6371; // Earth radius in KM
-            const dLat = (destCoords.lat - userLat) * Math.PI / 180;
-            const dLng = (destCoords.lng - userLng) * Math.PI / 180;
-            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                      Math.cos(userLat * Math.PI / 180) * Math.cos(destCoords.lat * Math.PI / 180) *
-                      Math.sin(dLng/2) * Math.sin(dLng/2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            const straightDistance = R * c;
-
-            const drivingDistance = straightDistance * 1.25;
-            const durationHrs = drivingDistance / 40;
-            const durationMins = Math.round(durationHrs * 60);
-
-            openGeoModal(userLat, userLng, destCoords.lat, destCoords.lng, placeName, drivingDistance, durationMins);
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(fallbackTimeout);
+            calculateAndOpen(position.coords.latitude, position.coords.longitude);
         },
         function(error) {
-            showGeoToast("Unable to access your location. Please enable location services.");
+            if (resolved) return;
+            resolved = true;
+            clearTimeout(fallbackTimeout);
+            showGeoToast("Using default location (Bangalore) for distance estimation.");
+            calculateAndOpen(12.9716, 77.5946);
         },
-        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
+        { enableHighAccuracy: false, timeout: 1500, maximumAge: 300000 }
     );
+
+    function calculateAndOpen(userLat, userLng) {
+        const lookupKey = placeName.toLowerCase().trim();
+        const destCoords = cityCoordinates[lookupKey] || getCityFallbackCoords(cityId);
+
+        const R = 6371; // Earth radius in KM
+        const dLat = (destCoords.lat - userLat) * Math.PI / 180;
+        const dLng = (destCoords.lng - userLng) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(userLat * Math.PI / 180) * Math.cos(destCoords.lat * Math.PI / 180) *
+                  Math.sin(dLng/2) * Math.sin(dLng/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const straightDistance = R * c;
+
+        // Multiply by 1.25 for typical driving routing factor in India
+        const drivingDistance = straightDistance * 1.25;
+        // Average speed of 50 km/h for more realistic duration
+        const durationHrs = drivingDistance / 50;
+        const durationMins = Math.round(durationHrs * 60);
+
+        openGeoModal(userLat, userLng, destCoords.lat, destCoords.lng, placeName, drivingDistance, durationMins);
+    }
 };
 
 window.handleMangaloreExplore = function(event, placeName) {
@@ -3766,7 +3813,29 @@ const cityPlaceIds = {
     'hotel original mylari': 'ChIJm-7L3t8XrjsR5fvOQ4z6nI0',
     'hanumanthu mess': 'ChIJn-7L3t8XrjsR5fvOQ4z6nI0',
     'guru sweet mart': 'ChIJo-7L3t8XrjsR5fvOQ4z6nI0',
-    'gayatri tiffin room (gtr)': 'ChIJp-7L3t8XrjsR5fvOQ4z6nI0'
+    'gayatri tiffin room (gtr)': 'ChIJp-7L3t8XrjsR5fvOQ4z6nI0',
+
+    // Kodagu
+    'abbey falls': 'ChIJW-H7_l-XvzsR-a-p6193s6k',
+    'raja’s seat': 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4',
+    'raja\'s seat': 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4',
+    'dubare elephant camp': 'ChIJ1d8jD2W-rjsR2pL-J5yP-Lg',
+    'talakaveri': 'ChIJ4006y8W9rjsR1g2m7pX5r2g',
+
+    // Chikkamagaluru
+    'mullayanagiri peak': 'ChIJ-zF88Yp9rjsR_T42k8M52_g',
+    'baba budangiri': 'ChIJ92H45vS3rjsR8680H7c_rS8',
+    'hebbe falls': 'ChIJiV5G22x5rjsR-k49Qv0U5H4',
+    'coffee plantations': 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o',
+
+    // Vijayanagara (Hampi)
+    'hampi ruins': 'ChIJ26Xz2b3-rjsR1H_W5-R2W9o',
+    'virupaksha temple': 'ChIJr-4Vv-B9rjsR1gq7qL2o5nU',
+    'stone chariot': 'ChIJh692a-YTrzsR0K_9zZ36W-A',
+    'lotus mahal': 'ChIJR6s21s23rjsR_T413-n739E',
+
+    // Zoo fallback for Mysuru
+    'zoo': 'ChIJa-7L3t8XrjsR5fvOQ4z6nI0'
 };
 
 const mangalorePlaceIds = cityPlaceIds;
@@ -3774,6 +3843,9 @@ const mangalorePlaceIds = cityPlaceIds;
 function getCityFallbackPlaceId(cityId) {
     if (cityId === 'bangalore') return 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0'; // Cubbon Park / Bangalore
     if (cityId === 'mysuru') return 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0'; // Mysore Palace
+    if (cityId === 'kodagu') return 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4'; // Raja's Seat / Coorg
+    if (cityId === 'chikkamagaluru') return 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o'; // Coffee Museum / Chikkamagaluru
+    if (cityId === 'vijayanagara') return 'ChIJr-4Vv-B9rjsR1gq7qL2o5nU'; // Virupaksha Temple / Hampi
     return 'ChIJyXGv0N9ApzsRHk9w_P9lJWs'; // Panambur Beach / Mangalore
 }
 
@@ -3835,7 +3907,13 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     const placeId = cityPlaceIds[lookupKey] || getCityFallbackPlaceId(currentCityId);
     
     // Resolve the proper city name for Google Maps search
-    const cityName = currentCityId === 'mangaluru' ? 'Mangaluru' : currentCityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
+    let cityName = 'Mysore';
+    if (currentCityId === 'mangaluru') cityName = 'Mangaluru';
+    else if (currentCityId === 'bangalore') cityName = 'Bangalore';
+    else if (currentCityId === 'mysuru') cityName = 'Mysore';
+    else if (currentCityId === 'kodagu') cityName = 'Kodagu';
+    else if (currentCityId === 'chikkamagaluru') cityName = 'Chikkamagaluru';
+    else if (currentCityId === 'vijayanagara') cityName = 'Vijayanagara';
     
     // Conditional URL generation based on whether the Place ID is a placeholder or real.
     // Real Place IDs (like Mysore Palace, Kadri Temple) can use the /place/ route with the reviews trigger (!9m1!1b1).
