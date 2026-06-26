@@ -4331,7 +4331,11 @@ const mockReviewsData = {
 };
 
 // Unified Google Maps-style Details Drawer Loader
-const API_BASE = window.location.port === '3000' ? '' : 'http://localhost:3000';
+const API_BASE = window.location.port === '3000'
+    ? ''
+    : (window.location.protocol === 'file:' || !window.location.hostname
+        ? 'http://localhost:3000'
+        : `${window.location.protocol}//${window.location.hostname}:3000`);
 
 // Unified Google Maps-style Details Drawer Loader
 function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, durationMins, cityId = currentCityId) {
