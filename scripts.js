@@ -3560,8 +3560,7 @@ window.handleExplore = function(event, placeName, cityId = currentCityId) {
     );
 
     function calculateAndOpen(userLat, userLng) {
-        const lookupKey = placeName.toLowerCase().trim();
-        const destCoords = cityCoordinates[lookupKey] || getCityFallbackCoords(cityId);
+        const destCoords = getCityCoords(placeName, cityId);
 
         const R = 6371; // Earth radius in KM
         const dLat = (destCoords.lat - userLat) * Math.PI / 180;
@@ -3801,6 +3800,60 @@ const cityPlaceIds = {
 };
 
 const mangalorePlaceIds = cityPlaceIds;
+
+// Fuzzy / Robust helper to find coordinate matches
+function getCityCoords(placeName, cityId) {
+    if (!placeName) return getCityFallbackCoords(cityId);
+    const clean = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+    const cleaned = clean(placeName);
+    
+    // 1. Exact match
+    for (const key of Object.keys(cityCoordinates)) {
+        if (clean(key) === cleaned) return cityCoordinates[key];
+    }
+    // 2. Substring match
+    for (const key of Object.keys(cityCoordinates)) {
+        const cleanedKey = clean(key);
+        if (cleaned.includes(cleanedKey) || cleanedKey.includes(cleaned)) return cityCoordinates[key];
+    }
+    return getCityFallbackCoords(cityId);
+}
+
+// Fuzzy / Robust helper to find Place ID matches
+function getCityPlaceId(placeName, cityId) {
+    if (!placeName) return getCityFallbackPlaceId(cityId);
+    const clean = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+    const cleaned = clean(placeName);
+    
+    // 1. Exact match
+    for (const key of Object.keys(cityPlaceIds)) {
+        if (clean(key) === cleaned) return cityPlaceIds[key];
+    }
+    // 2. Substring match
+    for (const key of Object.keys(cityPlaceIds)) {
+        const cleanedKey = clean(key);
+        if (cleaned.includes(cleanedKey) || cleanedKey.includes(cleaned)) return cityPlaceIds[key];
+    }
+    return getCityFallbackPlaceId(cityId);
+}
+
+// Fuzzy / Robust helper to find mock reviews data matches
+function getMockReviewsData(destName) {
+    if (!destName) return null;
+    const clean = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, ' ').replace(/\s+/g, ' ').trim();
+    const cleanedDest = clean(destName);
+    
+    // 1. Exact match
+    for (const key of Object.keys(mockReviewsData)) {
+        if (clean(key) === cleanedDest) return mockReviewsData[key];
+    }
+    // 2. Substring match
+    for (const key of Object.keys(mockReviewsData)) {
+        const cleanedKey = clean(key);
+        if (cleanedDest.includes(cleanedKey) || cleanedKey.includes(cleanedDest)) return mockReviewsData[key];
+    }
+    return null;
+}
 
 function getCityFallbackPlaceId(cityId) {
     if (cityId === 'bangalore') return 'ChIJ74-L3t8XrjsRtfvOQ4z6nI0'; // Cubbon Park / Bangalore
@@ -4203,8 +4256,10 @@ const mockReviewsData = {
 };
 
 // Unified Google Maps-style Details Drawer Loader
+const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
+
+// Unified Google Maps-style Details Drawer Loader
 function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, durationMins) {
-    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
     const existing = document.getElementById('gmaps-drawer-overlay-bg');
     if (existing) existing.remove();
 
@@ -4216,8 +4271,7 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
         formattedDuration = hrs + " hr " + mins + " mins";
     }
 
-    const lookupKey = destName.toLowerCase().trim();
-    const placeId = cityPlaceIds[lookupKey] || getCityFallbackPlaceId(currentCityId);
+    const placeId = getCityPlaceId(destName, currentCityId);
     
     // Resolve the proper city name for Google Maps search
     let cityName = 'Mysore';
@@ -4326,8 +4380,8 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
             if (apiContent) {
                 apiContent.style.display = 'flex';
 
-                const lookupKey = destName.toLowerCase().trim();
-                const mockData = mockReviewsData[lookupKey];
+                const mockData = getMockReviewsData(destName);
+                console.log("GMAPS DRAWER DEBUG:", { destName, mockDataFound: !!mockData, data });
 
                 // If Google Places API returned error/no reviews, or if not connected, and we have mock data
                 if (mockData && (!data.connected || !data.reviews || data.reviews.length === 0 || data.status !== 'OK')) {
