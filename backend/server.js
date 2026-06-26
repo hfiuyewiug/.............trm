@@ -58,6 +58,7 @@ const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
+    console.log(`[REQUEST] ${req.method} ${parsedUrl.path}`);
 
     // 2. Endpoint: Fetch Google Place Details
     if (pathname.startsWith('/api/place-details/')) {
