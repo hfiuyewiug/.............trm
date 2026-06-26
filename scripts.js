@@ -2470,14 +2470,16 @@ function renderHome() {
             </section>
 
             <div class="destinations-row">
-                ${destinations.map(dest => `
-                    <div class="dest-card" data-id="${dest.id}">
-                        <img src="${dest.image}" alt="${dest.name}" loading="lazy" decoding="async">
-                        <div class="dest-card-overlay">
-                            <h3>${dest.name}</h3>
-                        </div>
-                        <div class="arrow-btn">
-                            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                ${destinations.map((dest, index) => `
+                    <div class="dest-card-wrapper" style="--card-index: ${index};">
+                        <div class="dest-card" data-id="${dest.id}">
+                            <img src="${dest.image}" alt="${dest.name}" loading="lazy" decoding="async">
+                            <div class="dest-card-overlay">
+                                <h3>${dest.name}</h3>
+                            </div>
+                            <div class="arrow-btn">
+                                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </div>
                         </div>
                     </div>
                 `).join('')}
