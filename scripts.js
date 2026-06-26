@@ -111,34 +111,7 @@ const destinations = [
             }
         ]
     },
-    {
-        id: 'vijayanagara',
-        name: 'Vijayanagara',
-        image: 'https://images.unsplash.com/photo-1695981064066-9db6d8ebd6f2?auto=format&fit=crop&q=100&w=3840',
-        color: '#F4A261',
-        famousPlaces: [
-            {
-                name: 'Hampi Ruins',
-                image: 'https://images.unsplash.com/photo-1580191947416-62d35a55e71d?auto=format&fit=crop&q=100&w=3840',
-                description: 'A UNESCO World Heritage site featuring the remains of the Vijayanagara Empire.'
-            },
-            {
-                name: 'Virupaksha Temple',
-                image: 'https://images.unsplash.com/photo-1622325324523-86815302772a?auto=format&fit=crop&q=100&w=3840',
-                description: 'An ancient and active temple dedicated to Lord Shiva, located in Hampi.'
-            },
-            {
-                name: 'Stone Chariot',
-                image: 'https://images.unsplash.com/photo-1622325324546-563b7e743a1a?auto=format&fit=crop&q=100&w=3840',
-                description: 'The iconic symbol of Hampi, a chariot-shaped shrine carved from stone.'
-            },
-            {
-                name: 'Lotus Mahal',
-                image: 'https://images.unsplash.com/photo-1622325324599-4c1737e40742?auto=format&fit=crop&q=100&w=3840',
-                description: 'A beautiful example of Indo-Islamic architecture with lotus-like arches.'
-            }
-        ]
-    },
+
     {
         id: 'bangalore',
         name: 'Bangalore',
@@ -3529,11 +3502,6 @@ const cityCoordinates = {
     'hebbe falls': { lat: 13.5414, lng: 75.7171 },
     'coffee plantations': { lat: 13.3167, lng: 75.7667 },
 
-    // Vijayanagara
-    'hampi ruins': { lat: 15.3350, lng: 76.4600 },
-    'virupaksha temple': { lat: 15.3353, lng: 76.4593 },
-    'stone chariot': { lat: 15.3377, lng: 76.4718 },
-    'lotus mahal': { lat: 15.3308, lng: 76.4674 },
 
     // Zoo fallback for Mysuru
     'zoo': { lat: 12.3022, lng: 76.6639 }
@@ -3546,7 +3514,6 @@ function getCityFallbackCoords(cityId) {
     if (cityId === 'mysuru') return { lat: 12.3082, lng: 76.6520 };
     if (cityId === 'kodagu') return { lat: 12.4244, lng: 75.7382 };
     if (cityId === 'chikkamagaluru') return { lat: 13.3167, lng: 75.7667 };
-    if (cityId === 'vijayanagara') return { lat: 15.3350, lng: 76.4600 };
     return { lat: 12.8700, lng: 74.8800 }; // Mangaluru
 }
 
@@ -3828,11 +3795,6 @@ const cityPlaceIds = {
     'hebbe falls': 'ChIJiV5G22x5rjsR-k49Qv0U5H4',
     'coffee plantations': 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o',
 
-    // Vijayanagara (Hampi)
-    'hampi ruins': 'ChIJ26Xz2b3-rjsR1H_W5-R2W9o',
-    'virupaksha temple': 'ChIJr-4Vv-B9rjsR1gq7qL2o5nU',
-    'stone chariot': 'ChIJh692a-YTrzsR0K_9zZ36W-A',
-    'lotus mahal': 'ChIJR6s21s23rjsR_T413-n739E',
 
     // Zoo fallback for Mysuru
     'zoo': 'ChIJa-7L3t8XrjsR5fvOQ4z6nI0'
@@ -3845,7 +3807,6 @@ function getCityFallbackPlaceId(cityId) {
     if (cityId === 'mysuru') return 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0'; // Mysore Palace
     if (cityId === 'kodagu') return 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4'; // Raja's Seat / Coorg
     if (cityId === 'chikkamagaluru') return 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o'; // Coffee Museum / Chikkamagaluru
-    if (cityId === 'vijayanagara') return 'ChIJr-4Vv-B9rjsR1gq7qL2o5nU'; // Virupaksha Temple / Hampi
     return 'ChIJyXGv0N9ApzsRHk9w_P9lJWs'; // Panambur Beach / Mangalore
 }
 
@@ -4238,7 +4199,6 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
     else if (currentCityId === 'mysuru') cityName = 'Mysore';
     else if (currentCityId === 'kodagu') cityName = 'Kodagu';
     else if (currentCityId === 'chikkamagaluru') cityName = 'Chikkamagaluru';
-    else if (currentCityId === 'vijayanagara') cityName = 'Vijayanagara';
     
     // Conditional URL generation based on whether the Place ID is a placeholder or real.
     // Real Place IDs (like Mysore Palace, Kadri Temple) can use the /place/ route with the reviews trigger (!9m1!1b1).
