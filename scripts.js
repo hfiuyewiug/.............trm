@@ -143,7 +143,7 @@ const destinations = [
     {
         id: 'vijayanagara',
         name: 'Vijayanagara',
-        image: 'https://images.unsplash.com/photo-1600100397608-f010e42fa25c?auto=format&fit=crop&q=100&w=3840',
+        image: 'https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?auto=format&fit=crop&q=100&w=3840',
         color: '#F59E0B',
         disabled: true,
         famousPlaces: []
