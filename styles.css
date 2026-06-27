@@ -1690,6 +1690,12 @@ main {
         padding: 0.4rem 1rem !important;
         font-size: 0.8rem !important;
     }
+    .must-watch-btn .btn-arrow {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 0.75rem !important;
+        margin-left: 6px !important;
+    }
     .hide-mobile {
         display: none !important;
     }
