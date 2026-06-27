@@ -139,6 +139,14 @@ const destinations = [
                 description: 'The lungs of the city, a sprawling green space with many historic buildings.'
             }
         ]
+    },
+    {
+        id: 'vijayanagara',
+        name: 'Vijayanagara',
+        image: 'https://images.unsplash.com/photo-1600100397608-f010e42fa25c?auto=format&fit=crop&q=100&w=3840',
+        color: '#F59E0B',
+        disabled: true,
+        famousPlaces: []
     }
 ];
 
@@ -2493,6 +2501,7 @@ function renderHome() {
     document.querySelectorAll('.dest-card').forEach(card => {
         card.addEventListener('click', () => {
             const destId = card.getAttribute('data-id');
+            if (destId === 'vijayanagara') return;
             renderDestination(destId);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
