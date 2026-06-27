@@ -4169,16 +4169,44 @@ main {
     40%, 80% { transform: translate(-48%, -50%) scale(1) rotate(1deg); }
 }
 
-/* Button Arrow Hover Animations */
+/* Button Arrow Highlight & Attention-Seeking Animations */
 .geo-action-btn .btn-arrow, .must-watch-btn .btn-arrow {
-    display: inline-block;
-    margin-left: 4px;
-    font-weight: bold;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    margin-left: 8px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #fff;
+    line-height: 1;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: arrowPulseSlide 1.2s infinite ease-in-out;
+}
+
+@keyframes arrowPulseSlide {
+    0%, 100% {
+        transform: translateX(0);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        transform: translateX(4px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    }
 }
 
 .geo-action-btn:hover .btn-arrow, .must-watch-btn:hover .btn-arrow {
-    transform: translateX(6px);
+    animation: none; /* Pause the pulse-slide animation on hover */
+    transform: scale(1.18) translateX(6px);
+    background: #ffffff;
+    color: #8338EC; /* Brand purple */
+    border-color: #ffffff;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.8), 0 0 30px rgba(131, 56, 236, 0.4);
 }
 
 
