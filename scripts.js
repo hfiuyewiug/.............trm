@@ -2348,7 +2348,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                     </a>
                     <button class="must-watch-btn" id="must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Must Watching <span class="hide-mobile">Places</span>
+                        Must Watching <span class="hide-mobile">Places</span> <span class="btn-arrow">→</span>
                     </button>
                 </div>
                 <h1>${category.name}</h1>
@@ -2527,7 +2527,7 @@ function renderDestination(id) {
                     ${isPremiumCity ? `
                     <button class="must-watch-btn" id="city-must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        Must Watching <span class="hide-mobile">Places</span>
+                        Must Watching <span class="hide-mobile">Places</span> <span class="btn-arrow">→</span>
                     </button>
                     ` : ''}
                 </div>
@@ -4406,7 +4406,7 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
                     
                     <button class="geo-action-btn" id="gmaps-navigation-btn" style="margin-bottom: 0.5rem;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/></svg>
-                        View on Google Maps
+                        View on Google Maps <span class="btn-arrow">→</span>
                     </button>
  
                     <!-- Divider -->

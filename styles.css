@@ -4169,4 +4169,17 @@ main {
     40%, 80% { transform: translate(-48%, -50%) scale(1) rotate(1deg); }
 }
 
+/* Button Arrow Hover Animations */
+.geo-action-btn .btn-arrow, .must-watch-btn .btn-arrow {
+    display: inline-block;
+    margin-left: 4px;
+    font-weight: bold;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.geo-action-btn:hover .btn-arrow, .must-watch-btn:hover .btn-arrow {
+    transform: translateX(6px);
+}
+
+
 
