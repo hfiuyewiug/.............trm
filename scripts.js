@@ -4568,15 +4568,30 @@ function renderRealPlacesDetails(container, data) {
         `;
     }
 
-    // 2. Simple Rating Card HTML
+    // 2. Animated Circular Progress Rating Card (Dark Colored) HTML
     const ratingCardHTML = `
-        <div class="gmaps-rating-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(131, 56, 236, 0.04); border: 1px solid rgba(131, 56, 236, 0.08); border-radius: var(--radius-md); gap: 0.5rem; width: 100%;">
-            <div class="gmaps-rating-score-box" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.5rem;">
-                <span class="gmaps-rating-score" style="font-size: 2.5rem; font-weight: 800; color: #8338EC; background: none; -webkit-text-fill-color: initial; line-height: 1;">${data.rating.toFixed(1)}</span>
-                <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-light);">/ 5.0</span>
+        <div class="gmaps-rating-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.75rem 1.5rem; background: #111827; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); gap: 1rem; width: 100%; color: white; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); margin-bottom: 1rem;">
+            <div style="position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center;">
+                <svg width="110" height="110" viewBox="0 0 100 100" style="transform: rotate(-90deg);">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="7" />
+                    <circle class="gmaps-rating-circle-fill" cx="50" cy="50" r="40" fill="none" stroke="url(#ratingGrad)" stroke-width="7" stroke-linecap="round" data-rating="${data.rating}" style="stroke-dasharray: 251.32; stroke-dashoffset: 251.32; transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);" />
+                    <defs>
+                        <linearGradient id="ratingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#a855f7" />
+                            <stop offset="100%" stop-color="#6366f1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div style="position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1;">
+                    <span style="font-size: 1.85rem; font-weight: 800; color: #a855f7; text-shadow: 0 0 12px rgba(168, 85, 247, 0.4);">${data.rating.toFixed(1)}</span>
+                    <span style="font-size: 0.75rem; font-weight: 600; color: #9ca3af; margin-top: 1px;">/ 5.0</span>
+                </div>
             </div>
-            <div class="gmaps-main-rating-stars">
-                ${renderStarRatingHTML(data.rating)}
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                <div class="gmaps-main-rating-stars" style="gap: 3px;">
+                    ${renderStarRatingHTML(data.rating)}
+                </div>
+                <span style="font-size: 0.75rem; font-weight: 500; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px;">User Rating</span>
             </div>
         </div>
     `;
@@ -4586,6 +4601,17 @@ function renderRealPlacesDetails(container, data) {
         ${photosHTML}
         ${ratingCardHTML}
     `;
+
+    // Trigger stroke-dashoffset fill animation after render
+    setTimeout(() => {
+        const fillCircle = container.querySelector('.gmaps-rating-circle-fill');
+        if (fillCircle) {
+            const ratingVal = parseFloat(fillCircle.getAttribute('data-rating'));
+            const circ = 251.32;
+            const offset = circ * (1 - ratingVal / 5.0);
+            fillCircle.style.strokeDashoffset = offset;
+        }
+    }, 100);
 }
 
 // Helper: Render setup instructions card if Google Places API is not connected
