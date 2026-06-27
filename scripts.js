@@ -4554,159 +4554,38 @@ function openGeoModal(userLat, userLng, destLat, destLng, destName, distance, du
 
 // Helper: Render genuine active Google Places Details UI
 function renderRealPlacesDetails(container, data) {
-    // 1. Photos Gallery HTML
+    // 1. Single Photo Gallery HTML
     let photosHTML = '';
     if (data.photos && data.photos.length > 0) {
+        const p = data.photos[0];
+        const imgSrc = p.localPath ? p.localPath : `${API_BASE}/api/place-photo/${p.photo_reference}`;
         photosHTML = `
-            <div class="gmaps-photos-gallery">
-                ${data.photos.map(p => {
-                    const imgSrc = p.localPath ? p.localPath : `${API_BASE}/api/place-photo/${p.photo_reference}`;
-                    return `
-                        <div class="gmaps-photo-card">
-                            <img src="${imgSrc}" alt="${data.name} Photo" loading="lazy">
-                        </div>
-                    `;
-                }).join('')}
+            <div class="gmaps-photos-gallery" style="display: block;">
+                <div class="gmaps-photo-card" style="width: 100%; height: 260px; border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1.25rem; box-shadow: var(--shadow-soft);">
+                    <img src="${imgSrc}" alt="${data.name} Photo" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
         `;
     }
 
-    // 2. Rating Card Stars distribution percentages
-    const totalReviews = data.reviews.length;
-    const distribution = data.rating_distribution || { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-    const getPercent = (count) => totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
-
+    // 2. Simple Rating Card HTML
     const ratingCardHTML = `
-        <div class="gmaps-rating-card">
-            <div class="gmaps-rating-score-box">
-                <span class="gmaps-rating-score">${data.rating.toFixed(1)}</span>
-                <div class="gmaps-rating-stars">
-                    ${renderStarRatingHTML(data.rating)}
-                </div>
-                <span class="gmaps-rating-count">${data.user_ratings_total.toLocaleString()} reviews</span>
+        <div class="gmaps-rating-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(131, 56, 236, 0.04); border: 1px solid rgba(131, 56, 236, 0.08); border-radius: var(--radius-md); gap: 0.5rem; width: 100%;">
+            <div class="gmaps-rating-score-box" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.5rem;">
+                <span class="gmaps-rating-score" style="font-size: 2.5rem; font-weight: 800; color: #8338EC; background: none; -webkit-text-fill-color: initial; line-height: 1;">${data.rating.toFixed(1)}</span>
+                <span style="font-size: 1.25rem; font-weight: 500; color: var(--text-light);">/ 5.0</span>
             </div>
-            <div class="gmaps-rating-distribution">
-                ${[5, 4, 3, 2, 1].map(stars => `
-                    <div class="gmaps-distribution-row">
-                        <span class="gmaps-distribution-label">${stars}</span>
-                        <div class="gmaps-distribution-bar-bg">
-                            <div class="gmaps-distribution-bar-fill" data-width="${getPercent(distribution[stars])}%"></div>
-                        </div>
-                    </div>
-                `).join('')}
+            <div class="gmaps-main-rating-stars">
+                ${renderStarRatingHTML(data.rating)}
             </div>
         </div>
     `;
 
-    // 3. Opening hours logic
-    let hoursBadgeHTML = '';
-    let hoursTextHTML = '';
-    if (data.opening_hours) {
-        const isOpen = data.opening_hours.open_now;
-        hoursBadgeHTML = isOpen 
-            ? '<span class="gmaps-status-badge open">● Open Now</span>' 
-            : '<span class="gmaps-status-badge closed">● Closed Now</span>';
-        
-        if (data.opening_hours.weekday_text && data.opening_hours.weekday_text.length > 0) {
-            hoursTextHTML = `
-                <div class="gmaps-hours-dropdown">
-                    ${data.opening_hours.weekday_text.map(day => `<span>${day}</span>`).join('')}
-                </div>
-            `;
-        }
-    }
-
-    // 4. Place Info Grid HTML
-    const infoHTML = `
-        <div class="gmaps-info-list">
-            ${data.formatted_address ? `
-                <div class="gmaps-info-row">
-                    <span class="gmaps-info-icon">📍</span>
-                    <div class="gmaps-info-details">
-                        <span class="label">Address</span>
-                        <span class="value" style="font-weight: 500;">${data.formatted_address}</span>
-                    </div>
-                </div>
-            ` : ''}
-
-            ${data.formatted_phone_number ? `
-                <div class="gmaps-info-row">
-                    <span class="gmaps-info-icon">📞</span>
-                    <div class="gmaps-info-details">
-                        <span class="label">Phone</span>
-                        <a href="tel:${data.formatted_phone_number}" class="value">${data.formatted_phone_number}</a>
-                    </div>
-                </div>
-            ` : ''}
-
-            ${data.opening_hours ? `
-                <div class="gmaps-info-row">
-                    <span class="gmaps-info-icon">🕒</span>
-                    <div class="gmaps-info-details">
-                        <span class="label">Hours</span>
-                        <div>
-                            ${hoursBadgeHTML}
-                            ${hoursTextHTML}
-                        </div>
-                    </div>
-                </div>
-            ` : ''}
-
-            ${data.website ? `
-                <div class="gmaps-info-row">
-                    <span class="gmaps-info-icon">🌐</span>
-                    <div class="gmaps-info-details">
-                        <span class="label">Website</span>
-                        <a href="${data.website}" target="_blank" class="value">Visit official website</a>
-                    </div>
-                </div>
-            ` : ''}
-        </div>
-    `;
-
-    // 5. Reviews List HTML (No fake/AI reviews guarantee)
-    let reviewsHTML = '<p style="font-size: 0.85rem; color: var(--text-light); padding: 0.5rem 0;">No user reviews available for this place.</p>';
-    if (data.reviews && data.reviews.length > 0) {
-        reviewsHTML = `
-            <div class="gmaps-reviews-list">
-                ${data.reviews.map(r => `
-                    <div class="gmaps-review-card">
-                        <div class="gmaps-review-author-row">
-                            <img class="gmaps-review-avatar" src="${r.profile_photo_url || 'https://www.w3schools.com/howto/img_avatar.png'}" alt="${r.author_name} Avatar" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'">
-                            <div class="gmaps-review-author-info">
-                                <span class="gmaps-review-author-name">${r.author_name}</span>
-                                <div class="gmaps-review-meta">
-                                    <div class="gmaps-review-stars">
-                                        ${renderStarRatingHTML(r.rating)}
-                                    </div>
-                                    <span>${r.relative_time_description}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="gmaps-review-text">${r.text}</p>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    }
-
-    // Assemble unified layout
+    // Assemble unified layout (Only photo and rating)
     container.innerHTML = `
         ${photosHTML}
         ${ratingCardHTML}
-        ${infoHTML}
-        <div>
-            <h4 class="gmaps-reviews-title">⭐⭐ Google Reviews</h4>
-            ${reviewsHTML}
-        </div>
     `;
-
-    // Trigger star bar fill animation after render
-    setTimeout(() => {
-        container.querySelectorAll('.gmaps-distribution-bar-fill').forEach(bar => {
-            bar.style.width = bar.getAttribute('data-width');
-        });
-    }, 100);
 }
 
 // Helper: Render setup instructions card if Google Places API is not connected

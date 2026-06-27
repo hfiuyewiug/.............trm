@@ -2578,6 +2578,20 @@ main {
     gap: 2px;
 }
 
+.gmaps-main-rating-stars {
+    color: #8338EC !important;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+.gmaps-main-rating-stars svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: #8338EC !important;
+}
+
+
 .gmaps-rating-count {
     font-size: 0.8rem;
     color: var(--text-light);
