@@ -5829,6 +5829,9 @@ function initPlaceImageSliders() {
     const authForgotLink = document.getElementById('auth-forgot-link');
     const authNewPasswordInput = document.getElementById('auth-new-password');
     const authConfirmPasswordInput = document.getElementById('auth-confirm-password');
+    const authModalTitle = document.getElementById('auth-modal-title');
+    const authModalSubtitle = document.getElementById('auth-modal-subtitle');
+    const authSwitchText = document.getElementById('auth-switch-text');
 
     let authMode = 'signin'; // 'signin', 'signup', 'forgot', 'reset'
     let recoveryToken = null;
