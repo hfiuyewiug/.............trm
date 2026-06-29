@@ -5822,11 +5822,16 @@ function initPlaceImageSliders() {
     const authErrorMsg = document.getElementById('auth-error-msg');
     const authSubmitBtn = document.getElementById('auth-submit-btn');
     const authSwitchLink = document.getElementById('auth-switch-link');
-    const authModalTitle = document.getElementById('auth-modal-title');
-    const authModalSubtitle = document.getElementById('auth-modal-subtitle');
-    const authSwitchText = document.getElementById('auth-switch-text');
+    const authEmailGroup = document.getElementById('auth-email-group');
+    const authPasswordGroup = document.getElementById('auth-password-group');
+    const authNewPasswordGroup = document.getElementById('auth-new-password-group');
+    const authConfirmPasswordGroup = document.getElementById('auth-confirm-password-group');
+    const authForgotLink = document.getElementById('auth-forgot-link');
+    const authNewPasswordInput = document.getElementById('auth-new-password');
+    const authConfirmPasswordInput = document.getElementById('auth-confirm-password');
 
-    let isSignUpMode = false;
+    let authMode = 'signin'; // 'signin', 'signup', 'forgot', 'reset'
+    let recoveryToken = null;
 
     // Create dropdown menu on the fly and attach to authNavBtn
     const dropdownMenu = document.createElement('div');
@@ -5865,11 +5870,102 @@ function initPlaceImageSliders() {
         }
     }
 
-    // Initialize UI
+    function setAuthMode(mode) {
+        authMode = mode;
+        authErrorMsg.style.display = 'none';
+
+        // Reset required state
+        authEmailInput.required = false;
+        authPasswordInput.required = false;
+        authNewPasswordInput.required = false;
+        authConfirmPasswordInput.required = false;
+
+        // Hide all input groups first
+        authEmailGroup.style.display = 'none';
+        authPasswordGroup.style.display = 'none';
+        authNewPasswordGroup.style.display = 'none';
+        authConfirmPasswordGroup.style.display = 'none';
+
+        if (mode === 'signin') {
+            authModalTitle.textContent = 'Welcome Back';
+            authModalSubtitle.textContent = 'Sign in to sync your favorite places and custom trips.';
+            authSubmitBtn.querySelector('span').textContent = 'Sign In';
+            authSwitchText.innerHTML = `Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a>`;
+            
+            authEmailGroup.style.display = 'block';
+            authPasswordGroup.style.display = 'block';
+            authEmailInput.required = true;
+            authPasswordInput.required = true;
+        } else if (mode === 'signup') {
+            authModalTitle.textContent = 'Create Account';
+            authModalSubtitle.textContent = 'Join us to explore and save your favorite travel spots.';
+            authSubmitBtn.querySelector('span').textContent = 'Sign Up';
+            authSwitchText.innerHTML = `Already have an account? <a href="#" id="auth-switch-link">Sign In</a>`;
+            
+            authEmailGroup.style.display = 'block';
+            authPasswordGroup.style.display = 'block';
+            authEmailInput.required = true;
+            authPasswordInput.required = true;
+        } else if (mode === 'forgot') {
+            authModalTitle.textContent = 'Reset Password';
+            authModalSubtitle.textContent = "Enter your email address and we'll send you a recovery link.";
+            authSubmitBtn.querySelector('span').textContent = 'Send Reset Link';
+            authSwitchText.innerHTML = `Back to <a href="#" id="auth-switch-link">Sign In</a>`;
+            
+            authEmailGroup.style.display = 'block';
+            authEmailInput.required = true;
+        } else if (mode === 'reset') {
+            authModalTitle.textContent = 'Set New Password';
+            authModalSubtitle.textContent = 'Enter a strong new password for your account.';
+            authSubmitBtn.querySelector('span').textContent = 'Save Password';
+            authSwitchText.innerHTML = `Return to <a href="#" id="auth-switch-link">Sign In</a>`;
+            
+            authNewPasswordGroup.style.display = 'block';
+            authConfirmPasswordGroup.style.display = 'block';
+            authNewPasswordInput.required = true;
+            authConfirmPasswordInput.required = true;
+        }
+
+        // Rebind click listener to the switch links dynamically
+        const switchLink = document.getElementById('auth-switch-link');
+        if (switchLink) {
+            switchLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (authMode === 'signin') {
+                    setAuthMode('signup');
+                } else {
+                    setAuthMode('signin');
+                }
+            });
+        }
+    }
+
+    // Parse recovery token from URL hash if present
+    function checkRecoveryHash() {
+        const hash = window.location.hash;
+        if (hash) {
+            const params = new URLSearchParams(hash.substring(1)); // strip '#'
+            const accessToken = params.get('access_token');
+            const type = params.get('type');
+
+            if (accessToken && type === 'recovery') {
+                recoveryToken = accessToken;
+                // Clear hash from URL so it doesn't clutter or re-trigger on refresh
+                history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                
+                // Open the modal in Set New Password mode
+                authModal.classList.add('active');
+                setAuthMode('reset');
+            }
+        }
+    }
+
+    // Initialize UI and Check URL Hash
     updateAuthUI();
+    checkRecoveryHash();
 
     // Automatically pop up the authentication modal on first load if user is not logged in
-    if (!currentUser) {
+    if (!currentUser && !recoveryToken) {
         authModal.classList.add('active');
         resetAuthForm();
     }
@@ -5914,94 +6010,103 @@ function initPlaceImageSliders() {
         }
     });
 
-    // Switch between Sign In and Sign Up modes
-    authSwitchLink.addEventListener('click', (e) => {
+    // Forgot Password link click
+    authForgotLink.addEventListener('click', (e) => {
         e.preventDefault();
-        isSignUpMode = !isSignUpMode;
-        authErrorMsg.style.display = 'none';
-        
-        if (isSignUpMode) {
-            authModalTitle.textContent = 'Create Account';
-            authModalSubtitle.textContent = 'Join us to explore and save your favorite travel spots.';
-            authSubmitBtn.querySelector('span').textContent = 'Sign Up';
-            authSwitchText.innerHTML = `Already have an account? <a href="#" id="auth-switch-link-sub">Sign In</a>`;
-            
-            document.getElementById('auth-switch-link-sub').addEventListener('click', (ev) => {
-                ev.preventDefault();
-                authSwitchLink.click();
-            });
-        } else {
-            authModalTitle.textContent = 'Welcome Back';
-            authModalSubtitle.textContent = 'Sign in to sync your favorite places and custom trips.';
-            authSubmitBtn.querySelector('span').textContent = 'Sign In';
-            authSwitchText.innerHTML = `Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a>`;
-            
-            // Re-bind click event to new switch link
-            const newLink = document.getElementById('auth-switch-link');
-            newLink.addEventListener('click', (ev) => {
-                ev.preventDefault();
-                authSwitchLink.click();
-            });
-        }
+        setAuthMode('forgot');
     });
 
     function resetAuthForm() {
         authForm.reset();
-        authErrorMsg.style.display = 'none';
-        isSignUpMode = false;
-        authModalTitle.textContent = 'Welcome Back';
-        authModalSubtitle.textContent = 'Sign in to sync your favorite places and custom trips.';
-        authSubmitBtn.querySelector('span').textContent = 'Sign In';
-        authSwitchText.innerHTML = `Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a>`;
-        
-        // Ensure switch link is bound
-        const link = document.getElementById('auth-switch-link');
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            authSwitchLink.click();
-        });
+        setAuthMode('signin');
     }
 
-    // Form submission (signup or login)
+    // Form submission (signin, signup, reset request, new password save)
     authForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         authErrorMsg.style.display = 'none';
         authSubmitBtn.classList.add('loading');
 
-        const email = authEmailInput.value.trim();
-        const password = authPasswordInput.value;
-        const endpoint = isSignUpMode ? '/api/auth/signup' : '/api/auth/login';
-
         try {
-            const response = await fetch(`${API_BASE}${endpoint}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
+            if (authMode === 'signin' || authMode === 'signup') {
+                const email = authEmailInput.value.trim();
+                const password = authPasswordInput.value;
+                const endpoint = authMode === 'signup' ? '/api/auth/signup' : '/api/auth/login';
 
-            const data = await response.json();
+                const response = await fetch(`${API_BASE}${endpoint}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
 
-            if (!response.ok) {
-                throw new Error(data.error || 'Authentication failed. Please check your credentials.');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Authentication failed. Please check your credentials.');
+                }
+
+                // Successfully authenticated
+                currentUser = {
+                    id: data.user.id,
+                    email: data.user.email
+                };
+                
+                localStorage.setItem('explore_user', JSON.stringify(currentUser));
+                updateAuthUI();
+                authModal.classList.remove('active');
+                
+                if (authMode === 'signup') {
+                    alert('Account created successfully! Welcome to Weekend Explore.');
+                }
+            } else if (authMode === 'forgot') {
+                const email = authEmailInput.value.trim();
+                const response = await fetch(`${API_BASE}/api/auth/reset-request`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to request password reset link.');
+                }
+
+                alert('Recovery email sent! Please check ' + email + ' for a link to reset your password.');
+                authModal.classList.remove('active');
+            } else if (authMode === 'reset') {
+                const password = authNewPasswordInput.value;
+                const confirm = authConfirmPasswordInput.value;
+
+                if (password !== confirm) {
+                    throw new Error('Passwords do not match.');
+                }
+                if (password.length < 6) {
+                    throw new Error('Password must be at least 6 characters.');
+                }
+
+                const response = await fetch(`${API_BASE}/api/auth/update-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token: recoveryToken, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to update password.');
+                }
+
+                alert('Password reset successfully! You can now sign in with your new password.');
+                recoveryToken = null;
+                setAuthMode('signin');
             }
-
-            // Successfully authenticated
-            currentUser = {
-                id: data.user.id,
-                email: data.user.email
-            };
-            
-            localStorage.setItem('explore_user', JSON.stringify(currentUser));
-            updateAuthUI();
-            authModal.classList.remove('active');
-            
-            // Alert user of success
-            if (isSignUpMode) {
-                alert('Account created successfully! Welcome to Weekend Explore.');
-            }
-
         } catch (err) {
             if (err.message.includes('Failed to fetch') || err.name === 'TypeError') {
                 authErrorMsg.textContent = 'Connection failed. Please ensure the backend proxy server is running (run "node server.js" in the backend directory).';

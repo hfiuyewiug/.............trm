@@ -181,18 +181,38 @@
             </div>
             <div class="auth-modal-body">
                 <form id="auth-form">
-                    <div class="auth-input-group">
+                    <!-- Email Group -->
+                    <div class="auth-input-group" id="auth-email-group">
                         <label for="auth-email">Email Address</label>
                         <div class="input-wrapper">
                             <span class="input-icon">✉️</span>
                             <input type="email" id="auth-email" placeholder="you@example.com" required autocomplete="email">
                         </div>
                     </div>
-                    <div class="auth-input-group">
-                        <label for="auth-password">Password</label>
+                    <!-- Password Group (with Forgot Password Trigger) -->
+                    <div class="auth-input-group" id="auth-password-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                            <label for="auth-password" style="margin-bottom: 0;">Password</label>
+                            <a href="#" id="auth-forgot-link" style="font-size: 0.8rem; color: #FF007F; text-decoration: none; font-weight: 600;">Forgot Password?</a>
+                        </div>
                         <div class="input-wrapper">
                             <span class="input-icon">🔒</span>
                             <input type="password" id="auth-password" placeholder="••••••••" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <!-- Set New Password Groups (Hidden by default) -->
+                    <div class="auth-input-group" id="auth-new-password-group" style="display: none;">
+                        <label for="auth-new-password">New Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="auth-new-password" placeholder="••••••••" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="auth-input-group" id="auth-confirm-password-group" style="display: none;">
+                        <label for="auth-confirm-password">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="auth-confirm-password" placeholder="••••••••" autocomplete="new-password">
                         </div>
                     </div>
                     <div id="auth-error-msg" class="auth-error-banner" style="display: none;"></div>

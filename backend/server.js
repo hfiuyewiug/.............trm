@@ -465,6 +465,99 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
+    // 3d. Endpoint: Request Password Reset (Proxying to Supabase Auth)
+    if (pathname === '/api/auth/reset-request' && req.method === 'POST') {
+        setCorsHeaders(res);
+        try {
+            if (!supabase) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Supabase authentication service is not configured.' }));
+                return;
+            }
+
+            const { email } = await getRequestBody(req);
+            if (!email) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Email address is required.' }));
+                return;
+            }
+
+            const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: 'http://localhost:3000/'
+            });
+
+            if (error) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: error.message }));
+                return;
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'Password recovery email sent successfully.' }));
+        } catch (err) {
+            console.error('[AUTH ERROR] Reset request exception:', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Internal Server Error during reset request.' }));
+        }
+        return;
+    }
+
+    // 3e. Endpoint: Update Password (Proxying to Supabase Auth with token authorization)
+    if (pathname === '/api/auth/update-password' && req.method === 'POST') {
+        setCorsHeaders(res);
+        try {
+            const { token, password } = await getRequestBody(req);
+            if (!token || !password) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Token and new password are required.' }));
+                return;
+            }
+
+            // Create temporary client scoped to user request context
+            const userClient = createClient(
+                process.env.NEXT_PUBLIC_SUPABASE_URL,
+                process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+                {
+                    auth: {
+                        persistSession: false,
+                        autoRefreshToken: false
+                    }
+                }
+            );
+
+            // Establish the session for this token
+            const { error: sessionError } = await userClient.auth.setSession({
+                access_token: token,
+                refresh_token: ''
+            });
+
+            if (sessionError) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Invalid or expired recovery session token: ' + sessionError.message }));
+                return;
+            }
+
+            // Perform password update under the user's active session
+            const { data, error } = await userClient.auth.updateUser({
+                password: password
+            });
+
+            if (error) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: error.message }));
+                return;
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'Password has been updated successfully.' }));
+        } catch (err) {
+            console.error('[AUTH ERROR] Update password exception:', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Internal Server Error during password update.' }));
+        }
+        return;
+    }
+
     // 4. Default handler: Serve static files from the parent directory (workspace root)
     const mimeTypes = {
         '.html': 'text/html',

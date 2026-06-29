@@ -4653,6 +4653,11 @@ main {
     }
 }
 
+#auth-forgot-link:hover {
+    color: #ff3399 !important;
+    text-decoration: underline !important;
+}
+
 
 
 
