@@ -5997,7 +5997,11 @@ function initPlaceImageSliders() {
             }
 
         } catch (err) {
-            authErrorMsg.textContent = err.message;
+            if (err.message.includes('Failed to fetch') || err.name === 'TypeError') {
+                authErrorMsg.textContent = 'Connection failed. Please ensure the backend proxy server is running (run "node server.js" in the backend directory).';
+            } else {
+                authErrorMsg.textContent = err.message;
+            }
             authErrorMsg.style.display = 'flex';
         } finally {
             authSubmitBtn.classList.remove('loading');
