@@ -1,15 +1,15 @@
 :root {
-    --primary-color: #0F172A; /* Slate 900 */
-    --primary-light: #334155; /* Slate 700 */
-    --text-dark: #0F172A;
-    --text-light: #475569; /* Slate 600 */
+    --primary-color: #8338EC;
+    --primary-light: #9d5df1;
+    --text-dark: #1A1A1A;
+    --text-light: #666666;
     --bg-white: #FFFFFF;
-    --bg-light: #F1F5F9; /* Slate 100 */
-    --shadow-soft: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-    --shadow-medium: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
-    --radius-lg: 0px; /* Sharp corners */
-    --radius-md: 0px; /* Sharp corners */
-    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-light: #F8F9FA;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 15px 40px rgba(0, 0, 0, 0.1);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -26,7 +26,11 @@ html {
 
 body {
     font-family: 'Outfit', sans-serif;
-    background: #F8FAFC; /* Slate 50 - Solid premium off-white realistic background */
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), 
+                url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -4647,80 +4651,6 @@ main {
     .auth-modal-card {
         padding: 30px 20px;
     }
-}
-
-/* ==========================================================================
-   SHARP CORNER REDESIGN OVERRIDES
-   ========================================================================== */
-
-/* Force 0px border-radius globally on all container, card, form, and button structures */
-.dest-card,
-.category-card,
-.spot-card,
-.famous-food-header-card,
-.favorite-food-card,
-.gmaps-drawer,
-.geo-stat-card,
-.auth-nav-btn,
-.auth-modal-card,
-.auth-submit-btn,
-.auth-input-group input,
-.auth-error-banner,
-.auth-dropdown-menu,
-.auth-dropdown-item,
-.mute-btn,
-.back-btn,
-.must-watch-btn,
-.hamburger-menu-btn,
-.menu-drawer,
-.drawer-close-btn,
-.drawer-menu-item a,
-.gmaps-close-btn,
-.hero .badge,
-.swiper-slide,
-.swiper,
-.btn-arrow,
-input,
-button,
-select,
-textarea {
-    border-radius: 0px !important;
-}
-
-/* Ensure images inside cards are sharp-cornered */
-.dest-card img,
-.favorite-food-card img,
-.category-img img,
-.spot-card img,
-.food-swiper-img-wrapper img,
-.menu-drawer img {
-    border-radius: 0px !important;
-}
-
-/* Hero Badge refinement for a clean, realistic editorial label */
-.hero .badge {
-    background: transparent !important;
-    border: 1px solid rgba(15, 23, 42, 0.15) !important;
-    color: var(--primary-color) !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.8rem !important;
-    padding: 6px 12px !important;
-    box-shadow: none !important;
-}
-
-/* Realistic Slate CTA style for the navigation Sign In button */
-.auth-nav-btn {
-    background: #0F172A !important;
-    border: 1px solid #0F172A !important;
-    color: #ffffff !important;
-    box-shadow: none !important;
-}
-
-.auth-nav-btn:hover {
-    background: #1E293B !important;
-    border-color: #1E293B !important;
-    box-shadow: none !important;
 }
 
 
