@@ -6047,18 +6047,21 @@ function initPlaceImageSliders() {
                     throw new Error(data.error || 'Authentication failed. Please check your credentials.');
                 }
 
-                // Successfully authenticated
-                currentUser = {
-                    id: data.user.id,
-                    email: data.user.email
-                };
-                
-                localStorage.setItem('explore_user', JSON.stringify(currentUser));
-                updateAuthUI();
-                authModal.classList.remove('active');
-                
                 if (authMode === 'signup') {
-                    alert('Account created successfully! Welcome to Weekend Explore.');
+                    // New User -> Sign Up -> Account Created -> Sign In
+                    alert('Account created successfully! Please sign in with your email and password.');
+                    authPasswordInput.value = ''; // clear password field
+                    setAuthMode('signin');
+                } else {
+                    // Sign In -> Logged In -> Home Page
+                    currentUser = {
+                        id: data.user.id,
+                        email: data.user.email
+                    };
+                    
+                    localStorage.setItem('explore_user', JSON.stringify(currentUser));
+                    updateAuthUI();
+                    authModal.classList.remove('active');
                 }
             } else if (authMode === 'forgot') {
                 const email = authEmailInput.value.trim();
