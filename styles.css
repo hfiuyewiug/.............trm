@@ -4249,25 +4249,24 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #121216; /* Solid premium dark charcoal */
-    border: 1px solid rgba(18, 18, 22, 0.15);
-    color: #ffffff; /* White text for contrast */
-    padding: 8px 16px;
+    background: linear-gradient(135deg, #8338EC 0%, #FF007F 100%); /* Brand purple-pink gradient */
+    border: none;
+    color: #ffffff; /* White text for great legibility */
+    padding: 8px 18px;
     border-radius: 30px;
     font-family: 'Outfit', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(131, 56, 236, 0.25);
 }
 
 .auth-nav-btn:hover {
-    background: #1e1e26; /* Slightly lighter dark on hover */
-    border-color: rgba(18, 18, 22, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(18, 18, 22, 0.2);
+    box-shadow: 0 6px 18px rgba(131, 56, 236, 0.4);
+    filter: brightness(1.08); /* Glows slightly on hover */
 }
 
 .auth-nav-btn:active {
