@@ -6116,6 +6116,8 @@ function initPlaceImageSliders() {
         } catch (err) {
             if (err.message.includes('Failed to fetch') || err.name === 'TypeError') {
                 authErrorMsg.textContent = 'Connection failed. Please ensure the backend proxy server is running (run "node server.js" in the backend directory).';
+            } else if (err.message.toLowerCase().includes('email not confirmed') || err.message.toLowerCase().includes('confirm your email')) {
+                authErrorMsg.textContent = 'Email address not confirmed yet. Please check your inbox for the verification link, or turn off "Confirm email" in the Supabase Dashboard (under Authentication > Providers > Email).';
             } else {
                 authErrorMsg.textContent = err.message;
             }
