@@ -3,6 +3,9 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const { createClient } = require('@supabase/supabase-js');
+global.WebSocket = require('ws');
+
 
 // Manual parser for .env configuration
 function loadEnv() {
@@ -31,6 +34,25 @@ function loadEnv() {
 // Load environment configurations
 loadEnv();
 
+// Supabase Configuration Validation
+function isSupabaseConfigured() {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    return url && url.trim() !== '' && !url.includes('YOUR_SUPABASE') &&
+           key && key.trim() !== '' && !key.includes('YOUR_SUPABASE');
+}
+
+let supabase = null;
+if (isSupabaseConfigured()) {
+    console.log('[SUPABASE] Initializing Supabase client...');
+    supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+    );
+} else {
+    console.log('[SUPABASE] Supabase credentials not fully configured. Caching is disabled.');
+}
+
 const PORT = process.env.PORT || 3000;
 
 // API Key Validation Helper
@@ -42,12 +64,28 @@ function isApiKeyConfigured() {
 // CORS headers setter helper
 function setCorsHeaders(res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 }
 
+// Request body helper parser
+function getRequestBody(req) {
+    return new Promise((resolve, reject) => {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', () => {
+            try {
+                resolve(body ? JSON.parse(body) : {});
+            } catch (err) {
+                reject(err);
+            }
+        });
+        req.on('error', err => { reject(err); });
+    });
+}
+
 // Create clean, robust HTTP server
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     // 1. Set CORS header for all OPTIONS requests (preflight)
     if (req.method === 'OPTIONS') {
         setCorsHeaders(res);
@@ -60,7 +98,7 @@ const server = http.createServer((req, res) => {
     const pathname = parsedUrl.pathname;
     console.log(`[REQUEST] ${req.method} ${parsedUrl.path}`);
 
-    // 2. Endpoint: Fetch Google Place Details
+    // 2. Endpoint: Fetch Google Place Details (with Supabase caching)
     if (pathname.startsWith('/api/place-details/')) {
         setCorsHeaders(res);
         const placeId = pathname.substring('/api/place-details/'.length);
@@ -69,6 +107,75 @@ const server = http.createServer((req, res) => {
             res.writeHead(400, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Place ID parameter is required' }));
             return;
+        }
+
+        // Try to load from Supabase Cache first
+        if (supabase) {
+            try {
+                const { data: cachedPlace, error: placeError } = await supabase
+                    .from('google_places_cache')
+                    .select('*')
+                    .eq('place_id', placeId)
+                    .single();
+
+                if (cachedPlace) {
+                    const cacheAgeMs = Date.now() - new Date(cachedPlace.last_cached).getTime();
+                    const cacheLimitMs = 24 * 60 * 60 * 1000; // 24 hours
+                    if (cacheAgeMs < cacheLimitMs) {
+                        const { data: cachedReviews, error: reviewsError } = await supabase
+                            .from('google_reviews_cache')
+                            .select('*')
+                            .eq('place_id', placeId);
+
+                        if (!reviewsError) {
+                            console.log(`[CACHE HIT] Loaded place details and reviews for ${placeId} from Supabase cache`);
+                            const reviews = cachedReviews || [];
+                            const distribution = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+                            reviews.forEach(r => {
+                                const rating = Math.round(r.rating);
+                                if (distribution[rating] !== undefined) {
+                                    distribution[rating]++;
+                                }
+                            });
+
+                            const placeDetails = {
+                                connected: true,
+                                placeId: placeId,
+                                name: cachedPlace.name,
+                                rating: parseFloat(cachedPlace.rating) || 0.0,
+                                user_ratings_total: cachedPlace.user_ratings_total || 0,
+                                formatted_address: cachedPlace.formatted_address || '',
+                                formatted_phone_number: cachedPlace.formatted_phone_number || '',
+                                website: cachedPlace.website || '',
+                                opening_hours: cachedPlace.weekday_text ? {
+                                    open_now: null,
+                                    weekday_text: JSON.parse(cachedPlace.weekday_text)
+                                } : null,
+                                photos: cachedPlace.photos_references ? JSON.parse(cachedPlace.photos_references) : [],
+                                reviews: reviews.map(r => ({
+                                    author_name: r.author_name,
+                                    profile_photo_url: r.profile_photo_url || '',
+                                    rating: r.rating,
+                                    relative_time_description: r.relative_time_description || '',
+                                    text: r.review_text || '',
+                                    time: parseInt(r.review_time)
+                                })),
+                                rating_distribution: distribution
+                            };
+
+                            res.writeHead(200, { 'Content-Type': 'application/json' });
+                            res.end(JSON.stringify(placeDetails));
+                            return;
+                        }
+                    } else {
+                        console.log(`[CACHE EXPIRED] Cache for ${placeId} is older than 24 hours, refetching...`);
+                    }
+                } else {
+                    console.log(`[CACHE MISS] No cached data for ${placeId}`);
+                }
+            } catch (dbErr) {
+                console.error('[SUPABASE ERROR] Failed to query cache:', dbErr.message);
+            }
         }
 
         // If API Key is not configured, send graceful setup instructions payload
@@ -158,6 +265,65 @@ const server = http.createServer((req, res) => {
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify(placeDetails));
 
+                    // Store response in cache asynchronously
+                    if (supabase) {
+                        (async () => {
+                            try {
+                                const placeData = {
+                                    place_id: placeId,
+                                    name: placeDetails.name,
+                                    formatted_address: placeDetails.formatted_address,
+                                    formatted_phone_number: placeDetails.formatted_phone_number,
+                                    website: placeDetails.website,
+                                    rating: placeDetails.rating,
+                                    user_ratings_total: placeDetails.user_ratings_total,
+                                    weekday_text: placeDetails.opening_hours ? JSON.stringify(placeDetails.opening_hours.weekday_text) : null,
+                                    photos_references: JSON.stringify(placeDetails.photos),
+                                    last_cached: new Date().toISOString()
+                                };
+
+                                const { error: upsertPlaceError } = await supabase
+                                    .from('google_places_cache')
+                                    .upsert(placeData);
+
+                                if (upsertPlaceError) {
+                                    console.error('[SUPABASE ERROR] Failed to upsert place to cache:', upsertPlaceError.message);
+                                } else {
+                                    // Remove old cached reviews
+                                    await supabase
+                                        .from('google_reviews_cache')
+                                        .delete()
+                                        .eq('place_id', placeId);
+
+                                    // Insert new reviews
+                                    const reviewsToInsert = (result.reviews || []).map((r, idx) => ({
+                                        review_id: `${placeId}_rev_${idx}_${Date.now()}`,
+                                        place_id: placeId,
+                                        author_name: r.author_name,
+                                        profile_photo_url: r.profile_photo_url || '',
+                                        rating: r.rating,
+                                        relative_time_description: r.relative_time_description || '',
+                                        review_text: r.text || '',
+                                        review_time: r.time || Date.now(),
+                                        last_cached: new Date().toISOString()
+                                    }));
+
+                                    if (reviewsToInsert.length > 0) {
+                                        const { error: insertReviewsError } = await supabase
+                                            .from('google_reviews_cache')
+                                            .insert(reviewsToInsert);
+                                        if (insertReviewsError) {
+                                            console.error('[SUPABASE ERROR] Failed to insert reviews to cache:', insertReviewsError.message);
+                                        }
+                                    }
+                                    console.log(`[CACHE STORED] Saved details and reviews for ${placeId} to Supabase cache`);
+                                }
+                            } catch (saveErr) {
+                                console.error('[SUPABASE ERROR] Error storing cache:', saveErr.message);
+                            }
+                        })();
+                    }
+
                 } catch (err) {
                     console.error('Error parsing response from Google:', err.message);
                     res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -220,6 +386,82 @@ const server = http.createServer((req, res) => {
         };
 
         fetchPhoto(googleUrl);
+        return;
+    }
+
+    // 3b. Endpoint: User Registration (Proxying to Supabase Auth)
+    if (pathname === '/api/auth/signup' && req.method === 'POST') {
+        setCorsHeaders(res);
+        try {
+            if (!supabase) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Supabase authentication service is not configured.' }));
+                return;
+            }
+
+            const { email, password } = await getRequestBody(req);
+            if (!email || !password) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Email and password are required.' }));
+                return;
+            }
+
+            const { data, error } = await supabase.auth.signUp({
+                email,
+                password
+            });
+
+            if (error) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: error.message }));
+                return;
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ user: data.user, session: data.session }));
+        } catch (err) {
+            console.error('[AUTH ERROR] Signup exception:', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Internal Server Error during registration.' }));
+        }
+        return;
+    }
+
+    // 3c. Endpoint: User Login (Proxying to Supabase Auth)
+    if (pathname === '/api/auth/login' && req.method === 'POST') {
+        setCorsHeaders(res);
+        try {
+            if (!supabase) {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Supabase authentication service is not configured.' }));
+                return;
+            }
+
+            const { email, password } = await getRequestBody(req);
+            if (!email || !password) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Email and password are required.' }));
+                return;
+            }
+
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: error.message }));
+                return;
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ user: data.user, session: data.session }));
+        } catch (err) {
+            console.error('[AUTH ERROR] Login exception:', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Internal Server Error during login.' }));
+        }
         return;
     }
 

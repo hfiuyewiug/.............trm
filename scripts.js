@@ -5799,7 +5799,213 @@ function initPlaceImageSliders() {
         }
     });
 
+    // ==========================================================================
+    // SUPABASE AUTHENTICATION SYSTEM INTERACTION
+    // ==========================================================================
+
+    let currentUser = null;
+    try {
+        const savedUser = localStorage.getItem('explore_user');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+        }
+    } catch (e) {
+        console.error('Failed to parse saved user:', e);
+    }
+
+    const authNavBtn = document.getElementById('nav-auth-btn');
+    const authModal = document.getElementById('auth-modal');
+    const authModalCloseBtn = document.getElementById('auth-modal-close-btn');
+    const authForm = document.getElementById('auth-form');
+    const authEmailInput = document.getElementById('auth-email');
+    const authPasswordInput = document.getElementById('auth-password');
+    const authErrorMsg = document.getElementById('auth-error-msg');
+    const authSubmitBtn = document.getElementById('auth-submit-btn');
+    const authSwitchLink = document.getElementById('auth-switch-link');
+    const authModalTitle = document.getElementById('auth-modal-title');
+    const authModalSubtitle = document.getElementById('auth-modal-subtitle');
+    const authSwitchText = document.getElementById('auth-switch-text');
+
+    let isSignUpMode = false;
+
+    // Create dropdown menu on the fly and attach to authNavBtn
+    const dropdownMenu = document.createElement('div');
+    dropdownMenu.className = 'auth-dropdown-menu';
+    dropdownMenu.innerHTML = `
+        <div class="auth-dropdown-header">
+            Signed in as
+            <div class="auth-dropdown-email" id="auth-user-email"></div>
+        </div>
+        <button class="auth-dropdown-item signout-item" id="auth-signout-btn">
+            🚪 Sign Out
+        </button>
+    `;
+    authNavBtn.appendChild(dropdownMenu);
+
+    const authUserEmail = document.getElementById('auth-user-email');
+    const authSignoutBtn = document.getElementById('auth-signout-btn');
+
+    function updateAuthUI() {
+        if (currentUser) {
+            authNavBtn.classList.add('logged-in');
+            const btnText = authNavBtn.querySelector('.auth-btn-text');
+            if (btnText) {
+                // Show first part of email
+                const displayName = currentUser.email.split('@')[0];
+                btnText.textContent = displayName;
+            }
+            authUserEmail.textContent = currentUser.email;
+        } else {
+            authNavBtn.classList.remove('logged-in');
+            const btnText = authNavBtn.querySelector('.auth-btn-text');
+            if (btnText) {
+                btnText.textContent = 'Sign In';
+            }
+            dropdownMenu.classList.remove('active');
+        }
+    }
+
+    // Initialize UI
+    updateAuthUI();
+
+    // Toggle modal or dropdown depending on login state
+    authNavBtn.addEventListener('click', (e) => {
+        if (currentUser) {
+            // Toggle dropdown
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('active');
+        } else {
+            // Open sign in modal
+            authModal.classList.add('active');
+            resetAuthForm();
+        }
+    });
+
+    // Close dropdown on click outside
+    document.addEventListener('click', () => {
+        dropdownMenu.classList.remove('active');
+    });
+
+    dropdownMenu.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent immediate close when clicking inside dropdown
+    });
+
+    // Sign out action
+    authSignoutBtn.addEventListener('click', () => {
+        currentUser = null;
+        localStorage.removeItem('explore_user');
+        updateAuthUI();
+    });
+
+    // Close modal
+    authModalCloseBtn.addEventListener('click', () => {
+        authModal.classList.remove('active');
+    });
+
+    authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+            authModal.classList.remove('active');
+        }
+    });
+
+    // Switch between Sign In and Sign Up modes
+    authSwitchLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        isSignUpMode = !isSignUpMode;
+        authErrorMsg.style.display = 'none';
+        
+        if (isSignUpMode) {
+            authModalTitle.textContent = 'Create Account';
+            authModalSubtitle.textContent = 'Join us to explore and save your favorite travel spots.';
+            authSubmitBtn.querySelector('span').textContent = 'Sign Up';
+            authSwitchText.innerHTML = `Already have an account? <a href="#" id="auth-switch-link-sub">Sign In</a>`;
+            
+            document.getElementById('auth-switch-link-sub').addEventListener('click', (ev) => {
+                ev.preventDefault();
+                authSwitchLink.click();
+            });
+        } else {
+            authModalTitle.textContent = 'Welcome Back';
+            authModalSubtitle.textContent = 'Sign in to sync your favorite places and custom trips.';
+            authSubmitBtn.querySelector('span').textContent = 'Sign In';
+            authSwitchText.innerHTML = `Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a>`;
+            
+            // Re-bind click event to new switch link
+            const newLink = document.getElementById('auth-switch-link');
+            newLink.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                authSwitchLink.click();
+            });
+        }
+    });
+
+    function resetAuthForm() {
+        authForm.reset();
+        authErrorMsg.style.display = 'none';
+        isSignUpMode = false;
+        authModalTitle.textContent = 'Welcome Back';
+        authModalSubtitle.textContent = 'Sign in to sync your favorite places and custom trips.';
+        authSubmitBtn.querySelector('span').textContent = 'Sign In';
+        authSwitchText.innerHTML = `Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a>`;
+        
+        // Ensure switch link is bound
+        const link = document.getElementById('auth-switch-link');
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            authSwitchLink.click();
+        });
+    }
+
+    // Form submission (signup or login)
+    authForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        authErrorMsg.style.display = 'none';
+        authSubmitBtn.classList.add('loading');
+
+        const email = authEmailInput.value.trim();
+        const password = authPasswordInput.value;
+        const endpoint = isSignUpMode ? '/api/auth/signup' : '/api/auth/login';
+
+        try {
+            const response = await fetch(`${API_BASE}${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Authentication failed. Please check your credentials.');
+            }
+
+            // Successfully authenticated
+            currentUser = {
+                id: data.user.id,
+                email: data.user.email
+            };
+            
+            localStorage.setItem('explore_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            authModal.classList.remove('active');
+            
+            // Alert user of success
+            if (isSignUpMode) {
+                alert('Account created successfully! Welcome to Weekend Explore.');
+            }
+
+        } catch (err) {
+            authErrorMsg.textContent = err.message;
+            authErrorMsg.style.display = 'flex';
+        } finally {
+            authSubmitBtn.classList.remove('loading');
+        }
+    });
+
 })();
+
 
 
 
