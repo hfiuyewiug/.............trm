@@ -4249,9 +4249,9 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: #121216; /* Solid premium dark charcoal */
+    border: 1px solid rgba(18, 18, 22, 0.15);
+    color: #ffffff; /* White text for contrast */
     padding: 8px 16px;
     border-radius: 30px;
     font-family: 'Outfit', sans-serif;
@@ -4260,13 +4260,14 @@ main {
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .auth-nav-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #1e1e26; /* Slightly lighter dark on hover */
+    border-color: rgba(18, 18, 22, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(18, 18, 22, 0.2);
 }
 
 .auth-nav-btn:active {
