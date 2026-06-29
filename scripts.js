@@ -5868,6 +5868,12 @@ function initPlaceImageSliders() {
     // Initialize UI
     updateAuthUI();
 
+    // Automatically pop up the authentication modal on first load if user is not logged in
+    if (!currentUser) {
+        authModal.classList.add('active');
+        resetAuthForm();
+    }
+
     // Toggle modal or dropdown depending on login state
     authNavBtn.addEventListener('click', (e) => {
         if (currentUser) {
