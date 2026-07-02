@@ -149,7 +149,7 @@ const destinations = [
         famousPlaces: [
             {
                 name: 'Virupaksha Temple',
-                image: 'https://images.unsplash.com/photo-1581430873903-4c9103e67049?auto=format&fit=crop&q=80&w=800',
+                image: 'https://i1.wp.com/www.wordzz.com/wp-content/uploads/2016/09/virupaksha-temple.jpg?fit=0%2C0',
                 description: 'An ancient and sacred temple dedicated to Lord Shiva, known for its majestic gateway tower.'
             },
             {
@@ -4412,6 +4412,45 @@ const mockReviewsData = {
                 rating: 5,
                 relative_time_description: '1 week ago',
                 text: 'Lotus Mahal is one of the most photographed monuments in Hampi, and for good reason! The arches are designed in the shape of a lotus flower, which keeps it cool inside.'
+            }
+        ]
+    },
+    'virupaksha temple': {
+        rating: 4.8,
+        user_ratings_total: 24150,
+        formatted_address: 'River Rd, Hampi, Karnataka 583239',
+        formatted_phone_number: '',
+        website: 'https://www.hampi.in/',
+        opening_hours: {
+            open_now: true,
+            weekday_text: [
+                'Monday: 6:00 AM – 8:00 PM',
+                'Tuesday: 6:00 AM – 8:00 PM',
+                'Wednesday: 6:00 AM – 8:00 PM',
+                'Thursday: 6:00 AM – 8:00 PM',
+                'Friday: 6:00 AM – 8:00 PM',
+                'Saturday: 6:00 AM – 8:00 PM',
+                'Sunday: 6:00 AM – 8:00 PM'
+            ]
+        },
+        photos: [
+            { localPath: 'https://i1.wp.com/www.wordzz.com/wp-content/uploads/2016/09/virupaksha-temple.jpg?fit=0%2C0' },
+            { localPath: 'https://wordzz.com/wp-content/uploads/2016/08/Virupaksha-Temple-Hampi.jpg' }
+        ],
+        reviews: [
+            {
+                author_name: 'Anirudh Roy',
+                profile_photo_url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100',
+                rating: 5,
+                relative_time_description: '2 weeks ago',
+                text: 'An architectural wonder that is still an active place of worship. The detailing on the gopuram is magnificent, and the temple elephant Bhuvaneshwari is very friendly!'
+            },
+            {
+                author_name: 'Meera Nair',
+                profile_photo_url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100',
+                rating: 5,
+                relative_time_description: '3 weeks ago',
+                text: 'Stunning temple complex with rich history. The stone carvings are incredibly intricate. Guide services are highly recommended to understand the stories behind the architecture.'
             }
         ]
     }
