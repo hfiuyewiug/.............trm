@@ -145,8 +145,29 @@ const destinations = [
         name: 'Vijayanagara',
         image: 'https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?auto=format&fit=crop&q=100&w=3840',
         color: '#F59E0B',
-        disabled: true,
-        famousPlaces: []
+        disabled: false,
+        famousPlaces: [
+            {
+                name: 'Virupaksha Temple',
+                image: 'https://images.unsplash.com/photo-1581430873903-4c9103e67049?auto=format&fit=crop&q=80&w=800',
+                description: 'An ancient and sacred temple dedicated to Lord Shiva, known for its majestic gateway tower.'
+            },
+            {
+                name: 'Stone Chariot',
+                image: 'https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?auto=format&fit=crop&q=80&w=800',
+                description: 'The iconic stone chariot inside the Vittala Temple, a masterpiece of Vijayanagara architecture.'
+            },
+            {
+                name: 'Lotus Mahal',
+                image: 'https://images.squarespace-cdn.com/content/v1/5e7da3e88b78ee2864e966ca/1596681750867-U7OO1TD9NLJKXXLNLSZE/Vijayanagara+Hampi+880102_c14+lotus+mahal+int_2.jpg',
+                description: 'A beautiful two-storied palace featuring an exquisite blend of Hindu and Islamic design styles.'
+            },
+            {
+                name: 'Hampi Bazaar',
+                image: 'https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&q=80&w=800',
+                description: 'A historic street lined with ancient stone pavilions, once a thriving market of the empire.'
+            }
+        ]
     }
 ];
 
@@ -2502,7 +2523,6 @@ function renderHome() {
     document.querySelectorAll('.dest-card').forEach(card => {
         card.addEventListener('click', () => {
             const destId = card.getAttribute('data-id');
-            if (destId === 'vijayanagara') return;
             renderDestination(destId);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -3518,7 +3538,13 @@ const cityCoordinates = {
 
 
     // Zoo fallback for Mysuru
-    'zoo': { lat: 12.3022, lng: 76.6639 }
+    'zoo': { lat: 12.3022, lng: 76.6639 },
+
+    // Vijayanagara
+    'virupaksha temple': { lat: 15.3350, lng: 76.4600 },
+    'stone chariot': { lat: 15.3422, lng: 76.4672 },
+    'lotus mahal': { lat: 15.3200, lng: 76.4680 },
+    'hampi bazaar': { lat: 15.3355, lng: 76.4619 }
 };
 
 const mangaloreCoordinates = cityCoordinates;
@@ -3528,6 +3554,7 @@ function getCityFallbackCoords(cityId) {
     if (cityId === 'mysuru') return { lat: 12.3082, lng: 76.6520 };
     if (cityId === 'kodagu') return { lat: 12.4244, lng: 75.7382 };
     if (cityId === 'chikkamagaluru') return { lat: 13.3167, lng: 75.7667 };
+    if (cityId === 'vijayanagara') return { lat: 15.3350, lng: 76.4600 };
     return { lat: 12.8700, lng: 74.8800 }; // Mangaluru
 }
 
@@ -3811,6 +3838,12 @@ const cityPlaceIds = {
     'hebbe falls': 'ChIJiV5G22x5rjsR-k49Qv0U5H4',
     'coffee plantations': 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o',
 
+    // Vijayanagara
+    'virupaksha temple': 'ChIJw1j6_l-XvzsR-a-p6193s6k',
+    'stone chariot': 'ChIJx2j6_l-XvzsR-a-p6193s6k',
+    'lotus mahal': 'ChIJz4j6_l-XvzsR-a-p6193s6k',
+    'hampi bazaar': 'ChIJy3j6_l-XvzsR-a-p6193s6k',
+
 
     // Zoo fallback for Mysuru
     'zoo': 'ChIJa-7L3t8XrjsR5fvOQ4z6nI0'
@@ -3860,6 +3893,7 @@ function getCityName(cityId) {
     if (cityId === 'mysuru') return 'Mysuru';
     if (cityId === 'kodagu') return 'Kodagu';
     if (cityId === 'chikkamagaluru') return 'Chikkamagaluru';
+    if (cityId === 'vijayanagara') return 'Vijayanagara';
     return 'Karnataka';
 }
 
@@ -3947,6 +3981,7 @@ function getCityFallbackPlaceId(cityId) {
     if (cityId === 'mysuru') return 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0'; // Mysore Palace
     if (cityId === 'kodagu') return 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4'; // Raja's Seat / Coorg
     if (cityId === 'chikkamagaluru') return 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o'; // Coffee Museum / Chikkamagaluru
+    if (cityId === 'vijayanagara') return 'ChIJw1j6_l-XvzsR-a-p6193s6k'; // Virupaksha Temple / Hampi
     return 'ChIJyXGv0N9ApzsRHk9w_P9lJWs'; // Panambur Beach / Mangalore
 }
 
@@ -4337,6 +4372,46 @@ const mockReviewsData = {
                 rating: 5,
                 relative_time_description: '2 weeks ago',
                 text: 'Fascinating tour of the coffee making process from bean to cup. Tasted some of the finest fresh filter coffee here. Extremely peaceful and green.'
+            }
+        ]
+    },
+    'lotus mahal': {
+        rating: 4.8,
+        user_ratings_total: 9480,
+        formatted_address: 'Lotus Mahal, Hampi, Karnataka 583239',
+        formatted_phone_number: '',
+        website: 'https://www.hampi.in/',
+        opening_hours: {
+            open_now: true,
+            weekday_text: [
+                'Monday: 8:00 AM – 6:00 PM',
+                'Tuesday: 8:00 AM – 6:00 PM',
+                'Wednesday: 8:00 AM – 6:00 PM',
+                'Thursday: 8:00 AM – 6:00 PM',
+                'Friday: 8:00 AM – 6:00 PM',
+                'Saturday: 8:00 AM – 6:00 PM',
+                'Sunday: 8:00 AM – 6:00 PM'
+            ]
+        },
+        photos: [
+            { localPath: 'https://images.squarespace-cdn.com/content/v1/5e7da3e88b78ee2864e966ca/1596681750867-U7OO1TD9NLJKXXLNLSZE/Vijayanagara+Hampi+880102_c14+lotus+mahal+int_2.jpg' },
+            { localPath: 'https://i.pinimg.com/originals/7c/39/36/7c3936326a9e7f1ee4851a95e9886741.jpg' },
+            { localPath: 'https://thumbs.dreamstime.com/b/lotus-mahal-vintage-retro-effect-filtered-hipster-style-travel-image-arches-royal-centre-hampi-karnataka-india-45610689.jpg' }
+        ],
+        reviews: [
+            {
+                author_name: 'Vikram Seth',
+                profile_photo_url: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100',
+                rating: 5,
+                relative_time_description: '3 days ago',
+                text: 'The architecture of Lotus Mahal is simply magnificent. It blends Hindu and Islamic styles beautifully. The structure remains intact and is surrounded by a lovely lawn.'
+            },
+            {
+                author_name: 'Pooja Hegde',
+                profile_photo_url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=100',
+                rating: 5,
+                relative_time_description: '1 week ago',
+                text: 'Lotus Mahal is one of the most photographed monuments in Hampi, and for good reason! The arches are designed in the shape of a lotus flower, which keeps it cool inside.'
             }
         ]
     }
