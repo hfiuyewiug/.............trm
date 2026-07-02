@@ -2311,8 +2311,7 @@ function initNavbarFavoriteListener() {
         });
     }
 
-    const exploreNavLink = document.querySelector('.nav-links .nav-link:first-child') || 
-                            document.querySelector('.nav-links .nav-link');
+    const exploreNavLink = Array.from(document.querySelectorAll('.nav-links .nav-link')).find(link => link.textContent.trim() === 'Explore');
     if (exploreNavLink) {
         exploreNavLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -5064,6 +5063,9 @@ function initPlaceImageSliders() {
                 welcomeAudio.pause();
                 welcomeAudio.currentTime = 0;
             }
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
         } else {
             // If they unmute, play the greeting
             hasPlayed = false;
@@ -5160,6 +5162,14 @@ function initPlaceImageSliders() {
         interactionEvents.forEach(evt => document.addEventListener(evt, handleFirstInteraction));
     }
 
+    // Expose stop welcome audio globally
+    window.stopWelcomeAudio = function() {
+        if (welcomeAudio) {
+            welcomeAudio.pause();
+            welcomeAudio.currentTime = 0;
+        }
+    };
+
     // Initialize when DOM is fully ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initWelcomeVoice);
@@ -5224,6 +5234,10 @@ function initPlaceImageSliders() {
                 modal.remove();
             }, 400);
         });
+        document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
     }
 
     // Lock Notification Popup helper
@@ -5295,12 +5309,20 @@ function initPlaceImageSliders() {
         closeBtn.addEventListener('click', () => {
             overlay.classList.remove('active');
             setTimeout(() => overlay.remove(), 400);
+            document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
         });
 
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 overlay.classList.remove('active');
                 setTimeout(() => overlay.remove(), 400);
+                document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+                if (window.speechSynthesis) {
+                    window.speechSynthesis.cancel();
+                }
             }
         });
 
@@ -5308,6 +5330,61 @@ function initPlaceImageSliders() {
         if (typeof onInit === 'function') {
             onInit(overlay);
         }
+    }
+
+    // Text to Speech Voice Explainer
+    function speakText(text) {
+        if (!window.speechSynthesis) return;
+
+        // Cancel any currently speaking text
+        window.speechSynthesis.cancel();
+
+        // Pause welcome voice if playing
+        if (typeof window.stopWelcomeAudio === 'function') {
+            window.stopWelcomeAudio();
+        }
+
+        // Check if welcome voice is muted (general voice/audio setting)
+        if (localStorage.getItem('welcome-voice-muted') === 'true') {
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        
+        // Find a female voice, prioritizing natural neural voices first
+        const voices = window.speechSynthesis.getVoices();
+        const femaleVoice = voices.find(voice => {
+            const name = voice.name.toLowerCase();
+            return name.includes('natural') && (name.includes('aria') || name.includes('samantha') || name.includes('female') || name.includes('en-'));
+        }) || voices.find(voice => {
+            const name = voice.name.toLowerCase();
+            return name.includes('female') || 
+                   name.includes('zira') || 
+                   name.includes('samantha') || 
+                   name.includes('hazel') ||
+                   name.includes('google uk english female') ||
+                   name.includes('google us english') ||
+                   name.includes('susan') ||
+                   name.includes('heera') ||
+                   name.includes('haruka') ||
+                   (name.includes('microsoft') && (name.includes('zira') || name.includes('en-us')));
+        }) || voices.find(voice => voice.lang.startsWith('en'));
+
+        if (femaleVoice) {
+            utterance.voice = femaleVoice;
+        }
+        
+        utterance.pitch = 1.05; // Slightly higher pitch for a soft, smooth, clear feminine tone
+        utterance.rate = 0.88;  // Slightly increased reading speed as requested
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // Load voices early to cache them
+    if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = () => {
+            window.speechSynthesis.getVoices();
+        };
     }
 
     // Modal Content Templates & Initializers
@@ -5378,7 +5455,8 @@ function initPlaceImageSliders() {
                     </div>
                 </div>
             `,
-            init: null
+            init: null,
+            speechText: "About Us. Simplifying weekend travel planning across Karnataka. Weekend Explore is designed to help you discover the best places to visit during your weekends, whether you are looking for quick getaways or local explorations. Our current focus is on Bengaluru, Mangaluru, and Mysuru to help you break the routine, explore new places, and make every weekend exciting and adventurous."
         },
         'menu-more-info': {
             title: 'More Information',
@@ -5560,7 +5638,8 @@ function initPlaceImageSliders() {
                         }, 100);
                     }
                 }
-            }
+            },
+            speechText: "More Information. Weekend Explore was founded by Gowtham, a first year Engineering student at Yenepoya University, Mangaluru, under the N I A T program. Gowtham created this platform with a simple vision: to help you discover amazing places, experiences, and destinations for your weekends without spending hours searching online."
         },
         'menu-support': {
             title: 'Support Center',
@@ -5616,7 +5695,8 @@ function initPlaceImageSliders() {
                         }, 1200);
                     }, 1800);
                 });
-            }
+            },
+            speechText: "Support Center. If you need assistance, please fill out our support ticket form with your name, email address, and message. Click submit, and our team will get back to you as soon as possible."
         },
         'menu-terms-conditions': {
             title: 'Terms & Conditions',
@@ -5670,7 +5750,8 @@ function initPlaceImageSliders() {
                     const percent = (body.scrollTop / scrollHeight) * 100;
                     progress.style.width = percent + '%';
                 });
-            }
+            },
+            speechText: "Terms and Conditions. Welcome to Weekend Explore. By using this platform, you agree that destination details, opening hours, prices, and transport schedules are for informational purposes only and subject to change. Users are responsible for their own travel decisions, safety, and expenses. We respect your privacy and thank you for using our platform."
         },
         'menu-updates': {
             title: 'Platform Updates',
@@ -5782,20 +5863,40 @@ function initPlaceImageSliders() {
                         });
                     }
                 });
-            }
+            },
+            speechText: "Platform Updates. Currently, only Version 1.1 is available. It launched our foundation with tourist listings, place details, and budget recommendations. Versions 1.2 and 1.3 are currently locked and are available under local development only."
         }
     };
 
     // Bind clicks to menu items
     Object.keys(MENU_ACTIONS).forEach(id => {
-        const link = document.getElementById(id);
-        if (link) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const config = MENU_ACTIONS[id];
-                openInteractiveModal(config.title, config.getHTML(), config.init);
-            });
+        const drawerLink = document.getElementById(id);
+        const navId = id.replace('menu-', 'nav-');
+        const navLink = document.getElementById(navId);
+
+        const clickHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Set active class on header nav link
+            document.querySelectorAll('.nav-links .nav-link').forEach(link => link.classList.remove('active'));
+            if (navLink) {
+                navLink.classList.add('active');
+            }
+            
+            const config = MENU_ACTIONS[id];
+            openInteractiveModal(config.title, config.getHTML(), config.init);
+
+            if (config.speechText) {
+                speakText(config.speechText);
+            }
+        };
+
+        if (drawerLink) {
+            drawerLink.addEventListener('click', clickHandler);
+        }
+        if (navLink) {
+            navLink.addEventListener('click', clickHandler);
         }
     });
 
