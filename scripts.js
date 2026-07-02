@@ -1,61 +1,5 @@
 const destinations = [
     {
-        id: 'kodagu',
-        name: 'Kodagu',
-        image: 'https://images.unsplash.com/photo-1694927908265-5e0d38690873?auto=format&fit=crop&q=100&w=3840',
-        color: '#4C3BCF',
-        famousPlaces: [
-            {
-                name: 'Abbey Falls',
-                image: 'assets/places/kodagu_abbey_falls_new.jpg',
-                description: 'A stunning waterfall surrounded by lush greenery and coffee plantations.'
-            },
-            {
-                name: 'Raja’s Seat',
-                image: 'assets/places/kodagu_rajas_seat_new.jpg',
-                description: 'A beautiful garden with a panoramic view of the hills and sunset.'
-            },
-            {
-                name: 'Dubare Elephant Camp',
-                image: 'assets/places/kodagu_dubare_new.jpg',
-                description: 'Experience elephants up close in their natural habitat along the Kaveri river.'
-            },
-            {
-                name: 'Talakaveri',
-                image: 'assets/places/kodagu_talakaveri_new.jpg',
-                description: 'The origin of the Kaveri river, located on the Brahmagiri hills.'
-            }
-        ]
-    },
-    {
-        id: 'chikkamagaluru',
-        name: 'Chikkamagaluru',
-        image: 'https://media.istockphoto.com/id/1225793683/photo/mountain-gap-with-river-flowing-and-green-forests.jpg?s=612x612&w=is&k=20&c=0eyP2-c8U2zDgUTpIriIDhFPIT_UxrukgbJO4sT5XHQ=',
-        color: '#2D9596',
-        famousPlaces: [
-            {
-                name: 'Mullayanagiri Peak',
-                image: 'assets/places/chikkamagaluru_mullayanagiri_new.jpg',
-                description: 'The highest peak in Karnataka, offering breathtaking panoramic views.'
-            },
-            {
-                name: 'Baba Budangiri',
-                image: 'assets/places/chikkamagaluru_bababudangiri_new.jpg',
-                description: 'A sacred mountain range known for its unique trekking trails.'
-            },
-            {
-                name: 'Hebbe Falls',
-                image: 'assets/places/chikkamagaluru_hebbe_falls_new.jpg',
-                description: 'A magnificent two-staged waterfall accessible via an adventurous jeep ride.'
-            },
-            {
-                name: 'Coffee Plantations',
-                image: 'assets/places/chikkamagaluru_coffee_plantations_new.jpg',
-                description: 'Explore the sprawling coffee estates and learn about coffee processing.'
-            }
-        ]
-    },
-    {
         id: 'mangaluru',
         name: 'Mangaluru',
         image: 'https://www.traveltourguru.in/blog/wp-content/uploads/2022/10/Surathkal-Lighthouse-at-NITK-Beach.jpg',
@@ -111,7 +55,6 @@ const destinations = [
             }
         ]
     },
-
     {
         id: 'bangalore',
         name: 'Bangalore',
@@ -137,6 +80,62 @@ const destinations = [
                 name: 'Cubbon Park',
                 image: 'https://bangaloretourism.in/images/v2/places-to-visit/cubbon-park-bangalore/cubbon-park-bangalore-bangalore-entry-ticket-price-bangalore-tourism-cr-pmekara.jpg',
                 description: 'The lungs of the city, a sprawling green space with many historic buildings.'
+            }
+        ]
+    },
+    {
+        id: 'kodagu',
+        name: 'Kodagu',
+        image: 'https://images.unsplash.com/photo-1694927908265-5e0d38690873?auto=format&fit=crop&q=100&w=3840',
+        color: '#4C3BCF',
+        famousPlaces: [
+            {
+                name: 'Abbey Falls',
+                image: 'assets/places/kodagu_abbey_falls_new.jpg',
+                description: 'A stunning waterfall surrounded by lush greenery and coffee plantations.'
+            },
+            {
+                name: 'Raja’s Seat',
+                image: 'assets/places/kodagu_rajas_seat_new.jpg',
+                description: 'A beautiful garden with a panoramic view of the hills and sunset.'
+            },
+            {
+                name: 'Dubare Elephant Camp',
+                image: 'assets/places/kodagu_dubare_new.jpg',
+                description: 'Experience elephants up close in their natural habitat along the Kaveri river.'
+            },
+            {
+                name: 'Talakaveri',
+                image: 'assets/places/kodagu_talakaveri_new.jpg',
+                description: 'The origin of the Kaveri river, located on the Brahmagiri hills.'
+            }
+        ]
+    },
+    {
+        id: 'chikkamagaluru',
+        name: 'Chikkamagaluru',
+        image: 'https://media.istockphoto.com/id/1225793683/photo/mountain-gap-with-river-flowing-and-green-forests.jpg?s=612x612&w=is&k=20&c=0eyP2-c8U2zDgUTpIriIDhFPIT_UxrukgbJO4sT5XHQ=',
+        color: '#2D9596',
+        famousPlaces: [
+            {
+                name: 'Mullayanagiri Peak',
+                image: 'assets/places/chikkamagaluru_mullayanagiri_new.jpg',
+                description: 'The highest peak in Karnataka, offering breathtaking panoramic views.'
+            },
+            {
+                name: 'Baba Budangiri',
+                image: 'assets/places/chikkamagaluru_bababudangiri_new.jpg',
+                description: 'A sacred mountain range known for its unique trekking trails.'
+            },
+            {
+                name: 'Hebbe Falls',
+                image: 'assets/places/chikkamagaluru_hebbe_falls_new.jpg',
+                description: 'A magnificent two-staged waterfall accessible via an adventurous jeep ride.'
+            },
+            {
+                name: 'Coffee Plantations',
+                image: 'assets/places/chikkamagaluru_coffee_plantations_new.jpg',
+                description: 'Explore the sprawling coffee estates and learn about coffee processing.'
             }
         ]
     },
