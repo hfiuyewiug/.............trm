@@ -5761,18 +5761,19 @@ function initPlaceImageSliders() {
                     <form class="support-form" id="modal-support-form">
                         <div class="form-group">
                             <label for="support-name">Your Name</label>
-                            <input type="text" id="support-name" placeholder="Enter your name" required>
+                            <input type="text" id="support-name" name="name" placeholder="Enter your name" data-fs-field required>
                         </div>
                         <div class="form-group">
                             <label for="support-email">Email Address</label>
-                            <input type="email" id="support-email" placeholder="name@example.com" required>
+                            <input type="email" id="support-email" name="email" placeholder="name@example.com" data-fs-field required>
                         </div>
                         <div class="form-group">
                             <label for="support-message">How can we help?</label>
-                            <textarea id="support-message" rows="4" placeholder="Tell us what you need assistance with..." required></textarea>
+                            <textarea id="support-message" name="message" rows="4" placeholder="Tell us what you need assistance with..." data-fs-field required></textarea>
                         </div>
+                        <div id="support-form-error" style="display: none; color: #dc2626; font-size: 0.85rem; margin-top: 0.75rem; text-align: center; font-weight: 500; background: rgba(220, 38, 38, 0.05); padding: 0.5rem; border-radius: 8px; border: 1px solid rgba(220, 38, 38, 0.15);"></div>
                         <div class="submit-btn-container">
-                            <button type="submit" class="support-submit-btn" id="support-submit-btn">
+                            <button type="submit" class="support-submit-btn" id="support-submit-btn" data-fs-submit-btn>
                                 <span class="btn-loader"></span>
                                 <span class="btn-success-check">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -5788,26 +5789,37 @@ function initPlaceImageSliders() {
             init: (modal) => {
                 const form = modal.querySelector('#modal-support-form');
                 const submitBtn = modal.querySelector('#support-submit-btn');
+                const errorContainer = modal.querySelector('#support-form-error');
 
                 form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    if (submitBtn.classList.contains('loading') || submitBtn.classList.contains('success')) return;
-
-                    // Trigger loading animation
+                    if (submitBtn.classList.contains('loading') || submitBtn.classList.contains('success')) {
+                        e.preventDefault();
+                        return;
+                    }
                     submitBtn.classList.add('loading');
-
-                    // Simulate API network call
-                    setTimeout(() => {
-                        submitBtn.classList.remove('loading');
-                        submitBtn.classList.add('success');
-
-                        // Clean reset and close modal after checkmark completes animation
-                        setTimeout(() => {
-                            modal.classList.remove('active');
-                            setTimeout(() => modal.remove(), 400);
-                        }, 1200);
-                    }, 1800);
+                    errorContainer.style.display = 'none';
                 });
+
+                if (window.formspree) {
+                    window.formspree('initForm', {
+                        formElement: form,
+                        formId: 'mwvdwqva',
+                        onSuccess: (data) => {
+                            submitBtn.classList.remove('loading');
+                            submitBtn.classList.add('success');
+                            setTimeout(() => {
+                                modal.classList.remove('active');
+                                setTimeout(() => modal.remove(), 400);
+                            }, 1200);
+                        },
+                        onError: (errors) => {
+                            submitBtn.classList.remove('loading');
+                            let errorMsg = errors.map(e => e.message).join(', ');
+                            errorContainer.textContent = errorMsg || 'Something went wrong. Please try again.';
+                            errorContainer.style.display = 'block';
+                        }
+                    });
+                }
             },
             speechText: "Support Center. If you need assistance, please fill out our support ticket form with your name, email address, and message. Click submit, and our team will get back to you as soon as possible."
         },

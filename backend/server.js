@@ -34,6 +34,14 @@ function loadEnv() {
 // Load environment configurations
 loadEnv();
 
+// Prevent server crashes on unhandled errors (e.g., EPIPE, ECONNRESET when client aborts request)
+process.on('uncaughtException', (err) => {
+    console.error('[UNCAUGHT EXCEPTION]', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('[UNHANDLED REJECTION] at:', promise, 'reason:', reason);
+});
+
 // Supabase Configuration Validation
 function isSupabaseConfigured() {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -457,6 +465,31 @@ const server = http.createServer(async (req, res) => {
 
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ user: data.user, session: data.session }));
+
+            // Log successful sign-in to login_history table asynchronously
+            (async () => {
+                try {
+                    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
+                    const userAgent = req.headers['user-agent'] || '';
+                    
+                    const { error: logError } = await supabase
+                        .from('login_history')
+                        .insert({
+                            user_id: data.user.id,
+                            email: data.user.email,
+                            ip_address: ip,
+                            user_agent: userAgent
+                        });
+
+                    if (logError) {
+                        console.error('[LOGIN HISTORY ERROR] Failed to log sign-in:', logError.message);
+                    } else {
+                        console.log(`[LOGIN HISTORY] Logged successful sign-in for ${data.user.email}`);
+                    }
+                } catch (logErr) {
+                    console.error('[LOGIN HISTORY ERROR] Exception logging sign-in:', logErr.message);
+                }
+            })();
         } catch (err) {
             console.error('[AUTH ERROR] Login exception:', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
