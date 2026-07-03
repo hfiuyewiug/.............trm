@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
+    <!-- Mandatory Auth Overlay -->
+    <div id="mandatory-auth-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.4); z-index: 99999; display: none; align-items: center; justify-content: center; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+        <div id="sign-in-container"></div>
+    </div>
     <header class="main-header">
         <nav class="navbar">
             <a href="#" class="navbar-brand" onclick="renderHome()">
@@ -51,6 +55,7 @@
                     </svg>
                     <span class="auth-btn-text">Sign In</span>
                 </button>
+                <div id="user-button" style="display: none; align-items: center; margin-left: 8px;"></div>
                 <button class="hamburger-menu-btn" id="hamburger-menu-btn" aria-label="Toggle Navigation Menu">
                     <span class="hamburger-bar bar-1"></span>
                     <span class="hamburger-bar bar-2"></span>
@@ -164,70 +169,20 @@
         </div>
     </div>
 
-    <!-- Auth Modal -->
-    <div class="auth-modal-overlay" id="auth-modal">
-        <div class="auth-modal-card">
-            <button class="auth-modal-close" id="auth-modal-close-btn" aria-label="Close modal">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-            <div class="auth-modal-header">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke-width="2.5" class="auth-modal-logo">
-                    <circle cx="16" cy="9" r="3" fill="url(#logoGrad)" />
-                    <path d="M3 20L10 8L15 15L18 11L21 20H3Z" stroke="url(#logoGrad)" fill="none" stroke-linejoin="round" stroke-linecap="round" />
-                </svg>
-                <h3 id="auth-modal-title">Welcome Back</h3>
-                <p id="auth-modal-subtitle">Sign in to sync your favorite places and custom trips.</p>
-            </div>
-            <div class="auth-modal-body">
-                <form id="auth-form">
-                    <!-- Email Group -->
-                    <div class="auth-input-group" id="auth-email-group">
-                        <label for="auth-email">Email Address</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">✉️</span>
-                            <input type="email" id="auth-email" placeholder="you@example.com" required autocomplete="email">
-                        </div>
-                    </div>
-                    <!-- Password Group (with Forgot Password Trigger) -->
-                    <div class="auth-input-group" id="auth-password-group">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                            <label for="auth-password" style="margin-bottom: 0;">Password</label>
-                            <a href="#" id="auth-forgot-link" style="font-size: 0.8rem; color: #FF007F; text-decoration: none; font-weight: 600;">Forgot Password?</a>
-                        </div>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🔒</span>
-                            <input type="password" id="auth-password" placeholder="••••••••" required autocomplete="current-password">
-                        </div>
-                    </div>
-                    <!-- Set New Password Groups (Hidden by default) -->
-                    <div class="auth-input-group" id="auth-new-password-group" style="display: none;">
-                        <label for="auth-new-password">New Password</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🔒</span>
-                            <input type="password" id="auth-new-password" placeholder="••••••••" autocomplete="new-password">
-                        </div>
-                    </div>
-                    <div class="auth-input-group" id="auth-confirm-password-group" style="display: none;">
-                        <label for="auth-confirm-password">Confirm Password</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🔒</span>
-                            <input type="password" id="auth-confirm-password" placeholder="••••••••" autocomplete="new-password">
-                        </div>
-                    </div>
-                    <div id="auth-error-msg" class="auth-error-banner" style="display: none;"></div>
-                    <button type="submit" class="auth-submit-btn" id="auth-submit-btn">
-                        <span>Sign In</span>
-                    </button>
-                </form>
-            </div>
-            <div class="auth-modal-footer">
-                <p id="auth-switch-text">Don't have an account? <a href="#" id="auth-switch-link">Sign Up</a></p>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/@formspree/ajax@1"></script>
+    <script
+      crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/@clerk/ui@latest/dist/ui.browser.js"
+      type="text/javascript"
+    ></script>
+    <script
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_c3RpcnJpbmctc2t5bGFyay05LmNsZXJrLmFjY291bnRzLmRldiQ"
+      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
     <script src="scripts.js?v=14"></script>
 </body>
 </html>
