@@ -6065,7 +6065,6 @@ function initPlaceImageSliders() {
     const userButtonDiv = document.getElementById('user-button');
 
     async function initializeClerk() {
-        console.log("--> inside initializeClerk, typeof window.Clerk:", typeof window.Clerk, "value:", window.Clerk);
         if (!window.Clerk) {
             console.error('Clerk JS not loaded');
             return;
@@ -6213,15 +6212,11 @@ function initPlaceImageSliders() {
 
     // Initialize Clerk when DOM is ready, waiting for async script if necessary
     function tryInitializeClerk() {
-        console.log("--> tryInitializeClerk running, typeof window.Clerk:", typeof window.Clerk);
         if (window.Clerk) {
-            console.log("--> window.Clerk is present immediately.");
             initializeClerk();
         } else {
-            console.log("--> window.Clerk is missing, starting polling...");
             const checkClerk = setInterval(() => {
                 if (window.Clerk) {
-                    console.log("--> window.Clerk found via polling! clearInterval and initialize");
                     clearInterval(checkClerk);
                     initializeClerk();
                 }
