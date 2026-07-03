@@ -2241,7 +2241,7 @@ function renderGlobalFavoritesPage() {
                 ${allMatchingFoods.map(place => `
                     <div class="place-card favorite-food-card" data-name="${place.name}">
                         <div class="place-img" style="position: relative;">
-                            <img src="${place.image}" alt="${place.name}">
+                            <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
                             <div class="food-favorite-icon-badge">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF4A4A" stroke="#FF4A4A" stroke-width="2" class="heart-icon-svg"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                             </div>
@@ -2431,7 +2431,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" data-active-index="0" onclick="handleSliderCardClick(event, this)">
                                     <button class="slider-nav-btn prev" onclick="handleSliderNav(event, this, -1)">&lsaquo;</button>
                                     <div class="food-slider-content">
-                                        <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
+                                        <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}" loading="lazy" decoding="async">
                                         <div class="food-slider-info">
                                             <span class="food-slider-name">${place.bestFoods[0].name}</span>
                                             <span class="food-slider-price">${place.bestFoods[0].price}</span>
@@ -2782,7 +2782,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
                                             <div class="best-food-slider-card" data-place-name="${place.name.replace(/'/g, "\\'")}" data-active-index="0" onclick="handleSliderCardClick(event, this)">
                                                 <button class="slider-nav-btn prev" onclick="handleSliderNav(event, this, -1)">&lsaquo;</button>
                                                 <div class="food-slider-content">
-                                                    <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}">
+                                                    <img class="food-slider-img" src="${place.bestFoods[0].img}" alt="${place.bestFoods[0].name}" loading="lazy" decoding="async">
                                                     <div class="food-slider-info">
                                                         <span class="food-slider-name">${place.bestFoods[0].name}</span>
                                                         <span class="food-slider-price">${place.bestFoods[0].price}</span>
@@ -3185,7 +3185,7 @@ function openCityMustWatchModal(cityId) {
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
-                                                <img src="${place.image}" alt="${place.name}" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
+                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
                                                     <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>
@@ -4814,7 +4814,7 @@ window.showFoodPopup = function(name, img, price) {
                                 const actualIdx = idx % allFoods.length;
                                 return `
                                 <div class="popup-food-card popup-card-${actualIdx}" onclick="selectPopupFood(${actualIdx})" style="display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid rgba(22, 163, 74, 0.15); cursor: pointer; flex-shrink: 0; transition: all 0.2s ease;">
-                                    <img src="${food.img}" alt="${food.name}" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px;">
+                                    <img src="${food.img}" alt="${food.name}" loading="lazy" decoding="async" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px;">
                                     <span style="font-size: 0.7rem; font-weight: 600; color: #2D3748;">${food.name}</span>
                                 </div>
                                 `;
@@ -4833,7 +4833,7 @@ window.showFoodPopup = function(name, img, price) {
                 <button class="food-popup-close" id="food-popup-close" aria-label="Close popup">&times;</button>
                 <div class="food-popup-img">
                     ${hasMultipleFoods ? `<button class="popup-nav-btn prev" id="popup-prev-btn" aria-label="Previous specialty">&lsaquo;</button>` : ''}
-                    <img src="${img}" alt="${name}">
+                    <img src="${img}" alt="${name}" loading="lazy" decoding="async">
                     ${hasMultipleFoods ? `<button class="popup-nav-btn next" id="popup-next-btn" aria-label="Next specialty">&rsaquo;</button>` : ''}
                 </div>
                 <div class="food-popup-info">
@@ -5902,12 +5902,20 @@ function initPlaceImageSliders() {
                 const body = modal.querySelector('.menu-modal-body');
                 const progress = modal.querySelector('#terms-progress-bar');
                 
+                let scrollTicking = false;
                 body.addEventListener('scroll', () => {
-                    const scrollHeight = body.scrollHeight - body.clientHeight;
-                    if (scrollHeight <= 0) return;
-                    const percent = (body.scrollTop / scrollHeight) * 100;
-                    progress.style.width = percent + '%';
-                });
+                    if (!scrollTicking) {
+                        window.requestAnimationFrame(() => {
+                            const scrollHeight = body.scrollHeight - body.clientHeight;
+                            if (scrollHeight > 0) {
+                                const percent = (body.scrollTop / scrollHeight) * 100;
+                                progress.style.width = percent + '%';
+                            }
+                            scrollTicking = false;
+                        });
+                        scrollTicking = true;
+                    }
+                }, { passive: true });
             },
             speechText: "Terms and Conditions. Welcome to Weekend Explore. By using this platform, you agree that destination details, opening hours, prices, and transport schedules are for informational purposes only and subject to change. Users are responsible for their own travel decisions, safety, and expenses. We respect your privacy and thank you for using our platform."
         },
@@ -6123,6 +6131,28 @@ function initPlaceImageSliders() {
                 }
             });
             updateAuthUI();
+
+            // Auto-pop sign-in modal after 2 seconds if user is not authenticated
+            setTimeout(() => {
+                if (window.Clerk && !window.Clerk.user) {
+                    const mandatoryOverlay = document.getElementById('mandatory-auth-overlay');
+                    const signInContainer = document.getElementById('sign-in-container');
+                    if (mandatoryOverlay && signInContainer) {
+                        mandatoryOverlay.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                        try {
+                            window.Clerk.mountSignIn(signInContainer, { 
+                                routing: 'hash',
+                                appearance: {
+                                    variables: { colorPrimary: 'red' }
+                                }
+                            });
+                        } catch (err) {
+                            signInContainer.innerHTML = `<div style="background: white; padding: 2rem; border-radius: 12px; color: #d93025; font-weight: 600;">Error: ${err.message}</div>`;
+                        }
+                    }
+                }
+            }, 2000);
 
             // Listen for auth state changes
             window.Clerk.addListener(({ user }) => {

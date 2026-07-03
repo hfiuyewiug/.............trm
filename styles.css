@@ -9,7 +9,7 @@
     --shadow-medium: 0 15px 40px rgba(0, 0, 0, 0.1);
     --radius-lg: 24px;
     --radius-md: 16px;
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -1220,6 +1220,9 @@ main {
     cursor: pointer;
     box-shadow: var(--shadow-soft);
     transition: var(--transition);
+    content-visibility: auto;
+    contain: paint;
+    will-change: transform;
 }
 
 .category-card:hover {
@@ -3308,6 +3311,7 @@ main {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    will-change: opacity;
 }
 
 .drawer-overlay.active {
@@ -3334,6 +3338,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 2rem 2rem 1.25rem 2rem;
+    will-change: transform;
 }
 
 .menu-drawer.active {
