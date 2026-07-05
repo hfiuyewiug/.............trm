@@ -2,7 +2,7 @@ const destinations = [
     {
         id: 'mangaluru',
         name: 'Mangaluru',
-        image: 'https://www.traveltourguru.in/blog/wp-content/uploads/2022/10/Surathkal-Lighthouse-at-NITK-Beach.jpg',
+        image: 'assets/destinations/mangaluru.png',
         color: '#FF6B6B',
         famousPlaces: [
             {
@@ -30,12 +30,12 @@ const destinations = [
     {
         id: 'mysuru',
         name: 'Mysuru',
-        image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840',
+        image: 'assets/destinations/mysuru.png',
         color: '#FFD93D',
         famousPlaces: [
             {
                 name: 'Mysore Palace',
-                image: 'https://images.unsplash.com/photo-1588665805566-22442468305c?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1588665805566-22442468305c?auto=format&fit=crop&q=80&w=800',
                 description: 'One of the most magnificent palaces in India, a true architectural marvel.'
             },
             {
@@ -58,7 +58,7 @@ const destinations = [
     {
         id: 'bangalore',
         name: 'Bangalore',
-        image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg',
+        image: 'assets/destinations/bangalore.png',
         color: '#8338EC',
         famousPlaces: [
             {
@@ -68,12 +68,12 @@ const destinations = [
             },
             {
                 name: 'Bangalore Palace',
-                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=800',
                 description: 'A royal palace inspired by Windsor Castle, known for its Tudor-style architecture.'
             },
             {
                 name: 'ISKCON Temple',
-                image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=800',
                 description: 'A massive cultural complex and temple dedicated to Krishna and Radha.'
             },
             {
@@ -86,7 +86,7 @@ const destinations = [
     {
         id: 'kodagu',
         name: 'Kodagu',
-        image: 'https://images.unsplash.com/photo-1694927908265-5e0d38690873?auto=format&fit=crop&q=100&w=3840',
+        image: 'assets/destinations/kodagu.png',
         color: '#4C3BCF',
         famousPlaces: [
             {
@@ -114,7 +114,7 @@ const destinations = [
     {
         id: 'chikkamagaluru',
         name: 'Chikkamagaluru',
-        image: 'https://media.istockphoto.com/id/1225793683/photo/mountain-gap-with-river-flowing-and-green-forests.jpg?s=612x612&w=is&k=20&c=0eyP2-c8U2zDgUTpIriIDhFPIT_UxrukgbJO4sT5XHQ=',
+        image: 'assets/destinations/chikkamagaluru.png',
         color: '#2D9596',
         famousPlaces: [
             {
@@ -142,7 +142,7 @@ const destinations = [
     {
         id: 'vijayanagara',
         name: 'Vijayanagara',
-        image: 'https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?auto=format&fit=crop&q=100&w=3840',
+        image: 'assets/destinations/vijayanagara.png',
         color: '#F59E0B',
         disabled: false,
         famousPlaces: [
@@ -171,16 +171,16 @@ const destinations = [
 ];
 
 const mangaloreCategories = [
-    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'https://www.traveltourguru.in/blog/wp-content/uploads/2022/10/Surathkal-Lighthouse-at-NITK-Beach.jpg' },
+    { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'assets/places/panambur_beach.jpg' },
     { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'assets/places/kadri_temple.jpg' },
-    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
-    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://vl-prod-static.b-cdn.net/system/images/000/277/222/8a9f6cab8057c115cd3b9dc620b8a9f7/banner/bmcermayi.jpg?1550889416' },
-    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
-    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.trawell.in/admin/images/upload/547012922Pilikula_Main.jpg' },
-    { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://aroundmangalore.com/wp-content/uploads/2017/10/ONYX-Air-Lounge-Kitchen-MG-Road-Mangalore-P4.jpg' },
-    { id: 'boating', name: 'Boating & Water Sports', desc: 'Explore boating spots →', image: 'https://aroundmangalore.com/wp-content/uploads/2015/09/Pilikula-6.png' },
-    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://i.ytimg.com/vi/npcPBNhWrL4/hqdefault.jpg' }
+    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
+    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1438263308818-df68f845ee37?auto=format&fit=crop&q=80&w=600' },
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
+    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
+    { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=600' },
+    { id: 'boating', name: 'Boating & Water Sports', desc: 'Explore boating spots →', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600' },
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'assets/places/esports_arena_1.jpg' }
 ];
 
 const mangaloreCategoryData = {
@@ -377,7 +377,7 @@ const mangaloreCategoryData = {
             },
             { 
                 name: 'Urwa Marigudi Temple', 
-                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=100&w=3840', 
+                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800', 
                 description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.',
                 openHours: '6:00 AM – 1:00 PM, 4:00 PM – 9:00 PM',
                 bestTime: 'Tuesdays & Fridays (All day)',
@@ -890,14 +890,14 @@ const mangaloreCategoryData = {
 };
 
 const bangaloreCategories = [
-    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://www.nobroker.in/blog/wp-content/uploads/2024/03/lalbagh-botanical-garden-1.jpg' },
-    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg' },
-    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://www.explorebees.com/uploads/blogs/A-Road-Trip-from-Bangalore-to-Adiyogi-Shiva-Statue-Chikkaballapur.jpg' },
-    { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://lh3.googleusercontent.com/i8Vrd_X2CJmyIanO7jBQ48hppHl1BT3LEQJFlZAOhWZ3Ux05oSvq2nAcuHA_-s05AS4OF-yDT6DOlhE0_A5ioAJtCYVbbkc21_8Q5fxW=w1024-rw' },
-    { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://www.treebo.com/blog/wp-content/uploads/2016/02/Prost-Brew-Pub-Koramangala-1.jpg' },
-    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://www.thegari.in/blog/wp-content/uploads/2025/08/thottikallu-falls.jpg' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800' },
-    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800' }
+    { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
+    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=600' },
+    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://images.unsplash.com/photo-1602631985686-2bb0f3010ae5?auto=format&fit=crop&q=80&w=600' },
+    { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
+    { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=600' },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600' },
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600' }
 ];
 
 const bangaloreCategoryData = {
@@ -1232,7 +1232,7 @@ const bangaloreCategoryData = {
             },
             { 
                 name: 'Windmills Craftworks', 
-                image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=100&w=3840', 
+                image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', 
                 description: 'A sophisticated craft brewery offering premier jazz performances and an integrated library.',
                 openHours: '12:00 PM – 1:00 AM',
                 bestTime: 'Jazz Night (Fri/Sat evenings)',
@@ -1241,7 +1241,7 @@ const bangaloreCategoryData = {
             },
             { 
                 name: 'Arbor Brewing Company', 
-                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=100&w=3840', 
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', 
                 description: 'A lively and rustic brewery serving excellent craft IPAs, stouts, and global food.',
                 openHours: '12:00 PM – 12:30 AM',
                 bestTime: 'Weekday Happy Hours',
@@ -1535,15 +1535,15 @@ const bangaloreCategoryData = {
 };
 
 const mysuruCategories = [
-    { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://www.itslife.in/wp-content/gallery/travel/travel-karanji-lake5.jpg' },
-    { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://i.pinimg.com/736x/9e/69/4c/9e694c072f6c1a9be2a9ae4b2c0b170c.jpg' },
-    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg' },
-    { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000' },
-    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg' },
-    { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=800' },
-    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800' }
+    { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=600' },
+    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=600' },
+    { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
+    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=600' },
+    { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600' },
+    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://images.unsplash.com/photo-1566121933407-3c7ccd22f5a3?auto=format&fit=crop&q=80&w=600' },
+    { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600' },
+    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600' }
 ];
 
 const mysuruCategoryData = {
@@ -1552,7 +1552,7 @@ const mysuruCategoryData = {
         places: [
             { 
                 name: 'Mysore Palace', 
-                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840', 
+                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=800', 
                 description: 'One of the most grand palaces in India, outstandingly illuminated with 97,000 bulbs.',
                 openHours: '10:00 AM – 5:30 PM (Illumination Sundays/Holidays 7:00 PM – 8:00 PM)',
                 bestTime: 'Sunday Evening (7:00 PM)',
@@ -2979,7 +2979,7 @@ const cityMustWatchData = {
         places: [
             {
                 name: 'Cubbon Park',
-                image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800',
                 rating: '4.8',
                 location: 'Kasturba Road, Bangalore',
                 bestTime: '🌳 Morning Stroll: 8:00 AM',
@@ -2995,7 +2995,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'Bangalore Palace',
-                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=800',
                 rating: '4.6',
                 location: 'Vasanth Nagar, Bangalore',
                 bestTime: '🏰 Tudor Palace Tour: 11:30 AM',
@@ -3003,7 +3003,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'ISKCON Temple',
-                image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1610416976865-c81b957697b0?auto=format&fit=crop&q=80&w=800',
                 rating: '4.8',
                 location: 'Rajajinagar, Bangalore',
                 bestTime: '🛕 Evening Darshan: 4:30 PM',
@@ -3011,7 +3011,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'UB City',
-                image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&q=80&w=800',
                 rating: '4.9',
                 location: 'Vittal Mallya Road, Bangalore',
                 bestTime: '🍷 Premium Dining: 7:30 PM',
@@ -3077,7 +3077,7 @@ const cityMustWatchData = {
             },
             {
                 name: 'Mysore Palace',
-                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=100&w=3840',
+                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=800',
                 rating: '4.9',
                 location: 'Sayyaji Rao Road, Mysore',
                 bestTime: '👑 Royal Palace Tour: 11:00 AM',
