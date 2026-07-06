@@ -1,9 +1,10 @@
-﻿const http = require('http');
+const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const { createClient } = require('@supabase/supabase-js');
+const axios = require('axios');
 global.WebSocket = require('ws');
 
 
@@ -104,6 +105,14 @@ const server = http.createServer(async (req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
+    
+    // Redirect /admin to /admin/ for correct relative asset loading
+    if (pathname === '/admin') {
+        res.writeHead(301, { 'Location': '/admin/' });
+        res.end();
+        return;
+    }
+    
     console.log(`[REQUEST] ${req.method} ${parsedUrl.path}`);
 
     // 2. Endpoint: Fetch Google Place Details (with Supabase caching)
@@ -394,6 +403,441 @@ const server = http.createServer(async (req, res) => {
         };
 
         fetchPhoto(googleUrl);
+        return;
+    }
+
+    // --- ANALYTICS & ADMIN ENDPOINTS ---
+
+    // Auth validation helper
+    async function verifyAdmin(req) {
+        const sessionId = req.headers['x-clerk-session-id'] || (req.headers['authorization'] ? req.headers['authorization'].split(' ')[1] : null);
+        const userId = req.headers['x-clerk-user-id'];
+        
+        if (!sessionId || !userId) {
+            console.warn('[Admin Auth] Missing sessionId or userId in headers');
+            return false;
+        }
+
+        try {
+            // Verify session active
+            const sessionRes = await axios.get(`https://api.clerk.com/v1/sessions/${sessionId}`, {
+                headers: { 'Authorization': `Bearer ${process.env.CLERK_SECRET_KEY}` }
+            });
+            if (sessionRes.data.status !== 'active' || sessionRes.data.user_id !== userId) {
+                console.warn('[Admin Auth] Clerk session is not active or user mismatch');
+                return false;
+            }
+            
+            // Verify user is admin
+            const userRes = await axios.get(`https://api.clerk.com/v1/users/${userId}`, {
+                headers: { 'Authorization': `Bearer ${process.env.CLERK_SECRET_KEY}` }
+            });
+            
+            const email = userRes.data.email_addresses && userRes.data.email_addresses[0] ? userRes.data.email_addresses[0].email_address : '';
+            const role = userRes.data.public_metadata ? userRes.data.public_metadata.role : '';
+            
+            const adminEmails = (process.env.ADMIN_EMAILS || 'gowtham@example.com,yadhur689@gmail.com').split(',').map(e => e.trim().toLowerCase());
+            if (adminEmails.includes(email.toLowerCase()) || role === 'admin') {
+                return true;
+            }
+            console.warn(`[Admin Auth] User ${email} does not have admin permissions`);
+            return false;
+        } catch (err) {
+            console.error('[Admin Auth Error]', err.message);
+            return false;
+        }
+    }
+
+    // Local file-based database for tracking metrics
+    const DB_PATH = path.join(__dirname, 'analytics_db.json');
+    let analyticsSessions = [];
+    let analyticsPageViews = [];
+
+    function loadLocalDB() {
+        if (fs.existsSync(DB_PATH)) {
+            try {
+                const raw = fs.readFileSync(DB_PATH, 'utf8');
+                const data = JSON.parse(raw);
+                analyticsSessions = data.sessions || [];
+                analyticsPageViews = data.pageViews || [];
+                console.log(`[LOCAL DB] Loaded ${analyticsSessions.length} sessions and ${analyticsPageViews.length} page views`);
+            } catch (err) {
+                console.error('[LOCAL DB] Error loading database file, starting fresh:', err.message);
+            }
+        }
+    }
+
+    function saveLocalDB() {
+        try {
+            fs.writeFileSync(DB_PATH, JSON.stringify({
+                sessions: analyticsSessions,
+                pageViews: analyticsPageViews
+            }, null, 2), 'utf8');
+        } catch (err) {
+            console.error('[LOCAL DB] Error saving database file:', err.message);
+        }
+    }
+
+    // Load DB on startup
+    loadLocalDB();
+
+    function getLocalAnalyticsSummary(range) {
+        const now = Date.now();
+        let startDate = 0;
+        const filterRange = range || '7days';
+
+        if (filterRange === 'today') {
+            const d = new Date();
+            d.setHours(0, 0, 0, 0);
+            startDate = d.getTime();
+        } else if (filterRange === '7days') {
+            startDate = now - 7 * 24 * 60 * 60 * 1000;
+        } else if (filterRange === '30days') {
+            startDate = now - 30 * 24 * 60 * 60 * 1000;
+        }
+
+        const filteredSessions = analyticsSessions.filter(s => new Date(s.started_at).getTime() >= startDate);
+        const filteredPageViews = analyticsPageViews.filter(pv => new Date(pv.viewed_at).getTime() >= startDate);
+
+        // 1. Total Unique Users
+        const uniqueUsers = new Set();
+        filteredSessions.forEach(s => {
+            uniqueUsers.add(s.user_id || s.session_id);
+        });
+        const totalUsers = uniqueUsers.size;
+
+        // 2. Total Visits (Page Views)
+        const totalVisits = filteredPageViews.length;
+
+        // 3. Daily Visitors (Avg unique users per day)
+        let dailyVisitors = 0;
+        if (filterRange === 'today') {
+            dailyVisitors = totalUsers;
+        } else {
+            const dailyCounts = {};
+            filteredSessions.forEach(s => {
+                const dayKey = s.started_at.split('T')[0];
+                if (!dailyCounts[dayKey]) dailyCounts[dayKey] = new Set();
+                dailyCounts[dayKey].add(s.user_id || s.session_id);
+            });
+            const days = Object.keys(dailyCounts);
+            const sum = days.reduce((acc, d) => acc + dailyCounts[d].size, 0);
+            dailyVisitors = days.length > 0 ? Math.round(sum / days.length) : 0;
+        }
+
+        // 4. Active Users (Active in the last 5 minutes)
+        const fiveMinsAgo = now - 5 * 60 * 1000;
+        const activeUsers = new Set(
+            analyticsSessions
+                .filter(s => new Date(s.last_active_at).getTime() >= fiveMinsAgo)
+                .map(s => s.user_id || s.session_id)
+        ).size;
+
+        // 5. Avg Session Duration
+        const durationSessions = filteredSessions.filter(s => s.duration_seconds > 0);
+        const avgDuration = durationSessions.length > 0
+            ? Math.round((durationSessions.reduce((acc, s) => acc + s.duration_seconds, 0) / durationSessions.length) * 10) / 10
+            : 0;
+
+        // 6. Most Visited Pages
+        const pageCounts = {};
+        filteredPageViews.forEach(pv => {
+            if (!pageCounts[pv.path]) pageCounts[pv.path] = { views: 0, visitors: new Set() };
+            pageCounts[pv.path].views++;
+            pageCounts[pv.path].visitors.add(pv.session_id);
+        });
+        const mostVisitedPages = Object.keys(pageCounts).map(path => ({
+            path,
+            views: pageCounts[path].views,
+            unique_visitors: pageCounts[path].visitors.size
+        })).sort((a, b) => b.views - a.views).slice(0, 10);
+
+        // 7. Device Types Breakdown
+        const deviceCounts = {};
+        filteredSessions.forEach(s => {
+            const device = s.device_type || 'Desktop';
+            deviceCounts[device] = (deviceCounts[device] || 0) + 1;
+        });
+        const deviceTypes = Object.keys(deviceCounts).map(device => ({
+            device,
+            count: deviceCounts[device]
+        })).sort((a, b) => b.count - a.count);
+
+        // 8. Trends
+        const trends = { labels: [], visits: [], visitors: [] };
+        if (filterRange === 'today') {
+            const hourlyData = {};
+            const midnight = new Date();
+            midnight.setHours(0, 0, 0, 0);
+            const startHr = midnight.getTime();
+            
+            for (let i = startHr; i <= now; i += 60 * 60 * 1000) {
+                const hrStr = new Date(i).toLocaleTimeString('en-US', { hour12: false, hour: '2-digit' }) + ':00';
+                hourlyData[hrStr] = { views: 0, visitors: new Set() };
+            }
+
+            filteredPageViews.forEach(pv => {
+                const pvTime = new Date(pv.viewed_at);
+                if (pvTime.getTime() >= startHr) {
+                    const hrStr = pvTime.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit' }) + ':00';
+                    if (hourlyData[hrStr]) {
+                        hourlyData[hrStr].views++;
+                        hourlyData[hrStr].visitors.add(pv.session_id);
+                    }
+                }
+            });
+
+            Object.keys(hourlyData).forEach(hr => {
+                trends.labels.push(hr);
+                trends.visits.push(hourlyData[hr].views);
+                trends.visitors.push(hourlyData[hr].visitors.size);
+            });
+        } else {
+            const dailyData = {};
+            const daysToGenerate = filterRange === '7days' ? 7 : (filterRange === '30days' ? 30 : 0);
+            
+            if (daysToGenerate > 0) {
+                for (let i = daysToGenerate; i >= 0; i--) {
+                    const d = new Date(now - i * 24 * 60 * 60 * 1000);
+                    const dayStr = d.toISOString().split('T')[0];
+                    dailyData[dayStr] = { views: 0, visitors: new Set() };
+                }
+            } else {
+                analyticsSessions.forEach(s => {
+                    const dayStr = s.started_at.split('T')[0];
+                    dailyData[dayStr] = { views: 0, visitors: new Set() };
+                });
+                const todayStr = new Date().toISOString().split('T')[0];
+                dailyData[todayStr] = { views: 0, visitors: new Set() };
+            }
+
+            filteredPageViews.forEach(pv => {
+                const dayStr = pv.viewed_at.split('T')[0];
+                if (dailyData[dayStr]) {
+                    dailyData[dayStr].views++;
+                    dailyData[dayStr].visitors.add(pv.session_id);
+                }
+            });
+
+            Object.keys(dailyData).sort().forEach(day => {
+                trends.labels.push(day);
+                trends.visits.push(dailyData[day].views);
+                trends.visitors.push(dailyData[day].visitors.size);
+            });
+        }
+
+        return {
+            total_users: totalUsers,
+            total_visits: totalVisits,
+            daily_visitors: dailyVisitors,
+            active_users: activeUsers,
+            average_time_spent: avgDuration,
+            most_visited_pages: mostVisitedPages,
+            device_types: deviceTypes,
+            trends: trends
+        };
+    }
+
+    // Route: Page View Tracking
+    if (pathname === '/api/analytics/track' && req.method === 'POST') {
+        try {
+            const body = await getRequestBody(req);
+            const { sessionId, path: viewPath, title, referrer, deviceType, browser, os, userId, userEmail, userName } = body;
+
+            if (!sessionId || !viewPath) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Missing sessionId or path' }));
+                return;
+            }
+
+            let session = analyticsSessions.find(s => s.session_id === sessionId);
+            if (!session) {
+                session = {
+                    session_id: sessionId,
+                    user_id: userId || null,
+                    user_email: userEmail || null,
+                    user_name: userName || null,
+                    device_type: deviceType || 'Desktop',
+                    browser: browser || 'Unknown',
+                    os: os || 'Unknown',
+                    started_at: new Date().toISOString(),
+                    last_active_at: new Date().toISOString(),
+                    duration_seconds: 0
+                };
+                analyticsSessions.push(session);
+            } else if (userId) {
+                session.user_id = userId;
+                session.user_email = userEmail;
+                session.user_name = userName;
+            }
+
+            analyticsPageViews.push({
+                session_id: sessionId,
+                path: viewPath,
+                title: title || '',
+                referrer: referrer || '',
+                viewed_at: new Date().toISOString()
+            });
+
+            saveLocalDB();
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true }));
+        } catch (err) {
+            console.error('[Analytics Track Error]', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: err.message }));
+        }
+        return;
+    }
+
+    // Route: Heartbeat Duration Update
+    if (pathname === '/api/analytics/heartbeat' && req.method === 'POST') {
+        try {
+            const body = await getRequestBody(req);
+            const { sessionId } = body;
+
+            if (!sessionId) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Missing sessionId' }));
+                return;
+            }
+
+            let session = analyticsSessions.find(s => s.session_id === sessionId);
+            if (!session) {
+                // Auto-create session on heartbeat to handle server restarts smoothly
+                session = {
+                    session_id: sessionId,
+                    user_id: null,
+                    user_email: null,
+                    user_name: null,
+                    device_type: 'Desktop',
+                    browser: 'Unknown',
+                    os: 'Unknown',
+                    started_at: new Date(Date.now() - 15000).toISOString(),
+                    last_active_at: new Date().toISOString(),
+                    duration_seconds: 15
+                };
+                analyticsSessions.push(session);
+                
+                // Add an initial placeholder pageview for context
+                analyticsPageViews.push({
+                    session_id: sessionId,
+                    path: '/',
+                    title: 'Home (Recovered Session)',
+                    referrer: '',
+                    viewed_at: new Date(Date.now() - 15000).toISOString()
+                });
+            } else {
+                session.last_active_at = new Date().toISOString();
+                const startedAt = new Date(session.started_at);
+                session.duration_seconds = Math.max(0, Math.round((Date.now() - startedAt.getTime()) / 1000));
+            }
+            saveLocalDB();
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true }));
+        } catch (err) {
+            console.error('[Analytics Heartbeat Error]', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: err.message }));
+        }
+        return;
+    }
+
+    // Route: Identify Anonymous Session
+    if (pathname === '/api/analytics/identify' && req.method === 'POST') {
+        try {
+            const body = await getRequestBody(req);
+            const { sessionId, userId, userEmail, userName } = body;
+
+            if (!sessionId || !userId) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Missing sessionId or userId' }));
+                return;
+            }
+
+            const session = analyticsSessions.find(s => s.session_id === sessionId);
+            if (session) {
+                session.user_id = userId;
+                session.user_email = userEmail || null;
+                session.user_name = userName || null;
+                saveLocalDB();
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true }));
+        } catch (err) {
+            console.error('[Analytics Identify Error]', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: err.message }));
+        }
+        return;
+    }
+
+    // Route: Admin Fetch Analytics
+    if (pathname === '/api/admin/analytics' && req.method === 'GET') {
+        try {
+            const isAdmin = await verifyAdmin(req);
+            if (!isAdmin) {
+                res.writeHead(403, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Access Denied: Admin authorization failed' }));
+                return;
+            }
+
+            const range = parsedUrl.query.range || '7days';
+            const data = getLocalAnalyticsSummary(range);
+
+            // Fetch actual Clerk registered users count for the stats card
+            try {
+                const usersRes = await axios.get('https://api.clerk.com/v1/users?limit=100', {
+                    headers: { 'Authorization': `Bearer ${process.env.CLERK_SECRET_KEY}` }
+                });
+                data.clerk_total_users = usersRes.data.length;
+            } catch (clerkErr) {
+                console.error('[Admin Analytics Clerk Count Error]', clerkErr.message);
+                data.clerk_total_users = data.total_users; // fallback
+            }
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(data));
+        } catch (err) {
+            console.error('[Admin Analytics Endpoint Error]', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: err.message }));
+        }
+        return;
+    }
+
+    // Route: Admin Fetch Registered Users
+    if (pathname === '/api/admin/users' && req.method === 'GET') {
+        try {
+            const isAdmin = await verifyAdmin(req);
+            if (!isAdmin) {
+                res.writeHead(403, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Access Denied: Admin authorization failed' }));
+                return;
+            }
+
+            const usersRes = await axios.get('https://api.clerk.com/v1/users?limit=100', {
+                headers: { 'Authorization': `Bearer ${process.env.CLERK_SECRET_KEY}` }
+            });
+
+            const users = usersRes.data.map(u => ({
+                id: u.id,
+                email: u.email_addresses && u.email_addresses[0] ? u.email_addresses[0].email_address : 'N/A',
+                name: (u.first_name || u.last_name) ? `${u.first_name || ''} ${u.last_name || ''}`.trim() : 'N/A',
+                createdAt: u.created_at,
+                lastSignInAt: u.last_sign_in_at
+            }));
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(users));
+        } catch (err) {
+            console.error('[Admin Users Endpoint Error]', err.message);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: err.message }));
+        }
         return;
     }
 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Explore | Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Clerk Auth Redirect container if not signed in -->
+    <div id="admin-auth-overlay" class="auth-overlay" style="display: none;">
+        <div class="glass-card auth-card">
+            <h2>Admin Authorization</h2>
+            <p>Please sign in to access the Weekend Explore Admin Panel.</p>
+            <div id="admin-signin-container"></div>
+            <button class="back-btn" onclick="window.location.href='/'">← Return to Website</button>
+        </div>
+    </div>
+
+    <!-- Access Denied Panel if not Admin -->
+    <div id="admin-denied-overlay" class="auth-overlay" style="display: none;">
+        <div class="glass-card auth-card error-card">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF007F" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <h2>Access Denied</h2>
+            <p>Your account does not have administrator permissions to view this dashboard.</p>
+            <button class="back-btn" onclick="signOutAndRedirect()">Switch Account</button>
+            <button class="back-btn secondary" onclick="window.location.href='/'">Return to Home</button>
+        </div>
+    </div>
+
+    <!-- Main Admin Dashboard UI -->
+    <div id="admin-dashboard-layout" style="display: none;">
+        <header class="admin-header">
+            <div class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2.5" class="brand-icon">
+                    <defs>
+                        <linearGradient id="adminLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8338EC" />
+                            <stop offset="100%" stop-color="#FF007F" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="16" cy="9" r="3" fill="url(#adminLogoGrad)" />
+                    <path d="M3 20L10 8L15 15L18 11L21 20H3Z" stroke="url(#adminLogoGrad)" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+                </svg>
+                <span class="brand-main">Weekend</span><span class="brand-sub">Explore</span>
+                <span class="badge-admin">Admin</span>
+            </div>
+            <div class="header-actions">
+                <div id="admin-user-btn"></div>
+            </div>
+        </header>
+
+        <div class="dashboard-wrapper">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="sidebar-link active" data-tab="analytics">Analytics Overview</a></li>
+                        <li><a href="#" class="sidebar-link" data-tab="users">User Accounts</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Container -->
+            <main class="admin-content">
+                <!-- Tab: Analytics -->
+                <div id="tab-analytics" class="tab-pane active">
+                    <div class="content-header">
+                        <h1>Analytics Dashboard</h1>
+                        <!-- Date Filter Buttons -->
+                        <div class="filter-group">
+                            <button class="filter-btn" data-range="today">Today</button>
+                            <button class="filter-btn active" data-range="7days">7 Days</button>
+                            <button class="filter-btn" data-range="30days">30 Days</button>
+                            <button class="filter-btn" data-range="all">All Time</button>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="stats-grid">
+                        <div class="stats-card glass-card">
+                            <span class="card-label">Total Users (Clerk)</span>
+                            <span class="card-val" id="stat-total-users">0</span>
+                        </div>
+                        <div class="stats-card glass-card">
+                            <span class="card-label">Daily Avg Visitors</span>
+                            <span class="card-val" id="stat-daily-visitors">0</span>
+                        </div>
+                        <div class="stats-card glass-card">
+                            <span class="card-label">Total Page Views</span>
+                            <span class="card-val" id="stat-total-visits">0</span>
+                        </div>
+                        <div class="stats-card glass-card">
+                            <span class="card-label">Live Active Users</span>
+                            <span class="card-val pulse" id="stat-active-users">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid">
+                        <div class="chart-card glass-card span-2">
+                            <h3>Visits & Visitors Trend</h3>
+                            <div class="chart-container">
+                                <canvas id="trendChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card glass-card">
+                            <h3>Device Breakdowns</h3>
+                            <div class="chart-container">
+                                <canvas id="deviceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Details Grid -->
+                    <div class="details-grid">
+                        <!-- Most Visited Pages Table -->
+                        <div class="details-card glass-card span-2">
+                            <h3>Popular Pages</h3>
+                            <div class="table-container">
+                                <table class="admin-table" id="table-popular-pages">
+                                    <thead>
+                                        <tr>
+                                            <th>Page Path</th>
+                                            <th>Views</th>
+                                            <th>Unique Visitors</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Dynamic Insertion -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Average Time Spent Card -->
+                        <div class="details-card glass-card center-val">
+                            <h3>Avg Session Duration</h3>
+                            <div class="duration-display">
+                                <span class="duration-number" id="stat-avg-duration">0s</span>
+                                <span class="duration-subtitle">per browsing session</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Users -->
+                <div id="tab-users" class="tab-pane">
+                    <div class="content-header">
+                        <h1>User Accounts</h1>
+                    </div>
+
+                    <!-- Clerk Users Table -->
+                    <div class="glass-card">
+                        <div class="table-container">
+                            <table class="admin-table" id="table-users">
+                                <thead>
+                                    <tr>
+                                        <th>User Full Name</th>
+                                        <th>Email Address</th>
+                                        <th>Registered Date</th>
+                                        <th>Last Active</th>
+                                        <th>Clerk User ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Dynamic Insertion -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Clerk Javascript Library -->
+    <script 
+        async
+        crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_c3RpcnJpbmctc2t5bGFyay05LmNsZXJrLmFjY291bnRzLmRldiQ"
+        src="https://stirring-skylark-9.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js" 
+        type="text/javascript"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
