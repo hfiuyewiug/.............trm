@@ -94,7 +94,7 @@ function getRequestBody(req) {
 }
 
 // Create clean, robust HTTP server
-const server = http.createServer(async (req, res) => {
+const requestListener = async (req, res) => {
     // 1. Set CORS header for all OPTIONS requests (preflight)
     if (req.method === 'OPTIONS') {
         setCorsHeaders(res);
@@ -896,8 +896,14 @@ const server = http.createServer(async (req, res) => {
             }
         });
     });
-});
+};
 
-server.listen(PORT, () => {
-    console.log(`Google Places Proxy Service Layer is listening on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    const server = http.createServer(requestListener);
+    server.listen(PORT, () => {
+        console.log(`Google Places Proxy Service Layer is listening on http://localhost:${PORT}`);
+    });
+} else {
+    // Export the listener for Vercel serverless environment
+    module.exports = requestListener;
+}
