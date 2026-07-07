@@ -242,10 +242,13 @@ async function loadDashboardData(range) {
         renderAnalytics(data);
     } catch (err) {
         console.error('[Fetch Analytics Failure]', err);
-        showAdminPageError(
-            "Backend Connection Error", 
-            `Failed to load analytics: ${err.message}. <br><br><strong>Why is this happening?</strong><br>You are accessing this page via the VS Code Live Server on port 5500 (http://127.0.0.1:5500), but the backend Node.js API server runs on port 3000.<br><br><strong>To resolve:</strong><br>Please access the website through the Node.js server at <a href="http://localhost:3000/admin/" style="color: #00F0FF; text-decoration: underline; font-weight: 600;">http://localhost:3000/admin/</a> instead.`
-        );
+        let errorMsg = `Failed to load analytics: ${err.message}.`;
+        if (window.location.port === '5500') {
+            errorMsg += `<br><br><strong>Why is this happening?</strong><br>You are accessing this page via the VS Code Live Server on port 5500 (http://127.0.0.1:5500), but the backend Node.js API server runs on port 3000.<br><br><strong>To resolve:</strong><br>Please access the website through the Node.js server at <a href="http://localhost:3000/admin/" style="color: #00F0FF; text-decoration: underline; font-weight: 600;">http://localhost:3000/admin/</a> instead.`;
+        } else {
+            errorMsg += `<br><br><strong>Why is this happening?</strong><br>The backend server could not be reached, or there is a database connection issue. Check your terminal for Node.js errors, or ensure Vercel has the correct environment variables setup.`;
+        }
+        showAdminPageError("Backend Connection Error", errorMsg);
     }
 }
 
@@ -412,10 +415,13 @@ async function loadUsersData() {
         });
     } catch (err) {
         console.error('[Fetch Users Failure]', err);
-        showAdminPageError(
-            "Backend Connection Error", 
-            `Failed to load users: ${err.message}. <br><br><strong>Why is this happening?</strong><br>You are accessing this page via the VS Code Live Server on port 5500 (http://127.0.0.1:5500), but the backend Node.js API server runs on port 3000.<br><br><strong>To resolve:</strong><br>Please access the website through the Node.js server at <a href="http://localhost:3000/admin/" style="color: #00F0FF; text-decoration: underline; font-weight: 600;">http://localhost:3000/admin/</a> instead.`
-        );
+        let errorMsg = `Failed to load user data: ${err.message}.`;
+        if (window.location.port === '5500') {
+            errorMsg += `<br><br><strong>Why is this happening?</strong><br>You are accessing this page via the VS Code Live Server on port 5500 (http://127.0.0.1:5500), but the backend Node.js API server runs on port 3000.<br><br><strong>To resolve:</strong><br>Please access the website through the Node.js server at <a href="http://localhost:3000/admin/" style="color: #00F0FF; text-decoration: underline; font-weight: 600;">http://localhost:3000/admin/</a> instead.`;
+        } else {
+            errorMsg += `<br><br><strong>Why is this happening?</strong><br>The backend server could not be reached, or there is a database connection issue.`;
+        }
+        showAdminPageError("Backend Connection Error", errorMsg);
     }
 }
 
