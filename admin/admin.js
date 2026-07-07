@@ -1,4 +1,10 @@
 // Admin Dashboard Script with diagnostics
+
+// Auto-redirect if running on incorrect static Live Server port
+if (window.location.hostname === '127.0.0.1' && window.location.port === '5500') {
+    window.location.href = 'http://localhost:3000/admin/';
+}
+
 window.onerror = function(message, source, lineno, colno, error) {
     console.error("[Admin Crash]", message, "at", source, lineno, colno);
     const errorOverlay = document.createElement('div');
