@@ -1,15 +1,81 @@
-// Admin Dashboard Script
+// Admin Dashboard Script with diagnostics
+window.onerror = function(message, source, lineno, colno, error) {
+    console.error("[Admin Crash]", message, "at", source, lineno, colno);
+    const errorOverlay = document.createElement('div');
+    errorOverlay.style.position = 'fixed';
+    errorOverlay.style.top = '0';
+    errorOverlay.style.left = '0';
+    errorOverlay.style.width = '100%';
+    errorOverlay.style.height = '100%';
+    errorOverlay.style.background = '#120202';
+    errorOverlay.style.color = '#ff5555';
+    errorOverlay.style.padding = '30px';
+    errorOverlay.style.zIndex = '999999';
+    errorOverlay.style.overflow = 'auto';
+    errorOverlay.style.fontFamily = 'monospace';
+    errorOverlay.style.lineHeight = '1.5';
+    errorOverlay.innerHTML = `
+        <h2 style="color: #ff3333; margin-bottom: 10px;">⚠️ Admin Dashboard Script Error</h2>
+        <p><strong>Error message:</strong> ${message}</p>
+        <p><strong>Location:</strong> ${source} (Line ${lineno}:${colno})</p>
+        <hr style="border: 0; border-top: 1px solid #441111; margin: 20px 0;">
+        <pre style="background: #220505; padding: 15px; border-radius: 8px; border: 1px solid #551111;">${error ? error.stack : 'No stack trace available'}</pre>
+    `;
+    document.body.appendChild(errorOverlay);
+    return false;
+};
+
 let trendChartInstance = null;
 let deviceChartInstance = null;
+let clerkLoadAttempts = 0;
+
+function showAdminPageError(title, desc) {
+    const errorOverlay = document.getElementById('admin-error-fallback') || document.createElement('div');
+    errorOverlay.id = 'admin-error-fallback';
+    errorOverlay.style.position = 'fixed';
+    errorOverlay.style.top = '0';
+    errorOverlay.style.left = '0';
+    errorOverlay.style.width = '100%';
+    errorOverlay.style.height = '100%';
+    errorOverlay.style.background = '#0d0b18';
+    errorOverlay.style.color = '#ff4a4a';
+    errorOverlay.style.display = 'flex';
+    errorOverlay.style.flexDirection = 'column';
+    errorOverlay.style.alignItems = 'center';
+    errorOverlay.style.justifyContent = 'center';
+    errorOverlay.style.zIndex = '999999';
+    errorOverlay.style.fontFamily = 'Outfit, sans-serif';
+    errorOverlay.style.textAlign = 'center';
+    errorOverlay.style.padding = '20px';
+    errorOverlay.innerHTML = `
+        <div style="background: rgba(255, 74, 74, 0.08); border: 1px solid rgba(255, 74, 74, 0.2); padding: 3rem 2rem; border-radius: 16px; max-width: 500px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-bottom: 1.5rem; display: block; margin-left: auto; margin-right: auto;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <h2 style="margin-bottom: 1rem; color: #fff;">${title}</h2>
+            <p style="color: #9e9db2; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">${desc}</p>
+            <button onclick="window.location.reload()" style="background: linear-gradient(135deg, #8338EC 0%, #FF007F 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(131,56,236,0.35);">Retry Loading</button>
+        </div>
+    `;
+    if (!document.getElementById('admin-error-fallback')) {
+        document.body.appendChild(errorOverlay);
+    }
+}
 
 // Initialize Clerk
 async function initAdminClerk() {
     if (!window.Clerk) {
-        console.error('Clerk JS not loaded');
-        // Wait and retry
+        clerkLoadAttempts++;
+        console.warn(`Waiting for Clerk JS (attempt ${clerkLoadAttempts})...`);
+        if (clerkLoadAttempts > 60) { // 6 seconds
+            showAdminPageError("Clerk JS Failed to Load", "The Clerk authentication system could not be loaded. Please verify your internet connection or check if your browser's ad-blocker or privacy settings are blocking connection to stirring-skylark-9.clerk.accounts.dev.");
+            return;
+        }
         setTimeout(initAdminClerk, 100);
         return;
     }
+
+    // Clear fallback error if it exists
+    const fallback = document.getElementById('admin-error-fallback');
+    if (fallback) fallback.remove();
 
     try {
         await window.Clerk.load({
@@ -34,6 +100,7 @@ async function initAdminClerk() {
         checkAuth(window.Clerk.user);
     } catch (err) {
         console.error('Failed to load Clerk in admin:', err);
+        showAdminPageError("Clerk Initialization Failed", `Could not initialize Clerk session: ${err.message}`);
     }
 }
 
@@ -112,8 +179,8 @@ async function loadDashboardData(range) {
         const response = await fetch(`/api/admin/analytics?range=${range}`, {
             method: 'GET',
             headers: {
-                'x-clerk-session-id': window.Clerk.session.id,
-                'x-clerk-user-id': window.Clerk.user.id
+                'x-clerk-session-id': (window.Clerk && window.Clerk.session) ? window.Clerk.session.id : '',
+                'x-clerk-user-id': (window.Clerk && window.Clerk.user) ? window.Clerk.user.id : ''
             }
         });
 
@@ -291,8 +358,8 @@ async function loadUsersData() {
         const response = await fetch('/api/admin/users', {
             method: 'GET',
             headers: {
-                'x-clerk-session-id': window.Clerk.session.id,
-                'x-clerk-user-id': window.Clerk.user.id
+                'x-clerk-session-id': (window.Clerk && window.Clerk.session) ? window.Clerk.session.id : '',
+                'x-clerk-user-id': (window.Clerk && window.Clerk.user) ? window.Clerk.user.id : ''
             }
         });
 
