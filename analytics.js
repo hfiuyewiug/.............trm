@@ -138,7 +138,7 @@
             window.renderDestination = function(id, ...args) {
                 isFirstLoad = false;
                 sendTracking(`/destination/${id}`, `Destination: ${id}`);
-                return orig.apply(this, args);
+                return orig.apply(this, [id, ...args]);
             };
         }
 
@@ -147,7 +147,7 @@
             window.renderCategoryPage = function(categoryId, cityId, ...args) {
                 isFirstLoad = false;
                 sendTracking(`/category/${cityId || 'default'}/${categoryId}`, `Category: ${cityId || 'default'} - ${categoryId}`);
-                return orig.apply(this, args);
+                return orig.apply(this, [categoryId, cityId, ...args]);
             };
         }
 
@@ -156,7 +156,7 @@
             window.renderFoodCategoryPage = function(cityId, ...args) {
                 isFirstLoad = false;
                 sendTracking(`/food/${cityId}`, `Food Category: ${cityId}`);
-                return orig.apply(this, args);
+                return orig.apply(this, [cityId, ...args]);
             };
         }
 
