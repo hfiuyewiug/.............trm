@@ -418,6 +418,11 @@ const requestListener = async (req, res) => {
             return false;
         }
 
+        if (!process.env.CLERK_SECRET_KEY) {
+            console.error('[Admin Auth] CRITICAL: Missing CLERK_SECRET_KEY');
+            throw new Error("Missing CLERK_SECRET_KEY in Vercel Environment Variables.");
+        }
+
         try {
             // Verify session active
             const sessionRes = await axios.get(`https://api.clerk.com/v1/sessions/${sessionId}`, {
@@ -436,7 +441,12 @@ const requestListener = async (req, res) => {
             const email = userRes.data.email_addresses && userRes.data.email_addresses[0] ? userRes.data.email_addresses[0].email_address : '';
             const role = userRes.data.public_metadata ? userRes.data.public_metadata.role : '';
             
-            const adminEmails = (process.env.ADMIN_EMAILS || 'gowtham@example.com,yadhur689@gmail.com').split(',').map(e => e.trim().toLowerCase());
+            // Force yadhur689@gmail.com to be an admin always
+            const adminEmails = ['yadhur689@gmail.com'];
+            if (process.env.ADMIN_EMAILS) {
+                adminEmails.push(...process.env.ADMIN_EMAILS.split(',').map(e => e.trim().toLowerCase()));
+            }
+
             if (adminEmails.includes(email.toLowerCase()) || role === 'admin') {
                 return true;
             }
