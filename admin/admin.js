@@ -25,6 +25,27 @@ window.onerror = function(message, source, lineno, colno, error) {
     return false;
 };
 
+// Global fallback timer to catch hung initialization (e.g. if Clerk fails to load or resolves/hangs)
+setTimeout(() => {
+    const authOverlay = document.getElementById('admin-auth-overlay');
+    const deniedOverlay = document.getElementById('admin-denied-overlay');
+    const dashboardLayout = document.getElementById('admin-dashboard-layout');
+    const fallback = document.getElementById('admin-error-fallback');
+    
+    if (
+        authOverlay && authOverlay.style.display === 'none' && 
+        deniedOverlay && deniedOverlay.style.display === 'none' && 
+        dashboardLayout && dashboardLayout.style.display === 'none' &&
+        !fallback
+    ) {
+        console.error("Dashboard initialization timed out / hung.");
+        showAdminPageError(
+            "Connection Timeout / Load Issue", 
+            "The Admin Dashboard is taking too long to load. This usually happens if the Clerk Authentication service is blocked by your browser extensions, ad-blockers, or a temporary network issue. Try disabling ad-blockers for this page or reloading."
+        );
+    }
+}, 5000);
+
 let trendChartInstance = null;
 let deviceChartInstance = null;
 let clerkLoadAttempts = 0;

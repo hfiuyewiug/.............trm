@@ -4,6 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekend Explore | Admin Dashboard</title>
+    <script>
+        // Inline Error Boundary to catch load failures and script errors immediately
+        window.addEventListener('error', function(e) {
+            console.error("Global Error Caught:", e);
+            if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+                // Asset load failed (like admin.js or admin.css)
+                showGlobalInitError("Resource Load Failed", "Failed to load a critical resource: " + (e.target.src || e.target.href) + ". Please check your network connectivity, disable ad-blockers, and reload.");
+            } else {
+                showGlobalInitError("Script Error", e.message || "An unexpected JavaScript error occurred.");
+            }
+        }, true);
+
+        function showGlobalInitError(title, desc) {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => renderGlobalError(title, desc));
+            } else {
+                renderGlobalError(title, desc);
+            }
+        }
+
+        function renderGlobalError(title, desc) {
+            if (document.getElementById('admin-error-fallback')) return;
+            const div = document.createElement('div');
+            div.id = 'admin-error-fallback';
+            div.style.position = 'fixed';
+            div.style.top = '0';
+            div.style.left = '0';
+            div.style.width = '100%';
+            div.style.height = '100%';
+            div.style.background = '#0d0b18';
+            div.style.color = '#ff4a4a';
+            div.style.display = 'flex';
+            div.style.flexDirection = 'column';
+            div.style.alignItems = 'center';
+            div.style.justifyContent = 'center';
+            div.style.zIndex = '999999';
+            div.style.fontFamily = 'system-ui, -apple-system, sans-serif';
+            div.style.textAlign = 'center';
+            div.style.padding = '20px';
+            div.innerHTML = `
+                <div style="background: rgba(255, 74, 74, 0.08); border: 1px solid rgba(255, 74, 74, 0.2); padding: 3rem 2rem; border-radius: 16px; max-width: 500px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-bottom: 1.5rem; display: block; margin-left: auto; margin-right: auto;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <h2 style="margin-bottom: 1rem; color: #fff; font-size: 1.5rem; font-weight: 700;">${title}</h2>
+                    <p style="color: #9e9db2; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">${desc}</p>
+                    <button onclick="window.location.reload()" style="background: linear-gradient(135deg, #8338EC 0%, #FF007F 100%); color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(131,56,236,0.35);">Retry Loading</button>
+                </div>
+            `;
+            document.body.appendChild(div);
+        }
+    </script>
     <link rel="stylesheet" href="admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
