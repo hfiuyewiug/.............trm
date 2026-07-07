@@ -686,7 +686,7 @@ const requestListener = async (req, res) => {
         } catch (err) {
             console.error('[Analytics Track Error]', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
+            res.end(JSON.stringify({ error: err.stack }));
         }
         return;
     }
@@ -740,7 +740,7 @@ const requestListener = async (req, res) => {
         } catch (err) {
             console.error('[Analytics Heartbeat Error]', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
+            res.end(JSON.stringify({ error: err.stack }));
         }
         return;
     }
@@ -770,7 +770,7 @@ const requestListener = async (req, res) => {
         } catch (err) {
             console.error('[Analytics Identify Error]', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
+            res.end(JSON.stringify({ error: err.stack }));
         }
         return;
     }
@@ -804,7 +804,7 @@ const requestListener = async (req, res) => {
         } catch (err) {
             console.error('[Admin Analytics Endpoint Error]', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
+            res.end(JSON.stringify({ error: err.stack }));
         }
         return;
     }
@@ -836,7 +836,7 @@ const requestListener = async (req, res) => {
         } catch (err) {
             console.error('[Admin Users Endpoint Error]', err.message);
             res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ error: err.message }));
+            res.end(JSON.stringify({ error: err.stack }));
         }
         return;
     }

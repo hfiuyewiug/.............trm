@@ -221,7 +221,12 @@ async function loadDashboardData(range) {
                 }
                 return;
             }
-            throw new Error(`HTTP error! status: ${response.status}`);
+            let errorDetail = `HTTP error! status: ${response.status}`;
+            try {
+                const errJson = await response.json();
+                if (errJson && errJson.error) errorDetail = errJson.error;
+            } catch (e) {}
+            throw new Error(errorDetail);
         }
 
         const data = await response.json();
