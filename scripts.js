@@ -22,7 +22,7 @@ const destinations = [
             },
             {
                 name: 'St. Aloysius Chapel',
-                image: 'https://mangaloretourism.in/images/places-to-visit/header/st-aloysius-chapel-mangalore-tourism-entry-fee-timings-holidays-reviews-header.jpg',
+                image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/Aloysius-Chapel-1.png',
                 description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.'
             }
         ]
@@ -68,7 +68,7 @@ const destinations = [
             },
             {
                 name: 'Bangalore Palace',
-                image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=800',
+                image: 'https://anvayaplaces.b-cdn.net/places/125_0.webp',
                 description: 'A royal palace inspired by Windsor Castle, known for its Tudor-style architecture.'
             },
             {
@@ -175,7 +175,7 @@ const mangaloreCategories = [
     { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'assets/places/kadri_temple.jpg' },
     { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
-    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://images.unsplash.com/photo-1438263308818-df68f845ee37?auto=format&fit=crop&q=80&w=600' },
+    { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/Aloysius-Chapel-1.png' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
     { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
     { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=600' },
@@ -891,8 +891,8 @@ const mangaloreCategoryData = {
 
 const bangaloreCategories = [
     { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
-    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=600' },
-    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://images.unsplash.com/photo-1602631985686-2bb0f3010ae5?auto=format&fit=crop&q=80&w=600' },
+    { id: 'heritage', name: 'Palaces & Heritage', desc: 'Explore heritage →', image: 'https://anvayaplaces.b-cdn.net/places/125_0.webp' },
+    { id: 'temples', name: 'Temples & Spiritual', desc: 'Explore temples →', image: 'https://thumbs.dreamstime.com/b/adiyogi-shiva-statue-isha-yoga-center-coimbatore-185442002.jpg' },
     { id: 'shopping', name: 'Malls & Shopping', desc: 'Explore shopping →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
     { id: 'breweries', name: 'Pubs & Breweries', desc: 'Explore breweries →', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=600' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
@@ -965,7 +965,7 @@ const bangaloreCategoryData = {
         places: [
             { 
                 name: 'Bangalore Palace', 
-                image: 'https://www.talkativeman.com/img/Architectural_Highlights_of_The_Bangalore_Palace.jpg', 
+                image: 'https://anvayaplaces.b-cdn.net/places/125_0.webp', 
                 description: 'A grand royal residence built in Tudor style, modeled after Windsor Castle.',
                 openHours: '10:00 AM – 5:30 PM',
                 bestTime: 'Morning Visits',
@@ -1538,9 +1538,9 @@ const mysuruCategories = [
     { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=600' },
     { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=600' },
     { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
-    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=600' },
+    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.trawell.in/admin/images/upload/333510912MysoreZoo_Main.jpg' },
     { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600' },
-    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://images.unsplash.com/photo-1566121933407-3c7ccd22f5a3?auto=format&fit=crop&q=80&w=600' },
+    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://static.toiimg.com/photo/92140941/Mysore.jpg?width=748&resize=4' },
     { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
     { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600' },
     { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600' }
@@ -2131,8 +2131,7 @@ function bindDoubleTapListeners() {
 }
 
 function renderFoodCategoryPage(cityId) {
-    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
-    bestFoodSliderIntervals = [];
+    clearBackgroundIntervals();
 
     const cityData = cityCategoryData[cityId];
     const category = cityData['food'];
@@ -2200,8 +2199,7 @@ function renderFoodCategoryPage(cityId) {
 }
 
 function renderGlobalFavoritesPage() {
-    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
-    bestFoodSliderIntervals = [];
+    clearBackgroundIntervals();
 
     const favFoodNames = getFavoriteFoods();
     
@@ -2321,6 +2319,23 @@ function renderGlobalFavoritesPage() {
     });
 }
 
+function clearBackgroundIntervals() {
+    // 1. Clear best food slider intervals
+    if (typeof bestFoodSliderIntervals !== 'undefined' && bestFoodSliderIntervals) {
+        bestFoodSliderIntervals.forEach(clearInterval);
+        bestFoodSliderIntervals = [];
+    }
+    // 2. Clear place image slider intervals
+    if (window.placeImageSliderIntervals) {
+        window.placeImageSliderIntervals.forEach(clearInterval);
+        window.placeImageSliderIntervals = [];
+    }
+    // 3. Clear popup autoplay interval
+    if (typeof popupAutoPlayInterval !== 'undefined' && popupAutoPlayInterval) {
+        clearInterval(popupAutoPlayInterval);
+    }
+}
+
 function initNavbarFavoriteListener() {
     const navbarFavBtn = document.querySelector('.nav-actions .nav-icon img[src*="favorite-outline"]')?.closest('.nav-icon') || 
                           document.querySelector('.nav-icon img[alt="Fav"]')?.closest('.nav-icon');
@@ -2346,6 +2361,7 @@ function initNavbarFavoriteListener() {
 }
 
 function renderCategoryPage(categoryId, cityId = currentCityId) {
+    clearBackgroundIntervals();
     if (categoryId === 'food') {
         renderFoodCategoryPage(cityId);
         return;
@@ -2485,8 +2501,7 @@ console.log("Scripts initializing...");
 const app = document.getElementById('app');
 
 function renderHome() {
-    bestFoodSliderIntervals.forEach(intervalId => clearInterval(intervalId));
-    bestFoodSliderIntervals = [];
+    clearBackgroundIntervals();
     const homeHTML = `
         <div class="page-content">
             <section class="hero">
@@ -2529,6 +2544,7 @@ function renderHome() {
 }
 
 function renderDestination(id) {
+    clearBackgroundIntervals();
     const dest = destinations.find(d => d.id === id);
     if (!dest) return;
 
@@ -5580,9 +5596,10 @@ function initPlaceImageSliders() {
                         <div style="display: flex; align-items: flex-start; gap: 1rem;">
                             <div style="font-size: 2rem;">🎓</div>
                             <div>
-                                <h5 style="margin-bottom: 0.25rem;">Founded by Gowtham N</h5>
+                                <h5 style="margin-bottom: 0.25rem;">Founded by <a href="https://www.gowthamnataraj.online/" target="_blank" style="color: inherit; text-decoration: underline;">Gowtham N</a></h5>
                                 <p style="font-size: 0.85rem; color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">First-year Engineering Student | Yenepoya University, Mangaluru (NIAT Program)</p>
                                 <p>Created with a simple vision: to help people discover amazing places, experiences, and destinations for their weekends without spending hours searching online.</p>
+                                <a href="https://www.gowthamnataraj.online/" target="_blank" style="display: inline-block; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--primary-color);">Visit Portfolio →</a>
                             </div>
                         </div>
                     </div>
