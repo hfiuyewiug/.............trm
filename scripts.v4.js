@@ -3257,7 +3257,7 @@ function openCityMustWatchModal(cityId) {
                                 </div>
                                 
                                 ${idx < cityData.nodes.length - 1 ? `
-                                    <div class="route-distance-label">
+                                    <div class="route-distance-label" data-dist-index="${idx}">
                                         <span class="dist-pill">🛣️ ${cityData.distances[idx].dist}</span>
                                         <span class="time-pills">${cityData.distances[idx].time}</span>
                                     </div>
@@ -3326,6 +3326,18 @@ function openCityMustWatchModal(cityId) {
                 });
                 const activeNode = document.querySelector(`#mangaluru-must-watch-modal-overlay .route-node[data-index="${activeIdx}"]`);
                 if (activeNode) activeNode.classList.add('active');
+
+                // Pop up the distance label dynamically
+                document.querySelectorAll('#mangaluru-must-watch-modal-overlay .route-distance-label').forEach(dist => {
+                    dist.classList.remove('active');
+                });
+                if (activeIdx > 0) {
+                    const activeDist = document.querySelector(`#mangaluru-must-watch-modal-overlay .route-distance-label[data-dist-index="${activeIdx - 1}"]`);
+                    if (activeDist) {
+                        void activeDist.offsetWidth; // Trigger reflow to restart CSS animation
+                        activeDist.classList.add('active');
+                    }
+                }
             });
         }
 
