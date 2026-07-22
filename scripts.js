@@ -173,10 +173,10 @@ const destinations = [
 const mangaloreCategories = [
     { id: 'beaches', name: 'Beaches', desc: 'Explore famous beaches →', image: 'assets/places/panambur_beach.jpg' },
     { id: 'temples', name: 'Temples', desc: 'Explore famous temples →', image: 'assets/places/kadri_temple.jpg' },
-    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
+    { id: 'malls', name: 'Malls', desc: 'Explore shopping malls →', image: 'https://i.ytimg.com/vi/5hSQ865UkQA/maxresdefault.jpg' },
     { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
     { id: 'churches', name: 'Famous Churches', desc: 'Explore famous churches →', image: 'https://aroundmangalore.com/wp-content/uploads/2015/08/Aloysius-Chapel-1.png' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600' },
+    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://www.crazymasalafood.com/wp-content/images/machali-mangalore-hotel.png' },
     { id: 'parks', name: 'Parks & Gardens', desc: 'Explore green parks →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
     { id: 'breweries', name: 'Breweries & Pubs', desc: 'Explore pubs →', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=600' },
     { id: 'boating', name: 'Boating & Water Sports', desc: 'Explore boating spots →', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600' },
@@ -318,6 +318,7 @@ const mangaloreCategoryData = {
                 description: 'A highly revered sacred shrine dedicated to Swami Koragajja, drawing countless devotees seeking blessings.',
                 openHours: '6:00 AM – 1:00 PM, 4:00 PM – 9:00 PM',
                 bestTime: 'Evening Aarti (6:30 PM)',
+                busRoutes: '40, 42, 43, 44, 45, 47, 50, 51 (buses towards Ullal/Kuthar)',
                 bestChoice: 'Koragajja Darshan & Offering Betel Leaves',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -327,6 +328,7 @@ const mangaloreCategoryData = {
                 description: 'An ancient Hindu temple with unique architecture and historical significance.',
                 openHours: '5:30 AM – 1:00 PM, 4:00 PM – 8:30 PM',
                 bestTime: 'Morning Pooja (7:00 AM)',
+                busRoutes: '12A, 14A, 15, 56, 59 (stop at Kadri)',
                 bestChoice: 'Lokeshwara Bronze Statue & Natural Springs',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1609137882611-37f2252a11b9?auto=format&fit=crop&q=80&w=200'
             },
@@ -336,6 +338,7 @@ const mangaloreCategoryData = {
                 description: 'A beautiful temple known for its magnificent Dasara celebrations.',
                 openHours: '6:00 AM – 2:00 PM, 4:30 PM – 9:00 PM',
                 bestTime: 'Evening lighting (6:30 PM)',
+                busRoutes: '16, 16A, 3C (stop at Kudroli/Gokarnath Temple)',
                 bestChoice: 'Golden Gopuram View & Dasara Festivities',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=200'
             },
@@ -345,6 +348,7 @@ const mangaloreCategoryData = {
                 description: 'The ancient temple after which the city of Mangalore is named.',
                 openHours: '6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM',
                 bestTime: 'Navratri Festival Week (All day)',
+                busRoutes: '15, 27, 27C, 33 (stop at Mangaladevi/Bolar)',
                 bestChoice: 'Traditional Pooja & Historic Temple Origin Site',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -413,6 +417,7 @@ const mangaloreCategoryData = {
                 description: 'One of the largest malls in Mangalore with great shopping, dining, and multiplex.',
                 openHours: '10:00 AM – 10:00 PM',
                 bestTime: 'Weekends (All day)',
+                busRoutes: '4, 5, 10A, 11B, 23, 30, 30A, 37, 42, 43, 44A, 44B, 44C, 44D, 51, 51A, 54, 55 (all pass through Kankanady → Jyothi → Hampankatta/State Bank)',
                 bestChoice: 'Cinepolis Movie Screening & Food Court Dining',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=200'
             },
@@ -422,6 +427,7 @@ const mangaloreCategoryData = {
                 description: 'A premium shopping destination offering global brands and entertainment options.',
                 openHours: '10:00 AM – 10:00 PM',
                 bestTime: 'Evening hours (6:00 PM onwards)',
+                busRoutes: '9A, 18, 29 (go via Pandeshwar)',
                 bestChoice: 'Global Brands Shopping & Bowling Alley Gaming',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=200'
             },
@@ -440,8 +446,9 @@ const mangaloreCategoryData = {
                 description: 'One of the first modern malls in the city, popular among locals.',
                 openHours: '10:00 AM – 9:30 PM',
                 bestTime: 'Afternoon Shopping hours',
+                busRoutes: '15, 17, 17A, 19, 33, 47B, 48A (stop near Bharath Mall/KSRTC)',
                 bestChoice: 'Supermarket Shopping & Multiplex Theatre',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'
+                bestChoiceImg: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600'
             }
         ]
     },
@@ -579,6 +586,18 @@ const mangaloreCategoryData = {
                 ]
             },
             {
+                name: "GiriManja's",
+                image: 'https://i.ytimg.com/vi/Sg4rB98loRo/maxresdefault.jpg',
+                description: 'An iconic local seafood joint near Car Street, Mangaluru, famous for its rustic coastal flavors, mouthwatering tawa-fried fish, and authentic fish thalis.',
+                openHours: '11:30 AM – 3:30 PM, 7:00 PM – 10:00 PM',
+                bestFoods: [
+                    { name: 'Anjal (King Fish) Tawa Fry', img: 'assets/places/girimanjas_tawa_fry.jpg', price: '₹300 (Approx)' },
+                    { name: 'Special Seafood Thali', img: 'assets/places/girimanjas_fish_thali.jpg', price: '₹220 (Approx)' },
+                    { name: 'Prawns Masala Fry', img: 'assets/places/girimanjas_prawns_masala.jpg', price: '₹280 (Approx)' },
+                    { name: 'Squid (Bondas) Rava Fry', img: 'https://i.pinimg.com/originals/9e/c8/24/9ec824618f757fb1dad66ccdc0640103.jpg', price: '₹260 (Approx)' }
+                ]
+            },
+            {
                 name: 'Shetty Lunch Home',
                 image: 'https://aroundmangalore.com/wp-content/uploads/2020/02/Shetty-Lunch-Home-Seafood-and-Mangalore-Cuisine-Restaurant-Adyar-Mangalore-P1.jpg',
                 description: 'The iconic restaurant credited with the invention of the world-famous Chicken Ghee Roast, serving outstanding traditional recipes.',
@@ -624,6 +643,18 @@ const mangaloreCategoryData = {
                     { name: 'Full Chicken Al Faham Mandi (For 2)', img: 'https://www.m3mandi.com/wp-content/uploads/2023/08/Chicken_Al_faham_Mandi_.jpeg', price: '₹650–₹850' },
                     { name: 'Al Faham Mandi with Drinks (For 2)', img: 'https://www.m3mandi.com/wp-content/uploads/2023/08/Chicken_Al_faham_Mandi_.jpeg', price: '₹700–₹1,000' },
                     { name: 'Chicken/Mutton Mandi Platter (For 6)', img: 'https://i.ytimg.com/vi/-WNlsEMTxbA/maxresdefault.jpg', price: '₹2,000–₹3,500 (Incl. Unlimited Rice)' }
+                ]
+            },
+            {
+                name: 'Charminar Restaurant',
+                image: 'assets/places/charminar_logo.png',
+                description: 'A popular restaurant in Mangaluru famous for its authentic Hyderabadi Dum Biryani, flavorful kebabs, tandoori starters, and rich Mughlai dishes.',
+                openHours: '12:00 PM – 11:00 PM',
+                bestFoods: [
+                    { name: 'Hyderabadi Special Chicken Dum Biryani', img: 'assets/places/charminar_main_biryani.jpg', price: '₹220 (Approx)' },
+                    { name: 'Chicken 65 Special Dum Biryani', img: 'assets/places/charminar_chicken65_biryani.jpg', price: '₹250 (Approx)' },
+                    { name: 'Chicken Ghee Roast / Sukka', img: 'assets/places/charminar_chicken_ghee_roast.jpg', price: '₹260 (Approx)' },
+                    { name: 'Prawns Ghee Roast', img: 'assets/places/charminar_prawns_ghee_roast.jpg', price: '₹320 (Approx)' }
                 ]
             }
         ]
@@ -2375,21 +2406,43 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
 
     const destHTML = `
         <div class="page-content">
-            <header class="dest-header">
-                <div class="dest-header-row" style="margin-bottom: 2rem;">
-                    <a href="#" class="back-btn" id="back-to-city" style="margin-bottom: 0;">
+            <header class="dest-header dest-header-flex">
+                <div>
+                    <a href="#" class="back-btn" id="back-to-city" style="margin-bottom: 1.5rem; display: inline-flex;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                         Back to ${cityName}
                     </a>
-                    <button class="must-watch-btn" id="must-watch-btn">
+                    <h1 style="margin: 0 0 0.5rem 0;">${category.name}</h1>
+                    <p style="margin: 0 0 1.25rem 0;">Discover the best ${category.name.toLowerCase()} and plan your visit.</p>
+                    <button class="must-watch-btn" id="must-watch-btn" style="margin: 0;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        <span class="hide-mobile">Must Watching Places</span>
-                        <span class="show-mobile-inline" style="display: none;">Must Watch</span>
+                        <span class="hide-mobile">Must Visit Places</span>
+                        <span class="show-mobile-inline" style="display: none;">Must Visit</span>
                         <span class="btn-arrow">→</span>
                     </button>
                 </div>
-                <h1>${category.name}</h1>
-                <p>Discover the best ${category.name.toLowerCase()} and plan your visit.</p>
+
+                <div class="category-card famous-food-header-card" style="cursor: default;">
+                    <div style="position: absolute; top: 12px; left: 12px; color: #0b1a30; font-size: 0.75rem; font-weight: 800; z-index: 5; text-transform: uppercase; letter-spacing: 0.8px; text-shadow: 0 0 6px #ffffff, 0 0 3px #ffffff, 0 1px 2px rgba(0,0,0,0.2);">
+                        ${category.name}
+                    </div>
+                    <div class="category-img swiper category-header-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
+                        <div class="swiper-wrapper">
+                            ${category.places.map(place => `
+                            <div class="swiper-slide" style="display: flex; flex-direction: column; overflow: hidden; height: 100%; position: relative;">
+                                <div class="food-swiper-img-wrapper" style="position: relative; flex: 1; overflow: hidden; width: 100%;">
+                                    <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async">
+                                </div>
+                                <div class="food-card-info" style="padding: 10px 12px; background: var(--card-bg, #ffffff); border-top: 1px solid rgba(0, 0, 0, 0.05); text-align: center; z-index: 3;">
+                                    <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-main, #0f172a); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0;">
+                                        ${place.name}
+                                    </span>
+                                </div>
+                            </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <div class="places-grid">
@@ -2397,7 +2450,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                     <div class="place-card">
                         <div class="place-img" style="position: relative; overflow: hidden;">
                             ${place.images && place.images.length > 0 ? `
-                                <div style="width: 100%; height: 100%; overflow: hidden; ${categoryId === 'gaming' ? 'transform: scale(1.25); transform-origin: center;' : ''}">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <div class="place-img-slider" data-active-index="0" style="display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform;">
                                         ${place.images.map(imgUrl => `
                                             <img src="${imgUrl}" alt="${place.name}" loading="lazy" decoding="async" style="min-width: 100%; height: 100%; object-fit: cover;">
@@ -2410,7 +2463,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                     `).join('')}
                                 </div>
                             ` : `
-                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : categoryId === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
+                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                             `}
                         </div>
                         <div class="place-info">
@@ -2419,7 +2472,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 ${place.rating ? `<span class="place-rating"><span class="star-icon">⭐</span> ${place.rating}</span>` : ''}
                             </div>
                             <p>${place.description}</p>
-                            ${place.bestSeason || place.bestTime || place.openHours ? `
+                            ${place.bestSeason || place.bestTime || place.openHours || place.busRoutes ? `
                             <div class="place-meta">
                                 ${place.bestSeason ? `
                                 <div class="meta-item season">
@@ -2437,6 +2490,14 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 <div class="meta-item time">
                                     <span class="meta-icon">⏰</span>
                                     <span><strong>Timings:</strong> ${place.openHours}</span>
+                                </div>
+                                ` : ''}
+                                ${place.busRoutes ? `
+                                <div class="meta-item bus-route-card" style="grid-column: 1 / -1; margin-top: 6px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%); padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.85rem; color: #1e3a8a;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                        <span class="meta-icon bus-icon-anim" style="font-size: 1.1rem; line-height: 1;">🚌</span>
+                                        <span><strong>Bus Numbers:</strong> ${place.busRoutes}</span>
+                                    </div>
                                 </div>
                                 ` : ''}
                             </div>
@@ -2466,7 +2527,6 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                             </div>
                             ` : place.bestChoice ? `
                             <div class="best-food-box" style="background: #F0FDF4; border-color: #BBF7D0;">
-                                ${place.bestChoiceImg ? `<img src="${place.bestChoiceImg}" alt="${place.bestChoice}" loading="lazy" decoding="async">` : ''}
                                 <div>
                                     <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
                                     <div class="best-food-name">${place.bestChoice}</div>
@@ -2484,6 +2544,22 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
     app.innerHTML = destHTML;
     initBestFoodSliders();
     initPlaceImageSliders();
+
+    if (typeof Swiper !== 'undefined' && document.querySelector('.category-header-swiper')) {
+        new Swiper('.category-header-swiper', {
+            loop: true,
+            speed: 1200,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            effect: 'slide',
+            grabCursor: true,
+            touchRatio: 1.2,
+            resistanceRatio: 0.8,
+        });
+    }
 
     document.getElementById('back-to-city').addEventListener('click', (e) => {
         e.preventDefault();
@@ -2563,8 +2639,8 @@ function renderDestination(id) {
                     ${isPremiumCity ? `
                     <button class="must-watch-btn" id="city-must-watch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                        <span class="hide-mobile">Must Watching Places</span>
-                        <span class="show-mobile-inline" style="display: none;">Must Watch</span>
+                        <span class="hide-mobile">Must Visit Places</span>
+                        <span class="show-mobile-inline" style="display: none;">Must Visit</span>
                         <span class="btn-arrow">→</span>
                     </button>
                     ` : ''}
@@ -2631,7 +2707,7 @@ function renderDestination(id) {
                         ${cityCategories[dest.id].map(cat => `
                             <div class="category-card ${cat.empty ? 'empty-card' : ''}" data-cat-id="${cat.id}">
                                 <div class="category-img">
-                                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async" ${cat.id === 'gaming' ? 'style="transform: scale(1.25); transform-origin: center; object-fit: cover;"' : ''}>
+                                    <img src="${cat.image}" alt="${cat.name}" loading="lazy" decoding="async">
                                 </div>
                                 <div class="category-overlay">
                                     <h3>${cat.name}</h3>
@@ -2655,20 +2731,24 @@ function renderDestination(id) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Initialize Swiper for Famous Food if we are in a premium city page
+    // Initialize Swiper for Header Category Cards
     if (isPremiumCity && typeof Swiper !== 'undefined') {
-        new Swiper('.food-swiper', {
-            loop: true,
-            speed: 1200,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            effect: 'slide',
-            grabCursor: true,
-            touchRatio: 1.2,
-            resistanceRatio: 0.8,
+        ['.food-swiper', '.beach-swiper', '.temple-swiper', '.mall-swiper'].forEach((selector, idx) => {
+            if (document.querySelector(selector)) {
+                new Swiper(selector, {
+                    loop: true,
+                    speed: 1200,
+                    autoplay: {
+                        delay: 2000 + (idx * 500),
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    },
+                    effect: 'slide',
+                    grabCursor: true,
+                    touchRatio: 1.2,
+                    resistanceRatio: 0.8,
+                });
+            }
         });
         bindDoubleTapListeners();
     }
@@ -2745,7 +2825,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
         <div class="must-watch-modal-overlay" id="must-watch-modal-overlay">
             <div class="must-watch-modal">
                 <header class="must-watch-modal-header">
-                    <h2>⭐ Top Must Watching ${category.name}</h2>
+                    <h2>⭐ Top Must Visit ${category.name}</h2>
                     <button class="must-watch-close-btn" id="must-watch-close-btn" aria-label="Close modal">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
                     </button>
@@ -2757,7 +2837,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
                             <div class="swiper-slide">
                                 <div class="must-watch-card">
                                     <div class="must-watch-card-img">
-                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                                         <div class="must-watch-badges">
                                             <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
                                             <span class="must-watch-badge">Must Visit</span>
@@ -2770,7 +2850,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
                                             <span>${getLocation(place.name)}</span>
                                         </div>
                                         <p>${place.description}</p>
-                                        ${place.bestSeason || place.bestTime || place.openHours ? `
+                                        ${place.bestSeason || place.bestTime || place.openHours || place.busRoutes ? `
                                         <div class="place-meta">
                                             ${place.bestSeason ? `
                                             <div class="meta-item season">
@@ -2788,6 +2868,14 @@ function openMustWatchModal(category, cityId = currentCityId) {
                                             <div class="meta-item time">
                                                 <span class="meta-icon">⏰</span>
                                                 <span><strong>Timings:</strong> ${place.openHours}</span>
+                                            </div>
+                                            ` : ''}
+                                            ${place.busRoutes ? `
+                                            <div class="meta-item bus-route-card" style="grid-column: 1 / -1; margin-top: 6px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%); padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.85rem; color: #1e3a8a;">
+                                                <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                                    <span class="meta-icon bus-icon-anim" style="font-size: 1.1rem; line-height: 1;">🚌</span>
+                                                    <span><strong>Bus Numbers:</strong> ${place.busRoutes}</span>
+                                                </div>
                                             </div>
                                             ` : ''}
                                         </div>
@@ -2817,7 +2905,6 @@ function openMustWatchModal(category, cityId = currentCityId) {
                                         </div>
                                         ` : place.bestChoice ? `
                                         <div class="best-food-box" style="margin-bottom: 1.5rem; background: #F0FDF4; border-color: #BBF7D0;">
-                                            ${place.bestChoiceImg ? `<img src="${place.bestChoiceImg}" alt="${place.bestChoice}" loading="lazy" decoding="async">` : ''}
                                             <div>
                                                 <div class="best-food-title" style="color: #16A34A;">Best Choice</div>
                                                 <div class="best-food-name">${place.bestChoice}</div>
@@ -2909,7 +2996,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
 
 const cityMustWatchData = {
     'mangaluru': {
-        title: '🌍 Mangalore Must Watching Places',
+        title: '🌍 Mangalore Must Visit Places',
         places: [
             {
                 name: 'Kadri Manjunath Temple',
@@ -2991,7 +3078,7 @@ const cityMustWatchData = {
         ]
     },
     'bangalore': {
-        title: '🌍 Bangalore Must Watching Places',
+        title: '🌍 Bangalore Must Visit Places',
         places: [
             {
                 name: 'Cubbon Park',
@@ -3073,7 +3160,7 @@ const cityMustWatchData = {
         ]
     },
     'mysuru': {
-        title: '🌍 Mysore Must Watching Places',
+        title: '🌍 Mysore Must Visit Places',
         places: [
             {
                 name: 'Chamundi Hills',
@@ -3201,7 +3288,7 @@ function openCityMustWatchModal(cityId) {
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
-                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : place.name === 'Mandi Stories' ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
+                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
                                                     <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>

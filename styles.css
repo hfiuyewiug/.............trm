@@ -1208,7 +1208,7 @@ main {
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -1824,11 +1824,17 @@ main {
 @media (max-width: 768px) {
     .dest-header-flex {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         width: 100%;
         gap: 1.5rem;
         position: relative;
+    }
+
+    .dest-header-flex > div:first-child {
+        width: 100%;
+        max-width: calc(100% - 170px);
+        text-align: left;
     }
 
     .dest-header {
@@ -1842,13 +1848,13 @@ main {
         align-self: flex-start;
     }
 
-    .dest-header-row {
+    .dest-header-row,
+    .dest-title-btn-row {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75rem;
         width: 100%;
-        max-width: calc(100% - 175px);
         align-self: flex-start;
         text-align: left;
     }
@@ -1916,7 +1922,39 @@ main {
     }
 
     .dest-header h1 {
-        font-size: 2.25rem;
+        font-size: 1.75rem !important;
+        line-height: 1.25 !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+        word-break: break-word;
+    }
+
+    .dest-header p {
+        font-size: 0.85rem !important;
+        line-height: 1.35 !important;
+        margin-top: 0.25rem !important;
+        color: #64748b;
+    }
+}
+
+@media (max-width: 480px) {
+    .famous-food-header-card {
+        width: 130px !important;
+        height: 130px !important;
+        top: 1rem !important;
+        right: 0.75rem !important;
+    }
+
+    .dest-header-flex > div:first-child {
+        max-width: calc(100% - 142px) !important;
+    }
+
+    .dest-header h1 {
+        font-size: 1.45rem !important;
+    }
+
+    .dest-header p {
+        font-size: 0.78rem !important;
     }
 
     .places-grid {
@@ -1930,6 +1968,7 @@ main {
         gap: 1rem;
         padding: 0 1rem;
     }
+}
 
     .must-watch-modal-overlay {
         padding: 1.5rem 1rem;
@@ -5003,4 +5042,46 @@ main {
 #auth-forgot-link:hover {
     color: #ff3399 !important;
     text-decoration: underline !important;
+}
+
+/* Bus Route Animation & Student Discount Badge */
+@keyframes busDrive {
+    0%, 100% { transform: translateX(0) scale(1); }
+    25% { transform: translateX(4px) scale(1.08) rotate(2deg); }
+    50% { transform: translateX(0) scale(1); }
+    75% { transform: translateX(-3px) scale(0.98) rotate(-1deg); }
+}
+
+.bus-icon-anim {
+    display: inline-block;
+    animation: busDrive 2.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.bus-route-card {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.bus-route-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.18);
+    border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+.student-discount-badge {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    animation: discountPulse 3s infinite alternate;
+}
+
+@keyframes discountPulse {
+    0% { background: #ECFDF5; border-color: #A7F3D0; }
+    100% { background: #D1FAE5; border-color: #34D399; }
 }
