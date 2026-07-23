@@ -408,7 +408,7 @@ const mangaloreCategoryData = {
             },
             { 
                 name: '🌺 Bappanadu Durgaparameshwari Temple', 
-                image: 'assets/places/bappanadu_temple.jpg', 
+                image: 'https://mangaloreheritage.com/wp-content/uploads/2020/05/bappanadu-1080x675.jpg', 
                 description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.',
                 openHours: '5:30 AM – 1:30 PM, 4:00 PM – 8:30 PM',
                 bestTime: 'Annual Bappanadu Dolu Festival',
@@ -2505,7 +2505,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                     `).join('')}
                                 </div>
                             ` : `
-                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${['Chamundi Hills', 'Karinjeshwara Hill Temple', 'Karinchieshwara Trek'].includes(place.name) ? 'style="transform: scale(1.35); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                             `}
                         </div>
                         <div class="place-info">
@@ -2886,7 +2886,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
                             <div class="swiper-slide">
                                 <div class="must-watch-card">
                                     <div class="must-watch-card-img">
-                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
+                                        <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${['Chamundi Hills', 'Karinjeshwara Hill Temple', 'Karinchieshwara Trek'].includes(place.name) ? 'style="transform: scale(1.35); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : place.name.includes('Upcoming') ? 'style="filter: blur(4px);"' : ''}>
                                         <div class="must-watch-badges">
                                             <span class="must-watch-badge rating">★ ${getRating(idx)}</span>
                                             <span class="must-watch-badge">Must Visit</span>
@@ -3345,7 +3345,7 @@ function openCityMustWatchModal(cityId) {
                                     <div class="swiper-slide">
                                         <div class="must-watch-card" style="max-width: 100%;">
                                             <div class="must-watch-card-img">
-                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${place.name === 'Chamundi Hills' ? 'style="transform: scale(1.2); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
+                                                <img src="${place.image}" alt="${place.name}" loading="lazy" decoding="async" ${['Chamundi Hills', 'Karinjeshwara Hill Temple', 'Karinchieshwara Trek'].includes(place.name) ? 'style="transform: scale(1.35); transform-origin: center; object-fit: cover;"' : ['Mandi Stories', 'Charminar Restaurant'].includes(place.name) ? 'style="object-fit: contain; background-color: #ffffff; padding: 12px;"' : ''}>
                                                 <div class="must-watch-badges">
                                                     <span class="must-watch-badge rating">★ ${place.rating}</span>
                                                     <span class="must-watch-badge" style="background: rgba(131, 56, 236, 0.9); font-weight: 700; border: none; box-shadow: 0 4px 10px rgba(131,56,236,0.3);">${place.bestTime}</span>
