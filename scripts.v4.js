@@ -688,6 +688,18 @@ const mangaloreCategoryData = {
                     { name: 'Chicken Ghee Roast / Sukka', img: 'assets/places/charminar_chicken_ghee_roast.jpg', price: '₹260 (Approx)' },
                     { name: 'Prawns Ghee Roast', img: 'assets/places/charminar_prawns_ghee_roast.jpg', price: '₹320 (Approx)' }
                 ]
+            },
+            {
+                name: 'Hotel Thimmappa',
+                image: 'https://assets.architecturaldigest.in/photos/696f675217ee5e78ebce1fd0/master/w_1600%2Cc_limit/Noaidwinsttudio-.jpeg',
+                description: 'A renowned iconic hotel famous for its authentic coastal fish thali, mouthwatering tawa fish fry, and rich heritage flavors.',
+                openHours: '11:30 AM – 4:00 PM, 7:00 PM – 10:30 PM',
+                bestFoods: [
+                    { name: 'Masala Fish Fry', img: 'https://b2958125.smushcdn.com/2958125/wp-content/uploads/masala-fish-fry-recipe-ayala-meen-Mackerel-fry-8.jpg?lossy=1&strip=1&webp=1', price: '₹240 (Approx)' },
+                    { name: 'Pomfret Fry', img: 'https://img.frozenfish.direct/wp-content/uploads/2023/04/Pomfret-Fry.jpg.webp', price: '₹340 (Approx)' },
+                    { name: 'Thimmappa Seafood Thali', img: 'https://i.ytimg.com/vi/qRzZpIYwsQQ/maxresdefault.jpg', price: '₹220 (Approx)' },
+                    { name: 'Chicken Sukka', img: 'https://mangaloreheritage.com/wp-content/uploads/2020/05/Chicken-Sukka-1024x683.jpg', price: '₹260 (Approx)' }
+                ]
             }
         ]
     },
