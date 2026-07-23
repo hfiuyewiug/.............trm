@@ -193,6 +193,7 @@ const mangaloreCategoryData = {
                 description: 'A clean and popular beach known for its golden sands and water sports.',
                 rating: '4.5',
                 bestTime: '4:30 PM – 7:00 PM (Sunset)',
+                busRoutes: 'Bus 2B, 45, 45A, 45B, 45C, 45D, 45E, 45F, 45G, 45H (Board at State Bank or KSRTC Bus Stand)',
                 bestChoice: 'Jet Ski & Water Sports Adventures <strong>(~10 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
             },
@@ -202,6 +203,7 @@ const mangaloreCategoryData = {
                 description: 'A peaceful beach perfect for relaxation, reachable by a scenic ferry.',
                 rating: '4.7',
                 bestTime: '5:00 PM – 7:15 PM',
+                busRoutes: 'Bus 1A, 2B via Tannirbhavi/Kuloor corridor (Board at State Bank Bus Stand)',
                 bestChoice: 'Scenic Ferry Ride & Sunset View <strong>(~9 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
             },
@@ -211,6 +213,7 @@ const mangaloreCategoryData = {
                 description: 'Famous for the Rudra Shile (huge rocks) and the ancient Someshwara Temple.',
                 rating: '4.6',
                 bestTime: '4:30 PM – 6:30 PM',
+                busRoutes: 'Bus 42, 43, 44A, 44B, 44C, 44D (Board at State Bank, KSRTC, or Kankanady)',
                 bestChoice: 'Rudra Shile Rock Formations Exploration <strong>(~17 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=200'
             },
@@ -220,6 +223,7 @@ const mangaloreCategoryData = {
                 description: 'A serene beach known for its lighthouse that offers a spectacular view.',
                 rating: '4.8',
                 bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Bus 2, 2A, 41A, 45, 45A, 45B, 45C, 45D, 45E, 45F, 45G, 45H (Board at State Bank or KSRTC Bus Stand)',
                 bestChoice: 'Panoramic View from the Lighthouse <strong>(~16 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
             },
@@ -229,6 +233,7 @@ const mangaloreCategoryData = {
                 description: 'A pristine and scenic beach where the river meets the Arabian Sea, popular for surfing.',
                 rating: '4.9',
                 bestTime: '6:00 AM – 9:00 AM',
+                busRoutes: 'Bus 2A, 36A, 36E (Board at State Bank. 2A goes via Surathkal & Mukka)',
                 bestChoice: 'Surfing at the River Mouth Confluence <strong>(~24 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
             },
@@ -238,6 +243,7 @@ const mangaloreCategoryData = {
                 description: 'A tranquil beach offering spectacular sunset views and a peaceful environment.',
                 rating: '4.4',
                 bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Bus 44A, 46A, 46B, 46C, 46D, 46E, 46M (Board at State Bank, KSRTC, or Kankanady)',
                 bestChoice: 'Tranquil Shoreline Sunset Walks <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
             },
@@ -247,6 +253,7 @@ const mangaloreCategoryData = {
                 description: 'A picturesque coastal stretch where the river meets the Arabian Sea, offering breathtaking sunsets.',
                 rating: '4.5',
                 bestTime: '4:30 PM – 6:45 PM',
+                busRoutes: 'Bus 2B, 34F (Board at State Bank. Get down at Bengre)',
                 bestChoice: 'Scenic Estuary Sunset views <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200'
             },
@@ -256,6 +263,7 @@ const mangaloreCategoryData = {
                 description: 'A serene and less crowded beach ideal for relaxing walks along the shoreline.',
                 rating: '4.2',
                 bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Bus 48, 53E, 47, 47A (Board at State Bank. Get down at Talapady)',
                 bestChoice: 'Quiet Coastal Beach Walk <strong>(~17 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?auto=format&fit=crop&q=80&w=200'
             },
@@ -264,6 +272,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/batapady_beach.jpg', 
                 description: 'A hidden gem offering a calm environment and pristine beauty, perfect for a peaceful getaway.',
                 bestTime: '4:30 PM – 7:00 PM',
+                busRoutes: 'Bus 48, 53E (Board at State Bank. Get down at Talapady, then take auto)',
                 bestChoice: 'Hidden Seaside Scenic Gateway <strong>(~19 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&q=80&w=200'
             },
@@ -272,6 +281,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/mukka_beach.jpg', 
                 description: 'Known for its golden sands and the nearby NITK lighthouse, offering a panoramic view of the sea.',
                 bestTime: '5:00 PM – 7:15 PM',
+                busRoutes: 'Bus 2, 2A, 36, 36M (Board at State Bank. Get down at Mukka or NITK)',
                 bestChoice: 'Golden Sands & Seagull Watching <strong>(~20 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&q=80&w=200'
             },
@@ -280,6 +290,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/kodical_beach.jpg', 
                 description: 'A beautiful coastline with a mix of sandy stretches and rocky shores, perfect for an evening stroll.',
                 bestTime: '4:30 PM – 6:30 PM',
+                busRoutes: 'Bus 1B, 1C, 2, 2A (Board at State Bank. Get down at Kodikal, then take auto)',
                 bestChoice: 'Rocky Shore Scenic Stroll <strong>(~7 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=200'
             },
@@ -288,6 +299,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/chitrapura_beach.jpg', 
                 description: 'A quiet and peaceful beach, perfect for long walks and enjoying the serene coastal breeze.',
                 bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Bus 36, 36M, 45, 45A (Board at State Bank. Get down at Surathkal/Chitrapura)',
                 bestChoice: 'Quiet Coastal Sea Breeze Relaxation <strong>(~12 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1473116763269-255448993767?auto=format&fit=crop&q=80&w=200'
             },
@@ -296,6 +308,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/mulki_beach.jpg', 
                 description: 'A popular destination for water sports enthusiasts, especially known for surfing and kayaking.',
                 bestTime: '6:00 AM – 10:00 AM',
+                busRoutes: 'Bus 2A, 36A, 36E (Board at State Bank. Get down at Mulki, then take auto)',
                 bestChoice: 'Kayaking & Surfing Lessons <strong>(~29 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
             },
@@ -304,6 +317,7 @@ const mangaloreCategoryData = {
                 image: 'assets/places/hosabettu_beach.gif', 
                 description: 'A beautiful hidden coastal gem that offers a pristine environment away from the city crowd.',
                 bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Bus 36, 36M, 45, 45A (Board at State Bank. Get down at Hosabettu)',
                 bestChoice: 'Isolated Beach View & Solitude <strong>(~14 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
             }
@@ -2493,10 +2507,17 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 </div>
                                 ` : ''}
                                 ${place.busRoutes ? `
-                                <div class="meta-item bus-route-card" style="grid-column: 1 / -1; margin-top: 6px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%); padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.85rem; color: #1e3a8a;">
-                                    <div style="display: flex; align-items: flex-start; gap: 8px;">
-                                        <span class="meta-icon bus-icon-anim" style="font-size: 1.1rem; line-height: 1;">🚌</span>
-                                        <span><strong>Bus Numbers:</strong> ${place.busRoutes}</span>
+                                <div class="meta-item bus-route-card dark-bus-card" style="grid-column: 1 / -1; margin-top: 10px; padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; color: #f1f5f9;">
+                                    <div class="bus-card-shimmer"></div>
+                                    <div style="display: flex; align-items: flex-start; gap: 10px; z-index: 2; position: relative;">
+                                        <span class="meta-icon bus-icon-anim" style="font-size: 1.3rem; line-height: 1;">🚌</span>
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                                <strong style="color: #38bdf8; text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.8px; font-weight: 700;">Bus Routes & Stop Details</strong>
+                                                <span class="bus-live-badge"><span class="live-dot"></span> Live Route</span>
+                                            </div>
+                                            <span style="color: #e2e8f0; font-weight: 500; line-height: 1.45; display: block;">${place.busRoutes}</span>
+                                        </div>
                                     </div>
                                 </div>
                                 ` : ''}
@@ -2871,13 +2892,20 @@ function openMustWatchModal(category, cityId = currentCityId) {
                                             </div>
                                             ` : ''}
                                             ${place.busRoutes ? `
-                                            <div class="meta-item bus-route-card" style="grid-column: 1 / -1; margin-top: 6px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%); padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(59, 130, 246, 0.25); font-size: 0.85rem; color: #1e3a8a;">
-                                                <div style="display: flex; align-items: flex-start; gap: 8px;">
-                                                    <span class="meta-icon bus-icon-anim" style="font-size: 1.1rem; line-height: 1;">🚌</span>
-                                                    <span><strong>Bus Numbers:</strong> ${place.busRoutes}</span>
-                                                </div>
-                                            </div>
-                                            ` : ''}
+                                             <div class="meta-item bus-route-card dark-bus-card" style="grid-column: 1 / -1; margin-top: 10px; padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; color: #f1f5f9;">
+                                                 <div class="bus-card-shimmer"></div>
+                                                 <div style="display: flex; align-items: flex-start; gap: 10px; z-index: 2; position: relative;">
+                                                     <span class="meta-icon bus-icon-anim" style="font-size: 1.3rem; line-height: 1;">🚌</span>
+                                                     <div style="flex: 1;">
+                                                         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                                             <strong style="color: #38bdf8; text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.8px; font-weight: 700;">Bus Routes & Stop Details</strong>
+                                                             <span class="bus-live-badge"><span class="live-dot"></span> Live Route</span>
+                                                         </div>
+                                                         <span style="color: #e2e8f0; font-weight: 500; line-height: 1.45; display: block;">${place.busRoutes}</span>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             ` : ''}
                                         </div>
                                         ` : ''}
                                         ${place.bestFoods ? `
@@ -3028,6 +3056,7 @@ const cityMustWatchData = {
                 rating: '4.9',
                 location: 'Coastal Hwy, Mangalore',
                 bestTime: '🌅 Evening View: 5:00 PM',
+                busRoutes: 'Bus 2B, 45, 45A, 45B, 45C, 45D, 45E, 45F, 45G, 45H (Board at State Bank or KSRTC Bus Stand)',
                 description: 'A clean and popular beach known for its golden sands, gorgeous sunsets, and thrilling water sports.'
             },
             {
