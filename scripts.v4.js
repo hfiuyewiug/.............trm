@@ -372,6 +372,7 @@ const mangaloreCategoryData = {
                 description: 'Famous for its wooden idols and the historic Polali Chendu festival.',
                 openHours: '6:00 AM – 12:30 PM, 4:00 PM – 8:00 PM',
                 bestTime: 'Polali Chendu Festival (March/April)',
+                busRoutes: 'Bus 42, 42A, 42B, 42C (Board at State Bank or KSRTC. Get down at Polali Bus Stand)',
                 bestChoice: 'Sri Rajarajeshwari Clay Idol Darshan',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -381,6 +382,7 @@ const mangaloreCategoryData = {
                 description: 'A prominent Hindu temple dedicated to Goddess Durgaparameshwari, located on an islet in the Nandini River.',
                 openHours: '6:00 AM – 9:30 PM',
                 bestTime: 'Morning Aarti (10:00 AM)',
+                busRoutes: 'Bus 48, 48A, 48B, 48C, 48D (Board at State Bank or KSRTC. Get down at Kateel Bus Stand)',
                 bestChoice: 'Island Temple Darshan & River Sunset Views',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&q=80&w=200'
             },
@@ -390,6 +392,7 @@ const mangaloreCategoryData = {
                 description: 'An ancient Shiva temple situated by the sea, known for its historic architecture and beautiful surroundings.',
                 openHours: '6:00 AM – 1:00 PM, 4:00 PM – 8:00 PM',
                 bestTime: 'Sunset timings (5:30 PM)',
+                busRoutes: 'Bus 44A, 46A, 46D, 46E, 46M (Board at State Bank, KSRTC, or Kankanady. Get down at Someshwara Stop)',
                 bestChoice: 'Sea-Facing Shoreline Shiva Temple Visit',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -399,6 +402,7 @@ const mangaloreCategoryData = {
                 description: 'A highly revered temple dedicated to Goddess Mariamman, famous for its grand Mangaluru Dasara celebrations.',
                 openHours: '6:00 AM – 1:00 PM, 4:00 PM – 9:00 PM',
                 bestTime: 'Tuesdays & Fridays (All day)',
+                busRoutes: 'Bus 1, 1A, 1B, 1C, 7, 7A (Board at State Bank. Get down at Urwa Store/Market)',
                 bestChoice: 'Urwa Mariamman Pooja & Dasara Processions',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -408,6 +412,7 @@ const mangaloreCategoryData = {
                 description: 'A historical temple known for its communal harmony and the annual Bappanadu Dolu festival.',
                 openHours: '5:30 AM – 1:30 PM, 4:00 PM – 8:30 PM',
                 bestTime: 'Annual Bappanadu Dolu Festival',
+                busRoutes: 'Bus 2, 2A, 2B, 36, 36A, 36E, 36M, 45 towards Mulki/Udupi (Board at State Bank or KSRTC. Get down at Bappanadu Junction / Mulki)',
                 bestChoice: 'Communal Harmony Shrine & Sacred Bappanadu Drum',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1608976328267-e673d3ec06ce?auto=format&fit=crop&q=80&w=200'
             },
@@ -417,6 +422,7 @@ const mangaloreCategoryData = {
                 description: 'A majestic temple perched on a cliff edge, offering a serene spiritual experience and panoramic views.',
                 openHours: '6:00 AM – 12:00 PM, 4:00 PM – 7:00 PM',
                 bestTime: 'Early Morning (6:30 AM)',
+                busRoutes: 'Bus 51, 51A, 51B, 51C, 51D, 51E towards Bantwal/Karinje (Board at State Bank, KSRTC, or Kankanady. Get down at Karinje Junction + auto)',
                 bestChoice: 'Scenic Hill Climb & Temple pond view',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
             }
@@ -475,6 +481,7 @@ const mangaloreCategoryData = {
                 description: 'A challenging trek to a historic hilltop fort with stunning 360-degree views.',
                 rating: '4.7',
                 bestTime: '6:00 AM – 11:00 AM',
+                busRoutes: 'Direct KSRTC/private bus to Belthangady from State Bank → Auto to Jamalabad Fort (5–7 km). Approx Cost: ₹180–₹300',
                 bestChoice: 'Gadaikallu Cliff Climbing Challenge <strong>(~65 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=200'
             },
@@ -484,6 +491,7 @@ const mangaloreCategoryData = {
                 description: 'A scenic trek through lush forests leading to a multi-tiered waterfall.',
                 rating: '4.5',
                 bestTime: '7:30 AM – 12:00 PM',
+                busRoutes: 'Belthangady bus from State Bank → Auto to Ermayi Falls. Approx Cost: ₹220–₹350',
                 bestChoice: 'Forest Trail Hike & Waterfall Swim <strong>(~75 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=200'
             },
@@ -493,6 +501,7 @@ const mangaloreCategoryData = {
                 description: 'A steep trek blending nature and spirituality, ending at an ancient cliffside temple.',
                 rating: '4.6',
                 bestTime: '6:00 AM – 9:00 AM',
+                busRoutes: 'Bantwal bus from State Bank or KSRTC → Auto to Karinje Temple. Approx Cost: ₹100–₹180',
                 bestChoice: 'Cliff Edge Steps Climb & Temple Darshan <strong>(~35 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
             },
@@ -502,6 +511,7 @@ const mangaloreCategoryData = {
                 description: 'A prominent rock formation offering an adventurous climb and beautiful vistas.',
                 rating: '4.7',
                 bestTime: '5:30 AM – 9:30 AM',
+                busRoutes: 'Belthangady bus from State Bank → Auto to Gadaikallu. Approx Cost: ₹180–₹300',
                 bestChoice: 'Sunrise Rock Face Expedition Climb <strong>(~65 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=200'
             },
@@ -511,6 +521,7 @@ const mangaloreCategoryData = {
                 description: 'A hidden gem offering mesmerizing panoramic views of the lush green valleys and the winding Netravati river.',
                 rating: '4.4',
                 bestTime: '5:30 PM – 7:00 PM (Sunset)',
+                busRoutes: 'Bus 44A, 46A, 46D, 46M (Board at State Bank or Kankanady. Get down at Saripalla)',
                 bestChoice: 'Golden Hour Photography & Valley Views <strong>(~10 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=200'
             },
@@ -520,6 +531,7 @@ const mangaloreCategoryData = {
                 description: 'One of the most challenging and rewarding treks in the Western Ghats, taking you through dense forests and grasslands.',
                 rating: '4.9',
                 bestTime: '6:00 AM – 5:00 PM',
+                busRoutes: 'KSRTC Bus to Kukke Subrahmanya (Board at Mangaluru KSRTC Bus Stand. Get down at Kukke Subrahmanya)',
                 bestChoice: 'Pushpagiri Peak Summit Hike <strong>(~110 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1516654766858-f584e2311749?auto=format&fit=crop&q=80&w=200'
             },
@@ -529,6 +541,7 @@ const mangaloreCategoryData = {
                 description: 'A scenic trail winding through the rolling hills of the Western Ghats, offering breathtaking views above the clouds.',
                 rating: '4.8',
                 bestTime: '7:00 AM – 4:00 PM',
+                busRoutes: 'KSRTC/Private Bus to Belthangady or Ujire (Board at State Bank or KSRTC. Get down at Belthangady / Ujire)',
                 bestChoice: 'Cloud Canopy & Ridgeway Walk <strong>(~85 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=200'
             },
@@ -538,6 +551,7 @@ const mangaloreCategoryData = {
                 description: 'An exciting trek leading to a spectacular waterfall cascading from the top of the Western Ghats.',
                 rating: '4.7',
                 bestTime: '6:30 AM – 2:00 PM',
+                busRoutes: 'KSRTC/Private Bus to Ujire or Belthangady (Board at State Bank or KSRTC. Get down at Ujire / Belthangady)',
                 bestChoice: 'Waterfall Edge & Grassland Trek <strong>(~90 km from Mangaluru)</strong>',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1432405972618-c6c00202124c?auto=format&fit=crop&q=80&w=200'
             }
@@ -552,6 +566,7 @@ const mangaloreCategoryData = {
                 description: 'Famous for its exquisite ceiling paintings that rival the Sistine Chapel.',
                 openHours: '9:00 AM – 1:30 PM, 2:30 PM – 6:00 PM',
                 bestTime: 'Morning visit (10:00 AM)',
+                busRoutes: 'Bus 1, 1A, 1B, 7, 7A (Board at Kankanady or State Bank. Get down at Lighthouse Hill / St. Aloysius College) | ~3 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'Sistine Chapel-like Exquisite Ceiling Frescoes',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1548625361-155deee223c2?auto=format&fit=crop&q=80&w=200'
             },
@@ -561,6 +576,7 @@ const mangaloreCategoryData = {
                 description: 'A historic Roman Catholic church in the heart of Mangalore with rich heritage.',
                 openHours: '6:00 AM – 7:30 PM',
                 bestTime: 'Sunday Morning Mass',
+                busRoutes: 'Bus 1, 1A, 1B, 7, 14 (Board at Kankanady or State Bank. Get down at Hampankatta / Milagres) | ~2.5 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'century-old Roman Catholic Architectural Heritage',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1438263308705-f6c8f370ba36?auto=format&fit=crop&q=80&w=200'
             },
@@ -570,6 +586,7 @@ const mangaloreCategoryData = {
                 description: 'The oldest church in Mangalore featuring a stunning dome and beautiful architecture.',
                 openHours: '6:00 AM – 7:00 PM',
                 bestTime: 'Morning Quiet Hours',
+                busRoutes: 'Bus 1, 1A, 7, 14, 21 (Board at Kankanady or State Bank. Get down at Bolar / Rosario Cathedral) | ~3 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'Italian-style architecture & spectacular Dome structure',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1548625361-155deee223c2?auto=format&fit=crop&q=80&w=200'
             },
@@ -579,6 +596,7 @@ const mangaloreCategoryData = {
                 description: 'A popular pilgrimage site known for its modern architecture and peaceful ambiance.',
                 openHours: '5:30 AM – 8:30 PM',
                 bestTime: 'Thursdays Novena services',
+                busRoutes: 'Bus 14, 14A, 14B, 21, 21A (Board at Kankanady or State Bank. Get down at Bikarnakatte / Infant Jesus Shrine) | ~4 km from Kankanady | Fare: ₹10–₹20',
                 bestChoice: 'Prayers in the massive modern amphitheater',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=200'
             }
@@ -682,6 +700,7 @@ const mangaloreCategoryData = {
                 description: 'The largest and most beautiful park in Mangaluru, famous for its musical fountain and lush greenery.',
                 openHours: '6:00 AM – 8:30 PM',
                 bestTime: 'Evening Musical Fountain (7:00 PM)',
+                busRoutes: 'Bus 14, 14A, 14B, 21, 21A (Board at Kankanady or State Bank. Get down at Kadri Park) | ~2 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'Musical Fountain Show & Toy Train Ride',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&q=80&w=200'
             },
@@ -691,6 +710,7 @@ const mangaloreCategoryData = {
                 description: 'A historic park offering a spectacular view of the Arabian Sea and the sunset, located near St. Aloysius College.',
                 openHours: '4:00 PM – 8:00 PM',
                 bestTime: 'Sunset (6:00 PM)',
+                busRoutes: 'Bus 1, 1A, 1B, 7, 7A (Board at Kankanady or State Bank. Get down at Lighthouse Hill) | ~3.5 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'Spectacular Arabian Sea Sunset Views',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=200'
             },
@@ -700,6 +720,7 @@ const mangaloreCategoryData = {
                 description: 'A serene tree park near the coast set up by the Forest Department, featuring medicinal plants and wooden sculptures.',
                 openHours: '10:00 AM – 7:00 PM',
                 bestTime: 'Late Afternoon (4:30 PM)',
+                busRoutes: 'Bus 6, 1A (Board at State Bank Bus Stand. Get down at Tannirbhavi) | ~11 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Nature Trails & Tree Canopy Walk',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=200'
             },
@@ -709,6 +730,7 @@ const mangaloreCategoryData = {
                 description: 'A prominent urban park offering a peaceful walking environment amidst the bustling city.',
                 openHours: '6:00 AM – 8:00 PM',
                 bestTime: 'Early Morning (6:30 AM)',
+                busRoutes: 'Bus 1, 1A, 1B, 7 (Board at Kankanady or State Bank. Get down at Lalbagh / MG Park) | ~3 km from Kankanady | Fare: ₹10–₹15',
                 bestChoice: 'Quiet Morning Walks',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=200'
             },
@@ -718,6 +740,7 @@ const mangaloreCategoryData = {
                 description: 'An eco-education and tourism park featuring a lake, botanical garden, and cultural village.',
                 openHours: '9:30 AM – 5:30 PM',
                 bestTime: 'Morning (10:00 AM)',
+                busRoutes: 'Bus 8, 8A, 8B, 8C (Board at State Bank Bus Stand. Get down at Pilikula) | ~12 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Lake Boating & Artisan Village',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
             },
@@ -727,6 +750,7 @@ const mangaloreCategoryData = {
                 description: 'A major zoo and biological park known for its wildlife conservation efforts and tiger breeding program.',
                 openHours: '9:30 AM – 5:30 PM',
                 bestTime: 'Morning (10:00 AM)',
+                busRoutes: 'Bus 8, 8A, 8B, 8C (Board at State Bank Bus Stand. Get down at Pilikula Biological Park) | ~12 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Wildlife Safari & Tiger Enclosure',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&q=80&w=200'
             }
@@ -791,6 +815,7 @@ const mangaloreCategoryData = {
                 description: 'Historic watchtower built by Tipu Sultan, serving as a scenic boating/ferry point to cross the river to Tannirbhavi Beach.',
                 openHours: '9:00 AM – 7:00 PM',
                 bestTime: 'Scenic river crossing (~6 km from City Center)',
+                busRoutes: 'Bus 6, 6A, 6B, 6C (Board at State Bank Bus Stand. Get down at Sultan Bathery) | ~8 km from Kankanady | Fare: ₹15–₹20',
                 bestChoice: 'Ferry Ride: ₹15 per person',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=200'
             },
@@ -800,6 +825,7 @@ const mangaloreCategoryData = {
                 description: 'Located in the lush Pilikula Nisargadhama, this scenic lake offers peaceful pedal and motor boating options surrounded by gardens.',
                 openHours: '10:00 AM – 5:30 PM (Closed Mondays)',
                 bestTime: 'Quiet lake ride (~12 km from City Center)',
+                busRoutes: 'Bus 8, 8A, 8B, 8C (Board at State Bank Bus Stand. Get down at Pilikula Nisargadhama) | ~12 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Pedal/Row Boating: ₹50 per person',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=200'
             },
@@ -809,6 +835,7 @@ const mangaloreCategoryData = {
                 description: 'A serene backwater kayaking and boating facility offering beautiful river cruises, single/double kayaking, and sunset experiences.',
                 openHours: '6:00 AM – 6:30 PM',
                 bestTime: 'Sunrise & Sunset Kayaking (~10 km from City Center)',
+                busRoutes: 'Bus 2, 2A, 36, 36M towards Kuloor/Mukka corridor (Board at State Bank. Get down at nearest stop + short walk/auto) | ~10 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Kayaking Session: ₹300 per person',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&q=80&w=200'
             },
@@ -818,6 +845,7 @@ const mangaloreCategoryData = {
                 description: 'Enjoy thrilling water sports, including speedboats, banana boats, and jet skiing, right off the beautiful shores of Tannirbhavi Beach.',
                 openHours: '9:00 AM – 7:00 PM',
                 bestTime: 'Sunset Water Sports (~9 km from City Center)',
+                busRoutes: 'Bus 6, 6A (Board at State Bank Bus Stand. Get down at Tannirbhavi Beach) | ~11 km from Kankanady | Fare: ₹20–₹30',
                 bestChoice: 'Speedboat & Banana Rides: ₹100 per person',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
             }
