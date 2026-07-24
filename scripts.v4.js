@@ -140,31 +140,31 @@ const destinations = [
         ]
     },
     {
-        id: 'vijayanagara',
-        name: 'Vijayanagara',
-        image: 'assets/destinations/vijayanagara.png',
-        color: '#F59E0B',
+        id: 'manipal',
+        name: 'Manipal',
+        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800',
+        color: '#EC4899',
         disabled: false,
         famousPlaces: [
             {
-                name: 'Virupaksha Temple',
-                image: 'https://i1.wp.com/www.wordzz.com/wp-content/uploads/2016/09/virupaksha-temple.jpg?fit=0%2C0',
-                description: 'An ancient and sacred temple dedicated to Lord Shiva, known for its majestic gateway tower.'
+                name: 'End Point Park',
+                image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800',
+                description: 'A scenic clifftop park offering panoramic views of the Swarna River valley and Western Ghats.'
             },
             {
-                name: 'Stone Chariot',
-                image: 'https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?auto=format&fit=crop&q=80&w=800',
-                description: 'The iconic stone chariot inside the Vittala Temple, a masterpiece of Vijayanagara architecture.'
+                name: 'Hasta Shilpa Heritage Village',
+                image: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&q=80&w=800',
+                description: 'A unique open-air museum showcasing restored traditional South Indian heritage houses and crafts.'
             },
             {
-                name: 'Lotus Mahal',
-                image: 'https://images.squarespace-cdn.com/content/v1/5e7da3e88b78ee2864e966ca/1596681750867-U7OO1TD9NLJKXXLNLSZE/Vijayanagara+Hampi+880102_c14+lotus+mahal+int_2.jpg',
-                description: 'A beautiful two-storied palace featuring an exquisite blend of Hindu and Islamic design styles.'
+                name: 'Anatomy Museum (MAP)',
+                image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800',
+                description: 'One of Asia’s largest pathology & anatomy museums with thousands of fascinating specimens.'
             },
             {
-                name: 'Hampi Bazaar',
-                image: 'https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?auto=format&fit=crop&q=80&w=800',
-                description: 'A historic street lined with ancient stone pavilions, once a thriving market of the empire.'
+                name: 'Venugopal Temple',
+                image: 'https://images.unsplash.com/photo-1609949279531-cf48d64bed89?auto=format&fit=crop&q=80&w=800',
+                description: 'A serene and beautifully maintained temple complex surrounded by manicured green lawns.'
             }
         ]
     }
@@ -2060,6 +2060,387 @@ const mysuruCategoryData = {
     }
 };
 
+const manipalCategories = [
+    { id: 'beaches', name: 'Beaches near Manipal', desc: 'Explore famous beaches →', image: 'https://shruthinitourist.com/wp-content/uploads/2024/05/malpe-beach-to-visit-at-udupi.jpg' },
+    { id: 'temples', name: 'Temples near Manipal', desc: 'Explore sacred temples →', image: 'https://www.mystreal.com/_next/image/?url=%2Ftemple%2Fkrishna-matha-temple%2Fhero-Udipi-Sri-Krishna-matha-temple.jpg&w=2048&q=75' },
+    { id: 'viewpoints', name: 'Scenic Viewpoints & Lakes', desc: 'Explore lakes & viewpoints →', image: 'https://hblimg.mmtcdn.com/content/hubble/img/manipal/mmt/activities/m_Manipal%20End%20Point%20Park-3_l_399_532.jpg' },
+    { id: 'cafes', name: 'Popular Student Cafes', desc: 'Explore cafes & hangouts →', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/db/c9/b9/this-is-how-it-looks.jpg' },
+    { id: 'museums', name: 'Museums & Heritage', desc: 'Explore heritage houses →', image: 'https://i.ytimg.com/vi/rLaOUhfYWzI/maxresdefault.jpg' },
+    { id: 'waterfalls', name: 'Waterfalls & Kayaking', desc: 'Explore waterfalls & kayaking →', image: 'https://tripxl.com/blog/wp-content/uploads/2024/10/Arbi-Falls.jpg' },
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' }
+];
+
+const manipalCategoryData = {
+    'beaches': {
+        name: 'Beaches near Manipal',
+        places: [
+            {
+                name: 'Malpe Beach',
+                image: 'https://shruthinitourist.com/wp-content/uploads/2024/05/malpe-beach-to-visit-at-udupi.jpg',
+                description: 'Famous for water sports, beach activities, St. Mary\'s Island ferry, and stunning sunsets.',
+                rating: '5.0',
+                bestTime: '4:30 PM – 7:00 PM (Sunset)',
+                busRoutes: 'Buses from Manipal/Udupi Service Bus Stand to Malpe Beach',
+                bestChoice: 'Water Sports & St. Mary\'s Island Ferry <strong>(~10 km from Manipal)</strong>',
+                bestChoiceImg: 'https://shruthinitourist.com/wp-content/uploads/2024/05/malpe-beach-to-visit-at-udupi.jpg'
+            },
+            {
+                name: 'Kapu Beach',
+                image: 'https://img-cdn.publive.online/fit-in/1200x675/30-stades/media/media_files/2025/07/05/kapu-beach-lighthouse-karnataka-lead-30stades-2025-07-05-21-22-30.jpg',
+                description: 'Known for its iconic historic lighthouse, photography spots, and panoramic sunset views.',
+                rating: '5.0',
+                bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Express/Local buses from Udupi to Kaup Light House stop',
+                bestChoice: 'Historic Lighthouse & Panoramic Sunset View <strong>(~15 km from Manipal)</strong>',
+                bestChoiceImg: 'https://img-cdn.publive.online/fit-in/1200x675/30-stades/media/media_files/2025/07/05/kapu-beach-lighthouse-karnataka-lead-30stades-2025-07-05-21-22-30.jpg'
+            },
+            {
+                name: 'Padukere Beach',
+                image: 'https://i.ytimg.com/vi/M0QHbMyTCDo/maxresdefault.jpg',
+                description: 'Ideal for peaceful walks, family outings, and avoiding crowd noise.',
+                rating: '4.0',
+                bestTime: '5:00 PM – 7:15 PM',
+                busRoutes: 'Local buses via Malpe bridge to Padukere',
+                bestChoice: 'Peaceful Shoreline Walk & Serene Views <strong>(~11 km from Manipal)</strong>',
+                bestChoiceImg: 'https://i.ytimg.com/vi/M0QHbMyTCDo/maxresdefault.jpg'
+            },
+            {
+                name: 'Hoode Beach',
+                image: 'https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nL2FlMWZjMWEzMzMzZjQwMzFiMzIzNWYyZWM5YTFmODhhIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19',
+                description: 'A quiet, relaxing beach spot famous for sunrise walks and sea breeze.',
+                rating: '4.0',
+                bestTime: '6:00 AM – 9:00 AM / Sunset',
+                busRoutes: 'Local buses from Udupi towards Kemmannu/Hoode',
+                bestChoice: 'Relaxing Sunrise & Serene Coastline <strong>(~12 km from Manipal)</strong>',
+                bestChoiceImg: 'https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nL2FlMWZjMWEzMzMzZjQwMzFiMzIzNWYyZWM5YTFmODhhIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19'
+            },
+            {
+                name: 'Mattu Beach',
+                image: 'https://thesouthfirst.com/wp-content/uploads/2023/05/Mattu-Beach-Karnataka.jpg',
+                description: 'A scenic coastline great for nature lovers, photography, and bio-luminescence watching.',
+                rating: '4.0',
+                bestTime: '5:00 PM – 7:00 PM',
+                busRoutes: 'Local buses via Katapady to Mattu village',
+                bestChoice: 'Scenic Long Coastline & Photography <strong>(~18 km from Manipal)</strong>',
+                bestChoiceImg: 'https://thesouthfirst.com/wp-content/uploads/2023/05/Mattu-Beach-Karnataka.jpg'
+            }
+        ]
+    },
+    'temples': {
+        name: 'Temples near Manipal',
+        places: [
+            {
+                name: 'Udupi Shri Krishna Matha',
+                image: 'https://www.mystreal.com/_next/image/?url=%2Ftemple%2Fkrishna-matha-temple%2Fhero-Udipi-Sri-Krishna-matha-temple.jpg&w=2048&q=75',
+                description: 'One of Karnataka\'s most famous Krishna temples, famous for its unique Kanakana Kindi darshan.',
+                rating: '4.9',
+                bestTime: '6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM',
+                busRoutes: 'Direct frequent city buses from Manipal to Udupi City/Car Street',
+                bestChoice: 'Sacred Kanakana Kindi Darshan & Temple Architecture <strong>(~5 km from Manipal)</strong>',
+                bestChoiceImg: 'https://www.mystreal.com/_next/image/?url=%2Ftemple%2Fkrishna-matha-temple%2Fhero-Udipi-Sri-Krishna-matha-temple.jpg&w=2048&q=75'
+            },
+            {
+                name: 'Sri Venugopala Temple',
+                image: 'https://media-cdn.tripadvisor.com/media/photo-s/09/95/73/00/venugopal-temple.jpg',
+                description: 'A serene and beautifully maintained temple located right on the MIT campus in Manipal.',
+                rating: '4.8',
+                bestTime: '7:00 AM – 12:00 PM, 4:30 PM – 7:30 PM',
+                busRoutes: 'Located inside Manipal campus area',
+                bestChoice: 'Serene Atmosphere & Beautiful Lawn Gardens <strong>(Inside Manipal)</strong>',
+                bestChoiceImg: 'https://media-cdn.tripadvisor.com/media/photo-s/09/95/73/00/venugopal-temple.jpg'
+            },
+            {
+                name: 'Kadiyali Shri Mahishamardini Temple',
+                image: 'https://templeinkarnataka.com/wp-content/uploads/2024/08/2023-11-19-1024x768.jpg',
+                description: 'Ancient temple dedicated to Goddess Mahishamardini with centuries of rich history.',
+                rating: '4.7',
+                bestTime: '6:00 AM – 1:00 PM, 4:00 PM – 8:00 PM',
+                busRoutes: 'City buses between Manipal and Udupi stopping at Kadiyali',
+                bestChoice: 'Ancient Goddess Shrine & Heritage Architecture <strong>(~6 km from Manipal)</strong>',
+                bestChoiceImg: 'https://templeinkarnataka.com/wp-content/uploads/2024/08/2023-11-19-1024x768.jpg'
+            },
+            {
+                name: 'Shri Indrani Panchadurga Parameshwari Temple',
+                image: 'https://kannada.nativeplanet.com/img/2017/01/is-4-11-1484134582.jpg',
+                description: 'Historic Durga temple featuring beautiful traditional architecture and spiritual ambience.',
+                rating: '4.7',
+                bestTime: '6:00 AM – 12:30 PM, 5:00 PM – 8:00 PM',
+                busRoutes: 'Auto-rickshaw or local city bus from Manipal to Indrani',
+                bestChoice: 'Historic Durga Temple & Scenic Hilltop Surroundings <strong>(~7 km from Manipal)</strong>',
+                bestChoiceImg: 'https://kannada.nativeplanet.com/img/2017/01/is-4-11-1484134582.jpg'
+            },
+            {
+                name: 'Shivapady Sri Umamaheshwara Temple',
+                image: 'https://vushii.com/uploads/571625156_Sri%20Umamaheshwara%20Temple,%20Shivpadi,%20Udupi5.jpg',
+                description: 'Peaceful Shiva temple known for its tranquil atmosphere and annual Atirudra Mahayaga.',
+                rating: '4.8',
+                bestTime: '6:00 AM – 12:00 PM, 5:00 PM – 8:00 PM',
+                busRoutes: 'Short auto or city bus from Manipal core',
+                bestChoice: 'Tranquil Environment & Spiritual Shiva Worship <strong>(~3 km from Manipal)</strong>',
+                bestChoiceImg: 'https://vushii.com/uploads/571625156_Sri%20Umamaheshwara%20Temple,%20Shivpadi,%20Udupi5.jpg'
+            }
+        ]
+    },
+    'trekking': {
+        name: 'Trekking Places near Manipal',
+        places: [
+            {
+                name: 'Kudremukh Peak',
+                image: 'https://cdn.pixabay.com/photo/2021/04/05/10/53/kudremukh-peak-6153010_960_720.jpg',
+                description: 'Horse-face shaped peak in Western Ghats with lush green rolling hills. Moderate difficulty.',
+                rating: '4.9',
+                bestTime: 'October – February (Moderate)',
+                routeIcon: '🏍️',
+                routeTitle: 'Bike Rider Guide',
+                busRoutes: 'Best weekend road trip! Grab your bikes and ride with your friends via Karkala & Kalasa highway (~95 km). Enjoy smooth twisty mountain roads and scenic tea estate views.',
+                bestChoice: 'Lush Green Slopes & Clifftop Ridge Trek <strong>(~95 km from Manipal)</strong>',
+                bestChoiceImg: 'https://cdn.pixabay.com/photo/2021/04/05/10/53/kudremukh-peak-6153010_960_720.jpg'
+            },
+            {
+                name: 'Kodachadri Trek',
+                image: 'https://res.cloudinary.com/rehash-studio/image/upload/fl_progressive:semi,f_jpg,q_60,c_fill,g_auto:subject,ar_4:3/if_w_gt_1200,w_1200/v1764396975/upload/69fe96bc-74e4-4ee1-9593-c168f408452d.png',
+                description: 'Scenic mountain peak surrounded by dense tropical forests and sunset spots. Moderate difficulty.',
+                rating: '4.8',
+                bestTime: 'October – January (Moderate)',
+                routeIcon: '🏍️',
+                routeTitle: 'Bike Rider Guide',
+                busRoutes: 'Epic group ride with friends! Take the Kundapura - Kollur highway to Nittur base village (~110 km). Beautiful green forest roads perfect for a fresh morning ride.',
+                bestChoice: 'Peak Sunset View & Hidlumane Waterfalls Trail <strong>(~110 km from Manipal)</strong>',
+                bestChoiceImg: 'https://res.cloudinary.com/rehash-studio/image/upload/fl_progressive:semi,f_jpg,q_60,c_fill,g_auto:subject,ar_4:3/if_w_gt_1200,w_1200/v1764396975/upload/69fe96bc-74e4-4ee1-9593-c168f408452d.png'
+            },
+            {
+                name: 'Narasimha Parvatha Trek (Agumbe)',
+                image: 'https://vl-prod-static.b-cdn.net/system/images/000/377/729/41317fd9a83b4845ae09e84cc05e8206/x1000gt/Narasimha_Parvatha_Trek__03.jpg?1575615093',
+                description: 'The highest peak in Agumbe rainforest region, featuring adventurous jungle trails. Difficult.',
+                rating: '4.7',
+                bestTime: 'October – February (Difficult)',
+                routeIcon: '🏍️',
+                routeTitle: 'Bike Rider Guide',
+                busRoutes: 'Famous Agumbe Ghats ride! Cruise with your biker squad up the 14 hair-pin curves from Someshwara to Agumbe (~85 km). Thrilling curves, cool breeze, and misty forest views.',
+                bestChoice: 'Challenging Shola Forest Trail & Sunset Point <strong>(~85 km from Manipal)</strong>',
+                bestChoiceImg: 'https://vl-prod-static.b-cdn.net/system/images/000/377/729/41317fd9a83b4845ae09e84cc05e8206/x1000gt/Narasimha_Parvatha_Trek__03.jpg?1575615093'
+            },
+            {
+                name: 'Kudlu Theertha Falls Trek',
+                image: 'https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/02/Kudlu-Theertha-Falls-Udupi-Karnataka.jpg?w=1200&ssl=1',
+                description: 'Picturesque waterfall trek hidden deep in the pristine Western Ghats rainforest. Easy–Moderate.',
+                rating: '4.8',
+                bestTime: 'July – January (Easy–Moderate)',
+                routeIcon: '🏍️',
+                routeTitle: 'Bike Rider Guide',
+                busRoutes: 'Quick half-day bike trip! Ride towards Hebri & Someshwara (~45 km) with your friends. Short, fun road trip leading right to a refreshing jungle waterfall trail.',
+                bestChoice: 'Pristine Waterfall Pool & Rainforest Canopy Walk <strong>(~45 km from Manipal)</strong>',
+                bestChoiceImg: 'https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/02/Kudlu-Theertha-Falls-Udupi-Karnataka.jpg?w=1200&ssl=1'
+            },
+            {
+                name: 'Koosalli Falls Trek',
+                image: 'https://mytrip.guide/wp-content/uploads/2020/09/Koosali-Falls.jpg',
+                description: 'Magnificent six-tiered cascading waterfall trek surrounded by rocky cliffs. Moderate.',
+                rating: '4.6',
+                bestTime: 'July – December (Moderate)',
+                routeIcon: '🏍️',
+                routeTitle: 'Bike Rider Guide',
+                busRoutes: 'Coastal highway rider route! Ride along NH66 towards Kundapura & Byndoor (~70 km) with your friends, then take the village forest road to the trek base.',
+                bestChoice: 'Cascading Waterfalls & Rocky Stream Crossing <strong>(~70 km from Manipal)</strong>',
+                bestChoiceImg: 'https://mytrip.guide/wp-content/uploads/2020/09/Koosali-Falls.jpg'
+            }
+        ]
+    },
+    'viewpoints': {
+        name: 'Scenic Viewpoints & Lakes in Manipal',
+        places: [
+            {
+                name: 'End Point Swarna River Viewpoint',
+                image: 'https://hblimg.mmtcdn.com/content/hubble/img/manipal/mmt/activities/m_Manipal%20End%20Point%20Park-3_l_399_532.jpg',
+                description: 'Clifftop park offering panoramic views of Swarna River valley, sunset, and Western Ghats range.',
+                rating: '4.9',
+                bestTime: '5:00 PM – 7:00 PM (Sunset)',
+                busRoutes: '1.5 km from MIT Quadrangle. Easy 5-min bike ride or sunset walk with friends.',
+                bestChoice: 'Clifftop Sunset View over Swarna River Valley',
+                bestChoiceImg: 'https://hblimg.mmtcdn.com/content/hubble/img/manipal/mmt/activities/m_Manipal%20End%20Point%20Park-3_l_399_532.jpg'
+            },
+            {
+                name: 'Mannapalla Lake Park',
+                image: 'https://th-i.thgim.com/public/news/cities/Mangalore/20mb2f/article70274376.ece/alternates/FREE_1200/IMG_3180.jpg',
+                description: 'A vast natural lake with a 3 km paved walking trail, lush greenery, and peaceful bird-watching spots.',
+                rating: '4.6',
+                bestTime: '6:00 AM – 9:00 AM / 4:30 PM – 7:00 PM',
+                busRoutes: 'Located near Manipal Lake road. Short 5-min ride from Tiger Circle.',
+                bestChoice: '3 km Lakeside Jogging Track & Sunset Walk',
+                bestChoiceImg: 'https://th-i.thgim.com/public/news/cities/Mangalore/20mb2f/article70274376.ece/alternates/FREE_1200/IMG_3180.jpg'
+            },
+            {
+                name: 'Kemmannu Hanging Bridge',
+                image: 'https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/10/Kemmannu-Hanging-Bridge.jpg',
+                description: 'Scenic wooden suspension bridge built across backwaters, surrounded by coconut groves.',
+                rating: '4.7',
+                bestTime: '4:00 PM – 6:30 PM',
+                busRoutes: 'Ride via Udupi - Tonse road (~14 km from Manipal). Beautiful backwater road trip with friends.',
+                bestChoice: 'Suspension Bridge Walk & Backwater Photography',
+                bestChoiceImg: 'https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/10/Kemmannu-Hanging-Bridge.jpg'
+            },
+            {
+                name: 'Delta Beach (Bengre Confluence)',
+                image: 'https://hblimg.mmtcdn.com/content/hubble/img/additionalttdimages/mmt/activities/m_Delta_Beach_1_l_360_640.jpg',
+                description: 'Unique peninsula strip where Swarna river meets Arabian sea, famous for coconut trees and calm waters.',
+                rating: '4.8',
+                bestTime: '4:30 PM – 7:00 PM',
+                busRoutes: 'Ride through scenic backwater strips (~18 km from Manipal). Perfect evening group ride.',
+                bestChoice: 'River-Sea Confluence View & Fresh Seafood Shacks',
+                bestChoiceImg: 'https://hblimg.mmtcdn.com/content/hubble/img/additionalttdimages/mmt/activities/m_Delta_Beach_1_l_360_640.jpg'
+            }
+        ]
+    },
+    'cafes': {
+        name: 'Popular Student Cafes & Hangouts in Manipal',
+        places: [
+            {
+                name: 'The Egg Factory',
+                image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/db/c9/b9/this-is-how-it-looks.jpg',
+                description: 'Iconic Manipal student hangout famous for creative egg dishes, burgers, pasta, and vibrant vibe.',
+                rating: '4.7',
+                bestTime: '12:00 PM – 10:30 PM',
+                busRoutes: 'Located right near End Point road, Manipal. Walk or bike from campus.',
+                bestChoice: 'Egg Kebabs, Cheese Omelettes & Cold Coffee',
+                bestChoiceImg: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/db/c9/b9/this-is-how-it-looks.jpg'
+            },
+            {
+                name: 'Eye of the Needle Cafe',
+                image: 'https://media-cdn.tripadvisor.com/media/photo-s/07/93/c7/48/eye-of-the-tiger.jpg',
+                description: 'Cozy, rustic aesthetic cafe serving specialty brewed coffee, wood-fired pizzas, and gourmet desserts.',
+                rating: '4.8',
+                bestTime: '11:00 AM – 11:00 PM',
+                busRoutes: 'Located near End Point Road, Manipal. Quick 3-min ride from Tiger Circle.',
+                bestChoice: 'Specialty Cappuccino & Artisanal Pizza',
+                bestChoiceImg: 'https://media-cdn.tripadvisor.com/media/photo-s/07/93/c7/48/eye-of-the-tiger.jpg'
+            },
+            {
+                name: 'Dollops Restaurant',
+                image: 'https://www.crazymasalafood.com/wp-content/images/dollops.png',
+                description: 'Legendary budget-friendly restaurant loved by generations of Manipal students for Indo-Chinese & Indian meals.',
+                rating: '4.6',
+                bestTime: '12:30 PM – 10:30 PM',
+                busRoutes: 'Located on Commercial Complex Road, Tiger Circle, Manipal.',
+                bestChoice: 'Butter Chicken, Dragon Chicken & Fried Rice',
+                bestChoiceImg: 'https://www.crazymasalafood.com/wp-content/images/dollops.png'
+            },
+            {
+                name: 'Snack Shack',
+                image: 'https://b117436.smushcdn.com/117436/wp-content/uploads/2021/09/Snack-Shack.jpg?lossy=2&strip=1&webp=1',
+                description: 'Popular casual food joint known for quick bites, juicy burgers, rolls, and thick shakes.',
+                rating: '4.5',
+                bestTime: '1:00 PM – 11:00 PM',
+                busRoutes: 'Located near Student Plaza corridor, Manipal.',
+                bestChoice: 'Crispy Chicken Burger & Chocolate Monster Shake',
+                bestChoiceImg: 'https://b117436.smushcdn.com/117436/wp-content/uploads/2021/09/Snack-Shack.jpg?lossy=2&strip=1&webp=1'
+            }
+        ]
+    },
+    'museums': {
+        name: 'Museums & Heritage Houses in Manipal',
+        places: [
+            {
+                name: 'Hasta Shilpa Heritage Village Museum',
+                image: 'https://i.ytimg.com/vi/rLaOUhfYWzI/maxresdefault.jpg',
+                description: 'A world-renowned open-air museum featuring 26 restored traditional South Indian heritage homes and art collections.',
+                rating: '4.9',
+                bestTime: '10:00 AM – 5:00 PM',
+                busRoutes: 'Located near Christ School Road, Manipal (~2 km from Tiger Circle).',
+                bestChoice: 'Guided Heritage Architecture Tour & Vintage Artifacts',
+                bestChoiceImg: 'https://i.ytimg.com/vi/rLaOUhfYWzI/maxresdefault.jpg'
+            },
+            {
+                name: 'Manipal Museum of Anatomy & Pathology (MAP)',
+                image: 'https://www.manipal.edu/content/dam/manipal/mu/kmc-manipal/images/galleryImage/KMCMpltrial/m9.JPG',
+                description: 'One of Asia\'s largest medical museums, displaying over 3,000 anatomical specimens and skeletons.',
+                rating: '4.8',
+                bestTime: '8:00 AM – 6:00 PM',
+                busRoutes: 'Located inside KMC Campus, Manipal.',
+                bestChoice: 'Anatomy & Comparative Pathology Specimen Gallery',
+                bestChoiceImg: 'https://www.manipal.edu/content/dam/manipal/mu/kmc-manipal/images/galleryImage/KMCMpltrial/m9.JPG'
+            },
+            {
+                name: 'Dr. T.M.A. Pai Museum & Planetarium',
+                image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+                description: 'Interactive science museum and digital planetarium documenting the founding history of Manipal.',
+                rating: '4.5',
+                bestTime: '9:30 AM – 5:30 PM',
+                busRoutes: 'Located near Manipal University Admin Block.',
+                bestChoice: 'Digital Astronomy Show & Manipal History Gallery',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=200'
+            }
+        ]
+    },
+    'waterfalls': {
+        name: 'Waterfalls & Kayaking near Manipal',
+        places: [
+            {
+                name: 'Arbi Falls (Manipal Hidden Falls)',
+                image: 'https://tripxl.com/blog/wp-content/uploads/2024/10/Arbi-Falls.jpg',
+                description: 'Manipal\'s local hidden jungle waterfall that comes alive during monsoon season, surrounded by greenery.',
+                rating: '4.6',
+                bestTime: 'July – November (Post-Monsoon)',
+                busRoutes: 'Located in Dasharath Nagar, Manipal (~3 km from campus). Short bike ride & 10-min trail walk.',
+                bestChoice: 'Monsoon Jungle Dip & Forest Stream Walk',
+                bestChoiceImg: 'https://tripxl.com/blog/wp-content/uploads/2024/10/Arbi-Falls.jpg'
+            },
+            {
+                name: 'Kemmannu Kayaking & Backwater Adventure',
+                image: 'https://luxevista.in/wp-content/uploads/2024/12/kemmannu-hanging-bridge-kayaking.jpeg',
+                description: 'Thrilling backwater kayaking and stand-up paddleboarding through quiet mangrove river channels.',
+                rating: '4.8',
+                bestTime: '7:00 AM – 10:00 AM / 4:00 PM – 6:30 PM',
+                busRoutes: 'Located near Kemmannu bridge (~13 km from Manipal). Scenic ride with friends.',
+                bestChoice: 'Sunset Kayaking Tour through Mangrove Islands',
+                bestChoiceImg: 'https://luxevista.in/wp-content/uploads/2024/12/kemmannu-hanging-bridge-kayaking.jpeg'
+            },
+            {
+                name: 'Jogi Gundi Falls (Agumbe Trail)',
+                image: 'https://hoimalnad.com/wp-content/uploads/2025/10/Jogi-Gundi-Falls-Hidden-Gem-of-Agumbe-Thirthahalli-Karnataka-1200x787.jpg',
+                description: 'Serene forest waterfall cascading into a natural swimming pool inside the dense Agumbe rainforest.',
+                rating: '4.7',
+                bestTime: 'August – January',
+                busRoutes: 'Ride towards Agumbe Ghats (~50 km from Manipal). Great biker trip with friends.',
+                bestChoice: 'Natural Rainforest Pool Swimming',
+                bestChoiceImg: 'https://hoimalnad.com/wp-content/uploads/2025/10/Jogi-Gundi-Falls-Hidden-Gem-of-Agumbe-Thirthahalli-Karnataka-1200x787.jpg'
+            }
+        ]
+    },
+    'food': {
+        name: 'Famous Food in Manipal',
+        places: [
+            {
+                name: 'Gadbad Ice Cream',
+                image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800',
+                description: 'Legendary multi-layered ice cream sundae served with jelly, dry fruits, and fresh fruits.',
+                bestTime: 'Afternoon / Evening Dessert',
+                bestChoice: 'Original Diana Gadbad Ice Cream'
+            },
+            {
+                name: 'Ghee Roast',
+                image: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png',
+                description: 'Fiery red, tangy, and rich ghee roast curry made with pure ghee and roasted spices.',
+                bestTime: 'Lunch / Dinner',
+                bestChoice: 'Paneer / Chicken Ghee Roast'
+            },
+            {
+                name: 'Neer Dosa',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                description: 'Paper-thin, soft, lace-like crepes made from fine rice batter, served with coconut chutney.',
+                bestTime: 'Breakfast / Tiffin',
+                bestChoice: 'Soft Neer Dosa with Fresh Coconut Chutney'
+            },
+            {
+                name: 'Mangalore Bun',
+                image: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg',
+                description: 'Fluffy, mildly sweet, deep-fried bread made with ripe bananas and flour, served hot with coconut chutney.',
+                bestTime: 'Breakfast / Evening Snack',
+                bestChoice: 'Hot Mangalore Buns with Coconut Chutney'
+            }
+        ]
+    }
+};
+
 const cityFoods = {
     'mangaluru': [
         { img: 'https://myfoodstory.com/wp-content/uploads/2015/11/chicken-kori-rotti-mangalorean-chicken-curry-recipe.1024x1024-1024x617.jpg', name: 'Chicken Kori Rotti' },
@@ -2079,19 +2460,27 @@ const cityFoods = {
         { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Mysore Masala Dosa' },
         { img: 'https://figarooliveoil.com/wp-content/uploads/2022/02/mysore-bonda.png', name: 'Mysore Bonda' },
         { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', name: 'Hanumanthu Biryani' }
+    ],
+    'manipal': [
+        { img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800', name: 'Gadbad Ice Cream' },
+        { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' },
+        { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Neer Dosa' },
+        { img: 'https://www.lifeberrys.com/img/article/cuisine-6-1631691337-lb.jpg', name: 'Mangalore Bun' }
     ]
 };
 
 const cityCategories = {
     'mangaluru': mangaloreCategories,
     'bangalore': bangaloreCategories,
-    'mysuru': mysuruCategories
+    'mysuru': mysuruCategories,
+    'manipal': manipalCategories
 };
 
 const cityCategoryData = {
     'mangaluru': mangaloreCategoryData,
     'bangalore': bangaloreCategoryData,
-    'mysuru': mysuruCategoryData
+    'mysuru': mysuruCategoryData,
+    'manipal': manipalCategoryData
 };
 
 let currentCityId = 'mangaluru';
@@ -2222,7 +2611,7 @@ function renderFoodCategoryPage(cityId) {
     const category = cityData['food'];
     if (!category) return;
 
-    const cityName = cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
+    const cityName = getCityName(cityId);
 
     const destHTML = `
         <div class="page-content">
@@ -2298,7 +2687,7 @@ function renderGlobalFavoritesPage() {
                         allMatchingFoods.push({
                             ...food,
                             cityId: cityId,
-                            cityName: cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru'
+                            cityName: getCityName(cityId)
                         });
                     }
                 }
@@ -2456,7 +2845,7 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
     const category = cityData[categoryId];
     if (!category) return;
 
-    const cityName = cityId === 'mangaluru' ? 'Mangaluru' : cityId === 'bangalore' ? 'Bangalore' : 'Mysuru';
+    const cityName = getCityName(cityId);
 
     const destHTML = `
         <div class="page-content">
@@ -2550,11 +2939,11 @@ function renderCategoryPage(categoryId, cityId = currentCityId) {
                                 <div class="meta-item bus-route-card dark-bus-card" style="grid-column: 1 / -1; margin-top: 10px; padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; color: #f1f5f9;">
                                     <div class="bus-card-shimmer"></div>
                                     <div style="display: flex; align-items: flex-start; gap: 10px; z-index: 2; position: relative;">
-                                        <span class="meta-icon bus-icon-anim" style="font-size: 1.3rem; line-height: 1;">🚌</span>
+                                        <span class="meta-icon bus-icon-anim" style="font-size: 1.3rem; line-height: 1;">${place.routeIcon || '🚌'}</span>
                                         <div style="flex: 1;">
                                             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-                                                <strong style="color: #38bdf8; text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.8px; font-weight: 700;">Bus Routes & Stop Details</strong>
-                                                <span class="bus-live-badge"><span class="live-dot"></span> Live Route</span>
+                                                <strong style="color: #38bdf8; text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.8px; font-weight: 700;">${place.routeTitle || 'Bus Routes & Stop Details'}</strong>
+                                                <span class="bus-live-badge"><span class="live-dot"></span> ${place.routeIcon ? 'Rider Route' : 'Live Route'}</span>
                                             </div>
                                             <span style="color: #e2e8f0; font-weight: 500; line-height: 1.45; display: block;">${place.busRoutes}</span>
                                         </div>
@@ -2687,7 +3076,7 @@ function renderDestination(id) {
 
     currentCityId = id;
 
-    const isPremiumCity = ['mangaluru', 'bangalore', 'mysuru'].includes(dest.id);
+    const isPremiumCity = ['mangaluru', 'bangalore', 'mysuru', 'manipal'].includes(dest.id);
 
     const destHTML = `
         <div class="page-content" style="position: relative;">
@@ -2714,7 +3103,7 @@ function renderDestination(id) {
                     </div>
                     <div class="category-img swiper food-swiper" style="will-change: transform; perspective: 1000px; width: 100%; height: 100%;">
                         <div class="swiper-wrapper">
-                            ${cityFoods[dest.id].map(item => {
+                            ${(cityFoods[dest.id] || []).map(item => {
                                 const isFav = isFoodFavorite(item.name);
                                 return `
                                 <div class="swiper-slide favorite-food-card" data-name="${item.name}" style="display: flex; flex-direction: column; overflow: hidden; height: 100%; position: relative; cursor: pointer;">
@@ -2865,7 +3254,7 @@ function openMustWatchModal(category, cityId = currentCityId) {
     // Select top 3 places as the "Must Watching Places"
     const topPlaces = category.places.slice(0, 3);
     
-    const cityName = cityId === 'mangaluru' ? 'Mangalore' : cityId === 'bangalore' ? 'Bangalore' : 'Mysore';
+    const cityName = getCityName(cityId);
     
     // Helper to get static location and rating
     const getLocation = (placeName) => {
@@ -3309,6 +3698,88 @@ const cityMustWatchData = {
             { dist: '3 KM', time: '🚗 8m | 🏍️ 6m' },
             { dist: '19 KM', time: '🚗 35m | 🏍️ 30m' }
         ]
+    },
+    'manipal': {
+        title: '🌴 Manipal Must Visit Places',
+        places: [
+            {
+                name: 'End Point Swarna River Viewpoint',
+                image: 'https://hblimg.mmtcdn.com/content/hubble/img/manipal/mmt/activities/m_Manipal%20End%20Point%20Park-3_l_399_532.jpg',
+                rating: '4.9',
+                location: 'End Point Road, Manipal',
+                bestTime: '🌅 Sunset View: 5:30 PM',
+                description: 'Clifftop park offering breathtaking panoramic views of Swarna River valley, sunset, and Western Ghats range.'
+            },
+            {
+                name: 'Udupi Shri Krishna Matha',
+                image: 'https://www.mystreal.com/_next/image/?url=%2Ftemple%2Fkrishna-matha-temple%2Fhero-Udipi-Sri-Krishna-matha-temple.jpg&w=2048&q=75',
+                rating: '4.9',
+                location: 'Car Street, Udupi (~5 km from Manipal)',
+                bestTime: '🛕 Morning Darshan & Aarti: 7:00 AM',
+                description: 'World-famous sacred Krishna temple known for its unique Kanakana Kindi darshan and rich spiritual heritage.'
+            },
+            {
+                name: 'Malpe Beach & St. Mary\'s Island',
+                image: 'https://shruthinitourist.com/wp-content/uploads/2024/05/malpe-beach-to-visit-at-udupi.jpg',
+                rating: '4.9',
+                location: 'Malpe, Udupi (~10 km from Manipal)',
+                bestTime: '🏖️ Ferry Ride to Island: 3:30 PM',
+                description: 'Golden sand beach famous for water sports, sea walk, and ferry rides to basaltic geological wonders at St. Mary\'s Island.'
+            },
+            {
+                name: 'Hasta Shilpa Heritage Village Museum',
+                image: 'https://i.ytimg.com/vi/rLaOUhfYWzI/maxresdefault.jpg',
+                rating: '4.8',
+                location: 'Near Christ School, Manipal',
+                bestTime: '🏛️ Guided Heritage Walk: 10:30 AM',
+                description: 'Renowned open-air museum preserving 26 restored traditional South Indian heritage structures and vintage art.'
+            },
+            {
+                name: 'Kemmannu Hanging Bridge & Backwaters',
+                image: 'https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/10/Kemmannu-Hanging-Bridge.jpg',
+                rating: '4.7',
+                location: 'Kemmannu, Tonse (~14 km from Manipal)',
+                bestTime: '🛶 Sunset Kayaking: 4:30 PM',
+                description: 'Picturesque wooden suspension bridge over coconut-fringed backwaters with thrilling kayaking adventures.'
+            }
+        ],
+        nodes: [
+            {
+                dot: 1,
+                name: 'End Point Viewpoint',
+                time: '🌅 Sunset View: 5:30 PM',
+                detour: { id: 'mannapalla', text: '⚡ Detour to Mannapalla Lake (2 KM)', category: 'viewpoints' }
+            },
+            {
+                dot: 2,
+                name: 'Udupi Krishna Matha',
+                time: '🛕 Morning Darshan: 7:00 AM',
+                detour: { id: 'kadiyali', text: '⚡ Detour to Kadiyali Temple (2 KM)', category: 'temples' }
+            },
+            {
+                dot: 3,
+                name: 'Malpe Beach & Island',
+                time: '🏖️ Ferry Ride: 3:30 PM',
+                detour: { id: 'padukere', text: '⚡ Detour to Padukere Beach (6 KM)', category: 'beaches' }
+            },
+            {
+                dot: 4,
+                name: 'Hasta Shilpa Village',
+                time: '🏛️ Heritage Walk: 10:30 AM',
+                detour: { id: 'anatomy_map', text: '⚡ Detour to Anatomy Museum MAP (1 KM)', category: 'museums' }
+            },
+            {
+                dot: 5,
+                name: 'Kemmannu Bridge',
+                time: '🛶 Sunset Kayaking: 4:30 PM'
+            }
+        ],
+        distances: [
+            { dist: '5 KM', time: '🚗 10m | 🏍️ 8m' },
+            { dist: '8 KM', time: '🚗 15m | 🏍️ 12m' },
+            { dist: '9 KM', time: '🚗 16m | 🏍️ 14m' },
+            { dist: '12 KM', time: '🚗 20m | 🏍️ 16m' }
+        ]
     }
 };
 
@@ -3723,11 +4194,29 @@ const cityCoordinates = {
     // Zoo fallback for Mysuru
     'zoo': { lat: 12.3022, lng: 76.6639 },
 
-    // Vijayanagara
-    'virupaksha temple': { lat: 15.3350, lng: 76.4600 },
-    'stone chariot': { lat: 15.3422, lng: 76.4672 },
-    'lotus mahal': { lat: 15.3200, lng: 76.4680 },
-    'hampi bazaar': { lat: 15.3355, lng: 76.4619 }
+    // Manipal
+    'end point park': { lat: 13.3592, lng: 74.7936 },
+    'hasta shilpa heritage village': { lat: 13.3512, lng: 74.7865 },
+    'anatomy museum (map)': { lat: 13.3533, lng: 74.7850 },
+    'venugopal temple': { lat: 13.3550, lng: 74.7900 },
+
+    'malpe beach': { lat: 13.3575, lng: 74.7042 },
+    'kapu beach': { lat: 13.2227, lng: 74.7358 },
+    'padukere beach': { lat: 13.3425, lng: 74.7020 },
+    'hoode beach': { lat: 13.4111, lng: 74.6925 },
+    'mattu beach': { lat: 13.2667, lng: 74.7250 },
+
+    'udupi shri krishna matha': { lat: 13.3409, lng: 74.7525 },
+    'sri venugopala temple': { lat: 13.3550, lng: 74.7900 },
+    'kadiyali shri mahishamardini temple': { lat: 13.3490, lng: 74.7640 },
+    'shri indrani panchadurga parameshwari temple': { lat: 13.3530, lng: 74.7760 },
+    'shivapady sri umamaheshwara temple': { lat: 13.3570, lng: 74.7850 },
+
+    'kudremukh peak': { lat: 13.2167, lng: 75.2667 },
+    'kodachadri trek': { lat: 13.8590, lng: 74.8710 },
+    'narasimha parvatha trek (agumbe)': { lat: 13.5042, lng: 75.1225 },
+    'kudlu theertha falls trek': { lat: 13.4470, lng: 75.0560 },
+    'koosalli falls trek': { lat: 13.8790, lng: 74.6850 }
 };
 
 const mangaloreCoordinates = cityCoordinates;
@@ -3737,7 +4226,7 @@ function getCityFallbackCoords(cityId) {
     if (cityId === 'mysuru') return { lat: 12.3082, lng: 76.6520 };
     if (cityId === 'kodagu') return { lat: 12.4244, lng: 75.7382 };
     if (cityId === 'chikkamagaluru') return { lat: 13.3167, lng: 75.7667 };
-    if (cityId === 'vijayanagara') return { lat: 15.3350, lng: 76.4600 };
+    if (cityId === 'manipal') return { lat: 13.3525, lng: 74.7876 };
     return { lat: 12.8700, lng: 74.8800 }; // Mangaluru
 }
 
@@ -4021,11 +4510,11 @@ const cityPlaceIds = {
     'hebbe falls': 'ChIJiV5G22x5rjsR-k49Qv0U5H4',
     'coffee plantations': 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o',
 
-    // Vijayanagara
-    'virupaksha temple': 'ChIJw1j6_l-XvzsR-a-p6193s6k',
-    'stone chariot': 'ChIJx2j6_l-XvzsR-a-p6193s6k',
-    'lotus mahal': 'ChIJz4j6_l-XvzsR-a-p6193s6k',
-    'hampi bazaar': 'ChIJy3j6_l-XvzsR-a-p6193s6k',
+    // Manipal
+    'end point park': 'ChIJL-m4X_2-vzsR-a-p6193s6k',
+    'hasta shilpa heritage village': 'ChIJK-m4X_2-vzsR-a-p6193s6k',
+    'anatomy museum (map)': 'ChIJJ-m4X_2-vzsR-a-p6193s6k',
+    'venugopal temple': 'ChIJI-m4X_2-vzsR-a-p6193s6k',
 
 
     // Zoo fallback for Mysuru
@@ -4076,7 +4565,7 @@ function getCityName(cityId) {
     if (cityId === 'mysuru') return 'Mysuru';
     if (cityId === 'kodagu') return 'Kodagu';
     if (cityId === 'chikkamagaluru') return 'Chikkamagaluru';
-    if (cityId === 'vijayanagara') return 'Vijayanagara';
+    if (cityId === 'manipal') return 'Manipal';
     return 'Karnataka';
 }
 
@@ -4164,7 +4653,7 @@ function getCityFallbackPlaceId(cityId) {
     if (cityId === 'mysuru') return 'ChIJ0-7L3t8XrjsR5fvOQ4z6nI0'; // Mysore Palace
     if (cityId === 'kodagu') return 'ChIJ2e2-9zZTrjsR-78Uq6oH9u4'; // Raja's Seat / Coorg
     if (cityId === 'chikkamagaluru') return 'ChIJ4d6W_hQprzsR8P2J2sQ3s2o'; // Coffee Museum / Chikkamagaluru
-    if (cityId === 'vijayanagara') return 'ChIJw1j6_l-XvzsR-a-p6193s6k'; // Virupaksha Temple / Hampi
+    if (cityId === 'manipal') return 'ChIJL-m4X_2-vzsR-a-p6193s6k'; // End Point / Manipal
     return 'ChIJyXGv0N9ApzsRHk9w_P9lJWs'; // Panambur Beach / Mangalore
 }
 
