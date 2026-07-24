@@ -29,7 +29,7 @@ const destinations = [
     },
     {
         id: 'mysuru',
-        name: 'Mysuru',
+        name: 'Mysuru – North & South',
         image: 'assets/destinations/mysuru.png',
         color: '#FFD93D',
         famousPlaces: [
@@ -52,6 +52,34 @@ const destinations = [
                 name: 'Zoo',
                 image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg',
                 description: 'Sri Chamarajendra Zoological Gardens, one of the oldest and best in India.'
+            }
+        ]
+    },
+    {
+        id: 'mysuru_east_west',
+        name: 'Mysuru – East & West',
+        image: 'https://thumbs.dreamstime.com/b/architecture-dufferin-clock-tower-town-mysore-architecture-dufferin-clock-tower-town-hall-mysore-karnataka-india-239985561.jpg',
+        color: '#F59E0B',
+        famousPlaces: [
+            {
+                name: 'Jayalakshmi Vilas Mansion',
+                image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg',
+                description: 'Magnificent heritage mansion located inside Manasagangotri campus.'
+            },
+            {
+                name: 'Garuda Mall Mysuru',
+                image: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg',
+                description: 'Popular shopping mall near city bus stand with retail, dining and entertainment.'
+            },
+            {
+                name: 'Kukkarahalli Nature Trail',
+                image: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg',
+                description: 'Scenic nature trail around Kukkarahalli lake popular for morning walks and bird watching.'
+            },
+            {
+                name: 'Gokulam Café Street',
+                image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800',
+                description: 'Trendy yoga and cafe corridor with artisan coffee and international food.'
             }
         ]
     },
@@ -111,34 +139,7 @@ const destinations = [
             }
         ]
     },
-    {
-        id: 'chikkamagaluru',
-        name: 'Chikkamagaluru',
-        image: 'assets/destinations/chikkamagaluru.png',
-        color: '#2D9596',
-        famousPlaces: [
-            {
-                name: 'Mullayanagiri Peak',
-                image: 'assets/places/chikkamagaluru_mullayanagiri_new.jpg',
-                description: 'The highest peak in Karnataka, offering breathtaking panoramic views.'
-            },
-            {
-                name: 'Baba Budangiri',
-                image: 'assets/places/chikkamagaluru_bababudangiri_new.jpg',
-                description: 'A sacred mountain range known for its unique trekking trails.'
-            },
-            {
-                name: 'Hebbe Falls',
-                image: 'assets/places/chikkamagaluru_hebbe_falls_new.jpg',
-                description: 'A magnificent two-staged waterfall accessible via an adventurous jeep ride.'
-            },
-            {
-                name: 'Coffee Plantations',
-                image: 'assets/places/chikkamagaluru_coffee_plantations_new.jpg',
-                description: 'Explore the sprawling coffee estates and learn about coffee processing.'
-            }
-        ]
-    },
+
     {
         id: 'manipal',
         name: 'Manipal',
@@ -1598,7 +1599,7 @@ const bangaloreCategoryData = {
                 name: 'Filter Coffee',
                 image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800',
                 description: 'Strong, aromatic South Indian style milk coffee brewed in traditional brass filters and served frothy.',
-                bestTime: 'Morning / Evening',
+bestTime: 'Morning / Evening',
                 bestChoice: 'Classic Hot Brass Filter Coffee'
             },
             {
@@ -1620,408 +1621,292 @@ const bangaloreCategoryData = {
 };
 
 const mysuruCategories = [
-    { id: 'palaces', name: 'Royal Palaces', desc: 'Explore palaces →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=600' },
-    { id: 'hills_lakes', name: 'Scenic Hills & Lakes', desc: 'Explore hills & lakes →', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=600' },
-    { id: 'gardens', name: 'Gardens & Fountains', desc: 'Explore gardens →', image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600' },
-    { id: 'wildlife', name: 'Wildlife & Nature', desc: 'Explore wildlife →', image: 'https://www.trawell.in/admin/images/upload/333510912MysoreZoo_Main.jpg' },
-    { id: 'heritage', name: 'Temples & Heritage', desc: 'Explore heritage →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600' },
-    { id: 'museums', name: 'Museums', desc: 'Explore famous museums →', image: 'https://static.toiimg.com/photo/92140941/Mysore.jpg?width=748&resize=4' },
-    { id: 'malls', name: 'Malls & Shopping', desc: 'Explore shopping malls →', image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600' },
-    { id: 'restaurants', name: 'Best Restaurants', desc: 'Explore best restaurants →', image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600' },
-    { id: 'gaming', name: 'Gaming & Esports Zone', desc: 'Explore top game houses →', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600' }
+    { id: 'heritage_culture', name: 'Heritage & Culture', desc: 'Explore royal palaces & cathedrals →', image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=600' },
+    { id: 'temples', name: 'Temples', desc: 'Explore sacred temples →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600' },
+    { id: 'parks_nature', name: 'Parks & Nature', desc: 'Explore gardens, lakes & waterfalls →', image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg' },
+    { id: 'wildlife_museums', name: 'Wildlife & Museums', desc: 'Explore zoo & unique museums →', image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg' },
+    { id: 'entertainment', name: 'Entertainment', desc: 'Explore fantasy parks & malls →', image: 'https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&q=80&w=600' },
+    { id: 'best_restaurants', name: 'Best Restaurants', desc: 'Explore famous eateries & royal dining →', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600' }
 ];
 
 const mysuruCategoryData = {
-    'palaces': {
-        name: 'Mysore Palaces',
-        places: [
-            { 
-                name: 'Mysore Palace', 
-                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=800', 
-                description: 'One of the most grand palaces in India, outstandingly illuminated with 97,000 bulbs.',
-                openHours: '10:00 AM – 5:30 PM (Illumination Sundays/Holidays 7:00 PM – 8:00 PM)',
-                bestTime: 'Sunday Evening (7:00 PM)',
-                bestChoice: '97,000 bulbs Palace Illumination view & Durbar Hall tour',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Jaganmohana Palace Art Gallery', 
-                image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg', 
-                description: 'A beautiful historic palace featuring a premier art gallery displaying royal portraits and artifacts.',
-                openHours: '8:30 AM – 5:30 PM',
-                bestTime: 'Morning Visits',
-                bestChoice: 'Raja Ravi Varma paintings study & royal artifacts exhibition',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Lalitha Mahal Palace', 
-                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/26/1e/39/lalitha-mahal-palace.jpg?w=700&h=-1&s=1', 
-                description: 'A stunning white palace set against Chamundi Hills, built in classical Italian style.',
-                openHours: '10:00 AM – 6:00 PM',
-                bestTime: 'Royal High Tea (4:00 PM)',
-                bestChoice: 'Grand Ballroom fine dining & heritage hotel garden walk',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'hills_lakes': {
-        name: 'Mysore Hills & Lakes',
-        places: [
-            { 
-                name: 'Chamundi Hills', 
-                image: 'https://photos.wikimapia.org/p/00/04/45/95/57_full.jpg', 
-                description: 'A scenic hill overlooking Mysore, featuring a historic monolithic bull statue.',
-                openHours: '7:30 AM – 2:00 PM, 3:30 PM – 6:00 PM, 7:30 PM – 9:00 PM',
-                bestTime: 'Sunrise view (6:00 AM)',
-                bestChoice: '1000-steps climbing challenge & Nandi monolithic bull Darshan',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Karanji Lake', 
-                image: 'https://cdn1.tripoto.com/media/filter/nl/img/2380291/Image/1707395561_karanji_lake.png', 
-                description: 'A picturesque lake that hosts India\'s largest walk-through aviary and butterfly park.',
-                openHours: '8:30 AM – 5:30 PM (Closed Tuesdays)',
-                bestTime: 'Early Mornings',
-                bestChoice: 'Walk-through aviary bird watching & lake boating',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Kukkarahalli Lake', 
-                description: 'A peaceful, serene lake popular for quiet morning walks and bird watching.', 
-                image: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg',
-                openHours: '6:00 AM – 6:00 PM',
-                bestTime: 'Sunset Walks (5:00 PM)',
-                bestChoice: 'Scenic lakeside boundary walking trail & bird watching',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'gardens': {
-        name: 'Mysore Gardens & Fountains',
-        places: [
-            { 
-                name: 'Brindavan Gardens', 
-                image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg', 
-                description: 'Beautifully manicured terraced gardens famed for their synchronized musical fountain shows.',
-                openHours: '7:00 AM – 8:00 PM',
-                bestTime: 'Musical Fountain Show (7:00 PM)',
-                bestChoice: 'Laser-synchronized musical fountain show & boating',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Bonsai Garden', 
-                image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-bonsai-garden-1.jpg', 
-                description: 'A spectacular garden housing 450 miniature trees inside Sri Ganapathy Sachchidananda Ashram.',
-                openHours: '9:00 AM – 12:00 PM, 4:00 PM – 6:00 PM',
-                bestTime: 'Morning visit',
-                bestChoice: '450+ miniature bonsai trees display walk',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Balmuri Falls', 
-                image: 'https://mysoremedia.com/wp-content/uploads/2019/08/Balmuri-Falls-Mysore-Water-falling-from-height-picture-by-Arun-Kumar-1024x767.jpg', 
-                description: 'A beautiful and highly popular picnic spot featuring a scenic step-barrier waterfall on the Kaveri River, perfect for a relaxed day out.',
-                openHours: '6:00 AM – 7:00 PM',
-                bestTime: 'Winter Mornings',
-                bestChoice: 'Step-barrier waterfall swimming & picnic photography',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'wildlife': {
-        name: 'Mysore Wildlife & Nature',
-        places: [
-            { 
-                name: 'Mysore Zoo', 
-                image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg', 
-                description: 'One of India\'s oldest and most renowned zoos, home to a wide range of exotic animals.',
-                openHours: '8:30 AM – 5:30 PM (Closed Tuesdays)',
-                bestTime: 'Morning Visits (9:00 AM)',
-                bestChoice: 'African Elephant & Giraffe enclosure walkthrough',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Ranganathittu Bird Sanctuary', 
-                image: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560', 
-                description: 'Scenic islets on the Kaveri River hosting thousands of nesting migratory birds.',
-                openHours: '8:30 AM – 5:30 PM',
-                bestTime: 'Nesting Season (December to April)',
-                bestChoice: 'Kaveri river boat safari & Marsh crocodile spotting',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Shuka Vana', 
-                image: 'https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2021/02/Shuka-Vana-Mysore-Karnataka.jpeg?w=1152&ssl=1', 
-                description: 'A unique aviary and rehabilitation center housing over 2,000 birds across 450+ species, famous for its record-breaking collection of parrots.',
-                openHours: '9:00 AM – 12:00 PM, 3:30 PM – 5:30 PM (Closed Wednesdays)',
-                bestTime: 'Morning feeding hours',
-                bestChoice: 'Interactive feeding with rare parrots & birds rehabilitation',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1522850959076-b86424b8c4ef?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Lokaranjan Aqua World Underwater Zoo', 
-                image: 'https://i.ytimg.com/vi/BbqVi8rH4NM/maxresdefault.jpg', 
-                description: 'An exceptional underwater aquarium zoo in Mysuru, offering an immersive walkthrough experience to observe spectacular marine life up close.',
-                openHours: '9:00 AM – 10:00 PM',
-                bestTime: 'Afternoons',
-                bestChoice: 'Walkthrough acrylic tunnel shark and ray watching',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'heritage': {
-        name: 'Mysore Temples & Heritage',
-        places: [
-            { 
-                name: 'Chamundeshwari Temple', 
-                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&80&w=1000', 
-                description: 'An ancient temple atop Chamundi Hills dedicated to the patron deity of Mysuru.',
-                openHours: '7:30 AM – 2:00 PM, 3:30 PM – 6:00 PM, 7:30 PM – 9:00 PM',
-                bestTime: 'Tuesdays and Fridays morning',
-                bestChoice: 'Gopuram architecture study & Goddess Chamundeshwari Darshan',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'St. Philomena\'s Cathedral', 
-                image: 'https://i.pinimg.com/originals/67/7d/f9/677df9fc5e071c32c23b53c5bc59a466.jpg', 
-                description: 'A towering neo-gothic cathedral designed with majestic twin spires.',
-                openHours: '5:00 AM – 6:30 PM',
-                bestTime: 'Sunday Mass morning',
-                bestChoice: 'Neo-Gothic spires & underground crypt chapel visit',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1438263308705-f6c8f370ba36?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Venugopala Swamy Temple | Submerged Temple', 
-                image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg', 
-                description: 'A magnificent historic temple located near KRS Dam that was once submerged under water and later relocated and restored to its full glory.',
-                openHours: '9:00 AM – 6:00 PM',
-                bestTime: 'Sunset Hours',
-                bestChoice: 'Lakeside backwater temple view & Hoysala-style architecture',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1609137982420-b1887e9cf2ef?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'ISKCON Temple', 
-                image: 'https://www.iskconmysore.org/wp-content/uploads/2022/11/008.jpg', 
-                description: 'A beautiful spiritual center dedicated to Sri Sri Krishna Balarama, featuring a peaceful atmosphere, wonderful architecture, and soul-stirring bhajans.',
-                openHours: '4:15 AM – 5:00 AM, 7:15 AM – 1:00 PM, 4:00 PM – 8:30 PM',
-                bestTime: 'Janmashtami festival',
-                bestChoice: 'Chanting services & Sri Krishna Balarama Darshan',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1601202444012-61a5592efb3a?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Kote Sri Anjaneya Temple', 
-                image: 'https://i.ytimg.com/vi/E7fsyPWnQj8/maxresdefault.jpg', 
-                description: 'A historic temple dedicated to Lord Hanuman, located near the palace grounds, famous for its magnificent Hanuman statue and spiritual energy.',
-                openHours: '6:00 AM – 12:00 PM, 5:00 PM – 8:30 PM',
-                bestTime: 'Saturdays special worship',
-                bestChoice: 'Monolithic Hanuman statue Darshan at palace gates',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1532186651327-6ac23687d189?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Srikanteshwara Temple', 
-                image: 'https://www.omastrology.com/indian-temples/images/srikanteshwara-temple-nanjanguda.jpg', 
-                description: 'An ancient temple dedicated to Lord Shiva situated in Nanjangud, highly renowned for its majestic Dravidian gopuram and spiritual significance.',
-                openHours: '6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM',
-                bestTime: 'Chariot Festival (Rathotsava)',
-                bestChoice: 'Girishwara Temple Dravidian Gopuram study & Kabini river holy dip',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Gommatagiri', 
-                image: 'https://i2.wp.com/stepstogether.in/wp-content/uploads/2021/04/IMG_20210423_200436-scaled.jpg?fit=2560%2C1503&ssl=1', 
-                description: 'An important Jain pilgrimage center featuring an ancient 700-year-old monolithic statue of Lord Bahubali standing atop a scenic hillock.',
-                openHours: '7:00 AM – 6:00 PM',
-                bestTime: 'Early morning climb',
-                bestChoice: '700-year-old Bahubali monolith & panoramic rock views',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'museums': {
-        name: 'Mysore Museums',
-        places: [
-            { 
-                name: 'Gowri Sand Sculpture Museum', 
-                image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg', 
-                description: 'A unique museum exhibiting spectacular creative sand sculptures crafted by professional artists, showcasing intricate depictions of heritage, wildlife, and mythological themes.',
-                openHours: '8:30 AM – 6:30 PM',
-                bestTime: 'Afternoon',
-                bestChoice: 'Unique sand art detailing by M.N. Gowri & photos',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Mysore Rail Museum', 
-                image: 'https://www.shutterstock.com/shutterstock/photos/2291081411/display_1500/stock-photo-mysore-railway-museum-karnataka-india-september-tourists-visiting-the-mysore-railway-museum-2291081411.jpg', 
-                description: 'An outdoor museum displaying vintage locomotives, royal carriages, and historical railway memorabilia, perfect for history enthusiasts.',
-                openHours: '9:30 AM – 5:30 PM (Closed Tuesdays)',
-                bestTime: 'Weekends',
-                bestChoice: 'Vintage Maharaja Carriage & Maharani Saloon coaches',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Payana Vintage Car Museum', 
-                image: 'https://mysoremedia.com/wp-content/uploads/2024/09/payana-vintage-car-musuem-entrance-scaled.jpg', 
-                description: 'A spectacular new museum on the Mysore-Bangalore highway exhibiting a grand collection of classic and vintage cars, beautifully curated to celebrate automotive history.',
-                openHours: '9:00 AM – 8:00 PM',
-                bestTime: 'Road trips stop',
-                bestChoice: 'Classic Rolls Royce and Ford vintage cars collection',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Jaganmohana Palace Art Gallery', 
-                image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg', 
-                description: 'A historic palace museum housing a magnificent collection of paintings, musical instruments, and rare royal artifacts from the Wodeyar dynasty.',
-                openHours: '8:30 AM – 5:30 PM',
-                bestTime: 'Morning Visits',
-                bestChoice: 'Raja Ravi Varma paintings study & royal artifacts exhibition',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'malls': {
-        name: 'Mysore Malls',
-        places: [
-            { 
-                name: 'Nexus Centre City Mall', 
-                image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png', 
-                description: 'The largest and most vibrant mall in Mysuru, featuring premium international brands, a massive food court, and a 6-screen PVR multiplex.',
-                openHours: '10:00 AM – 10:00 PM',
-                bestTime: 'Evening movies & food court',
-                bestChoice: 'PVR multiplex movies screening & international fashion shopping',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Mall of Mysore', 
-                image: 'https://masthmysore.com/wp-content/uploads/2024/08/mall-of-Mysore.jpg', 
-                description: 'One of Mysuru\'s first premium malls, beautifully located near the Chamundi Hills and Mysore Palace, offering a great mix of retail outlets, dining, and INOX multiplex.',
-                openHours: '10:00 AM – 10:00 PM',
-                bestTime: 'Weekends',
-                bestChoice: 'Chamundi Hills lakeside views & retail brand shopping',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Garuda Mall', 
-                image: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg', 
-                description: 'A popular and highly accessible shopping center located near the city bus stand, known for its lively ambiance, retail shopping, and entertainment options.',
-                openHours: '10:00 AM – 10:00 PM',
-                bestTime: 'Afternoon hangout',
-                bestChoice: 'Town center retail clothing shopping & arcade gaming',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1580537659444-2453e0d86fa6?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'BM Habitat Mall', 
-                image: 'https://travelghat.com/wp-content/uploads/2023/08/BM-habitat-mall-mysore-image-edited.jpg', 
-                description: 'A modern and popular lifestyle mall in Jayalakshmipuram, offering fantastic fashion stores, tech outlets, and a relaxed dining experience.',
-                openHours: '10:00 AM – 9:30 PM',
-                bestTime: 'Weekday shopping',
-                bestChoice: 'Jayalakshmipuram fashion boutiques & coffee hangouts',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=200'
-            },
-            { 
-                name: 'Central Mall Mysore', 
-                image: 'https://masthmysore.com/wp-content/uploads/2024/08/Centro-Mall-Mysore-e1723194744647.jpg', 
-                description: 'A premium fashion-forward shopping mall offering a rich selection of apparel, footwear, cosmetics, and accessories from leading national and international brands.',
-                openHours: '11:00 AM – 9:30 PM',
-                bestTime: 'Festive discounts season',
-                bestChoice: 'Branded apparel and footwear shopping store',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=200'
-            }
-        ]
-    },
-    'restaurants': {
-        name: 'Best Restaurants in Mysore',
+    'heritage_culture': {
+        name: 'Heritage & Culture in Mysuru',
         places: [
             {
-                name: 'Hotel Original Mylari',
-                image: 'https://i.ytimg.com/vi/xLkG49CFExg/maxresdefault.jpg',
-                description: 'A tiny, legendary eatery in Nazarbad, famous for its incredibly soft, melt-in-the-mouth Mylari Dosas topped with fresh butter.',
-                openHours: '6:30 AM – 1:30 PM, 3:30 PM – 8:30 PM (Closed Wednesdays)',
-                bestFoods: [
-                    { name: 'Butter Mylari Dosa', img: 'https://product-assets.faasos.io/production/product/image_1663431189904_Butter_Masala_Dosa.jpg', price: '₹60 (Approx)' },
-                    { name: 'Sagu Dosa', img: 'https://chillybite.com/wp-content/uploads/2025/11/Mysore-Masala-Dosa.jpg', price: '₹60 (Approx)' },
-                    { name: 'Filter Coffee', img: 'https://img-global.cpcdn.com/recipes/678be4e38ad148c7/680x482cq70/mysore-filter-coffee-recipe-main-photo.jpg', price: '₹35 (Approx)' },
-                    { name: 'Idli', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', price: '₹40 (Approx)' }
-                ]
+                name: 'Mysore Palace',
+                image: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=800',
+                description: 'Official residence of the Wadiyar dynasty, magnificent Indo-Saracenic palace famous for golden throne and 97,000 bulb illumination.',
+                rating: '4.9',
+                bestTime: '10:00 AM – 5:30 PM (Illumination Sundays 7:00 PM – 8:00 PM)',
+                busRoutes: 'Located in Central Mysuru (Palace Grounds).',
+                bestChoice: 'Golden Throne, Durbar Hall & Sunday 97,000 Bulb Illumination',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?auto=format&fit=crop&q=80&w=800'
             },
             {
-                name: 'Hanumanthu Mess',
-                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/90/85/1f/sunday.jpg?w=1200&h=1200&s=1',
-                description: 'An iconic heritage mess serving legendary wood-fired mutton pulao (biryani) that has been a local favorite for decades.',
-                openHours: '6:00 AM – 10:00 AM, 11:30 AM – 4:00 PM, 6:30 PM – 10:00 PM',
-                bestFoods: [
-                    { name: 'Mutton Pulao', img: 'https://i.ytimg.com/vi/DLeLTnaO65Q/maxresdefault.jpg', price: '₹240 (Approx)' },
-                    { name: 'Chicken Pulao', img: 'https://kingofspices.co.nz/wp-content/uploads/2024/02/Chicken-Pulao.jpg', price: '₹190 (Approx)' },
-                    { name: 'Mutton Fry', img: 'https://media.oceanofrecipes.com/images/indian/mutton-fry/19.JPG', price: '₹220 (Approx)' },
-                    { name: 'Boti Fry', img: 'https://i.ytimg.com/vi/fe2xqAh42L0/maxresdefault.jpg', price: '₹180 (Approx)' }
-                ]
+                name: 'Lalitha Mahal Palace',
+                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/26/1e/39/lalitha-mahal-palace.jpg?w=700&h=-1&s=1',
+                description: 'Stunning white royal palace built in 1921 inspired by St Paul\'s Cathedral in London, nestled at the foot of Chamundi Hills.',
+                rating: '4.7',
+                bestTime: '10:00 AM – 6:00 PM',
+                busRoutes: 'Located near Chamundi Hill foothills (~5 km from city centre).',
+                bestChoice: 'Royal High Tea & Italian Marble Architecture Tour',
+                bestChoiceImg: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/26/1e/39/lalitha-mahal-palace.jpg?w=700&h=-1&s=1'
+            },
+            {
+                name: 'Jaganmohan Palace',
+                image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg',
+                description: 'Historic royal palace turned art gallery housing rare paintings by Raja Ravi Varma and royal weapons.',
+                rating: '4.6',
+                bestTime: '8:30 AM – 5:30 PM',
+                busRoutes: 'Located near Mysore Palace, City Centre.',
+                bestChoice: 'Raja Ravi Varma Masterpiece Painting Collection',
+                bestChoiceImg: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg'
+            },
+            {
+                name: 'St. Philomena\'s Cathedral',
+                image: 'https://i.pinimg.com/originals/67/7d/f9/677df9fc5e071c32c23b53c5bc59a466.jpg',
+                description: 'One of Asia\'s tallest Neo-Gothic cathedrals built in 1936, inspired by Cologne Cathedral with twin 175-foot spires.',
+                rating: '4.8',
+                bestTime: '5:00 AM – 6:00 PM',
+                busRoutes: 'Located on Ashoka Road, Lashkar Mohalla, Mysuru.',
+                bestChoice: 'Neo-Gothic Twin Spires & Underground St. Philomena Relic Crypt',
+                bestChoiceImg: 'https://i.pinimg.com/originals/67/7d/f9/677df9fc5e071c32c23b53c5bc59a466.jpg'
+            }
+        ]
+    },
+    'temples': {
+        name: 'Temples in Mysuru',
+        places: [
+            {
+                name: 'Chamundeshwari Temple',
+                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000',
+                description: 'Ancient 12th-century shrine atop Chamundi Hills dedicated to Goddess Chamundeshwari, patron deity of Mysuru.',
+                rating: '4.9',
+                bestTime: '7:30 AM – 2:00 PM, 3:30 PM – 6:00 PM',
+                busRoutes: 'KSRTC City Buses available directly from Mysuru Bus Stand to Chamundi Hill top.',
+                bestChoice: 'Goddess Chamundeshwari Darshan & Monolithic Nandi Bull Statue',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1000'
+            },
+            {
+                name: 'Sri Ranganathaswamy Temple (Srirangapatna)',
+                image: 'https://www.omastrology.com/indian-temples/images/sri-ranganathaswamy-temple-srirangapatna.jpg',
+                description: 'Historic 9th-century temple dedicated to Lord Vishnu on Srirangapatna island, one of the Pancharanga Kshetrams.',
+                rating: '4.8',
+                bestTime: '7:30 AM – 1:00 PM, 4:00 PM – 8:00 PM',
+                busRoutes: 'Located in Srirangapatna (~15 km north of Mysuru).',
+                bestChoice: 'Lord Ranganatha Reclining Idol Darshan & Vijayanagara Architecture',
+                bestChoiceImg: 'https://www.omastrology.com/indian-temples/images/sri-ranganathaswamy-temple-srirangapatna.jpg'
+            },
+            {
+                name: 'Venugopala Swamy Temple',
+                image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg',
+                description: 'Relocated and restored Hoysala-style temple on the backwaters of KRS reservoir near Hosa Kannambadi.',
+                rating: '4.8',
+                bestTime: '9:00 AM – 6:00 PM',
+                busRoutes: 'Located near KRS Reservoir backwaters, Hosa Kannambadi (~25 km from Mysuru).',
+                bestChoice: 'Hoysala Carvings & Backwater Sunset Temple View',
+                bestChoiceImg: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg'
+            }
+        ]
+    },
+    'parks_nature': {
+        name: 'Parks & Nature in Mysuru',
+        places: [
+            {
+                name: 'Brindavan Gardens',
+                image: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg',
+                description: 'World-famous terraced garden laid out below KRS Dam, famous for synchronized musical fountain shows.',
+                rating: '4.7',
+                bestTime: '7:00 AM – 8:00 PM (Fountain show 6:30 PM – 7:30 PM)',
+                busRoutes: 'Direct KSRTC buses from Mysuru City Bus Stand to KRS Dam.',
+                bestChoice: 'Synchronized Musical Dancing Fountain Show & Terrace Rose Garden',
+                bestChoiceImg: 'https://c8.alamy.com/comp/BY24T5/illuminated-fountains-at-brindavan-gardens-in-mysore-india-BY24T5.jpg'
+            },
+            {
+                name: 'KRS Dam',
+                image: 'https://tripthentic.com/wp-content/uploads/mysore-krs-dam.jpg',
+                description: 'Krishna Raja Sagara Dam built across Kaveri River, a monumental engineering feat providing water and scenic reservoir views.',
+                rating: '4.6',
+                bestTime: '8:00 AM – 6:00 PM',
+                busRoutes: 'Located at Krishnarajasagara (~19 km from Mysuru).',
+                bestChoice: 'Kaveri Reservoir View & Dam Spillway Walk',
+                bestChoiceImg: 'https://tripthentic.com/wp-content/uploads/mysore-krs-dam.jpg'
+            },
+            {
+                name: 'Karanji Lake',
+                image: 'https://cdn1.tripoto.com/media/filter/nl/img/2380291/Image/1707395561_karanji_lake.png',
+                description: 'Scenic lake surrounded by a butterfly park and housing India\'s largest walk-through aviary.',
+                rating: '4.7',
+                bestTime: '8:30 AM – 5:30 PM (Closed Tuesdays)',
+                busRoutes: 'Located near Mysuru Zoo & Chamundi Hill road.',
+                bestChoice: 'Walk-Through Aviary & Lakeside Pedal Boating',
+                bestChoiceImg: 'https://cdn1.tripoto.com/media/filter/nl/img/2380291/Image/1707395561_karanji_lake.png'
+            },
+            {
+                name: 'Ranganathittu Bird Sanctuary',
+                image: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560',
+                description: 'Kaveri river islands hosting thousands of nesting migratory birds and marsh crocodiles, famous for boat safaris.',
+                rating: '4.9',
+                bestTime: '8:30 AM – 5:30 PM',
+                busRoutes: 'Located near Srirangapatna (~18 km from Mysuru).',
+                bestChoice: 'Kaveri Boat Safari, Migratory Bird Nesting & Crocodile Spotting',
+                bestChoiceImg: 'https://i1.wp.com/www.dominiquetravels.com/wp-content/uploads/2019/07/03.-Ranganathittu-Bird-Sanctuary.jpg?resize=747%2C560'
+            },
+            {
+                name: 'Balmuri Falls',
+                image: 'https://mysoremedia.com/wp-content/uploads/2019/08/Balmuri-Falls-Mysore-Water-falling-from-height-picture-by-Arun-Kumar-1024x767.jpg',
+                description: 'Scenic man-made step-barrier waterfall on Kaveri river, popular for picnics and movie shoots.',
+                rating: '4.5',
+                bestTime: '6:00 AM – 7:00 PM',
+                busRoutes: 'Located near Belagula (~16 km from Mysuru).',
+                bestChoice: 'Step Waterfall Walk & Riverside Picnic Spot',
+                bestChoiceImg: 'https://mysoremedia.com/wp-content/uploads/2019/08/Balmuri-Falls-Mysore-Water-falling-from-height-picture-by-Arun-Kumar-1024x767.jpg'
+            }
+        ]
+    },
+    'wildlife_museums': {
+        name: 'Wildlife & Museums in Mysuru',
+        places: [
+            {
+                name: 'Mysore Zoo',
+                image: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg',
+                description: 'Sri Chamarajendra Zoological Gardens, one of India\'s oldest and most bio-diverse zoos established in 1892.',
+                rating: '4.9',
+                bestTime: '8:30 AM – 5:30 PM (Closed Tuesdays)',
+                busRoutes: 'Located near Karanji Lake & Mysuru Palace.',
+                bestChoice: 'Exotic Mammals, Reptile Section & Battery Vehicle Safari',
+                bestChoiceImg: 'https://www.world-tourism.org/wp-content/uploads/2026/02/wildlife-private-day-tour-mysore-to-bandipur-national-park.jpg'
+            },
+            {
+                name: 'Sand Sculpture Museum',
+                image: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg',
+                description: 'India\'s first sand sculpture museum featuring over 150 detailed sculptures crafted from 115 truckloads of sand.',
+                rating: '4.6',
+                bestTime: '8:30 AM – 6:30 PM',
+                busRoutes: 'Located on Chamundi Hill main road (~3 km from Mysuru Palace).',
+                bestChoice: 'Lord Ganesha, Mysore Dasara & Ancient Egypt Sand Sculptures',
+                bestChoiceImg: 'https://tharaootytours.com/assets/img/mysore/Mysore-Sand-Sculpture-Museum.jpg'
+            },
+            {
+                name: 'Melody World Wax Museum',
+                image: 'https://www.triptomysore.com/wp-content/uploads/2023/10/WhatsApp-Image-2023-10-02-at-8.41.56-PM.jpeg',
+                description: 'Unique wax museum displaying life-size statues playing over 300 musical instruments from around the world.',
+                rating: '4.4',
+                bestTime: '9:30 AM – 7:00 PM',
+                busRoutes: 'Located near Siddartha Layout / Chamundi Hill Road.',
+                bestChoice: 'Life-size Musical Bands & Classical Instrument Galleries',
+                bestChoiceImg: 'https://www.triptomysore.com/wp-content/uploads/2023/10/WhatsApp-Image-2023-10-02-at-8.41.56-PM.jpeg'
+            },
+            {
+                name: 'Regional Museum of Natural History',
+                image: 'https://southindiatravels.in/images/resource/SouthIndia-Travels-Regional-Museum-of-Natural-History-Mysore.jpg',
+                description: 'Educational museum depicting the flora, fauna, and geology of Southern India with interactive exhibits.',
+                rating: '4.6',
+                bestTime: '10:00 AM – 6:00 PM (Closed Mondays)',
+                busRoutes: 'Located near Karanji Lake backwaters, Mysuru.',
+                bestChoice: 'Western Ghats Bio-diversity Exhibit & Life-size Skeleton Models',
+                bestChoiceImg: 'https://southindiatravels.in/images/resource/SouthIndia-Travels-Regional-Museum-of-Natural-History-Mysore.jpg'
+            }
+        ]
+    },
+    'entertainment': {
+        name: 'Entertainment & Shopping in Mysuru',
+        places: [
+            {
+                name: 'GRS Fantasy Park',
+                image: 'https://i.ytimg.com/vi/TKWxy1o6TTQ/maxresdefault.jpg',
+                description: 'Premier amusement and water park in Mysuru featuring high-thrill rides, wave pool, and splash zones for all ages.',
+                rating: '4.7',
+                bestTime: '10:30 AM – 6:00 PM',
+                busRoutes: 'Located on KRS Road, Metagalli (~6 km from Mysuru Railway Station).',
+                bestChoice: 'Aqua Dance Floor, Wave Pool & High-speed Water Slides',
+                bestChoiceImg: 'https://i.ytimg.com/vi/TKWxy1o6TTQ/maxresdefault.jpg'
+            },
+            {
+                name: 'Mall of Mysore',
+                image: 'https://helptravelindia.com/wp-content/uploads/2024/07/Mall-of-Mysore-Mysuru-Karnataka.jpg',
+                description: 'One of Mysuru\'s largest shopping centers with international fashion brands, food court, multiplex, and Radisson Blu hotel.',
+                rating: '4.6',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located on MG Road, near Race Course / Mysuru Zoo.',
+                bestChoice: 'Brand Shopping & Multi-screen Cinema Multiplex',
+                bestChoiceImg: 'https://helptravelindia.com/wp-content/uploads/2024/07/Mall-of-Mysore-Mysuru-Karnataka.jpg'
+            },
+            {
+                name: 'Nexus Centre City',
+                image: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png',
+                description: 'Vibrant retail and entertainment destination with hypermarket, cineplex, game arcade, and dining outlets.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located on Hyder Ali Road, Nazarbad (~3 km from Mysuru Palace).',
+                bestChoice: 'Cinepolis Cinema, Hypermarket & Food Court Dining',
+                bestChoiceImg: 'https://www.nexusselecttrust.com/resources/assets/images/city-center/interior/DSC05338.png'
+            }
+        ]
+    },
+    'best_restaurants': {
+        name: 'Best Restaurants in Mysuru (North & South)',
+        places: [
+            {
+                name: 'Hotel RRR Mysuru',
+                image: 'https://b.zmtcdn.com/data/pictures/0/3800060/f8caae37b51b759600d83ed93e507c91.jpg',
+                description: 'Legendary non-veg dining establishment near Gandhi Square famous for Andhra-style banana leaf Mutton Biryani and Chilly Chicken.',
+                rating: '4.8',
+                bestTime: '12:00 PM – 4:00 PM, 7:00 PM – 10:30 PM',
+                busRoutes: 'Located at Gandhi Square, Sayyaji Rao Road, Central Mysuru.',
+                bestChoice: 'Mutton Biryani on Banana Leaf & Andhra Chilly Chicken',
+                bestChoiceImg: 'https://b.zmtcdn.com/data/pictures/0/3800060/f8caae37b51b759600d83ed93e507c91.jpg'
+            },
+            {
+                name: 'Original Mylari Hotel',
+                image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800',
+                description: 'Historic breakfast joint running since 1938, iconic for soft, pillow-like butter dosa served with saagu and fresh white butter.',
+                rating: '4.9',
+                bestTime: '6:30 AM – 1:30 PM, 3:30 PM – 8:30 PM',
+                busRoutes: 'Located near Agrahara Circle, Mysuru.',
+                bestChoice: 'Original Mylari Butter Dosa with Sagu & Fresh White Butter',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Gayathri Tiffin Room (GTR)',
+                image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800',
+                description: 'Beloved heritage South Indian vegetarian mess famous for crispy ghee masala dosa, crispy uddina vada, and filter coffee.',
+                rating: '4.7',
+                bestTime: '7:00 AM – 11:30 AM, 3:30 PM – 8:00 PM',
+                busRoutes: 'Located in Chamundipuram, Mysuru.',
+                bestChoice: 'GTR Special Masala Dosa, Filter Coffee & Crispy Vada',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800'
             },
             {
                 name: 'Guru Sweet Mart',
-                image: 'https://www.itslife.in/wp-content/gallery/myszoo-eda-balamuri-krs/travel-mysore-guru-sweet-mart-2.jpg',
-                description: 'The absolute birthplace of the iconic Mysore Pak, established by the descendants of the royal chef who created it for the Maharaja.',
-                openHours: '9:00 AM – 10:00 PM',
-                bestFoods: [
-                    { name: 'Special Mysore Pak', img: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75', price: '₹80 for 250g' },
-                    { name: 'Kaju Katli', img: 'https://indiasweethouse.in/cdn/shop/files/KajuKatli.jpg?v=1685445876&width=1946', price: '₹250 for 250g' },
-                    { name: 'Motichoor Ladoo', img: 'https://img-global.cpcdn.com/recipes/6a044188ce8e0432/1502x1064cq70/motichoor-ladoo-recipe-main-photo.jpg', price: '₹90 for 250g' },
-                    { name: 'Dry Fruit Burfi', img: 'https://as1.ftcdn.net/jpg/09/01/82/74/1000_F_901827443_LVpgDcwKZhARdTFzOaQoBRUqAYSdtESt.jpg', price: '₹300 for 250g' }
-                ]
+                image: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75',
+                description: 'Original ancestral birthplace of Mysore Pak, crafted by Kakasura Madappa, the royal chef of Maharaja Krishnaraja Wadiyar IV.',
+                rating: '4.9',
+                bestTime: '9:00 AM – 10:00 PM',
+                busRoutes: 'Located on Sayyaji Rao Road, Near Devaraja Market.',
+                bestChoice: 'Authentic Melt-in-Mouth Royal Ghee Mysore Pak',
+                bestChoiceImg: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75'
             },
             {
-                name: 'Gayatri Tiffin Room (GTR)',
-                image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/22/e5/a8/img-20200301-174925-largejpg.jpg?w=1000&h=-1&s=1',
-                description: 'A heritage South Indian vegetarian restaurant, popular for its crispy ghee-laden Masala Dosas and delicious filter coffee.',
-                openHours: '7:00 AM – 11:30 AM, 3:30 PM – 8:00 PM (Closed Mondays)',
-                bestFoods: [
-                    { name: 'GTR Special Masala Dosa', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', price: '₹80 (Approx)' },
-                    { name: 'Ghee Khara Bath', img: 'https://www.yummyoyummy.com/wp-content/uploads/2017/12/DSC_0466.jpg', price: '₹55 (Approx)' },
-                    { name: 'Idli Vada Combo', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', price: '₹65 (Approx)' },
-                    { name: 'Filter Coffee', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800', price: '₹35 (Approx)' }
-                ]
-            }
-        ]
-    },
-    'gaming': {
-        name: 'Gaming & Esports Zone',
-        places: [
-            {
-                name: 'Legion X Gaming Café',
-                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
-                images: [
-                    'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600',
-                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
-                ],
-                description: 'A newly opened popular gaming cafe in Bogadi, catering to PC and console gaming enthusiasts. Featuring high-end setups for multiplayer and competitive esports.',
-                openHours: '10:00 AM – 10:00 PM',
-                bestTime: 'Afternoons & Evenings',
-                bestChoice: 'Price: ₹80–₹150 per hour <strong>(Bogadi)</strong>',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=200'
+                name: 'Hanumanthu Mess',
+                image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800',
+                description: 'Historic 90-year-old mess known for its woodfire-cooked mutton pulao served in traditional palm-leaf donnes.',
+                rating: '4.7',
+                bestTime: '6:00 AM – 10:00 PM',
+                busRoutes: 'Located in Mandi Mohalla, Mysuru.',
+                bestChoice: 'Heritage Mutton Pulao & Mutton Chops',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800'
             },
             {
-                name: 'Gamers Hub Mysuru',
-                image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
-                images: [
-                    'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=600',
-                    'https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&q=80&w=200'
-                ],
-                description: 'Located in Gokulam/Bogadi area, this popular student hangout is perfect for competitive multiplayer matches, featuring PS5 console play and PC setups.',
-                openHours: '10:00 AM – 10:00 PM',
-                bestTime: 'Post-college hours',
-                bestChoice: 'Price: ₹100–₹250 per hour <strong>(Gokulam)</strong>',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=200'
-            },
-            {
-                name: 'SMAAASH (Mall of Mysore)',
-                image: 'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
-                images: [
-                    'https://res.cloudinary.com/dyiffrkzh/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_center,h_518,q_auto,w_660/v1700563337/bbj/an2lalqnlzjqw9smjyub.jpg',
-                    'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600'
-                ],
-                description: 'Premium entertainment center located inside Mall of Mysore. Offers multi-activity fun including bowling, VR gaming simulators, arcade stations, and virtual sports.',
-                openHours: '11:00 AM – 10:00 PM',
-                bestTime: 'Weekends & Evenings',
-                bestChoice: 'Bowling & VR Packages: ₹150–₹500 <strong>(Mall of Mysore)</strong>',
-                bestChoiceImg: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=200'
+                name: 'The Spring (Radisson Blu Mysuru)',
+                image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800',
+                description: 'Luxury 24-hour fine dining restaurant offering international buffets, authentic South Indian delicacies, and poolside ambiance.',
+                rating: '4.6',
+                bestTime: '12:30 PM – 3:30 PM, 7:00 PM – 11:00 PM',
+                busRoutes: 'Located on MG Road, Mysuru (Adjacent to Mall of Mysore).',
+                bestChoice: 'Multi-cuisine Luxury Buffet & Poolside Dining',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800'
             }
         ]
     },
@@ -2060,6 +1945,328 @@ const mysuruCategoryData = {
     }
 };
 
+const mysuruEastWestCategories = [
+    { id: 'historic', name: 'Historic Places', desc: 'Explore mansions & clock tower →', image: 'https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2024/03/Palace-Museum-1068x801.jpg' },
+    { id: 'temples', name: 'Temples', desc: 'Explore fort temples & shrines →', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600' },
+    { id: 'shopping', name: 'Shopping', desc: 'Explore malls, silk & bazaars →', image: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg' },
+    { id: 'museums_attractions', name: 'Museums & Attractions', desc: 'Explore manuscripts & galleries →', image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=600' },
+    { id: 'parks_nature', name: 'Parks & Nature', desc: 'Explore nature trails & lakes →', image: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg' },
+    { id: 'entertainment', name: 'Entertainment', desc: 'Explore circles & exhibition grounds →', image: 'https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&q=80&w=600' }
+];
+
+const mysuruEastWestCategoryData = {
+    'historic': {
+        name: 'Historic Places in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Cheluvamba Mansion',
+                image: 'https://www.omastrology.com/indian-monuments/images/cheluvamba-mansion.jpg',
+                description: 'Grand royal mansion built in 1910 for Princess Cheluvajammanni, currently housing CFTRI main campus.',
+                rating: '4.7',
+                bestTime: '9:00 AM – 5:00 PM',
+                busRoutes: 'Located near Mysuru Railway Station / CFTRI Campus.',
+                bestChoice: 'Heritage Architecture & CFTRI Gardens Walk',
+                bestChoiceImg: 'https://www.omastrology.com/indian-monuments/images/cheluvamba-mansion.jpg'
+            },
+            {
+                name: 'Jayalakshmi Vilas Mansion',
+                image: 'https://images.borrbo.com/outings/Jayalakshmi-Vilas-Mansion/mansion-entrance.jpg',
+                description: 'Built in 1905 for Princess Jayalakshammanni, located inside Manasagangotri campus, hosting folklore and archaeology museums.',
+                rating: '4.8',
+                bestTime: '10:00 AM – 5:00 PM',
+                busRoutes: 'Located inside Manasagangotri Campus, Mysore University.',
+                bestChoice: 'Folklore Museum & Royal Wooden Carvings',
+                bestChoiceImg: 'https://images.borrbo.com/outings/Jayalakshmi-Vilas-Mansion/mansion-entrance.jpg'
+            },
+            {
+                name: 'Government House (Raj Bhavan, Mysuru)',
+                image: 'https://static.toiimg.com/photo/51223137/.jpg',
+                description: 'Stunning 1805 neoclassical heritage mansion designed by John Malcolm, set amidst 50 acres of lush gardens.',
+                rating: '4.6',
+                bestTime: '9:30 AM – 5:00 PM',
+                busRoutes: 'Located in Nazarbad, Mysuru.',
+                bestChoice: 'Neoclassical Columns & Heritage Gardens',
+                bestChoiceImg: 'https://static.toiimg.com/photo/51223137/.jpg'
+            },
+            {
+                name: 'Mysore Fort Gateway (Old Fort Area)',
+                image: 'https://thumbs.dreamstime.com/b/mysore-palace-karnataka-india-gateway-huge-grounds-was-built-king-yaduraya-inside-old-fort-th-48184265.jpg',
+                description: 'Ancient fortified gateways surrounding the inner palace complex with historic ramparts and archways.',
+                rating: '4.6',
+                bestTime: '6:00 AM – 8:00 PM',
+                busRoutes: 'Located surrounding Mysore Palace.',
+                bestChoice: 'Historic Fort Gates & Wall Carvings Photography',
+                bestChoiceImg: 'https://thumbs.dreamstime.com/b/mysore-palace-karnataka-india-gateway-huge-grounds-was-built-king-yaduraya-inside-old-fort-th-48184265.jpg'
+            },
+            {
+                name: 'Dodda Gadiyara (Clock Tower)',
+                image: 'https://images.pond5.com/100-year-old-clock-tower-footage-172070642_iconl.jpeg',
+                description: 'Iconic 75-foot silver-jubilee clock tower built in 1927 featuring Indo-Saracenic architecture.',
+                rating: '4.5',
+                bestTime: 'Open 24 Hours (Best at Night)',
+                busRoutes: 'Located at Town Hall Circle, Mysuru.',
+                bestChoice: 'Night Illumination & Town Hall Heritage Walk',
+                bestChoiceImg: 'https://images.pond5.com/100-year-old-clock-tower-footage-172070642_iconl.jpeg'
+            }
+        ]
+    },
+    'temples': {
+        name: 'Temples in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Lakshmiramana Swamy Temple',
+                image: 'https://img.magnific.com/premium-photo/lakshmiramana-swamy-temple-mysore_78361-13500.jpg',
+                description: 'One of the oldest temples inside Mysore Fort premises, dedicated to Lord Vishnu, dating back to 1499.',
+                rating: '4.8',
+                bestTime: '6:00 AM – 12:00 PM, 5:00 PM – 8:00 PM',
+                busRoutes: 'Located inside Mysore Palace Fort Complex.',
+                bestChoice: 'Ancient Dravidian Sanctum & Vishnu Pooja',
+                bestChoiceImg: 'https://img.magnific.com/premium-photo/lakshmiramana-swamy-temple-mysore_78361-13500.jpg'
+            },
+            {
+                name: 'Bhuvaneshwari Temple',
+                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800',
+                description: 'Located at the northern gate of Mysore Fort, featuring a silver Surya Mandala gift from the Wodeyar kings.',
+                rating: '4.7',
+                bestTime: '6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM',
+                busRoutes: 'Located at North Gate, Mysore Palace.',
+                bestChoice: 'Silver Mandala & Goddess Bhuvaneshwari Blessings',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Sri Prasanna Anjaneya Swamy Temple',
+                image: 'https://i.ytimg.com/vi/E7fsyPWnQj8/maxresdefault.jpg',
+                description: 'Vibrant temple dedicated to Lord Hanuman, deeply revered by locals for spiritual solace and festivals.',
+                rating: '4.7',
+                bestTime: '6:00 AM – 12:30 PM, 5:00 PM – 8:30 PM',
+                busRoutes: 'Located near Palace Gates / Agrahara.',
+                bestChoice: 'Special Tuesday/Saturday Hanuman Pooja & Chanting',
+                bestChoiceImg: 'https://i.ytimg.com/vi/E7fsyPWnQj8/maxresdefault.jpg'
+            },
+            {
+                name: 'Gayathri Temple',
+                image: 'https://www.iskconmysore.org/wp-content/uploads/2022/11/008.jpg',
+                description: 'Built by Maharaja Jayachamarajendra Wadiyar in 1953 inside the fort complex, dedicated to Goddess Gayathri.',
+                rating: '4.6',
+                bestTime: '6:00 AM – 12:00 PM, 5:00 PM – 8:00 PM',
+                busRoutes: 'Located inside South-East corner of Mysore Palace Fort.',
+                bestChoice: 'Quiet Meditation & Divine Gayatri Mantra Chanting',
+                bestChoiceImg: 'https://www.iskconmysore.org/wp-content/uploads/2022/11/008.jpg'
+            },
+            {
+                name: 'Trinesvaraswamy Temple',
+                image: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg',
+                description: 'Ancient Shiva temple pre-dating the Wodeyar dynasty, situated at the north-east corner of Mysore Fort.',
+                rating: '4.8',
+                bestTime: '6:00 AM – 12:00 PM, 5:00 PM – 8:00 PM',
+                busRoutes: 'Located inside North-East Mysore Fort grounds.',
+                bestChoice: 'Maha Shivaratri Special Pooja & Sacred Lingam Darshan',
+                bestChoiceImg: 'https://jothishi.com/wp-content/uploads/2019/03/Venugopala-Swamy-Temple.jpg'
+            }
+        ]
+    },
+    'shopping': {
+        name: 'Shopping in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Garuda Mall Mysuru',
+                image: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg',
+                description: 'Lively shopping mall in central Mysuru featuring fashion brand stores, food court, and gaming zone.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located near City Bus Stand, Albert Victor Road.',
+                bestChoice: 'Fashion Apparel Stores & Food Court Snacks',
+                bestChoiceImg: 'https://static-blog.treebo.com/wp-content/uploads/2018/04/Garuda-Mall-Mysore-1-1.jpg'
+            },
+            {
+                name: 'BM Habitat Mall',
+                image: 'https://travelghat.com/wp-content/uploads/2023/08/BM-habitat-mall-mysore-image-edited.jpg',
+                description: 'Modern shopping destination in Jayalakshmipuram housing electronics, clothing, and multiplex.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 9:30 PM',
+                busRoutes: 'Located in Jayalakshmipuram (~3 km from station).',
+                bestChoice: 'Multiplex Cinema & Lifestyle Boutiques',
+                bestChoiceImg: 'https://travelghat.com/wp-content/uploads/2023/08/BM-habitat-mall-mysore-image-edited.jpg'
+            },
+            {
+                name: 'KSIC Silk Factory & Showroom',
+                image: 'https://masthmysore.com/wp-content/uploads/2024/08/Centro-Mall-Mysore-e1723194744647.jpg',
+                description: 'Authentic Mysore Silk saree production factory and showroom featuring pure gold zari sarees.',
+                rating: '4.8',
+                bestTime: '10:00 AM – 7:00 PM',
+                busRoutes: 'Located on Mananthavady Road, Mysuru.',
+                bestChoice: 'Pure Mysore Silk Zari Sarees & Factory Weaving Witness',
+                bestChoiceImg: 'https://masthmysore.com/wp-content/uploads/2024/08/Centro-Mall-Mysore-e1723194744647.jpg'
+            },
+            {
+                name: 'Badsha Bazaar',
+                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
+                description: 'Historic textile center famous for traditional Karnataka silk sarees, dress materials, and ethnic wear.',
+                rating: '4.6',
+                bestTime: '10:30 AM – 9:00 PM',
+                busRoutes: 'Located on Sayyaji Rao Road, Mysuru.',
+                bestChoice: 'Bridal Silk Sarees & Dress Fabrics',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Ashoka Road Shopping Street',
+                image: 'https://s3.india.com/wp-content/uploads/2024/09/ashoka.jpg?impolicy=Medium_Widthonly&w=800&h=541',
+                description: 'Bustling market corridor known for gold and silver jewelry shops, traditional handicrafts, and artifacts.',
+                rating: '4.5',
+                bestTime: '11:00 AM – 9:00 PM',
+                busRoutes: 'Located connecting St Philomena Cathedral to Clock Tower.',
+                bestChoice: 'Gold Jewelry Shopping & Traditional Handicrafts',
+                bestChoiceImg: 'https://s3.india.com/wp-content/uploads/2024/09/ashoka.jpg?impolicy=Medium_Widthonly&w=800&h=541'
+            }
+        ]
+    },
+    'museums_attractions': {
+        name: 'Museums & Attractions in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Mysuru City Corporation Museum',
+                image: 'https://th-i.thgim.com/public/incoming/8ld739/article66946934.ece/alternates/FREE_1200/2303_8_6_2023_19_33_36_2_OLDDCOFFICE.JPG',
+                description: 'Heritage museum displaying civic history, architectural plans, and photographs of Mysuru\'s urban evolution.',
+                rating: '4.4',
+                bestTime: '10:00 AM – 5:30 PM',
+                busRoutes: 'Located inside MCC Heritage Building, Sayyaji Rao Road.',
+                bestChoice: 'Civic History Archives & Architectural Blueprint Models',
+                bestChoiceImg: 'https://th-i.thgim.com/public/incoming/8ld739/article66946934.ece/alternates/FREE_1200/2303_8_6_2023_19_33_36_2_OLDDCOFFICE.JPG'
+            },
+            {
+                name: 'Indira Gandhi Rashtriya Manav Sangrahalaya (Regional Centre)',
+                image: 'https://s7ap1.scene7.com/is/image/incredibleindia/indira-gandhi-rashtriya-manav-sangrahalaya-mysore-1-attr-hero?qlt=82&ts=1751460496517',
+                description: 'National Museum of Mankind regional center showcasing tribal heritage, rock art, and traditional lifestyle exhibits.',
+                rating: '4.6',
+                bestTime: '10:00 AM – 5:30 PM (Closed Mondays)',
+                busRoutes: 'Located in Wellington House, Irwin Road.',
+                bestChoice: 'Tribal Rock Art Models & Traditional Craft Exhibits',
+                bestChoiceImg: 'https://s7ap1.scene7.com/is/image/incredibleindia/indira-gandhi-rashtriya-manav-sangrahalaya-mysore-1-attr-hero?qlt=82&ts=1751460496517'
+            },
+            {
+                name: 'Chamarajendra Academy of Visual Arts (CAVA)',
+                image: 'https://media.gody.vn/images/mysore/hoc-vien-nghe-thuat-thi-giac-chamarajendra-chamarajendra-academy-of-visual-arts/095ccc46b68969525f89f8caf727b9a8ef3b24d0.jpg',
+                description: 'Premier fine arts institute showcasing student art galleries, contemporary paintings, and sculptures.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 5:00 PM',
+                busRoutes: 'Located in Siddartha Layout / Manasagangotri.',
+                bestChoice: 'Student Fine Art Exhibition & Contemporary Sculptures',
+                bestChoiceImg: 'https://media.gody.vn/images/mysore/hoc-vien-nghe-thuat-thi-giac-chamarajendra-chamarajendra-academy-of-visual-arts/095ccc46b68969525f89f8caf727b9a8ef3b24d0.jpg'
+            }
+        ]
+    },
+    'parks_nature': {
+        name: 'Parks & Nature in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Happy Man Park',
+                image: 'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&q=80&w=800',
+                description: 'Charming landscaped garden in Saraswathipuram featuring a smiling Happy Man statue, fish pond, and kids play zone.',
+                rating: '4.6',
+                bestTime: '4:30 PM – 8:00 PM',
+                busRoutes: 'Located in Saraswathipuram (~2.5 km from station).',
+                bestChoice: 'Lakeside Garden Walk & Happy Man Statue',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Freedom Park Mysuru',
+                image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800',
+                description: 'Sprawling green urban park built on former sub-jail land featuring walking tracks, amphitheater, and freedom memorial.',
+                rating: '4.5',
+                bestTime: '5:30 AM – 9:00 AM, 4:30 PM – 8:00 PM',
+                busRoutes: 'Located near Subbarayanakere / City Bus Stand.',
+                bestChoice: 'Morning Jogging Track & Freedom Fighters Memorial',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Kukkarahalli Nature Trail',
+                image: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg',
+                description: 'Famous 4.5 km boundary trail around Kukkarahalli Lake loved by poets, runners, and nature photography lovers.',
+                rating: '4.8',
+                bestTime: '6:00 AM – 9:00 AM, 4:30 PM – 6:30 PM',
+                busRoutes: 'Located adjacent to Manasagangotri Campus.',
+                bestChoice: '4.5 km Lake Walkway & Spot-billed Pelican Bird Watching',
+                bestChoiceImg: 'https://live.staticflickr.com/65535/50948988027_64c8bd54e0.jpg'
+            },
+            {
+                name: 'Dalvoy Lake',
+                image: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=800',
+                description: 'Peaceful natural lake on Mysuru-Nanjangud road, popular for quiet sunset views and local wetland birds.',
+                rating: '4.4',
+                bestTime: '5:00 PM – 6:30 PM',
+                busRoutes: 'Located on Mysuru-Nanjangud Highway (~6 km south).',
+                bestChoice: 'Wetland Sunset Photography & Quiet Bird Spotting',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1455218873509-8097305ee378?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Hebbal Lake (Mysuru)',
+                image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800',
+                description: 'Rejuvenated urban lake park in industrial Mysuru with paved walking paths, gazebo, and greenery.',
+                rating: '4.5',
+                bestTime: '6:00 AM – 9:00 AM, 4:30 PM – 7:00 PM',
+                busRoutes: 'Located in Hebbal Industrial Area, Mysuru.',
+                bestChoice: 'Lakeside Gazebo Seating & Evening Breeze Walk',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800'
+            }
+        ]
+    },
+    'entertainment': {
+        name: 'Entertainment in Mysuru (East & West)',
+        places: [
+            {
+                name: 'Chamarajendra Circle',
+                image: 'https://thumbs.dreamstime.com/b/statue-chamarajendra-wadiyar-illuminated-night-time-mysore-city-india-twenty-third-maharaja-263382059.jpg',
+                description: 'Iconic royal circle featuring a marble statue of Maharaja Chamarajendra Wadiyar X under an ornate canopy.',
+                rating: '4.7',
+                bestTime: '7:00 PM – 9:00 PM (Illuminated)',
+                busRoutes: 'Located right outside North Gate of Mysore Palace.',
+                bestChoice: 'Royal Canopy Night Illumination Photography',
+                bestChoiceImg: 'https://thumbs.dreamstime.com/b/statue-chamarajendra-wadiyar-illuminated-night-time-mysore-city-india-twenty-third-maharaja-263382059.jpg'
+            },
+            {
+                name: 'Mysuru Exhibition Grounds',
+                image: 'https://www.re-thinkingthefuture.com/wp-content/uploads/2022/09/A7988-The-Majestic-Mysuru-Dasara-A-tradition-for-centuries-Image-10-1024x675.jpg',
+                description: 'Sprawling fairgrounds host to the world-famous Mysore Dasara Exhibition with amusement rides and food stalls.',
+                rating: '4.7',
+                bestTime: 'October to December (Dasara Season)',
+                busRoutes: 'Located opposite Mysore Palace Fort Gate.',
+                bestChoice: 'Giant Ferris Wheel Ride & Dasara Shopping Stalls',
+                bestChoiceImg: 'https://www.re-thinkingthefuture.com/wp-content/uploads/2022/09/A7988-The-Majestic-Mysuru-Dasara-A-tradition-for-centuries-Image-10-1024x675.jpg'
+            },
+            {
+                name: 'Mysuru Race Course',
+                image: 'https://i.ytimg.com/vi/TL8waC6Yq8Q/maxresdefault.jpg',
+                description: 'Picturesque thoroughbred horse racing track situated against the backdrop of Chamundi Hills.',
+                rating: '4.6',
+                bestTime: 'Race Days / Morning Walk Hours',
+                busRoutes: 'Located on Race Course Road, Mysuru.',
+                bestChoice: 'Thoroughbred Horse Racing & Chamundi Hill Backdrop View',
+                bestChoiceImg: 'https://i.ytimg.com/vi/TL8waC6Yq8Q/maxresdefault.jpg'
+            },
+            {
+                name: 'Nazarbad Heritage Area',
+                image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800',
+                description: 'Historic neighborhood housing heritage bungalows, colonial clubs, and traditional Mysore eateries.',
+                rating: '4.5',
+                bestTime: 'Evening Heritage Walks',
+                busRoutes: 'Located in Nazarbad (~2 km from Palace).',
+                bestChoice: 'Colonial Architecture Tour & Heritage Mess Dining',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                name: 'Open Air Theatre, Manasagangotri',
+                image: 'https://ik.imagekit.io/streamone/ei/open-air-theatre-university-of-mysore.jpg',
+                description: 'Spacious amphitheater inside Mysore University campus host to cultural fests, plays, and musical concerts.',
+                rating: '4.6',
+                bestTime: 'Evening Cultural Events',
+                busRoutes: 'Located inside University of Mysore campus.',
+                bestChoice: 'College Cultural Fest Performance & Live Concerts',
+                bestChoiceImg: 'https://ik.imagekit.io/streamone/ei/open-air-theatre-university-of-mysore.jpg'
+            }
+        ]
+    }
+};
+
 const manipalCategories = [
     { id: 'beaches', name: 'Beaches near Manipal', desc: 'Explore famous beaches →', image: 'https://shruthinitourist.com/wp-content/uploads/2024/05/malpe-beach-to-visit-at-udupi.jpg' },
     { id: 'temples', name: 'Temples near Manipal', desc: 'Explore sacred temples →', image: 'https://www.mystreal.com/_next/image/?url=%2Ftemple%2Fkrishna-matha-temple%2Fhero-Udipi-Sri-Krishna-matha-temple.jpg&w=2048&q=75' },
@@ -2067,7 +2274,8 @@ const manipalCategories = [
     { id: 'cafes', name: 'Popular Student Cafes', desc: 'Explore cafes & hangouts →', image: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/db/c9/b9/this-is-how-it-looks.jpg' },
     { id: 'museums', name: 'Museums & Heritage', desc: 'Explore heritage houses →', image: 'https://i.ytimg.com/vi/rLaOUhfYWzI/maxresdefault.jpg' },
     { id: 'waterfalls', name: 'Waterfalls & Kayaking', desc: 'Explore waterfalls & kayaking →', image: 'https://tripxl.com/blog/wp-content/uploads/2024/10/Arbi-Falls.jpg' },
-    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' }
+    { id: 'trekking', name: 'Trekking Places', desc: 'Explore trekking spots →', image: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&q=80&w=600' },
+    { id: 'malls', name: 'Shopping Malls', desc: 'Explore malls in Manipal & Udupi →', image: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&q=80&w=600' }
 ];
 
 const manipalCategoryData = {
@@ -2368,6 +2576,26 @@ const manipalCategoryData = {
                 busRoutes: 'Located near Manipal University Admin Block.',
                 bestChoice: 'Digital Astronomy Show & Manipal History Gallery',
                 bestChoiceImg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=200'
+            },
+            {
+                name: 'Corporation Bank Heritage Museum (Coin Museum), Udupi',
+                image: 'https://i0.wp.com/rashminotes.com/wp-content/uploads/2019/03/c1.png?resize=663%2C361',
+                description: 'Set up in the founder\'s ancestral house, this rare numismatic museum displays ancient Indian coins from 400 BC, historical notes, and financial heritage.',
+                rating: '4.7',
+                bestTime: '10:00 AM – 5:00 PM (Closed Sundays)',
+                busRoutes: 'Located near Founder Branch, KM Marg, Udupi (~5 km from Manipal).',
+                bestChoice: 'Ancient Numismatic Coin Collection & Heritage Banking Artifacts',
+                bestChoiceImg: 'https://i0.wp.com/rashminotes.com/wp-content/uploads/2019/03/c1.png?resize=663%2C361'
+            },
+            {
+                name: 'Smriti Bhavan Museum (Dr. T.M.A. Pai House)',
+                image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800',
+                description: 'The restored house of Dr. T.M.A. Pai, visionary founder of modern Manipal, showcasing personal artifacts, vintage photos, and historic milestones.',
+                rating: '4.6',
+                bestTime: '9:30 AM – 5:30 PM',
+                busRoutes: 'Located near End Point Road, Manipal (~1.5 km from Tiger Circle).',
+                bestChoice: 'Dr. T.M.A. Pai Personal Memorabilia & Manipal Founding Photo Archive',
+                bestChoiceImg: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800'
             }
         ]
     },
@@ -2403,6 +2631,41 @@ const manipalCategoryData = {
                 busRoutes: 'Ride towards Agumbe Ghats (~50 km from Manipal). Great biker trip with friends.',
                 bestChoice: 'Natural Rainforest Pool Swimming',
                 bestChoiceImg: 'https://hoimalnad.com/wp-content/uploads/2025/10/Jogi-Gundi-Falls-Hidden-Gem-of-Agumbe-Thirthahalli-Karnataka-1200x787.jpg'
+            }
+        ]
+    },
+    'malls': {
+        name: 'Shopping Malls in Manipal & Udupi',
+        places: [
+            {
+                name: 'Canara Mall (Manipal)',
+                image: 'https://www.bharathbuilders.co.in/wp-content/uploads/2019/04/canara-mall-370x280.jpg',
+                description: 'Manipal\'s central shopping destination featuring INOX multiplex cinema, top retail brand outlets, food court, and entertainment zones.',
+                rating: '4.6',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located on Manipal-Udupi Main Road (~1 km from Tiger Circle).',
+                bestChoice: 'INOX Multiplex Movies & Multi-cuisine Food Court',
+                bestChoiceImg: 'https://www.bharathbuilders.co.in/wp-content/uploads/2019/04/canara-mall-370x280.jpg'
+            },
+            {
+                name: 'City Centre Mall (Udupi)',
+                image: 'https://udupicitycentre.com/wp-content/uploads/2022/04/Banner.jpg',
+                description: 'Major shopping mall located in central Udupi featuring retail fashion stores, multiplex cinema, hypermarket, and casual dining options.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located near Udupi Service Bus Stand, KM Marg (~5 km from Manipal).',
+                bestChoice: 'Retail Shopping & Cinema Screen',
+                bestChoiceImg: 'https://udupicitycentre.com/wp-content/uploads/2022/04/Banner.jpg'
+            },
+            {
+                name: 'Time Square Mall (Udupi)',
+                image: 'https://daijiworld.ap-south-1.linodeobjects.com/Linode/images3/jst_27052023_timessquare_2.jpg',
+                description: 'Modern lifestyle and commercial mall on the Udupi-Manipal highway offering premium fashion outlets, games arcade, and rooftop eateries.',
+                rating: '4.5',
+                bestTime: '10:00 AM – 10:00 PM',
+                busRoutes: 'Located near Kalsanka Junction, Udupi-Manipal Road (~4 km from Manipal).',
+                bestChoice: 'Lifestyle Shopping & Family Entertainment Zone',
+                bestChoiceImg: 'https://daijiworld.ap-south-1.linodeobjects.com/Linode/images3/jst_27052023_timessquare_2.jpg'
             }
         ]
     },
@@ -2461,6 +2724,12 @@ const cityFoods = {
         { img: 'https://figarooliveoil.com/wp-content/uploads/2022/02/mysore-bonda.png', name: 'Mysore Bonda' },
         { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', name: 'Hanumanthu Biryani' }
     ],
+    'mysuru_east_west': [
+        { img: 'https://images.slurrp.com/prodarticles/ydoju3f5ofc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75', name: 'Mysore Pak' },
+        { img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', name: 'Mysore Masala Dosa' },
+        { img: 'https://figarooliveoil.com/wp-content/uploads/2022/02/mysore-bonda.png', name: 'Mysore Bonda' },
+        { img: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&q=80&w=800', name: 'Hanumanthu Biryani' }
+    ],
     'manipal': [
         { img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800', name: 'Gadbad Ice Cream' },
         { img: 'https://static.wixstatic.com/media/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png/v1/fill/w_980,h_1042,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/4431d7_10d3db6f602f44cd9c1f0ae354d242e5~mv2.png', name: 'Ghee Roast' },
@@ -2473,6 +2742,7 @@ const cityCategories = {
     'mangaluru': mangaloreCategories,
     'bangalore': bangaloreCategories,
     'mysuru': mysuruCategories,
+    'mysuru_east_west': mysuruEastWestCategories,
     'manipal': manipalCategories
 };
 
@@ -2480,6 +2750,7 @@ const cityCategoryData = {
     'mangaluru': mangaloreCategoryData,
     'bangalore': bangaloreCategoryData,
     'mysuru': mysuruCategoryData,
+    'mysuru_east_west': mysuruEastWestCategoryData,
     'manipal': manipalCategoryData
 };
 
@@ -3076,7 +3347,7 @@ function renderDestination(id) {
 
     currentCityId = id;
 
-    const isPremiumCity = ['mangaluru', 'bangalore', 'mysuru', 'manipal'].includes(dest.id);
+    const isPremiumCity = ['mangaluru', 'bangalore', 'mysuru', 'mysuru_east_west', 'manipal'].includes(dest.id);
 
     const destHTML = `
         <div class="page-content" style="position: relative;">
@@ -4223,7 +4494,7 @@ const mangaloreCoordinates = cityCoordinates;
 
 function getCityFallbackCoords(cityId) {
     if (cityId === 'bangalore') return { lat: 12.9716, lng: 77.5946 };
-    if (cityId === 'mysuru') return { lat: 12.3082, lng: 76.6520 };
+    if (cityId === 'mysuru' || cityId === 'mysuru_east_west') return { lat: 12.3082, lng: 76.6520 };
     if (cityId === 'kodagu') return { lat: 12.4244, lng: 75.7382 };
     if (cityId === 'chikkamagaluru') return { lat: 13.3167, lng: 75.7667 };
     if (cityId === 'manipal') return { lat: 13.3525, lng: 74.7876 };
@@ -4562,7 +4833,8 @@ function getCityPlaceId(placeName, cityId) {
 function getCityName(cityId) {
     if (cityId === 'mangaluru') return 'Mangaluru';
     if (cityId === 'bangalore') return 'Bangalore';
-    if (cityId === 'mysuru') return 'Mysuru';
+    if (cityId === 'mysuru') return 'Mysuru – North & South';
+    if (cityId === 'mysuru_east_west') return 'Mysuru – East & West';
     if (cityId === 'kodagu') return 'Kodagu';
     if (cityId === 'chikkamagaluru') return 'Chikkamagaluru';
     if (cityId === 'manipal') return 'Manipal';
